@@ -38,11 +38,17 @@ var message = msg.content.toLowerCase()
  }
  
  if (message.includes('goodmorning') || message.includes('good morning')) {
- msg.channel.send(`Goodmorning uwu! Have a great day!`);
+		 if (msg.author.bot) return;
+		 else {
+			msg.channel.send(`Goodmorning uwu! Have a great day!`);
+		 }
  }
  
  if (message.includes('goodnight') || message.includes('good night') || message.includes('goodnights') || message.includes('nighty')) {
- msg.channel.send(`Goodnight uwu! Sleep well!`);
+		 if (msg.author.bot) return;
+		 else {
+			msg.channel.send(`Goodnight uwu! Sleep well!`);
+		 }
  }
 
 if (!msg.content.startsWith(prefix) || msg.author.bot) return;
