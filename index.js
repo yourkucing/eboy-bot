@@ -81,8 +81,7 @@ const command = args.shift().toLowerCase();
 			'https://media1.tenor.com/images/42b71e0d0b5df489510e78cb4af77902/tenor.gif',
 			'https://i.pinimg.com/originals/51/b3/63/51b36342fd05af0f105dab8ade046f0d.gif',
 			'https://38.media.tumblr.com/8803e77ad2281c3e66bdf74ec748c23a/tumblr_n57jb9SmxO1tzixowo1_500.gif',
-			'https://i.ibb.co/vZRG6wD/x-Ujg9e-FRCjw-ANWb4t4-P8-Qc-SRGFJw-Ok-Vvq9ftby-TJl2013z-RQwtti-KCk-OC-Rm-13-DBx-KRzbz-Ude2o-Fq-MIu2-Vrfh80re0-Ex-Dv3-SO-NNo-PZO5-M.gif', 
-			'https://i.ibb.co/8Mh46Px/loli-throwing-should-be-an-olympic-sport.gif'
+			'https://tenor.com/view/bear-hen-fling-chick-bye-gif-16128623'
 			]
 		const taggedUser = msg.mentions.users.first();
 		if (taggedUser.username === msg.author.username) {
@@ -129,7 +128,8 @@ const command = args.shift().toLowerCase();
 			'https://thumbs.gfycat.com/EarnestAshamedIndochinesetiger-max-1mb.gif',
 			'https://i.gifer.com/WOQM.gif',
 			'https://thumbs.gfycat.com/CaringFloweryKentrosaurus-small.gif',
-			'https://thumbs.gfycat.com/EvenSneakyGraysquirrel-size_restricted.gif'
+			'https://thumbs.gfycat.com/EvenSneakyGraysquirrel-size_restricted.gif',
+			'https://tenor.com/view/bye-slap-hit-done-dont-gif-5439399'
 			]
 		const taggedUser = msg.mentions.users.first();
 		if (taggedUser.username === msg.author.username) {
@@ -234,7 +234,9 @@ const command = args.shift().toLowerCase();
 			'https://media1.tenor.com/images/fb2a19c9b689123e6254ad9ac6719e96/tenor.gif',
 			'https://media1.tenor.com/images/d4bd24c980e46c66f67077aff59f0565/tenor.gif',
 			'https://i.gifer.com/1UDX.gif',
-			'https://i.pinimg.com/originals/0c/09/21/0c09214c4df0c7b2a8f6870144972a82.gif'
+			'https://i.pinimg.com/originals/0c/09/21/0c09214c4df0c7b2a8f6870144972a82.gif',
+			'https://tenor.com/view/fucked-bam-jackass-flying-kick-kick-gif-15175869',
+			'https://tenor.com/view/valerian-valerian-gifs-luc-besson-face-kick-cara-delevingne-gif-9068737'
 			]
 		const taggedUser = msg.mentions.users.first();
 		if (taggedUser.username === msg.author.username) {
@@ -304,7 +306,8 @@ const command = args.shift().toLowerCase();
 		var gifs = [
 			'https://media1.tenor.com/images/00ad8957bf40ba1efecd71c70f4f6f70/tenor.gif',
 			'https://media1.tenor.com/images/b515120c09f3db63ba456c6b45be5066/tenor.gif',
-			'https://i.imgur.com/LnGPvPw.gif'
+			'https://i.imgur.com/LnGPvPw.gif',
+			'https://media.tenor.com/images/003c5629319c1ef6c13f181cdccfbece/tenor.gif'
 			]
 		const taggedUser = msg.mentions.users.first();
 		if (taggedUser.username === msg.author.username) {
@@ -340,7 +343,8 @@ const command = args.shift().toLowerCase();
 			'https://cdn159.picsart.com/228190013051202.gif',
 			'https://3.bp.blogspot.com/-f2C5CBKw05A/W95nlOPZ4HI/AAAAAAABXVo/eU16NRt_qQIh64c3AvSScDYuRL2H6lAegCKgBGAs/s1600/Omake%2BGif%2BAnime%2B-%2BFairy%2BTail%2BFinal%2BSeason%2B-%2BEpisode%2B282%2B-%2BLucy%2BPunch.gif',
 			'https://pa1.narvii.com/6335/c697f13cfc2ff482fd2970fb205fd7d23d57dc32_hq.gif',
-			'https://1.soompi.io/wp-content/uploads/2014/07/kim-soo-hyun-secretly-greatly-punch.gif'
+			'https://1.soompi.io/wp-content/uploads/2014/07/kim-soo-hyun-secretly-greatly-punch.gif',
+			'https://tenor.com/view/boxing-cat-gif-7581357'
 			]
 		const taggedUser = msg.mentions.users.first();
 		if (taggedUser.username === msg.author.username) {
@@ -420,7 +424,8 @@ const command = args.shift().toLowerCase();
 			'https://66.media.tumblr.com/98c6d9e942941712e0ef9518fca97a7c/tumblr_opni85yA931v8tshbo1_400.gif',
 			'https://media2.giphy.com/media/b5z9pHJxxcREI/source.gif',
 			'https://0.soompi.io/wp-content/uploads/2018/05/31015948/sun1.gif',
-			'https://66.media.tumblr.com/288c98a5fa9db9685a2235e99cfd5e5f/c1603ff26e43b4e4-2a/s500x750/757d7addc38fce25488eea6b8671c9e1859a3880.gif'
+			'https://66.media.tumblr.com/288c98a5fa9db9685a2235e99cfd5e5f/c1603ff26e43b4e4-2a/s500x750/757d7addc38fce25488eea6b8671c9e1859a3880.gif',
+			'https://tenor.com/view/mako-killlakill-cry-anime-gif-5580353'
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
 		const taggedUser = msg.mentions.users.first();
