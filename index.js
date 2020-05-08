@@ -299,7 +299,8 @@ const command = args.shift().toLowerCase();
 			'https://i.pinimg.com/originals/c2/2f/b9/c22fb9595eda0368856778a9a97483a8.gif',
 			'https://gifimage.net/wp-content/uploads/2017/11/flying-tackle-hug-gif-7.gif',
 			'https://images-ext-1.discordapp.net/external/wik3p3tqmh0YzWWYf8bOFVcRxehmF9K3OMwQeOxbIlY/https/media.discordyui.net/reactions/hug/fP0FnXi.gif',
-			'https://i.pinimg.com/originals/a8/f0/4d/a8f04d7bc4d67745a670e079130dfb54.gif'
+			'https://i.pinimg.com/originals/a8/f0/4d/a8f04d7bc4d67745a670e079130dfb54.gif',
+			'https://media.tenor.com/images/f1dc8d4a16e2de3b22ff3aa25fd62e8a/tenor.gif'
 			]
 		const taggedUser = msg.mentions.users.first();
 		if (taggedUser.username === msg.author.username) {
