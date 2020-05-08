@@ -17,22 +17,30 @@ client.on('message', msg => {
 	 }
  }
  
- else if (msg.content.toLowerCase() === 'owo') {
+ if (msg.content.toLowerCase() === 'owo') {
 	 if (msg.author.bot) return;
 	 else {
 		 msg.channel.send('AwA');
 	 }
  }
  
- else if (msg.content.toLowerCase() === 'awa') {
+ if (msg.content.toLowerCase() === 'awa') {
 	 if (msg.author.bot) return;
 	 else {
 		 msg.channel.send('UwU');
 	 }
  }
 
- else if (msg.content === 'hi eboy uwu') {
+ if (msg.content.toLowerCase().includes('hi eboy uwu')) {
  msg.channel.send(`hi ${msg.author} uwu!`);
+ }
+ 
+ if (msg.content.toLowerCase.includes('goodmorning') || msg.content.toLowerCase.includes('good morning')) {
+ msg.channel.send(`Goodmorning uwu! Have a great day!`);
+ }
+ 
+ if (msg.content.toLowerCase.includes('goodnight') || msg.content.toLowerCase.includes('good night') || msg.content.toLowerCase.includes('goodnights') || msg.content.toLowerCase.includes('nighty')) {
+ msg.channel.send(`Goodnight uwu! Sleep well!`);
  }
 
 if (!msg.content.startsWith(prefix) || msg.author.bot) return;
@@ -81,7 +89,8 @@ const command = args.shift().toLowerCase();
 			'https://media1.tenor.com/images/42b71e0d0b5df489510e78cb4af77902/tenor.gif',
 			'https://i.pinimg.com/originals/51/b3/63/51b36342fd05af0f105dab8ade046f0d.gif',
 			'https://38.media.tumblr.com/8803e77ad2281c3e66bdf74ec748c23a/tumblr_n57jb9SmxO1tzixowo1_500.gif',
-			'https://tenor.com/view/bear-hen-fling-chick-bye-gif-16128623'
+			'https://media.tenor.com/images/0b0a9ed3d2a8ffefda817a4c96862f95/tenor.gif',
+			'https://historiasdeumotaku.files.wordpress.com/2015/06/tumblr_ndkbzr5tma1shcw33o5_500.gif'
 			]
 		const taggedUser = msg.mentions.users.first();
 		if (taggedUser.username === msg.author.username) {
@@ -121,7 +130,7 @@ const command = args.shift().toLowerCase();
 			'https://pa1.narvii.com/6807/ac91cef2e5ae98f598665193f37bba223301d75c_hq.gif',
 			'https://i.gifer.com/1Vbb.gif',
 			'https://gifimage.net/wp-content/uploads/2017/07/anime-slap-gif-10.gif',
-			'https://i.chzbgr.com/full/8574231808/h50C257DD/',
+			'https://i.makeagif.com/media/10-13-2015/kTH4sW.gif',
 			'https://i.imgur.com/VW0cOyL.gif',
 			'https://media0.giphy.com/media/xT9IgzTnZHL9zp6IPS/source.gif',
 			'https://media.giphy.com/media/3oEduOWVxygmeDIKPu/giphy.gif',
@@ -129,7 +138,8 @@ const command = args.shift().toLowerCase();
 			'https://i.gifer.com/WOQM.gif',
 			'https://thumbs.gfycat.com/CaringFloweryKentrosaurus-small.gif',
 			'https://thumbs.gfycat.com/EvenSneakyGraysquirrel-size_restricted.gif',
-			'https://tenor.com/view/bye-slap-hit-done-dont-gif-5439399'
+			'https://media.tenor.com/images/6cbccba5255abc270993e4cca01ee7ea/tenor.gif',
+			'https://1.bp.blogspot.com/-nGZ4wxXKozQ/XRkIv5cvMtI/AAAAAAAAAGk/GF4vZXDpDSk0QE0NG4PN7sFf1YMm9TZKgCLcBGAs/s1600/f3a.gif'
 			]
 		const taggedUser = msg.mentions.users.first();
 		if (taggedUser.username === msg.author.username) {
@@ -235,8 +245,9 @@ const command = args.shift().toLowerCase();
 			'https://media1.tenor.com/images/d4bd24c980e46c66f67077aff59f0565/tenor.gif',
 			'https://i.gifer.com/1UDX.gif',
 			'https://i.pinimg.com/originals/0c/09/21/0c09214c4df0c7b2a8f6870144972a82.gif',
-			'https://tenor.com/view/fucked-bam-jackass-flying-kick-kick-gif-15175869',
-			'https://tenor.com/view/valerian-valerian-gifs-luc-besson-face-kick-cara-delevingne-gif-9068737'
+			'https://media.tenor.com/images/64bd964e32d1c943801743aaf0565f25/tenor.gif',
+			'https://media1.tenor.com/images/1f8c90e5efbd0bbdf0d385ef4f85c9e9/tenor.gif',
+			'https://i.pinimg.com/originals/d4/37/1c/d4371ceac00951149b514e172e9dd64c.gif'
 			]
 		const taggedUser = msg.mentions.users.first();
 		if (taggedUser.username === msg.author.username) {
@@ -268,15 +279,25 @@ const command = args.shift().toLowerCase();
 			'https://i.pinimg.com/originals/6e/c3/a6/6ec3a6c6e32bc9d4f01c26a717928a93.gif',
 			'https://24.media.tumblr.com/tumblr_m88t9gvikH1rpbfuco1_500.gif',
 			'https://media2.giphy.com/media/lrr9rHuoJOE0w/source.gif',
-			'https://images-ext-1.discordapp.net/external/wik3p3tqmh0YzWWYf8bOFVcRxehmF9K3OMwQeOxbIlY/https/media.discordyui.net/reactions/hug/fP0FnXi.gif',
-			'https://i.ibb.co/K538byR/tenor.gif',
 			'https://i.pinimg.com/originals/85/72/a1/8572a1d1ebaa45fae290e6760b59caac.gif',
 			'https://media.giphy.com/media/od5H3PmEG5EVq/giphy.gif',
 			'https://gifimage.net/wp-content/uploads/2017/01/Anime-hug-GIF-Image-Download-27.gif',
 			'https://gifimage.net/wp-content/uploads/2017/01/Anime-hug-GIF-Image-Download-7.gif',
 			'https://24.media.tumblr.com/3bd5d901c51689fae2a6b95531ed6bef/tumblr_mwqg8a1CQz1rwzq4jo1_500.gif',
 			'https://thumbs.gfycat.com/GeneralSlimAntarcticfurseal-size_restricted.gif',
-			'https://pa1.narvii.com/6275/8588579649e49bac663309fed7a792daacd2b82b_hq.gif'
+			'https://pa1.narvii.com/6275/8588579649e49bac663309fed7a792daacd2b82b_hq.gif',
+			'https://cdn.lowgif.com/medium/d26c65f2d66be540-merriberri-graphic-arts-services-requests.gif',
+			'https://media.tenor.com/images/839e9bd5061468374983868ea8369671/tenor.gif',
+			'https://i.gifer.com/GaYY.gif',
+			'https://66.media.tumblr.com/85d8161c57f92c9b50590d7605b34e4e/tumblr_inline_pq885e8o7T1v8hwtj_540.gif',
+			'https://66.media.tumblr.com/58ff52e2e51085bb4c9932bebed54ffe/tumblr_nbsi92VQom1tjf48do1_400.gif',
+			'https://gifdownload.net/wp-content/uploads/2019/01/anime-girl-tackle-hug-gif-4.gif',
+			'https://media1.giphy.com/media/117o9BJASzmLNC/giphy.gif',
+			'https://i.gifer.com/RhzY.gif',
+			'https://i.pinimg.com/originals/c2/2f/b9/c22fb9595eda0368856778a9a97483a8.gif',
+			'https://gifimage.net/wp-content/uploads/2017/11/flying-tackle-hug-gif-7.gif',
+			'https://images-ext-1.discordapp.net/external/wik3p3tqmh0YzWWYf8bOFVcRxehmF9K3OMwQeOxbIlY/https/media.discordyui.net/reactions/hug/fP0FnXi.gif',
+			'https://i.pinimg.com/originals/a8/f0/4d/a8f04d7bc4d67745a670e079130dfb54.gif'
 			]
 		const taggedUser = msg.mentions.users.first();
 		if (taggedUser.username === msg.author.username) {
@@ -330,6 +351,43 @@ const command = args.shift().toLowerCase();
 	}
  }
  
+ if (command === 'patpat') {
+	if (!msg.mentions.users.size) {
+		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+	}
+	else {
+		var gifs = [
+			'https://media.tenor.com/images/8237d7da8cbd7227d67d735d437612cf/tenor.gif',
+			'https://media.tenor.com/images/67dc5a58a23461f3f449e8f46623b1df/tenor.gif',
+			'https://media3.giphy.com/media/M3a51DMeWvYUo/giphy.gif',
+			'https://66.media.tumblr.com/a72dd82535f3e7accd827c202dacc09a/tumblr_pfyiqz0pFL1th206io1_640.gif',
+			'https://66.media.tumblr.com/d743a5e5ecc65be5cb6ac8de7978fb22/tumblr_pfyit1ofSu1th206io1_500.gif',
+			'https://i.imgur.com/2lacG7l.gif',
+			'https://archive-media-0.nyafuu.org/c/image/1501/69/1501696680832.gif',
+			'https://data.whicdn.com/images/295195659/original.gif',
+			'https://gifimage.net/wp-content/uploads/2018/04/pat-gif-3.gif'
+			]
+		const taggedUser = msg.mentions.users.first();
+		if (taggedUser.username === msg.author.username) {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You patpats yourself! Okay?`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`${taggedUser.username} is patted uwu.`);
+			msg.channel.send(embed);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`*patpats smol ${taggedUser.username}`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`${taggedUser.username} is patted uwu.`);
+			msg.channel.send(embed);
+
+		}
+	}
+ }
+ 
  if (command === 'punch') {
 	if (!msg.mentions.users.size) {
 		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
@@ -344,7 +402,7 @@ const command = args.shift().toLowerCase();
 			'https://3.bp.blogspot.com/-f2C5CBKw05A/W95nlOPZ4HI/AAAAAAABXVo/eU16NRt_qQIh64c3AvSScDYuRL2H6lAegCKgBGAs/s1600/Omake%2BGif%2BAnime%2B-%2BFairy%2BTail%2BFinal%2BSeason%2B-%2BEpisode%2B282%2B-%2BLucy%2BPunch.gif',
 			'https://pa1.narvii.com/6335/c697f13cfc2ff482fd2970fb205fd7d23d57dc32_hq.gif',
 			'https://1.soompi.io/wp-content/uploads/2014/07/kim-soo-hyun-secretly-greatly-punch.gif',
-			'https://tenor.com/view/boxing-cat-gif-7581357'
+			'https://media1.tenor.com/images/288b7338acc44e10004a1063dc5fc521/tenor.gif'
 			]
 		const taggedUser = msg.mentions.users.first();
 		if (taggedUser.username === msg.author.username) {
@@ -361,6 +419,38 @@ const command = args.shift().toLowerCase();
 			.setDescription(`You punched ${taggedUser.username}!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Wow, what a fighter uwu!`);
+			msg.channel.send(embed);
+
+		}
+	}
+ }
+ 
+ if (command === 'boop') {
+	if (!msg.mentions.users.size) {
+		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+	}
+	else {
+		var gifs = [
+			'https://media2.giphy.com/media/oeYpYm0BOEDWo/giphy.gif',
+			'https://imgur.com/QDkTaFe.gif',
+			'https://media.giphy.com/media/12BGUcW8xxpPRS/giphy.gif',
+			'https://media.giphy.com/media/Mf4NqZAknusBq/giphy.gif'
+			]
+		const taggedUser = msg.mentions.users.first();
+		if (taggedUser.username === msg.author.username) {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You booped yourself! AwA cute.`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Boop bap.`);
+			msg.channel.send(embed);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You booped ${taggedUser.username}!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Boop bap.`);
 			msg.channel.send(embed);
 
 		}
@@ -425,7 +515,8 @@ const command = args.shift().toLowerCase();
 			'https://media2.giphy.com/media/b5z9pHJxxcREI/source.gif',
 			'https://0.soompi.io/wp-content/uploads/2018/05/31015948/sun1.gif',
 			'https://66.media.tumblr.com/288c98a5fa9db9685a2235e99cfd5e5f/c1603ff26e43b4e4-2a/s500x750/757d7addc38fce25488eea6b8671c9e1859a3880.gif',
-			'https://tenor.com/view/mako-killlakill-cry-anime-gif-5580353'
+			'https://media.tenor.com/images/1186d85399c24953459c7d516f57f346/tenor.gif',
+			'https://66.media.tumblr.com/df182d407162f72277331c7843316225/tumblr_p3n2reSZNE1uku9tco5_500.gif'
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
 		const taggedUser = msg.mentions.users.first();
@@ -452,6 +543,25 @@ const command = args.shift().toLowerCase();
 		.setDescription(`yikes, ${msg.author} is angry!`)
 		.setImage(randomgif)
 		.setFooter(`Everyone, back away!`);
+		msg.channel.send(embed);
+ }
+ 
+ if (command === 'dance') {
+		var gifs = [
+			'https://media.tenor.com/images/7fa3b39ddac5925af0d81aefeeeb3ad4/tenor.gif',
+			'https://gifimage.net/wp-content/uploads/2017/10/dance-anime-gif-7.gif',
+			'https://media.giphy.com/media/6k6iDdi5NN8ZO/giphy.gif',
+			'https://media.giphy.com/media/mJIa7rg9VPEhzU1dyQ/giphy.gif',
+			'https://pa1.narvii.com/5676/e928b2e40a76e21f334651ec0ed71cfc0c8c6835_hq.gif',
+			'https://cutewallpaper.org/21/anime-boy-and-girl-dancing/Animated-gif-about-cute-in-AyoDAIaIs-Eo-AIaEIaNIa-by-airi.gif'
+			]
+		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
+		const taggedUser = msg.mentions.users.first();
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setDescription(`Dance dance dance!`)
+		.setImage(randomgif)
+		.setFooter(`Let's dance together uwu!`);
 		msg.channel.send(embed);
  }
  
@@ -497,8 +607,8 @@ if (command === 'search') {
 		.setDescription('Thank you for using Eboy bot uwu! (∩•̀ω•́)⊃-⋆')
 		.addFields(
 		{ name: 'main commands', value: 'uwu\r\nowo\r\nawa\r\nhi eboy uwu\r\nuwu uwu <words to uwuify>\r\nuwu search <word to search>' },
-		{ name: 'uwu <commands> @<username>', value: 'defenestrate\r\nfuck\r\nhug\r\nkick\r\nkill\r\nkiss\r\npunch\r\nslap\r\ntonk\r\nyeet' },
-		{ name: 'uwu <commands>', value: 'angry\r\ncry\r\ncelly\r\ntantrum' },
+		{ name: 'uwu <commands> @<username>', value: 'boop\r\ndefenestrate\r\nfuck\r\nhug\r\nkick\r\nkill\r\nkiss\r\npatpat\r\npunch\r\nslap\r\ntonk\r\nyeet' },
+		{ name: 'uwu <commands>', value: 'angry\r\ncry\r\ncelly\r\npatpat\r\ntantrum' },
 		)
 		.setFooter(`Created by Maryam#9206`);
 		msg.channel.send(embed);
