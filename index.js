@@ -618,7 +618,7 @@ if (command === 'search') {
 		.addFields(
 		{ name: 'main commands', value: 'uwu\r\nowo\r\nawa\r\nhi eboy uwu\r\nuwu uwu <words to uwuify>\r\nuwu search <word to search>' },
 		{ name: 'uwu <commands> @<username>', value: 'boop\r\ndefenestrate\r\nfuck\r\nhug\r\nkick\r\nkill\r\nkiss\r\npatpat\r\npunch\r\nslap\r\ntonk\r\nyeet' },
-		{ name: 'uwu <commands>', value: 'angry\r\ncry\r\ncelly\r\npatpat\r\ntantrum' },
+		{ name: 'uwu <commands>', value: 'angry\r\ncry\r\ncelly\r\ndance\r\npatpat\r\ntantrum' },
 		)
 		.setFooter(`Created by Maryam#9206`);
 		msg.channel.send(embed);
