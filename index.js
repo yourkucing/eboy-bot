@@ -37,7 +37,19 @@ var message = msg.content.toLowerCase()
  msg.channel.send(`hi ${msg.author} uwu!`);
  }
  
-
+ if (message.includes('goodmorning') || message.includes('good morning')) {
+		 if (msg.author.bot) return;
+		 else {
+			msg.channel.send(`Goodmorning uwu! Have a great day!`);
+		 }
+ }
+ 
+ if (message.includes('goodnight') || message.includes('good night') || message.includes('goodnights') || message.includes('nighty')) {
+		 if (msg.author.bot) return;
+		 else {
+			msg.channel.send(`Goodnight uwu! Sleep well!`);
+		 }
+ }
 
 if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 const args = msg.content.slice(prefix.length).split(' ');
@@ -135,7 +147,8 @@ const command = args.shift().toLowerCase();
 			'https://thumbs.gfycat.com/CaringFloweryKentrosaurus-small.gif',
 			'https://thumbs.gfycat.com/EvenSneakyGraysquirrel-size_restricted.gif',
 			'https://media.tenor.com/images/6cbccba5255abc270993e4cca01ee7ea/tenor.gif',
-			'https://1.bp.blogspot.com/-nGZ4wxXKozQ/XRkIv5cvMtI/AAAAAAAAAGk/GF4vZXDpDSk0QE0NG4PN7sFf1YMm9TZKgCLcBGAs/s1600/f3a.gif'
+			'https://1.bp.blogspot.com/-nGZ4wxXKozQ/XRkIv5cvMtI/AAAAAAAAAGk/GF4vZXDpDSk0QE0NG4PN7sFf1YMm9TZKgCLcBGAs/s1600/f3a.gif',
+			'https://media1.tenor.com/images/d4e82fc23bd94bebf5280b0682285f6a/tenor.gif'
 			]
 		const taggedUser = msg.mentions.users.first();
 		if (taggedUser.username === msg.author.username) {
