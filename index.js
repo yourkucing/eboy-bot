@@ -37,19 +37,7 @@ var message = msg.content.toLowerCase()
  msg.channel.send(`hi ${msg.author} uwu!`);
  }
  
- if (message.includes('goodmorning') || message.includes('good morning')) {
-		 if (msg.author.bot) return;
-		 else {
-			msg.channel.send(`Goodmorning uwu! Have a great day!`);
-		 }
- }
- 
- if (message.includes('goodnight') || message.includes('good night') || message.includes('goodnights') || message.includes('nighty')) {
-		 if (msg.author.bot) return;
-		 else {
-			msg.channel.send(`Goodnight uwu! Sleep well!`);
-		 }
- }
+
 
 if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 const args = msg.content.slice(prefix.length).split(' ');
