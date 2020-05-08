@@ -31,15 +31,15 @@ client.on('message', msg => {
 	 }
  }
 
- if (msg.content.toLowerCase().includes('hi eboy uwu')) {
+ if (msg.content.includes('hi eboy uwu')) {
  msg.channel.send(`hi ${msg.author} uwu!`);
  }
  
- if (msg.content.toLowerCase.includes('goodmorning') || msg.content.toLowerCase.includes('good morning')) {
+ if (msg.content.includes('goodmorning') || msg.content.includes('good morning')) {
  msg.channel.send(`Goodmorning uwu! Have a great day!`);
  }
  
- if (msg.content.toLowerCase.includes('goodnight') || msg.content.toLowerCase.includes('good night') || msg.content.toLowerCase.includes('goodnights') || msg.content.toLowerCase.includes('nighty')) {
+ if (msg.content.includes('goodnight') || msg.content.includes('good night') || msg.content.includes('goodnights') || msg.content.includes('nighty')) {
  msg.channel.send(`Goodnight uwu! Sleep well!`);
  }
 
