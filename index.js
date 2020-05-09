@@ -3,6 +3,8 @@ const ud = require('urban-dictionary');
 const client = new Discord.Client();
 const prefix = "uwu ";
 
+let eboys = [];
+
 
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
@@ -87,7 +89,7 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You defenestrated ${taggedUser.displayName}!`)
+			.setDescription(`You defenestrated **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Yikes, byebye ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
@@ -119,7 +121,7 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You yeeted ${taggedUser.displayName}!`)
+			.setDescription(`You yeeted **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Yikes, byebye ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
@@ -169,7 +171,7 @@ const command = args.shift().toLowerCase();
 		else {
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
-		.setDescription(`You slapped ${taggedUser.displayName}!`)
+		.setDescription(`You slapped **${taggedUser.displayName}**!`)
 		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 		.setFooter(`Oof, do I see a handprint mark on your face, ${taggedUser.displayName}?`);
 		msg.channel.send(embed);
@@ -203,7 +205,7 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You- Well.... You want to do ${taggedUser.displayName}?`)
+			.setDescription(`You- Well.... You want to do **${taggedUser.displayName}**?`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Get a room, both of you smh!`);
 			msg.channel.send(embed);
@@ -240,7 +242,7 @@ const command = args.shift().toLowerCase();
 		else {
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
-		.setDescription(`You kissed ${taggedUser.displayName}! AwA, so cute!`)
+		.setDescription(`You kissed **${taggedUser.displayName}**! AwA, so cute!`)
 		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 		.setFooter(`Such cuteness uwu!`);
 		msg.channel.send(embed);
@@ -277,7 +279,7 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You kicked ${taggedUser.displayName}! Ouch!`)
+			.setDescription(`You kicked **${taggedUser.displayName}**! Ouch!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Are you okay, ${taggedUser.displayName}?`);
 			msg.channel.send(embed);			
@@ -306,7 +308,6 @@ const command = args.shift().toLowerCase();
 			'https://media.tenor.com/images/839e9bd5061468374983868ea8369671/tenor.gif',
 			'https://i.gifer.com/GaYY.gif',
 			'https://66.media.tumblr.com/85d8161c57f92c9b50590d7605b34e4e/tumblr_inline_pq885e8o7T1v8hwtj_540.gif',
-			'https://66.media.tumblr.com/58ff52e2e51085bb4c9932bebed54ffe/tumblr_nbsi92VQom1tjf48do1_400.gif',
 			'https://gifdownload.net/wp-content/uploads/2019/01/anime-girl-tackle-hug-gif-4.gif',
 			'https://media1.giphy.com/media/117o9BJASzmLNC/giphy.gif',
 			'https://i.gifer.com/RhzY.gif',
@@ -328,7 +329,7 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You hugged ${taggedUser.displayName}.`)
+			.setDescription(`You hugged **${taggedUser.displayName}**.`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Everyone needs a hug once in awhile....`);
 			msg.channel.send(embed);
@@ -359,7 +360,7 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You tonked ${taggedUser.displayName}! KO!`)
+			.setDescription(`You tonked **${taggedUser.displayName}**! KO!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Are you okay, ${taggedUser.displayName}?`);
 			msg.channel.send(embed);
@@ -396,7 +397,7 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`*patpats smol ${taggedUser.displayName}*`)
+			.setDescription(`You patpats smol **${taggedUser.displayName}** UwU`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`${taggedUser.displayName} is patted uwu.`);
 			msg.channel.send(embed);
@@ -433,7 +434,7 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You punched ${taggedUser.displayName}!`)
+			.setDescription(`You punched **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Wow, what a fighter uwu!`);
 			msg.channel.send(embed);
@@ -465,7 +466,7 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You booped ${taggedUser.displayName}!`)
+			.setDescription(`You booped **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Boop bap.`);
 			msg.channel.send(embed);
@@ -491,27 +492,14 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You assassinated ${taggedUser.displayName}!`)
+			.setDescription(`You assassinated **${taggedUser.displayName}**!`)
 			.setImage('https://i.pinimg.com/originals/06/de/3a/06de3a0af78355bf7d4774cda4e4180e.gif')
 			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.`);
 			msg.channel.send(embed);
 
 		}
 	}
- } 
- 
- if (command === 'test') {
-	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
-	}
-	else {
-		const taggedUser = msg.mentions.members.first();
-			const embed = new Discord.MessageEmbed()
-			.setColor('#FF69B4')
-			.setDescription('hello ' + msg.guild.members.cache.get(msg.author.id).displayName + ' and '+ taggedUser.displayName + '!')
-			msg.channel.send(embed);
-	}
- } 
+ }  
 
  if (command === 'byebye') {
 	if (!msg.mentions.users.size) {
@@ -612,6 +600,15 @@ const command = args.shift().toLowerCase();
  }
  
  if (command === 'tantrum') {
+	if (eboys.some(eboy => eboy.id === msg.author.id))
+		
+	}
+	else {
+		eboys.push({ id: msg.author.id, tantrum: 1 });
+	}
+	    let result = eboys.filter(obj => {
+		  return obj.id === msg.author.id
+		})
 		var gifs = [
 			'https://gifimage.net/wp-content/uploads/2017/09/anime-tantrum-gif-9.gif',
 			'https://media.tenor.com/images/04db8316e7f739bdb6edb90f93eb0ea0/tenor.gif',
@@ -619,12 +616,11 @@ const command = args.shift().toLowerCase();
 			'https://media.tenor.com/images/adf676c22e131f8654da0efdb5ee1866/tenor.gif'
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
-		const taggedUser = msg.mentions.users.first();
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
-		.setDescription(`${msg.author.username} is throwing a tantrum.`)
+		.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is throwing a tantrum.`)
 		.setImage(randomgif)
-		.setFooter(`Everyone stay away from ${msg.author.username}`);
+		.setFooter(`Everyone stay away from ${msg.guild.members.cache.get(msg.author.id).displayName}! (No. of tantrums: ${result.tantrum})`);
 		msg.channel.send(embed);
  }
  
