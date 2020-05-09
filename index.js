@@ -636,10 +636,9 @@ const command = args.shift().toLowerCase();
 		var e = 'yes';
 	}
 	else {
-		/* eboys.push({ id: msg.author.id, tantrum: 1 }); */
-		var e = 'no';
+		eboys.push({ id: msg.author.id, tantrum: 1 });
 	}
-	msg.channel.send(e);
+	msg.channel.send(eboys);
  }
  
 if (command === 'search') {
