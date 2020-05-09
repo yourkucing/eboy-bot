@@ -583,7 +583,7 @@ const command = args.shift().toLowerCase();
  
  if (command === 'dance') {
 	if(eboys.some(eboy => eboy.id === msg.author.id)){
-		for (var i in eboy) {
+		for (var i in eboys) {
 		  if (eboys[i].id === msg.author.id) {
 			if ('dance' in eboys[i]) {
 				eboys[i].dance = eboys[i].dance + 1;
@@ -622,7 +622,7 @@ const command = args.shift().toLowerCase();
  
  if (command === 'tantrum') {
 	if(eboys.some(eboy => eboy.id === msg.author.id)){
-		for (var i in eboy) {
+		for (var i in eboys) {
 		  if (eboys[i].id === msg.author.id) {
 			if ('tantrum' in eboys[i]) {
 				eboys[i].tantrum = eboys[i].tantrum + 1;
