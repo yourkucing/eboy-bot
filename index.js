@@ -485,7 +485,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You assassinated yourself!`)
 			.setImage('https://i.pinimg.com/originals/06/de/3a/06de3a0af78355bf7d4774cda4e4180e.gif')
-			.setFooter(`${taggedUser} is dead! I'll revive them soon uwu.`);
+			.setFooter(`${taggedUser.username} is dead! I'll revive them soon uwu.`);
 			msg.channel.send(embed);
 		}
 		else {
@@ -497,6 +497,19 @@ const command = args.shift().toLowerCase();
 			msg.channel.send(embed);
 
 		}
+	}
+ } 
+ 
+ if (command === 'test') {
+	if (!msg.mentions.users.size) {
+		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+	}
+	else {
+		const taggedUser = msg.mentions.members.first();
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`${taggedUser}`)
+			msg.channel.send(embed);
 	}
  } 
 
