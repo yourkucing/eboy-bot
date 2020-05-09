@@ -505,7 +505,7 @@ const command = args.shift().toLowerCase();
 		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
 	}
 	else {
-		let taggedUser = msg.mentions.users.first();
+		let taggedUser = msg.mentions.members.first();
 		  taggedUser.kick().then((taggedUser) => {
 					// Successmessage
 					msg.channel.send("byebye!");
