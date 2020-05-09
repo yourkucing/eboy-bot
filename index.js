@@ -41,7 +41,7 @@ client.on('message', msg => {
 var message = msg.content.toLowerCase()
 
  if (message.includes('hi eboy uwu')) {
- msg.channel.send(`hi ${msg.author} uwu!`);
+ msg.channel.send('hi ' + msg.author.toString() +' uwu!');
  }
  
  if (message.includes('goodmorning') || message.includes('good morning')) {
@@ -499,6 +499,12 @@ const command = args.shift().toLowerCase();
 		}
 	}
  } 
+ 
+if (command === "byebye") {
+  const taggedUser = message.mentions.members.first();
+  msg.channel.send('byebye!');
+  taggedUser.kick();
+}
  
 //-----------------------------------------------------------------------------------------------------------------------------------------
  
