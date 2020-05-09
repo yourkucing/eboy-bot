@@ -506,8 +506,13 @@ const command = args.shift().toLowerCase();
 	}
 	else {
 		const taggedUser = msg.mentions.users.first();
-		msg.channel.send('byebye!');
-		taggedUser.kick();
+		  taggedUser.kick().then((taggedUser) => {
+					// Successmessage
+					msg.channel.send("byebye!");
+				}).catch(() => {
+					 // Failmessage
+					msg.channel.send("Access Denied");
+				});
 	}
  } 
  
