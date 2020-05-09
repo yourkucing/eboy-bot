@@ -479,7 +479,7 @@ const command = args.shift().toLowerCase();
 		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
 	}
 	else {
-		const taggedUser = msg.mentions.users.first();
+		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.username === msg.author.username) {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
