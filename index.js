@@ -568,7 +568,8 @@ const command = args.shift().toLowerCase();
 			'https://i.pinimg.com/originals/01/48/a2/0148a2c426e64d9ce20db34779832197.gif',
 			'https://media0.giphy.com/media/FAI5TtHYYEges/giphy.gif',
 			'https://cdn.shopify.com/s/files/1/0318/2649/files/tenor-1_776d86a0-7df7-415c-b5e7-5b5af686ff5a_large.gif',
-			'https://media.giphy.com/media/l3fZONy55gOZacqD6/giphy.gif'
+			'https://media.giphy.com/media/l3fZONy55gOZacqD6/giphy.gif',
+			'https://media.tenor.com/images/41c8e606a1e4c3b5d1239afd593d062b/tenor.gif'
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
 		const taggedUser = msg.mentions.users.first();
@@ -601,17 +602,21 @@ const command = args.shift().toLowerCase();
  
  if (command === 'tantrum') {
 	if (eboys.some(eboy => eboy.id === msg.author.id)) {
-		let result = eboys.filter(obj => {
-		  return obj.id === msg.author.id
-		});
-		eboys.push({ id: msg.author.id, tantrum: result.tantrum + 1 });
+        for (var i in eboys) {
+          if (eboys[i].id == msg.author.id) {
+            var tantrum = eboys[i].tantrum;
+          }
+        }
+		eboys.push({ id: msg.author.id, tantrum: tantrum + 1 });
 	}
 	else {
 		eboys.push({ id: msg.author.id, tantrum: 1 });
 	}
-	    let result = eboys.filter(obj => {
-		  return obj.id === msg.author.id
-		});
+        for (var i in eboys) {
+          if (eboys[i].id == msg.author.id) {
+            var tantrum = eboys[i].tantrum;
+          }
+        }
 		var gifs = [
 			'https://gifimage.net/wp-content/uploads/2017/09/anime-tantrum-gif-9.gif',
 			'https://media.tenor.com/images/04db8316e7f739bdb6edb90f93eb0ea0/tenor.gif',
@@ -623,7 +628,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is throwing a tantrum.`)
 		.setImage(randomgif)
-		.setFooter(`Everyone stay away from ${msg.guild.members.cache.get(msg.author.id).displayName}! (No. of tantrums: ${result.tantrum})`);
+		.setFooter(`Everyone stay away from ${msg.guild.members.cache.get(msg.author.id).displayName}! (No. of tantrums: ${tantrum})`);
 		msg.channel.send(embed);
  }
  
