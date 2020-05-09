@@ -582,10 +582,24 @@ const command = args.shift().toLowerCase();
  }
  
  if (command === 'dance') {
-	 
+	if(eboys.some(eboy => eboy.id === msg.author.id)){
+		for (var i in eboy) {
+		  if (eboys[i].id === msg.author.id) {
+			if ('dance' in eboys[i]) {
+				eboys[i].dance = eboys[i].dance + 1;
+			}
+			else {
+				eboys[i].dance = 1;
+			}
+		  }
+		}
+	}
+	else {
+		eboys.push({ name: msg.author.id, dance: 1 });
+	}
         for (var i in eboys) {
-          if (eboys[i].id == msg.author.id) {
-            var dances = eboys[i].dances;
+          if (eboys[i].id === msg.author.id) {
+            var dance = eboys[i].dance;
           }
         }
 		var gifs = [
@@ -603,23 +617,27 @@ const command = args.shift().toLowerCase();
 		.setDescription(`Dance dance dance!`)
 		.setImage(randomgif)
 		.setFooter(`Let's dance together uwu! (No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} danced: ${dance})`);
-		msg.channel.send(embed);;;;;;;
+		msg.channel.send(embed);
  }
  
  if (command === 'tantrum') {
-	if (eboys.some(eboy => eboy.id === msg.author.id)) {
-        for (var i in eboys) {
-          if (eboys[i].id == msg.author.id) {
-            var tantrum = eboys[i].tantrum;
-          }
-        }
-		eboys.push({ id: msg.author.id, tantrum: tantrum + 1 });
+	if(eboys.some(eboy => eboy.id === msg.author.id)){
+		for (var i in eboy) {
+		  if (eboys[i].id === msg.author.id) {
+			if ('tantrum' in eboys[i]) {
+				eboys[i].tantrum = eboys[i].tantrum + 1;
+			}
+			else {
+				eboys[i].tantrum = 1;
+			}
+		  }
+		}
 	}
 	else {
-		eboys.push({ id: msg.author.id, tantrum: 1 });
+		eboys.push({ name: msg.author.id, tantrum: 1 });
 	}
         for (var i in eboys) {
-          if (eboys[i].id == msg.author.id) {
+          if (eboys[i].id === msg.author.id) {
             var tantrum = eboys[i].tantrum;
           }
         }
@@ -637,6 +655,7 @@ const command = args.shift().toLowerCase();
 		.setFooter(`Everyone stay away from ${msg.guild.members.cache.get(msg.author.id).displayName}! (No. of tantrums: ${tantrum})`);
 		msg.channel.send(embed);
  }
+
  
 /*  if (command === 'test') {
 	if (eboys.some(eboy => eboy.id === msg.author.id)) {
