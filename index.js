@@ -501,7 +501,7 @@ const command = args.shift().toLowerCase();
  } 
  
 if (command === "byebye") {
-  const taggedUser = message.mentions.members.first();
+  const taggedUser = message.mentions.users.first();
   msg.channel.send('byebye!');
   taggedUser.kick();
 }
