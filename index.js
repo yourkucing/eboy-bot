@@ -627,6 +627,19 @@ const command = args.shift().toLowerCase();
 		msg.channel.send(embed);
  }
  
+ if (command === 'test') {
+	if (eboys.some(eboy => eboy.id === msg.author.id)) {
+		let result = eboys.filter(obj => {
+		  return obj.id === msg.author.id
+		});
+		eboys.push({ id: msg.author.id, tantrum: result.tantrum + 1 });
+	}
+	else {
+		eboys.push({ id: msg.author.id, tantrum: 1 });
+	}
+	msg.channel.send(eboys);
+ }
+ 
 if (command === 'search') {
 	var definition = msg.content;
 	
