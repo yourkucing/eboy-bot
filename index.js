@@ -75,21 +75,21 @@ const command = args.shift().toLowerCase();
 	}
 	else {
 		var gifs = ['https://thumbs.gfycat.com/MistyDelectableKouprey-size_restricted.gif', 'https://i.pinimg.com/originals/51/58/88/515888d6d7fadfd3dd0fa312ca287a34.gif']
-		const taggedUser = msg.mentions.users.first();
+		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.username === msg.author.username) {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You defenestrated yourself!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${taggedUser.username}!`);
+			.setFooter(`Yikes, byebye ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
 		}
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You defenestrated ${taggedUser.username}!`)
+			.setDescription(`You defenestrated ${taggedUser.displayName}!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${taggedUser.username}!`);
+			.setFooter(`Yikes, byebye ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
 		}
 	}
@@ -107,21 +107,21 @@ const command = args.shift().toLowerCase();
 			'https://media.tenor.com/images/0b0a9ed3d2a8ffefda817a4c96862f95/tenor.gif',
 			'https://historiasdeumotaku.files.wordpress.com/2015/06/tumblr_ndkbzr5tma1shcw33o5_500.gif'
 			]
-		const taggedUser = msg.mentions.users.first();
+		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.username === msg.author.username) {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You yeeted yourself!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${taggedUser.username}!`);
+			.setFooter(`Yikes, byebye ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
 		}
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You yeeted ${taggedUser.username}!`)
+			.setDescription(`You yeeted ${taggedUser.displayName}!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${taggedUser.username}!`);
+			.setFooter(`Yikes, byebye ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
 		}
 	}
@@ -157,7 +157,7 @@ const command = args.shift().toLowerCase();
 			'https://1.bp.blogspot.com/-nGZ4wxXKozQ/XRkIv5cvMtI/AAAAAAAAAGk/GF4vZXDpDSk0QE0NG4PN7sFf1YMm9TZKgCLcBGAs/s1600/f3a.gif',
 			'https://media1.tenor.com/images/d4e82fc23bd94bebf5280b0682285f6a/tenor.gif'
 			]
-		const taggedUser = msg.mentions.users.first();
+		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.username === msg.author.username) {
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
@@ -169,9 +169,9 @@ const command = args.shift().toLowerCase();
 		else {
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
-		.setDescription(`You slapped ${taggedUser.username}!`)
+		.setDescription(`You slapped ${taggedUser.displayName}!`)
 		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-		.setFooter(`Oof, do I see a handprint mark on your face, ${taggedUser.username}?`);
+		.setFooter(`Oof, do I see a handprint mark on your face, ${taggedUser.displayName}?`);
 		msg.channel.send(embed);
 		}
 	}
@@ -191,7 +191,7 @@ const command = args.shift().toLowerCase();
 			'https://i.pinimg.com/originals/7d/f7/2b/7df72b4cb04b3735a15b925abbf9c5cc.gif',
 			'https://media.giphy.com/media/7CXIp5bcit6ZG/200_d.gif'
 			]
-		const taggedUser = msg.mentions.users.first();
+		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.username === msg.author.username) {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
@@ -203,7 +203,7 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You- Well.... You want to do ${taggedUser.username}?`)
+			.setDescription(`You- Well.... You want to do ${taggedUser.displayName}?`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Get a room, both of you smh!`);
 			msg.channel.send(embed);
@@ -228,7 +228,7 @@ const command = args.shift().toLowerCase();
 			'https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif',
 			'https://78.media.tumblr.com/44716773d1a091d4b84efbae296ab062/tumblr_or61zhEUtM1skak2ao1_500.gif'
 			]
-		const taggedUser = msg.mentions.users.first();
+		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.username === msg.author.username) {
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
@@ -240,7 +240,7 @@ const command = args.shift().toLowerCase();
 		else {
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
-		.setDescription(`You kissed ${taggedUser.username}! AwA, so cute!`)
+		.setDescription(`You kissed ${taggedUser.displayName}! AwA, so cute!`)
 		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 		.setFooter(`Such cuteness uwu!`);
 		msg.channel.send(embed);
@@ -265,21 +265,21 @@ const command = args.shift().toLowerCase();
 			'https://media1.tenor.com/images/1f8c90e5efbd0bbdf0d385ef4f85c9e9/tenor.gif',
 			'https://i.pinimg.com/originals/d4/37/1c/d4371ceac00951149b514e172e9dd64c.gif'
 			]
-		const taggedUser = msg.mentions.users.first();
+		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.username === msg.author.username) {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You kicked yourself! How even?!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Are you okay, ${taggedUser.username}?`);
+			.setFooter(`Are you okay, ${taggedUser.displayName}?`);
 			msg.channel.send(embed);
 		}
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You kicked ${taggedUser.username}! Ouch!`)
+			.setDescription(`You kicked ${taggedUser.displayName}! Ouch!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Are you okay, ${taggedUser.username}?`);
+			.setFooter(`Are you okay, ${taggedUser.displayName}?`);
 			msg.channel.send(embed);			
 		}
 	}
@@ -316,7 +316,7 @@ const command = args.shift().toLowerCase();
 			'https://i.pinimg.com/originals/a8/f0/4d/a8f04d7bc4d67745a670e079130dfb54.gif',
 			'https://media.tenor.com/images/f1dc8d4a16e2de3b22ff3aa25fd62e8a/tenor.gif'
 			]
-		const taggedUser = msg.mentions.users.first();
+		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.username === msg.author.username) {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
@@ -328,7 +328,7 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You hugged ${taggedUser.username}.`)
+			.setDescription(`You hugged ${taggedUser.displayName}.`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Everyone needs a hug once in awhile....`);
 			msg.channel.send(embed);
@@ -347,21 +347,21 @@ const command = args.shift().toLowerCase();
 			'https://i.imgur.com/LnGPvPw.gif',
 			'https://media.tenor.com/images/003c5629319c1ef6c13f181cdccfbece/tenor.gif'
 			]
-		const taggedUser = msg.mentions.users.first();
+		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.username === msg.author.username) {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You tonked yourself! KO!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Are you okay, ${taggedUser.username}?`);
+			.setFooter(`Are you okay, ${taggedUser.displayName}?`);
 			msg.channel.send(embed);
 		}
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You tonked ${taggedUser.username}! KO!`)
+			.setDescription(`You tonked ${taggedUser.displayName}! KO!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Are you okay, ${taggedUser.username}?`);
+			.setFooter(`Are you okay, ${taggedUser.displayName}?`);
 			msg.channel.send(embed);
 
 		}
@@ -384,21 +384,21 @@ const command = args.shift().toLowerCase();
 			'https://data.whicdn.com/images/295195659/original.gif',
 			'https://gifimage.net/wp-content/uploads/2018/04/pat-gif-3.gif'
 			]
-		const taggedUser = msg.mentions.users.first();
+		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.username === msg.author.username) {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You patpats yourself! Okay?`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`${taggedUser.username} is patted uwu.`);
+			.setFooter(`${taggedUser.displayName} is patted uwu.`);
 			msg.channel.send(embed);
 		}
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`*patpats smol ${taggedUser.username}`)
+			.setDescription(`*patpats smol ${taggedUser.displayName}*`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`${taggedUser.username} is patted uwu.`);
+			.setFooter(`${taggedUser.displayName} is patted uwu.`);
 			msg.channel.send(embed);
 
 		}
@@ -421,7 +421,7 @@ const command = args.shift().toLowerCase();
 			'https://1.soompi.io/wp-content/uploads/2014/07/kim-soo-hyun-secretly-greatly-punch.gif',
 			'https://media1.tenor.com/images/288b7338acc44e10004a1063dc5fc521/tenor.gif'
 			]
-		const taggedUser = msg.mentions.users.first();
+		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.username === msg.author.username) {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
@@ -433,7 +433,7 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You punched ${taggedUser.username}!`)
+			.setDescription(`You punched ${taggedUser.displayName}!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Wow, what a fighter uwu!`);
 			msg.channel.send(embed);
@@ -453,7 +453,7 @@ const command = args.shift().toLowerCase();
 			'https://media.giphy.com/media/12BGUcW8xxpPRS/giphy.gif',
 			'https://media.giphy.com/media/Mf4NqZAknusBq/giphy.gif'
 			]
-		const taggedUser = msg.mentions.users.first();
+		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.username === msg.author.username) {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
@@ -465,7 +465,7 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You booped ${taggedUser.username}!`)
+			.setDescription(`You booped ${taggedUser.displayName}!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Boop bap.`);
 			msg.channel.send(embed);
@@ -485,15 +485,15 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You assassinated yourself!`)
 			.setImage('https://i.pinimg.com/originals/06/de/3a/06de3a0af78355bf7d4774cda4e4180e.gif')
-			.setFooter(`${taggedUser.username} is dead! I'll revive them soon uwu.`);
+			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.`);
 			msg.channel.send(embed);
 		}
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You assassinated ${taggedUser.username}!`)
+			.setDescription(`You assassinated ${taggedUser.displayName}!`)
 			.setImage('https://i.pinimg.com/originals/06/de/3a/06de3a0af78355bf7d4774cda4e4180e.gif')
-			.setFooter(`${taggedUser.username} is dead! I'll revive them soon uwu.`);
+			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.`);
 			msg.channel.send(embed);
 
 		}
