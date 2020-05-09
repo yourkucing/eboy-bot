@@ -10,6 +10,13 @@ client.on('ready', () => {
 
 client.on('message', msg => {
 
+ if (msg.content.toLowerCase() === 'òwó') {
+	 if (msg.author.bot) return;
+	 else {
+		 msg.channel.send('buzz buzz');
+	 }
+ }
+ 
  if (msg.content.toLowerCase() === 'uwu') {
 	 if (msg.author.bot) return;
 	 else {
@@ -616,7 +623,7 @@ if (command === 'search') {
 		.setTitle(`Commands`)
 		.setDescription('Thank you for using Eboy bot uwu! (∩•̀ω•́)⊃-⋆')
 		.addFields(
-		{ name: 'main commands', value: 'uwu\r\nowo\r\nawa\r\nhi eboy uwu\r\nuwu uwu <words to uwuify>\r\nuwu search <word to search>' },
+		{ name: 'main commands', value: 'uwu\r\nowo\r\nawa\r\nòwó\r\nhi eboy uwu\r\nuwu uwu <words to uwuify>\r\nuwu search <word to search>' },
 		{ name: 'uwu <commands> @<username>', value: 'boop\r\ndefenestrate\r\nfuck\r\nhug\r\nkick\r\nkill\r\nkiss\r\npatpat\r\npunch\r\nslap\r\ntonk\r\nyeet' },
 		{ name: 'uwu <commands>', value: 'angry\r\ncry\r\ncelly\r\ndance\r\npatpat\r\ntantrum' },
 		)
