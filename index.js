@@ -595,7 +595,7 @@ const command = args.shift().toLowerCase();
 		}
 	}
 	else {
-		eboys.push({ name: msg.author.id, dance: 1 });
+		eboys.push({ id: msg.author.id, dance: 1 });
 	}
         for (var i in eboys) {
           if (eboys[i].id === msg.author.id) {
@@ -634,7 +634,7 @@ const command = args.shift().toLowerCase();
 		}
 	}
 	else {
-		eboys.push({ name: msg.author.id, tantrum: 1 });
+		eboys.push({ id: msg.author.id, tantrum: 1 });
 	}
         for (var i in eboys) {
           if (eboys[i].id === msg.author.id) {
