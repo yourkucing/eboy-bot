@@ -629,15 +629,17 @@ const command = args.shift().toLowerCase();
  
  if (command === 'test') {
 	if (eboys.some(eboy => eboy.id === msg.author.id)) {
-		let result = eboys.filter(obj => {
+/* 		let result = eboys.filter(obj => {
 		  return obj.id === msg.author.id
 		});
-		eboys.push({ id: msg.author.id, tantrum: result.tantrum + 1 });
+		eboys.push({ id: msg.author.id, tantrum: result.tantrum + 1 }); */
+		let e = 'yes';
 	}
 	else {
-		eboys.push({ id: msg.author.id, tantrum: 1 });
+		/* eboys.push({ id: msg.author.id, tantrum: 1 }); */
+		let e = 'no';
 	}
-	msg.channel.send(eboys);
+	msg.channel.send(e);
  }
  
 if (command === 'search') {
