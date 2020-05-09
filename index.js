@@ -600,7 +600,7 @@ const command = args.shift().toLowerCase();
  }
  
  if (command === 'tantrum') {
-	if (eboys.some(eboy => eboy.id === msg.author.id))
+	if (eboys.some(eboy => eboy.id === msg.author.id)) {
 		
 	}
 	else {
