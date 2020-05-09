@@ -499,12 +499,17 @@ const command = args.shift().toLowerCase();
 		}
 	}
  } 
- 
-if (command === "byebye") {
-  const taggedUser = message.mentions.users.first();
-  msg.channel.send('byebye!');
-  taggedUser.kick();
-}
+
+ if (command === 'byebye') {
+	if (!msg.mentions.users.size) {
+		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+	}
+	else {
+		const taggedUser = msg.mentions.users.first();
+		msg.channel.send('byebye!');
+		taggedUser.kick();
+	}
+ } 
  
 //-----------------------------------------------------------------------------------------------------------------------------------------
  
