@@ -633,11 +633,11 @@ const command = args.shift().toLowerCase();
 		  return obj.id === msg.author.id
 		});
 		eboys.push({ id: msg.author.id, tantrum: result.tantrum + 1 }); */
-		return e = 'yes';
+		var e = 'yes';
 	}
 	else {
 		/* eboys.push({ id: msg.author.id, tantrum: 1 }); */
-		return e = 'no';
+		var e = 'no';
 	}
 	msg.channel.send(e);
  }
