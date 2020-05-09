@@ -601,14 +601,17 @@ const command = args.shift().toLowerCase();
  
  if (command === 'tantrum') {
 	if (eboys.some(eboy => eboy.id === msg.author.id)) {
-		
+		let result = eboys.filter(obj => {
+		  return obj.id === msg.author.id
+		});
+		eboys.push({ id: msg.author.id, tantrum: result.tantrum + 1 });
 	}
 	else {
 		eboys.push({ id: msg.author.id, tantrum: 1 });
 	}
 	    let result = eboys.filter(obj => {
 		  return obj.id === msg.author.id
-		})
+		});
 		var gifs = [
 			'https://gifimage.net/wp-content/uploads/2017/09/anime-tantrum-gif-9.gif',
 			'https://media.tenor.com/images/04db8316e7f739bdb6edb90f93eb0ea0/tenor.gif',
