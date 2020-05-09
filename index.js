@@ -508,7 +508,7 @@ const command = args.shift().toLowerCase();
 		const taggedUser = msg.mentions.members.first();
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription('hello ' + msg.guild.members.get(msg.author.id) + ' and '+ taggedUser.displayName + '!')
+			.setDescription('hello ' + guild.member(msg.author) + ' and '+ taggedUser.displayName + '!')
 			msg.channel.send(embed);
 	}
  } 
