@@ -582,6 +582,12 @@ const command = args.shift().toLowerCase();
  }
  
  if (command === 'dance') {
+	 
+        for (var i in eboys) {
+          if (eboys[i].id == msg.author.id) {
+            var dances = eboys[i].dances;
+          }
+        }
 		var gifs = [
 			'https://media.tenor.com/images/7fa3b39ddac5925af0d81aefeeeb3ad4/tenor.gif',
 			'https://gifimage.net/wp-content/uploads/2017/10/dance-anime-gif-7.gif',
@@ -596,8 +602,8 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`Dance dance dance!`)
 		.setImage(randomgif)
-		.setFooter(`Let's dance together uwu!`);
-		msg.channel.send(embed);
+		.setFooter(`Let's dance together uwu! (No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} danced: ${dance})`);
+		msg.channel.send(embed);;;;;;;
  }
  
  if (command === 'tantrum') {
@@ -632,19 +638,19 @@ const command = args.shift().toLowerCase();
 		msg.channel.send(embed);
  }
  
- if (command === 'test') {
+/*  if (command === 'test') {
 	if (eboys.some(eboy => eboy.id === msg.author.id)) {
-/* 		let result = eboys.filter(obj => {
+		let result = eboys.filter(obj => {
 		  return obj.id === msg.author.id
 		});
-		eboys.push({ id: msg.author.id, tantrum: result.tantrum + 1 }); */
+		eboys.push({ id: msg.author.id, tantrum: result.tantrum + 1 });
 		var e = 'yes';
 	}
 	else {
 		eboys.push({ id: msg.author.id, tantrum: 1 });
 	}
 	msg.channel.send(eboys);
- }
+ } */
  
 if (command === 'search') {
 	var definition = msg.content;
