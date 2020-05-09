@@ -520,6 +520,26 @@ const command = args.shift().toLowerCase();
 //-----------------------------------------------------------------------------------------------------------------------------------------
  
  if (command === 'celly') {
+	if(eboys.some(eboy => eboy.id === msg.author.id)){
+		for (var i in eboys) {
+		  if (eboys[i].id === msg.author.id) {
+			if ('celly' in eboys[i]) {
+				eboys[i].celly = eboys[i].celly + 1;
+			}
+			else {
+				eboys[i].celly = 1;
+			}
+		  }
+		}
+	}
+	else {
+		eboys.push({ id: msg.author.id, celly: 1 });
+	}
+        for (var i in eboys) {
+          if (eboys[i].id === msg.author.id) {
+            var celly = eboys[i].celly;
+          }
+        }
 		var gifs = [
 			'https://media.giphy.com/media/9MJ6yDJk2hPUs5wOWc/giphy.gif',
 			'https://media3.giphy.com/media/l0IsGAtZTngWc3GCY/giphy.gif',
@@ -534,11 +554,31 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`YAYYYYY CELEBRATE WOOOOHOOO!`)
 		.setImage(randomgif)
-		.setFooter(`I don't know why you're happy but I'm glad you're happy :3`);
+		.setFooter(`I don't know why you're happy but I'm glad you're happy :3 (No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} celly-ed: ${celly})`);
 		msg.channel.send(embed);
  }
 
  if (command === 'cry') {
+	if(eboys.some(eboy => eboy.id === msg.author.id)){
+		for (var i in eboys) {
+		  if (eboys[i].id === msg.author.id) {
+			if ('cry' in eboys[i]) {
+				eboys[i].cry = eboys[i].cry + 1;
+			}
+			else {
+				eboys[i].cry = 1;
+			}
+		  }
+		}
+	}
+	else {
+		eboys.push({ id: msg.author.id, cry: 1 });
+	}
+        for (var i in eboys) {
+          if (eboys[i].id === msg.author.id) {
+            var cry = eboys[i].cry;
+          }
+        }
 		var gifs = [
 			'https://media2.giphy.com/media/Ws4Mtju5Sq1swakFzU/giphy.gif',
 			'https://25.media.tumblr.com/cac15db77acffa7a1fbab43a272594c7/tumblr_myjojt29AM1t0951zo1_400.gif',
@@ -558,11 +598,31 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`Are you okay? :(`)
 		.setImage(randomgif)
-		.setFooter(`Don't cry :(`);
+		.setFooter(`Don't cry :( (No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} cried: ${cry})`);
 		msg.channel.send(embed);
  }
  
  if (command === 'angry') {
+	if(eboys.some(eboy => eboy.id === msg.author.id)){
+		for (var i in eboys) {
+		  if (eboys[i].id === msg.author.id) {
+			if ('angry' in eboys[i]) {
+				eboys[i].angry = eboys[i].angry + 1;
+			}
+			else {
+				eboys[i].angry = 1;
+			}
+		  }
+		}
+	}
+	else {
+		eboys.push({ id: msg.author.id, angry: 1 });
+	}
+        for (var i in eboys) {
+          if (eboys[i].id === msg.author.id) {
+            var angry = eboys[i].angry;
+          }
+        }
 		var gifs = [
 			'https://i.pinimg.com/originals/b3/96/e0/b396e0fd1ced8ad36545a9094c5218ad.gif',
 			'https://i.pinimg.com/originals/01/48/a2/0148a2c426e64d9ce20db34779832197.gif',
@@ -575,9 +635,9 @@ const command = args.shift().toLowerCase();
 		const taggedUser = msg.mentions.users.first();
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
-		.setDescription(`yikes, ${msg.author} is angry!`)
+		.setDescription(`yikes, ${msg.guild.members.cache.get(msg.author.id).displayName} is angry!`)
 		.setImage(randomgif)
-		.setFooter(`Everyone, back away!`);
+		.setFooter(`Everyone, back away! (No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} got angry: ${angry})`);
 		msg.channel.send(embed);
  }
  
