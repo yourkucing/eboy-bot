@@ -534,7 +534,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You assassinated **${taggedUser.displayName}**!`)
 			.setImage('https://i.pinimg.com/originals/06/de/3a/06de3a0af78355bf7d4774cda4e4180e.gif')
-			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} killed ${taggedUser.displayName} $kill times.)`);
+			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} killed ${taggedUser.displayName} ${kill} times.)`);
 			msg.channel.send(embed);
 
 		}
