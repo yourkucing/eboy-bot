@@ -697,12 +697,14 @@ const command = args.shift().toLowerCase();
 	else {
 		eboys.push({ id: msg.author.id, tantrum: 1 });
 	}
+	
+	fs.writeFileSync('./datacount.json', JSON.stringify(eboys, null, 2) , 'utf-8');
+	
         for (var i in eboys) {
           if (eboys[i].id === msg.author.id) {
             var tantrum = eboys[i].tantrum;
-			fs.writeFileSync('./datacount.json', JSON.stringify(eboys, null, 2) , 'utf-8');
-          }
         }
+		}
 		var gifs = [
 			'https://gifimage.net/wp-content/uploads/2017/09/anime-tantrum-gif-9.gif',
 			'https://media.tenor.com/images/04db8316e7f739bdb6edb90f93eb0ea0/tenor.gif',
