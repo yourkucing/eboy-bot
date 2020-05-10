@@ -492,11 +492,49 @@ const command = args.shift().toLowerCase();
 			msg.channel.send(embed);
 		}
 		else {
+			
+        var author = msg.author.id;
+        var tagged = taggedUser.id;
+        
+        if(eboys.some(eboy => eboy.id === author)){
+            for (var i in eboys) {
+              if (eboys[i].id === author) {
+                if ('kill' in eboys[i]) {
+                      for (var j in eboys[i].kill) {
+                      	if (tagged in eboys[i].kill[j]) {
+                      		eboys[i].kill[j][tagged] = eboys[i].kill[j][tagged] + 1;
+                     }
+                     else {
+                     	eboys[i].kill[j][tagged] = 1;
+                     }
+                     }
+                }
+                else {
+                	eboys[i].kill = [];
+                	eboys[i].kill.push({[tagged]: 1});
+                }
+              }
+                     }
+                     }
+            else {
+            	eboys.push({ id: author, 'kill': [{[tagged]: 1}] });
+            }
+            
+        for (var i in eboys) {
+          if (eboys[i].id === author) {
+            for (var j in eboys[i].kill) {
+            	var kill = eboys[i].kill[j][tagged]);	
+            }
+          }
+        }
+
+                          
+			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You assassinated **${taggedUser.displayName}**!`)
 			.setImage('https://i.pinimg.com/originals/06/de/3a/06de3a0af78355bf7d4774cda4e4180e.gif')
-			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.`);
+			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} killed ${taggedUser.displayName} $kill times.)`);
 			msg.channel.send(embed);
 
 		}
@@ -556,7 +594,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`YAYYYYY CELEBRATE WOOOOHOOO!`)
 		.setImage(randomgif)
-		.setFooter(`I don't know why you're happy but I'm glad you're happy :3\r\n(No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} celly-ed: ${celly})`);
+		.setFooter(`I don't know why you're happy but I'm glad you're happy :3\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} celly-ed ${celly} times.)`);
 		msg.channel.send(embed);
  }
 
@@ -600,7 +638,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`Are you okay? :(`)
 		.setImage(randomgif)
-		.setFooter(`Don't cry :(\r\n(No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} cried: ${cry})`);
+		.setFooter(`Don't cry :(\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} cried ${cry} times.)`);
 		msg.channel.send(embed);
  }
  
@@ -639,7 +677,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`yikes, ${msg.guild.members.cache.get(msg.author.id).displayName} is angry!`)
 		.setImage(randomgif)
-		.setFooter(`Everyone, back away!\r\n(No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} got angry: ${angry})`);
+		.setFooter(`Everyone, back away!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} got angry ${angry} times.)`);
 		msg.channel.send(embed);
  }
  
@@ -678,7 +716,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`Dance dance dance!`)
 		.setImage(randomgif)
-		.setFooter(`Let's dance together uwu!\r\n(No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} danced: ${dance})`);
+		.setFooter(`Let's dance together uwu!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} danced ${dance} times.)`);
 		msg.channel.send(embed);
  }
  
@@ -720,7 +758,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is throwing a tantrum.`)
 		.setImage(randomgif)
-		.setFooter(`Everyone stay away from ${msg.guild.members.cache.get(msg.author.id).displayName}!\r\n(No. of tantrums: ${tantrum})`);
+		.setFooter(`Everyone stay away from ${msg.guild.members.cache.get(msg.author.id).displayName}!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} threw tantrums ${tantrum} times.)`);
 		msg.channel.send(embed);
  }
 
