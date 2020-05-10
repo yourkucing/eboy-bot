@@ -698,7 +698,7 @@ const command = args.shift().toLowerCase();
 		eboys.push({ id: msg.author.id, tantrum: 1 });
 	}
 	
-	fs.writeFile('./datacount.json', JSON.stringify(eboys, null, 2) , function (err) {
+	fs.writeFile('./datacount.json', 'hi' , function (err) {
 	  if (err) throw err;
 	  console.log('Saved!');
 	});
