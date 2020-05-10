@@ -698,7 +698,10 @@ const command = args.shift().toLowerCase();
 		eboys.push({ id: msg.author.id, tantrum: 1 });
 	}
 	
-	fs.writeFile('./datacount.json', JSON.stringify(eboys, null, 2) , 'utf-8');
+	fs.writeFile('./datacount.json', JSON.stringify(eboys, null, 2) , function (err) {
+	  if (err) throw err;
+	  console.log('Saved!');
+	});
 	
         for (var i in eboys) {
           if (eboys[i].id === msg.author.id) {
