@@ -554,7 +554,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`YAYYYYY CELEBRATE WOOOOHOOO!`)
 		.setImage(randomgif)
-		.setFooter(`I don't know why you're happy but I'm glad you're happy :3 (No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} celly-ed: ${celly})`);
+		.setFooter(`I don't know why you're happy but I'm glad you're happy :3\r\n(No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} celly-ed: ${celly})`);
 		msg.channel.send(embed);
  }
 
@@ -598,7 +598,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`Are you okay? :(`)
 		.setImage(randomgif)
-		.setFooter(`Don't cry :( (No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} cried: ${cry})`);
+		.setFooter(`Don't cry :(\r\n(No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} cried: ${cry})`);
 		msg.channel.send(embed);
  }
  
@@ -637,7 +637,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`yikes, ${msg.guild.members.cache.get(msg.author.id).displayName} is angry!`)
 		.setImage(randomgif)
-		.setFooter(`Everyone, back away! (No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} got angry: ${angry})`);
+		.setFooter(`Everyone, back away!\r\n(No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} got angry: ${angry})`);
 		msg.channel.send(embed);
  }
  
@@ -676,7 +676,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`Dance dance dance!`)
 		.setImage(randomgif)
-		.setFooter(`Let's dance together uwu! (No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} danced: ${dance})`);
+		.setFooter(`Let's dance together uwu!\r\n(No. of times ${msg.guild.members.cache.get(msg.author.id).displayName} danced: ${dance})`);
 		msg.channel.send(embed);
  }
  
@@ -699,6 +699,7 @@ const command = args.shift().toLowerCase();
         for (var i in eboys) {
           if (eboys[i].id === msg.author.id) {
             var tantrum = eboys[i].tantrum;
+			fs.writeFileSync('./datacount.json', JSON.stringify(eboys, null, 2) , 'utf-8');
           }
         }
 		var gifs = [
@@ -712,7 +713,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is throwing a tantrum.`)
 		.setImage(randomgif)
-		.setFooter(`Everyone stay away from ${msg.guild.members.cache.get(msg.author.id).displayName}! (No. of tantrums: ${tantrum})`);
+		.setFooter(`Everyone stay away from ${msg.guild.members.cache.get(msg.author.id).displayName}!\r\n(No. of tantrums: ${tantrum})`);
 		msg.channel.send(embed);
  }
 
