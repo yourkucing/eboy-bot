@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-data.count = require('./datacount.json');
+const datacount = require('./datacount.json');
 const ud = require('urban-dictionary');
 const client = new Discord.Client();
 const prefix = "uwu ";
