@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const ud = require('urban-dictionary');
 const client = new Discord.Client();
 const prefix = "uwu ";
+const fs = require('fs');
 
 let eboys = [];
 
