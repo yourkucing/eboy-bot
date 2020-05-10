@@ -523,7 +523,7 @@ const command = args.shift().toLowerCase();
         for (var i in eboys) {
           if (eboys[i].id === author) {
             for (var j in eboys[i].kill) {
-            	var kill = eboys[i].kill[j][tagged]);	
+            	var kill = eboys[i].kill[j][tagged];	
             }
           }
         }
