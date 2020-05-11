@@ -1831,7 +1831,7 @@ const command = args.shift().toLowerCase();
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
 		.setDescription(`yikes, ${msg.guild.members.cache.get(msg.author.id).displayName} is angry!`)
-		.setImage(randomgif
+		.setImage(randomgif)
 		.setFooter(`Everyone, back away!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} got angry ${angry} times.`);
 		msg.channel.send(embed);
  }
