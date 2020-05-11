@@ -399,7 +399,7 @@ const command = args.shift().toLowerCase();
  }
  
  if (command === 'fuck') {
-if (!message.channel.nsfw) {
+if (!msg.channel.nsfw) {
 	return msg.channel.send(`Go to the NSFW channel, ${msg.author}!`);
 }
 else {
@@ -960,10 +960,10 @@ else {
 	}
 	else {
 		var gifs = [
-			'https://i.ibb.co/R31GFH9/untonk1.gif',
-			'https://i.ibb.co/xMV3zdz/untonk2.gif',
-			'https://i.ibb.co/jHdqMKQ/tonk3.gif',
-			'https://i.ibb.co/TW22MQV/tonk4.gif'
+			'https://s4.gifyu.com/images/untonk1.gif',
+			'https://s4.gifyu.com/images/untonk2.gif',
+			'https://s4.gifyu.com/images/tonk3.gif',
+			'https://s6.gifyu.com/images/tonk4.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
@@ -1993,13 +1993,17 @@ if (command === 'search') {
 
 if (command === 'members') {
 	msg.guild.members.fetch().then(fetchedMembers => {
+		
+		for (var i in fetchedMembers) {
+			var members = i + "\r\n ";	
+        }
 
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
 		.setTitle(`Members`)
 		.setDescription('Here are all the members uwu! (∩•̀ω•́)⊃-⋆')
 		.addFields(
-		{ name: 'Members', value: `${fetchedMembers}` }
+		{ name: 'Members', value: `${members}` }
 		);
 		msg.channel.send(embed);
 	});
