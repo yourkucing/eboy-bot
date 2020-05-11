@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const datacount = require('./datacount.json');
 const ud = require('urban-dictionary');
 const client = new Discord.Client();
 const prefix = "uwu ";
@@ -1569,10 +1568,10 @@ const command = args.shift().toLowerCase();
 		eboys.push({ id: msg.author.id, tantrum: 1 });
 	}
 	
-	fs.writeFile('./datacount.json', JSON.stringify(eboys, null, 2) , function (err) {
+/* 	fs.writeFile('./datacount.json', JSON.stringify(eboys, null, 2) , function (err) {
 	  if (err) throw err;
 	  console.log('Saved!');
-	});
+	}); */
 	
         for (var i in eboys) {
           if (eboys[i].id === msg.author.id) {
