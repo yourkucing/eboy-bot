@@ -80,7 +80,7 @@ const command = args.shift().toLowerCase();
 	else {
 		var gifs = ['https://thumbs.gfycat.com/MistyDelectableKouprey-size_restricted.gif', 'https://i.pinimg.com/originals/51/58/88/515888d6d7fadfd3dd0fa312ca287a34.gif']
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.username === msg.author.username) {
+		if (taggedUser.id === msg.author.id) {
 			
         var author = msg.author.id;
         var tagged = msg.author.id;
@@ -184,7 +184,7 @@ const command = args.shift().toLowerCase();
 			'https://historiasdeumotaku.files.wordpress.com/2015/06/tumblr_ndkbzr5tma1shcw33o5_500.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.username === msg.author.username) {
+		if (taggedUser.id === msg.author.id) {
 			
         var author = msg.author.id;
         var tagged = msg.author.id;
@@ -306,7 +306,7 @@ const command = args.shift().toLowerCase();
 			'https://media1.tenor.com/images/d4e82fc23bd94bebf5280b0682285f6a/tenor.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.username === msg.author.username) {
+		if (taggedUser.id === msg.author.id) {
 			
         var author = msg.author.id;
         var tagged = msg.author.id;
@@ -412,7 +412,7 @@ const command = args.shift().toLowerCase();
 			'https://media.giphy.com/media/7CXIp5bcit6ZG/200_d.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.username === msg.author.username) {
+		if (taggedUser.id === msg.author.id) {
 			
         var author = msg.author.id;
         var tagged = msg.author.id;
@@ -521,7 +521,7 @@ const command = args.shift().toLowerCase();
 			'https://78.media.tumblr.com/44716773d1a091d4b84efbae296ab062/tumblr_or61zhEUtM1skak2ao1_500.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.username === msg.author.username) {
+		if (taggedUser.id === msg.author.id) {
 			
         var author = msg.author.id;
         var tagged = msg.author.id;
@@ -630,7 +630,7 @@ const command = args.shift().toLowerCase();
 			'https://i.pinimg.com/originals/d4/37/1c/d4371ceac00951149b514e172e9dd64c.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.username === msg.author.username) {
+		if (taggedUser.id === msg.author.id) {
 			
         var author = msg.author.id;
         var tagged = msg.author.id;
@@ -752,7 +752,7 @@ const command = args.shift().toLowerCase();
 			'https://media.tenor.com/images/f1dc8d4a16e2de3b22ff3aa25fd62e8a/tenor.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.username === msg.author.username) {
+		if (taggedUser.id === msg.author.id) {
 			
         var author = msg.author.id;
         var tagged = msg.author.id;
@@ -855,7 +855,7 @@ const command = args.shift().toLowerCase();
 			'https://media.tenor.com/images/003c5629319c1ef6c13f181cdccfbece/tenor.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.username === msg.author.username) {
+		if (taggedUser.id === msg.author.id) {
 			
         var author = msg.author.id;
         var tagged = msg.author.id;
@@ -964,7 +964,7 @@ const command = args.shift().toLowerCase();
 			'https://gifimage.net/wp-content/uploads/2018/04/pat-gif-3.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.username === msg.author.username) {
+		if (taggedUser.id === msg.author.id) {
 			
         var author = msg.author.id;
         var tagged = msg.author.id;
@@ -1074,7 +1074,7 @@ const command = args.shift().toLowerCase();
 			'https://media1.tenor.com/images/288b7338acc44e10004a1063dc5fc521/tenor.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.username === msg.author.username) {
+		if (taggedUser.id === msg.author.id) {
 			
         var author = msg.author.id;
         var tagged = msg.author.id;
@@ -1179,7 +1179,7 @@ const command = args.shift().toLowerCase();
 			'https://media.giphy.com/media/Mf4NqZAknusBq/giphy.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.username === msg.author.username) {
+		if (taggedUser.id === msg.author.id) {
 			
         var author = msg.author.id;
         var tagged = msg.author.id;
@@ -1278,7 +1278,7 @@ const command = args.shift().toLowerCase();
 	}
 	else {
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.username === msg.author.username) {
+		if (taggedUser.id === msg.author.id) {
 			
         var author = msg.author.id;
         var tagged = msg.author.id;
