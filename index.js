@@ -1991,7 +1991,7 @@ if (command === 'search') {
 	})
 }
 
-if (command === 'members') {
+/* if (command === 'members') {
 	msg.guild.members.fetch().then(fetchedMembers => {
 		
 		for (var i in fetchedMembers) {
@@ -2007,7 +2007,7 @@ if (command === 'members') {
 		);
 		msg.channel.send(embed);
 	});
-}
+} */
  
  if (msg.content === '@eboy help' || command === 'help' || command === 'command' || command === 'commands') {
 		const embed = new Discord.MessageEmbed()
@@ -2016,8 +2016,8 @@ if (command === 'members') {
 		.setDescription('Thank you for using Eboy bot uwu! (∩•̀ω•́)⊃-⋆')
 		.addFields(
 		{ name: 'main commands', value: 'uwu\r\nowo\r\nawa\r\nòwó\r\nhi eboy uwu\r\nuwu uwu <words to uwuify>\r\nuwu search <word to search>' },
-		{ name: 'uwu <commands> @<username>', value: 'boop\r\ndefenestrate\r\nfuck\r\nhug\r\nkick\r\nkill\r\nkiss\r\npatpat\r\npunch\r\nslap\r\ntonk\r\nyeet' },
-		{ name: 'uwu <commands>', value: 'angry\r\ncry\r\ncelly\r\ndance\r\npatpat\r\ntantrum' },
+		{ name: 'uwu <commands> @<username>', value: 'boop\r\ndrag\r\ndefenestrate\r\nfuck\r\nhug\r\nkick\r\nkill\r\nkiss\r\npatpat\r\npunch\r\nslap\r\nsnuggle\r\ntonk\r\nuntonk\r\nyeet' },
+		{ name: 'uwu <commands>', value: 'angry\r\ncry\r\ncelly\r\ndance\r\nscream\r\ntantrum' },
 		)
 		.setFooter(`Created by Maryam#9206`);
 		msg.channel.send(embed);
