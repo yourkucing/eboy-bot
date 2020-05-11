@@ -13,7 +13,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
 	
-if (message.author.bot) return
+if (msg.author.bot) return
 
  if (msg.content.toLowerCase() === 'òwó') {
 	 if (msg.author.bot) return;
