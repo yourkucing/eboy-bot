@@ -12,6 +12,8 @@ client.on('ready', () => {
  });
 
 client.on('message', msg => {
+	
+if (message.author.bot) return
 
  if (msg.content.toLowerCase() === 'òwó') {
 	 if (msg.author.bot) return;
@@ -397,6 +399,10 @@ const command = args.shift().toLowerCase();
  }
  
  if (command === 'fuck') {
+if (!message.channel.nsfw) {
+	return msg.channel.send(`Go to the NSFW channel, ${msg.author}!`);
+}
+else {
 	if (!msg.mentions.users.size) {
 		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
 	}
@@ -500,6 +506,7 @@ const command = args.shift().toLowerCase();
 			msg.channel.send(embed);
 		}
 	}
+}
  }
  
  if (command === 'kiss') {
@@ -1967,7 +1974,7 @@ const command = args.shift().toLowerCase();
  } */
  
 if (command === 'search') {
-	var definition = args;
+	var definition = args.join(' ');;
 	
 	ud.term(definition).then((result) => {
 	    const entries = result.entries
@@ -1985,15 +1992,17 @@ if (command === 'search') {
 }
 
 if (command === 'members') {
+	msg.guild.members.fetch().then(fetchedMembers => {
+
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
 		.setTitle(`Members`)
 		.setDescription('Here are all the members uwu! (∩•̀ω•́)⊃-⋆')
 		.addFields(
-		{ name: 'Members', value: `${msg.guild.members}` }
+		{ name: 'Members', value: `${fetchedMembers}` }
 		);
 		msg.channel.send(embed);
-
+	});
 }
  
  if (msg.content === '@eboy help' || command === 'help' || command === 'command' || command === 'commands') {
