@@ -120,7 +120,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You defenestrated yourself!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${taggedUser.displayName}!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} defenestrated themselves ${defenestrate} times.)`);
+			.setFooter(`Yikes, byebye ${taggedUser.displayName}!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} defenestrated themselves ${defenestrate} times.`);
 			msg.channel.send(embed);
 		}
 		else {
@@ -164,7 +164,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You defenestrated **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${taggedUser.displayName}!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} defenestrated ${taggedUser.displayName} ${defenestrate} times.)`);
+			.setFooter(`Yikes, byebye ${taggedUser.displayName}!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} defenestrated ${taggedUser.displayName} ${defenestrate} times.`);
 			msg.channel.send(embed);
 		}
 	}
@@ -224,7 +224,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You yeeted yourself!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${taggedUser.displayName}!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} yeeted themselves ${yeet} times.)`);
+			.setFooter(`Yikes, byebye ${taggedUser.displayName}!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} yeeted themselves ${yeet} times.`);
 			msg.channel.send(embed);
 		}
 		else {
@@ -268,7 +268,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You yeeted **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${taggedUser.displayName}!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} yeeted ${taggedUser.displayName} ${yeet} times.)`);
+			.setFooter(`Yikes, byebye ${taggedUser.displayName}!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} yeeted ${taggedUser.displayName} ${yeet} times.`);
 			msg.channel.send(embed);
 		}
 	}
@@ -346,7 +346,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`You slapped yourself!`)
 		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-		.setFooter(`Oof, do I see a handprint mark on your face, ${taggedUser.username}?\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} slapped themselves ${slap} times.)`);
+		.setFooter(`Oof, do I see a handprint mark on your face, ${taggedUser.username}?\r\n${msg.guild.members.cache.get(msg.author.id).displayName} slapped themselves ${slap} times.`);
 		msg.channel.send(embed);
 		}
 		else {
@@ -390,7 +390,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`You slapped **${taggedUser.displayName}**!`)
 		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-		.setFooter(`Oof, do I see a handprint mark on your face, ${taggedUser.displayName}?\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} slapped ${taggedUser.displayName} ${slap} times.)`);
+		.setFooter(`Oof, do I see a handprint mark on your face, ${taggedUser.displayName}?\r\n${msg.guild.members.cache.get(msg.author.id).displayName} slapped ${taggedUser.displayName} ${slap} times.`);
 		msg.channel.send(embed);
 		}
 	}
@@ -452,7 +452,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`So you're gonna do yourself? That's cool.`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Maybe you need some cold shower yeah?\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} fucked themselves ${fuck} times.)`);
+			.setFooter(`Maybe you need some cold shower yeah?\r\n${msg.guild.members.cache.get(msg.author.id).displayName} fucked themselves ${fuck} times.`);
 			msg.channel.send(embed);
 		}
 		else {
@@ -496,7 +496,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You- Well.... You want to do **${taggedUser.displayName}**?`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Get a room, both of you smh!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} fucked ${taggedUser.displayName} ${fuck} times.)`);
+			.setFooter(`Get a room, both of you smh!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} fucked ${taggedUser.displayName} ${fuck} times.`);
 			msg.channel.send(embed);
 		}
 	}
@@ -561,7 +561,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`You kissed yourself! AwA, so cute!`)
 		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-		.setFooter(`Such cuteness uwu!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} kissed themselves ${kiss} times.)`);
+		.setFooter(`Such cuteness uwu!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} kissed themselves ${kiss} times.`);
 		msg.channel.send(embed);
 		}
 		else {
@@ -605,7 +605,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`You kissed **${taggedUser.displayName}**! AwA, so cute!`)
 		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-		.setFooter(`Such cuteness uwu!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} kissed ${taggedUser.displayName} ${kiss} times.)`);
+		.setFooter(`Such cuteness uwu!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} kissed ${taggedUser.displayName} ${kiss} times.`);
 		msg.channel.send(embed);
 		}
 	}
@@ -670,7 +670,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You kicked yourself! How even?!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Are you okay, ${taggedUser.displayName}?\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} kicked themselves ${kick} times.)`);
+			.setFooter(`Are you okay, ${taggedUser.displayName}?\r\n${msg.guild.members.cache.get(msg.author.id).displayName} kicked themselves ${kick} times.`);
 			msg.channel.send(embed);
 		}
 		else {
@@ -714,7 +714,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You kicked **${taggedUser.displayName}**! Ouch!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Are you okay, ${taggedUser.displayName}?\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} kicked ${taggedUser.displayName} ${kick} times.)`);
+			.setFooter(`Are you okay, ${taggedUser.displayName}?\r\n${msg.guild.members.cache.get(msg.author.id).displayName} kicked ${taggedUser.displayName} ${kick} times.`);
 			msg.channel.send(embed);			
 		}
 	}
@@ -792,7 +792,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You hugged yourself. Self-love uwu!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Everyone needs a hug once in awhile....\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} hugged themselves ${hug} times.)`);
+			.setFooter(`Everyone needs a hug once in awhile....\r\n${msg.guild.members.cache.get(msg.author.id).displayName} hugged themselves ${hug} times.`);
 			msg.channel.send(embed);
 		}
 		else {
@@ -836,7 +836,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You hugged **${taggedUser.displayName}**.`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Everyone needs a hug once in awhile....\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} hugged ${taggedUser.displayName} ${hug} times.)`);
+			.setFooter(`Everyone needs a hug once in awhile....\r\n${msg.guild.members.cache.get(msg.author.id).displayName} hugged ${taggedUser.displayName} ${hug} times.`);
 			msg.channel.send(embed);
 		}
 	}
@@ -895,7 +895,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You tonked yourself! KO!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Are you okay, ${taggedUser.displayName}?\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} tonked themselves ${tonk} times.)`);
+			.setFooter(`Are you okay, ${taggedUser.displayName}?\r\n${msg.guild.members.cache.get(msg.author.id).displayName} tonked themselves ${tonk} times.`);
 			msg.channel.send(embed);
 		}
 		else {
@@ -939,7 +939,112 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You tonked **${taggedUser.displayName}**! KO!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Are you okay, ${taggedUser.displayName}?\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} tonked ${taggedUser.displayName} ${tonk} times.)`);
+			.setFooter(`Are you okay, ${taggedUser.displayName}?\r\n${msg.guild.members.cache.get(msg.author.id).displayName} tonked ${taggedUser.displayName} ${tonk} times.`);
+			msg.channel.send(embed);
+
+		}
+	}
+ }
+ 
+ 
+ if (command === 'untonk') {
+	if (!msg.mentions.users.size) {
+		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+	}
+	else {
+		var gifs = [
+			'https://i.ibb.co/R31GFH9/untonk1.gif',
+			'https://i.ibb.co/xMV3zdz/untonk2.gif',
+			'https://i.ibb.co/jHdqMKQ/tonk3.gif',
+			'https://i.ibb.co/TW22MQV/tonk4.gif'
+			]
+		const taggedUser = msg.mentions.members.first();
+		if (taggedUser.id === msg.author.id) {
+			
+        var author = msg.author.id;
+        var tagged = msg.author.id;
+        
+        if(eboys.some(eboy => eboy.id === author)){
+            for (var i in eboys) {
+              if (eboys[i].id === author) {
+                if ('untonk' in eboys[i]) {
+                      for (var j in eboys[i].untonk) {
+                      	if (tagged in eboys[i].untonk[j]) {
+                      		eboys[i].untonk[j][tagged] = eboys[i].untonk[j][tagged] + 1;
+                     }
+                     else {
+                     	eboys[i].untonk[j][tagged] = 1;
+                     }
+                     }
+                }
+                else {
+                	eboys[i].untonk = [];
+                	eboys[i].untonk.push({[tagged]: 1});
+                }
+              }
+                     }
+                     }
+            else {
+            	eboys.push({ id: author, 'untonk': [{[tagged]: 1}] });
+            }
+            
+        for (var i in eboys) {
+          if (eboys[i].id === author) {
+            for (var j in eboys[i].untonk) {
+            	var untonk = eboys[i].untonk[j][tagged];	
+            }
+          }
+        }
+			
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You untonked yourself! Yeah, no tonking!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`${msg.guild.members.cache.get(msg.author.id).displayName} untonked themselves ${untonk} times.`);
+			msg.channel.send(embed);
+		}
+		else {
+			
+        var author = msg.author.id;
+        var tagged = taggedUser.id;
+        
+        if(eboys.some(eboy => eboy.id === author)){
+            for (var i in eboys) {
+              if (eboys[i].id === author) {
+                if ('untonk' in eboys[i]) {
+                      for (var j in eboys[i].untonk) {
+                      	if (tagged in eboys[i].untonk[j]) {
+                      		eboys[i].untonk[j][tagged] = eboys[i].untonk[j][tagged] + 1;
+                     }
+                     else {
+                     	eboys[i].untonk[j][tagged] = 1;
+                     }
+                     }
+                }
+                else {
+                	eboys[i].untonk = [];
+                	eboys[i].untonk.push({[tagged]: 1});
+                }
+              }
+                     }
+                     }
+            else {
+            	eboys.push({ id: author, 'untonk': [{[tagged]: 1}] });
+            }
+            
+        for (var i in eboys) {
+          if (eboys[i].id === author) {
+            for (var j in eboys[i].untonk) {
+            	var untonk = eboys[i].untonk[j][tagged];	
+            }
+          }
+        }
+			
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You untonked **${taggedUser.displayName}**! So nice AwA!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`${msg.guild.members.cache.get(msg.author.id).displayName} untonked ${taggedUser.displayName} ${untonk} times.`);
 			msg.channel.send(embed);
 
 		}
@@ -1004,7 +1109,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You patpats yourself! Okay?`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`${taggedUser.displayName} is patted uwu.\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} patted themselves ${patpat} times.)`);
+			.setFooter(`${taggedUser.displayName} is patted uwu.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} patted themselves ${patpat} times.`);
 			msg.channel.send(embed);
 		}
 		else {
@@ -1049,7 +1154,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You patpats smol **${taggedUser.displayName}** UwU`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`${taggedUser.displayName} is patted uwu.\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} patted ${taggedUser.displayName} ${patpat} times.)`);
+			.setFooter(`${taggedUser.displayName} is patted uwu.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} patted ${taggedUser.displayName} ${patpat} times.`);
 			msg.channel.send(embed);
 
 		}
@@ -1114,7 +1219,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You punched yourself!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Wow, what a fighter uwu!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} punched themselves ${punch} times.)`);
+			.setFooter(`Wow, what a fighter uwu!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} punched themselves ${punch} times.`);
 			msg.channel.send(embed);
 		}
 		else {
@@ -1159,7 +1264,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You punched **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Wow, what a fighter uwu!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} punched ${taggedUser.displayName} ${punch} times.)`);
+			.setFooter(`Wow, what a fighter uwu!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} punched ${taggedUser.displayName} ${punch} times.`);
 			msg.channel.send(embed);
 
 		}
@@ -1219,7 +1324,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You booped yourself! AwA cute.`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Boop bap.\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} booped themselves ${boop} times.)`);
+			.setFooter(`Boop bap.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} booped themselves ${boop} times.`);
 			msg.channel.send(embed);
 		}
 		else {
@@ -1264,7 +1369,226 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You booped **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Boop bap.\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} booped ${taggedUser.displayName} ${boop} times.)`);
+			.setFooter(`Boop bap.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} booped ${taggedUser.displayName} ${boop} times.`);
+			msg.channel.send(embed);
+
+		}
+	}
+ }
+ 
+ 
+ if (command === 'snuggle' || command === 'snuggles') {
+	if (!msg.mentions.users.size) {
+		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+	}
+	else {
+		var gifs = [
+			'https://media.giphy.com/media/kz01wlAoCLYx3v8F68/giphy.gif',
+			'https://i.gifer.com/DQp.gif',
+			'https://25.media.tumblr.com/tumblr_m1x1jtIXWQ1qf5ddxo1_500.gif',
+			'https://media.tenor.com/images/215f87079f12bccd5dd56def22140668/tenor.gif',
+			'https://media.tenor.com/images/b38e8de408c8c3581ee75713d30db469/tenor.gif',
+			'https://media.tenor.com/images/57559abb91934c8aaa325a71b0d01706/tenor.gif',
+			'https://media.giphy.com/media/3ohhwHAKGA0ilFZrkQ/giphy.gif',
+			'https://media.giphy.com/media/f4YPX09pxYGkM/giphy.gif'
+			]
+		const taggedUser = msg.mentions.members.first();
+		if (taggedUser.id === msg.author.id) {
+			
+        var author = msg.author.id;
+        var tagged = msg.author.id;
+        
+        if(eboys.some(eboy => eboy.id === author)){
+            for (var i in eboys) {
+              if (eboys[i].id === author) {
+                if ('snuggle' in eboys[i]) {
+                      for (var j in eboys[i].snuggle) {
+                      	if (tagged in eboys[i].snuggle[j]) {
+                      		eboys[i].snuggle[j][tagged] = eboys[i].snuggle[j][tagged] + 1;
+                     }
+                     else {
+                     	eboys[i].snuggle[j][tagged] = 1;
+                     }
+                     }
+                }
+                else {
+                	eboys[i].snuggle = [];
+                	eboys[i].snuggle.push({[tagged]: 1});
+                }
+              }
+                     }
+                     }
+            else {
+            	eboys.push({ id: author, 'snuggle': [{[tagged]: 1}] });
+            }
+            
+        for (var i in eboys) {
+          if (eboys[i].id === author) {
+            for (var j in eboys[i].snuggle) {
+            	var snuggle = eboys[i].snuggle[j][tagged];	
+            }
+          }
+        }
+
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You snuggled yourself!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Snugglesnuggle.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} snuggled themselves ${snuggle} times.`);
+			msg.channel.send(embed);
+		}
+		else {
+			
+        var author = msg.author.id;
+        var tagged = taggedUser.id;
+        
+        if(eboys.some(eboy => eboy.id === author)){
+            for (var i in eboys) {
+              if (eboys[i].id === author) {
+                if ('snuggle' in eboys[i]) {
+                      for (var j in eboys[i].snuggle) {
+                      	if (tagged in eboys[i].snuggle[j]) {
+                      		eboys[i].snuggle[j][tagged] = eboys[i].snuggle[j][tagged] + 1;
+                     }
+                     else {
+                     	eboys[i].snuggle[j][tagged] = 1;
+                     }
+                     }
+                }
+                else {
+                	eboys[i].snuggle = [];
+                	eboys[i].snuggle.push({[tagged]: 1});
+                }
+              }
+                     }
+                     }
+            else {
+            	eboys.push({ id: author, 'snuggle': [{[tagged]: 1}] });
+            }
+            
+        for (var i in eboys) {
+          if (eboys[i].id === author) {
+            for (var j in eboys[i].snuggle) {
+            	var snuggle = eboys[i].snuggle[j][tagged];	
+            }
+          }
+        }
+
+
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You snuggled **${taggedUser.displayName}**!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Snugglesnuggle!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} snuggled ${taggedUser.displayName} ${snuggle} times.`);
+			msg.channel.send(embed);
+
+		}
+	}
+ }
+ 
+ 
+ if (command === 'drag') {
+	if (!msg.mentions.users.size) {
+		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+	}
+	else {
+		var gifs = [
+			'https://media.tenor.com/images/fcb3f477cd25d365c800a0e9826c0921/tenor.gif',
+			'https://media.giphy.com/media/LModbUFxtnw9q/giphy.gif',
+			'https://media1.tenor.com/images/8424903ed8b4219cee83a1417e59e20b/tenor.gif',
+			'https://media2.giphy.com/media/LXJ4hM0NB1GSs/giphy.gif',
+			'https://media.tumblr.com/ecde59f4dc9a34e3876643a57cb345a9/tumblr_inline_mpq7mtdWgz1qz4rgp.gif',
+			'https://i.pinimg.com/originals/64/c7/44/64c744f80082fb6e002cf4824655a19a.gif',
+			'https://media1.tenor.com/images/900b9598601e8875034b075f5a7bcd29/tenor.gif'
+			]
+		const taggedUser = msg.mentions.members.first();
+		if (taggedUser.id === msg.author.id) {
+			
+        var author = msg.author.id;
+        var tagged = msg.author.id;
+        
+        if(eboys.some(eboy => eboy.id === author)){
+            for (var i in eboys) {
+              if (eboys[i].id === author) {
+                if ('drag' in eboys[i]) {
+                      for (var j in eboys[i].drag) {
+                      	if (tagged in eboys[i].drag[j]) {
+                      		eboys[i].drag[j][tagged] = eboys[i].drag[j][tagged] + 1;
+                     }
+                     else {
+                     	eboys[i].drag[j][tagged] = 1;
+                     }
+                     }
+                }
+                else {
+                	eboys[i].drag = [];
+                	eboys[i].drag.push({[tagged]: 1});
+                }
+              }
+                     }
+                     }
+            else {
+            	eboys.push({ id: author, 'drag': [{[tagged]: 1}] });
+            }
+            
+        for (var i in eboys) {
+          if (eboys[i].id === author) {
+            for (var j in eboys[i].drag) {
+            	var drag = eboys[i].drag[j][tagged];	
+            }
+          }
+        }
+
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You dragged yourself!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Weeee~\r\n${msg.guild.members.cache.get(msg.author.id).displayName} dragged themselves ${drag} times.`);
+			msg.channel.send(embed);
+		}
+		else {
+			
+        var author = msg.author.id;
+        var tagged = taggedUser.id;
+        
+        if(eboys.some(eboy => eboy.id === author)){
+            for (var i in eboys) {
+              if (eboys[i].id === author) {
+                if ('drag' in eboys[i]) {
+                      for (var j in eboys[i].drag) {
+                      	if (tagged in eboys[i].drag[j]) {
+                      		eboys[i].drag[j][tagged] = eboys[i].drag[j][tagged] + 1;
+                     }
+                     else {
+                     	eboys[i].drag[j][tagged] = 1;
+                     }
+                     }
+                }
+                else {
+                	eboys[i].drag = [];
+                	eboys[i].drag.push({[tagged]: 1});
+                }
+              }
+                     }
+                     }
+            else {
+            	eboys.push({ id: author, 'drag': [{[tagged]: 1}] });
+            }
+            
+        for (var i in eboys) {
+          if (eboys[i].id === author) {
+            for (var j in eboys[i].drag) {
+            	var drag = eboys[i].drag[j][tagged];	
+            }
+          }
+        }
+
+
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You dragged **${taggedUser.displayName}**!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Bye bye, ${taggedUser.displayName} XD\r\n${msg.guild.members.cache.get(msg.author.id).displayName} dragged ${taggedUser.displayName} ${drag} times.`);
 			msg.channel.send(embed);
 
 		}
@@ -1319,7 +1643,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You assassinated yourself!`)
 			.setImage('https://i.pinimg.com/originals/06/de/3a/06de3a0af78355bf7d4774cda4e4180e.gif')
-			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} killed themselves ${kill} times.)`);
+			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} killed themselves ${kill} times.`);
 			msg.channel.send(embed);
 		}
 		else {
@@ -1365,7 +1689,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You assassinated **${taggedUser.displayName}**!`)
 			.setImage('https://i.pinimg.com/originals/06/de/3a/06de3a0af78355bf7d4774cda4e4180e.gif')
-			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} killed ${taggedUser.displayName} ${kill} times.)`);
+			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} killed ${taggedUser.displayName} ${kill} times.`);
 			msg.channel.send(embed);
 
 		}
@@ -1425,7 +1749,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`YAYYYYY CELEBRATE WOOOOHOOO!`)
 		.setImage(randomgif)
-		.setFooter(`I don't know why you're happy but I'm glad you're happy :3\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} celly-ed ${celly} times.)`);
+		.setFooter(`I don't know why you're happy but I'm glad you're happy :3\r\n${msg.guild.members.cache.get(msg.author.id).displayName} celly-ed ${celly} times.`);
 		msg.channel.send(embed);
  }
 
@@ -1469,7 +1793,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`Are you okay? :(`)
 		.setImage(randomgif)
-		.setFooter(`Don't cry :(\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} cried ${cry} times.)`);
+		.setFooter(`Don't cry :(\r\n${msg.guild.members.cache.get(msg.author.id).displayName} cried ${cry} times.`);
 		msg.channel.send(embed);
  }
  
@@ -1507,8 +1831,8 @@ const command = args.shift().toLowerCase();
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
 		.setDescription(`yikes, ${msg.guild.members.cache.get(msg.author.id).displayName} is angry!`)
-		.setImage(randomgif)
-		.setFooter(`Everyone, back away!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} got angry ${angry} times.)`);
+		.setImage(randomgif
+		.setFooter(`Everyone, back away!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} got angry ${angry} times.`);
 		msg.channel.send(embed);
  }
  
@@ -1547,7 +1871,7 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`Dance dance dance!`)
 		.setImage(randomgif)
-		.setFooter(`Let's dance together uwu!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} danced ${dance} times.)`);
+		.setFooter(`Let's dance together uwu!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} danced ${dance} times.`);
 		msg.channel.send(embed);
  }
  
@@ -1568,11 +1892,6 @@ const command = args.shift().toLowerCase();
 		eboys.push({ id: msg.author.id, tantrum: 1 });
 	}
 	
-/* 	fs.writeFile('./datacount.json', JSON.stringify(eboys, null, 2) , function (err) {
-	  if (err) throw err;
-	  console.log('Saved!');
-	}); */
-	
         for (var i in eboys) {
           if (eboys[i].id === msg.author.id) {
             var tantrum = eboys[i].tantrum;
@@ -1589,11 +1908,50 @@ const command = args.shift().toLowerCase();
 		.setColor('#FF69B4')
 		.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is throwing a tantrum.`)
 		.setImage(randomgif)
-		.setFooter(`Everyone stay away from ${msg.guild.members.cache.get(msg.author.id).displayName}!\r\n(${msg.guild.members.cache.get(msg.author.id).displayName} threw tantrums ${tantrum} times.)`);
+		.setFooter(`Everyone stay away from ${msg.guild.members.cache.get(msg.author.id).displayName}!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} threw tantrums ${tantrum} times.`);
 		msg.channel.send(embed);
  }
 
- 
+
+ if (command === 'scream') {
+	if(eboys.some(eboy => eboy.id === msg.author.id)){
+		for (var i in eboys) {
+		  if (eboys[i].id === msg.author.id) {
+			if ('scream' in eboys[i]) {
+				eboys[i].scream = eboys[i].scream + 1;
+			}
+			else {
+				eboys[i].scream = 1;
+			}
+		  }
+		}
+	}
+	else {
+		eboys.push({ id: msg.author.id, scream: 1 });
+	}
+	
+        for (var i in eboys) {
+          if (eboys[i].id === msg.author.id) {
+            var scream = eboys[i].scream;
+        }
+		}
+		var gifs = [
+			'https://media.giphy.com/media/qFi3fACSMnP4Q/giphy.gif',
+			'https://38.media.tumblr.com/d9bf97c7aee862ca4858e20122043662/tumblr_nt6f20RFxb1sgl0ajo1_500.gif',
+			'https://i.pinimg.com/originals/0d/52/17/0d52176ac1ea9f1be10b5e767493888a.gif',
+			'https://66.media.tumblr.com/276977220659dd7969104412605a8a52/tumblr_inline_oyw96aoUdt1us06yu_540.gif',
+			'https://thumbs.gfycat.com/LegitimateAnchoredBoa-size_restricted.gif',
+			'https://i.pinimg.com/originals/55/83/06/5583064ed9d58208e0460e2519a1d559.gif'
+			]
+		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is screaming.`)
+		.setImage(randomgif)
+		.setFooter(`${msg.guild.members.cache.get(msg.author.id).displayName} screamed ${scream} times.`);
+		msg.channel.send(embed);
+ }
+
 /*  if (command === 'test') {
 	if (eboys.some(eboy => eboy.id === msg.author.id)) {
 		let result = eboys.filter(obj => {
@@ -1609,7 +1967,7 @@ const command = args.shift().toLowerCase();
  } */
  
 if (command === 'search') {
-	var definition = msg.content;
+	var definition = args;
 	
 	ud.term(definition).then((result) => {
 	    const entries = result.entries
@@ -1624,6 +1982,18 @@ if (command === 'search') {
 	}).catch((error) => {
 	  msg.channel.send('Definition not found.');
 	})
+}
+
+if (command === 'members') {
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setTitle(`Members`)
+		.setDescription('Here are all the members uwu! (∩•̀ω•́)⊃-⋆')
+		.addFields(
+		{ name: 'Members', value: `${msg.guild.members}` }
+		);
+		msg.channel.send(embed);
+
 }
  
  if (msg.content === '@eboy help' || command === 'help' || command === 'command' || command === 'commands') {
