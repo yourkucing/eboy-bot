@@ -49,6 +49,10 @@ var message = msg.content.toLowerCase()
  msg.channel.send('hi ' + msg.author.toString() +' uwu!');
  }
  
+ if (message.includes('can i get a yee claw')) {
+ msg.channel.send('yee claw!');
+ }
+ 
  if (message.includes('goodmorning') || message.includes('good morning')) {
 		 if (msg.author.bot) return;
 		 else {
@@ -1506,7 +1510,8 @@ else {
 			'https://media2.giphy.com/media/LXJ4hM0NB1GSs/giphy.gif',
 			'https://media.tumblr.com/ecde59f4dc9a34e3876643a57cb345a9/tumblr_inline_mpq7mtdWgz1qz4rgp.gif',
 			'https://i.pinimg.com/originals/64/c7/44/64c744f80082fb6e002cf4824655a19a.gif',
-			'https://media1.tenor.com/images/900b9598601e8875034b075f5a7bcd29/tenor.gif'
+			'https://media1.tenor.com/images/900b9598601e8875034b075f5a7bcd29/tenor.gif',
+			'https://media.tenor.com/images/ff8058ad37789799f2c58324b8a030a5/tenor.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
@@ -1759,6 +1764,55 @@ else {
 		.setFooter(`I don't know why you're happy but I'm glad you're happy :3\r\n${msg.guild.members.cache.get(msg.author.id).displayName} celly-ed ${celly} times.`);
 		msg.channel.send(embed);
  }
+ 
+ if (command === 'eat') {
+	if(eboys.some(eboy => eboy.id === msg.author.id)){
+		for (var i in eboys) {
+		  if (eboys[i].id === msg.author.id) {
+			if ('eat' in eboys[i]) {
+				eboys[i].eat = eboys[i].eat + 1;
+			}
+			else {
+				eboys[i].eat = 1;
+			}
+		  }
+		}
+	}
+	else {
+		eboys.push({ id: msg.author.id, eat: 1 });
+	}
+        for (var i in eboys) {
+          if (eboys[i].id === msg.author.id) {
+            var eat = eboys[i].eat;
+          }
+        }
+		var gifs = [
+			'https://media.giphy.com/media/5ev3alRsskWA0/giphy.gif',
+			'https://i.pinimg.com/originals/fd/d2/2f/fdd22fe6112b90d08d6c63aa53d0762d.gif',
+			'https://media1.tenor.com/images/80e45406f5386242fe7699badd51b342/tenor.gif',
+			'https://media.giphy.com/media/rDZuJKhOcLTEI/200w.gif',
+			'https://thumbs.gfycat.com/ContentFrenchBadger-size_restricted.gif',
+			'https://66.media.tumblr.com/465fd76d4ac2dc7c6cb492f394f8c743/tumblr_oa2k3wiMsY1smufyzo1_400.gif',
+			'https://gifimage.net/wp-content/uploads/2018/04/kirby-eating-gif-8.gif',
+			'https://i.gifer.com/TJrF.gif',
+			'https://media1.tenor.com/images/21f1f30024f331959b1c7818a7aa0136/tenor.gif',
+			'https://media.giphy.com/media/ViC6liI1iz3TGxb4po/giphy.gif',
+			'https://i.pinimg.com/originals/db/a1/fc/dba1fca1c27106c53b04ee2333099217.gif',
+			'https://media0.giphy.com/media/9n4muqn344LMA/source.gif',
+			'https://gifimage.net/wp-content/uploads/2017/11/eating-anime-gif-2.gif',
+			'https://media3.giphy.com/media/vh4GM3DcAC9cA/giphy.gif',
+			'https://gifimage.net/wp-content/uploads/2017/11/eating-anime-gif-14.gif'
+			]
+		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
+		const taggedUser = msg.mentions.users.first();
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setDescription(`Omnomnomnom.`)
+		.setImage(randomgif)
+		.setFooter(`\r\n${msg.guild.members.cache.get(msg.author.id).displayName} ate ${eat} times.`);
+		msg.channel.send(embed);
+ } 
+
 
  if (command === 'cry') {
 	if(eboys.some(eboy => eboy.id === msg.author.id)){
