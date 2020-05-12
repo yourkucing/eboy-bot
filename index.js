@@ -2069,9 +2069,9 @@ if (command === 'search') {
 		.setTitle(`Commands`)
 		.setDescription('Thank you for using Eboy bot uwu! (∩•̀ω•́)⊃-⋆')
 		.addFields(
-		{ name: 'main commands', value: 'uwu\r\nowo\r\nawa\r\nòwó\r\nhi eboy uwu\r\nuwu uwu <words to uwuify>\r\nuwu search <word to search>' },
+		{ name: 'main commands', value: 'uwu\r\nowo\r\nawa\r\nòwó\r\nhi eboy uwu\r\ncan i get a yee claw\r\nuwu uwu <words to uwuify>\r\nuwu search <word to search>' },
 		{ name: 'uwu <commands> @<username>', value: 'boop\r\ndrag\r\ndefenestrate\r\nfuck\r\nhug\r\nkick\r\nkill\r\nkiss\r\npatpat\r\npunch\r\nslap\r\nsnuggle\r\ntonk\r\nuntonk\r\nyeet' },
-		{ name: 'uwu <commands>', value: 'angry\r\ncry\r\ncelly\r\ndance\r\nscream\r\ntantrum' },
+		{ name: 'uwu <commands>', value: 'angry\r\ncry\r\ncelly\r\ndance\r\neat\r\nscream\r\ntantrum' },
 		)
 		.setFooter(`Created by Maryam#9206`);
 		msg.channel.send(embed);
