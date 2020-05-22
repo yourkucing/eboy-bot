@@ -1975,6 +1975,8 @@ else {
 							msg.channel.send('No reply after 10 seconds, duel is cancelled!');
 					});
 					
+			msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
+					
 			const results = [
 				{
 					xp: -10,
