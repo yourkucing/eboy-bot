@@ -1957,12 +1957,14 @@ else {
 		else {
 			const player1 = msg.guild.members.cache.get(msg.author.id).displayName;
 			const player2 = taggedUser.displayName;
+			var p1points = 0;
+			var p2points = 0;
 			msg.channel.send(`${taggedUser}, ${msg.guild.members.cache.get(msg.author.id).displayName} wants to duel you. Do you accept? (Reply yes or no.)`);
 			msg.channel.awaitMessages(m => m.author.id == taggedUser.id,
 					{max: 1, time: 10000}).then(collected => {
 							if (collected.first().content.toLowerCase() == 'yes') {
-								var p1points = 100;
-								var p2points = 100;
+								p1points = 100;
+								p2points = 100;
 								msg.channel.send("Let the battle begin!");
 							}
 
@@ -2096,6 +2098,7 @@ else {
 				}
 			]
 			
+			p1points
 			if (p1points === 100 && p2points === 100) {
 				while (p1points != 0 || p2points != 0) {
 					const randomOption = results[Math.floor(Math.random() * results.length)];
