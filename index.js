@@ -2112,7 +2112,6 @@ else {
 										msg.channel.send(`CONGRATULATIONS, ${player1}! (っ◕‿◕)っ :heart:`);
 									}
 								}
-							}
 
 							else if (collected.first().content.toLowerCase() == 'no') {
 								msg.channel.send("Yikes, are you scared? Maybe next time then!"); 
