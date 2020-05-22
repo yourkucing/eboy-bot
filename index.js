@@ -1945,7 +1945,7 @@ else {
  }
  
 
-/*  if (command === 'duel') {
+ if (command === 'duel') {
 	if (!msg.mentions.users.size) {
 		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
 	}
@@ -1955,9 +1955,28 @@ else {
 			return msg.channel.send(`You can't duel yourself, ${msg.author}, unless you can split yourself into two?`);
 		}
 		else {
-			
+			const player1 = msg.author;
+			const player2 = taggedUser;
+			return msg.channel.send(`${taggedUser}, ${msg.guild.members.cache.get(msg.author.id).displayName} wants to duel you. Do you accept? (Reply yes or no.)`);
+
+			msg.channel.awaitMessages(m => m.author.id == taggedUser.id,
+					{max: 1, time: 10000}).then(collected => {
+							// only accept messages by the user who sent the command
+							// accept only 1 message, and return the promise after 30000ms = 30s
+
+							// first (and, in this case, only) message of the collection
+							if (collected.first().content.toLowerCase() == 'yes') {
+								msg.channel.send("Let the battle begin!");
+							}
+
+							else if (collected.first().content.toLowerCase() == 'no') {
+								msg.channel.send("Yikes, are you scared? Maybe next time then!"); 
+							}									
+					}).catch(() => {
+							msg.channel.send('No reply after 10 seconds, duel is cancelled!');
+					});
 		}
-	} */
+	}
 	
 
  
