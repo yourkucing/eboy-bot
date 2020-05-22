@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const ud = require('urban-dictionary');
-const spells = require('./duel.json');
 const client = new Discord.Client();
 const prefix = "uwu ";
 const fs = require('fs');
@@ -1957,6 +1956,128 @@ else {
 		else {
 			const player1 = msg.guild.members.cache.get(msg.author.id).displayName;
 			const player2 = taggedUser.displayName;
+			var spells = [
+				{
+					xp: -10,
+					message: "Herbifors!"
+				},
+				{
+					xp: -20,
+					message: "Incendio!" 
+				},
+				{
+					xp: -10,
+					message: "Locomotor Mortis!"
+				},
+				{
+					xp: -10,
+					message: "Tarantallegra!"
+				},
+				{
+					xp: -5,
+					message: "Toe Biter!"
+				},
+				{
+					xp: -10,
+					message: "Waddiwasi!"
+				},
+				{
+					xp: -5,
+					message: "Bubble-producing Spell!"
+				},
+				{
+					xp: +20,
+					message: "Drink healing potion uwuuuuu :3"
+				},
+				{
+					xp: -10,
+					message: "Diminuendo!"
+				},
+				{
+					xp: -5,
+					message: "Babbling Curse!"
+				},
+				{
+					xp: -20,
+					message: "Engorgio Skullus!"
+				},
+				{
+					xp: -5,
+					message: "Mimble Wimble!"
+				},
+				{
+					xp: -10,
+					message: "Rictusempra!"
+				},
+				{
+					xp: -30,
+					message: "Slugulus Eructo!"
+				},
+				{
+					xp: -5,
+					message: "Christmas Decorations Spell!"
+				},
+				{
+					xp: -10,
+					message: "Ectomatic!"
+				},
+				{
+					xp: -20,
+					message: "Sardine Hex!"
+				},
+				{
+					xp: -10,
+					message: "Webbed Spell!"
+				},
+				{
+					xp: -10,
+					message: "Stretching Jinx!"
+				},
+				{
+					xp: -5,
+					message: "Cheering Charm!"
+				},
+				{
+					xp: -30,
+					message: "Glacius!"
+				},
+				{
+					xp: -10,
+					message: "Sponge-Knees!"
+				},
+				{
+					xp: -5,
+					message: "Steleus!"
+				},			
+				{
+					xp: -10,
+					message: "Calvorio!"
+				},
+				{
+					xp: -40,
+					message: "Duro!"
+				},
+				{
+					xp: -20,
+					message: "Vomitare Virids!"
+				},
+				{
+					xp: -5,
+					message: "Densaugeo!"
+				},
+				{
+					xp: -10,
+					message: "Melofors!"
+				},
+				{
+					xp: -20,
+					message: "Cornflake skin spell!"
+				},
+				{
+					xp: -10,
+					message: "Piscifors!"
+				}
+			]
 			var p1points = 0;
 			var p2points = 0;
 			msg.channel.send(`${taggedUser}, ${msg.guild.members.cache.get(msg.author.id).displayName} wants to duel you. Do you accept? (Reply yes or no.)`)
