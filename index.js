@@ -1963,9 +1963,9 @@ else {
 			msg.channel.awaitMessages(m => m.author.id == taggedUser.id,
 					{max: 1, time: 10000}).then(collected => {
 							if (collected.first().content.toLowerCase() == 'yes') {
-								p1points = 100;
-								p2points = 100;
 								msg.channel.send("Let the battle begin!");
+								return p1points = p1points + 100;
+								return p2points = p2points + 100;
 							}
 
 							else if (collected.first().content.toLowerCase() == 'no') {
