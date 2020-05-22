@@ -1957,14 +1957,9 @@ else {
 		else {
 			const player1 = msg.author;
 			const player2 = taggedUser;
-			return msg.channel.send(`${taggedUser}, ${msg.guild.members.cache.get(msg.author.id).displayName} wants to duel you. Do you accept? (Reply yes or no.)`);
-
+			msg.channel.send(`${taggedUser}, ${msg.guild.members.cache.get(msg.author.id).displayName} wants to duel you. Do you accept? (Reply yes or no.)`);
 			msg.channel.awaitMessages(m => m.author.id == taggedUser.id,
 					{max: 1, time: 10000}).then(collected => {
-							// only accept messages by the user who sent the command
-							// accept only 1 message, and return the promise after 30000ms = 30s
-
-							// first (and, in this case, only) message of the collection
 							if (collected.first().content.toLowerCase() == 'yes') {
 								msg.channel.send("Let the battle begin!");
 							}
