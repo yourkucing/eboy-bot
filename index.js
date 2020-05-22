@@ -1997,10 +1997,6 @@ else {
 										message: "Bubble-producing Spell!"
 									},
 									{
-										xp: +20,
-										message: "Drink healing potion uwuuuuu :3"
-									},
-									{
 										xp: -10,
 										message: "Diminuendo!"
 									},
@@ -2092,6 +2088,7 @@ else {
 								
 									p1points = 100;
 									p2points = 100;
+									while (p1points !== 0 || p2points !== 0) {
 										const randomOption = results[Math.floor(Math.random() * results.length)];
 										msg.channel.send(`**${player1}** casted ${randomOption.message} (∩•̀ω•́)⊃-⋆`);
 										p2points = p2points + randomOption.xp;
@@ -2100,6 +2097,7 @@ else {
 										msg.channel.send(`**${player2}** casted ${randomOption2.message} ⋆-⊂(•̀ω•́∩)`);
 										p1points = p1points + randomOption2.xp;
 										msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
+									}
 									if (p1points === 0) {
 										msg.channel.send(`**${player1}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！`);
 										msg.channel.send(`CONGRATULATIONS, ${player2}! (っ◕‿◕)っ :heart:`);
