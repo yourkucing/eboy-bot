@@ -1713,6 +1713,117 @@ else {
 		}
 	}
  } 
+ 
+
+
+ if (command === 'console') {
+	if (!msg.mentions.users.size) {
+		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+	}
+	else {
+		var gifs = [
+			'https://thumbs.gfycat.com/RemarkableUnluckyBlackpanther-small.gif',
+			'https://media.giphy.com/media/C1Fdach2R4HSg/giphy.gif',
+			'https://media1.tenor.com/images/2dc14e2010a0bc4786b36a3dfc2fab69/tenor.gif',
+			'https://media1.tenor.com/images/eb106be6f33b022bb34781e741e74db9/tenor.gif',
+			'https://media1.tenor.com/images/0fb5e945c195639dc28f761fd018605b/tenor.gif',
+			'https://media1.tenor.com/images/0c46c6ebe4e822eaa33771bc110de2f9/tenor.gif',
+			'https://i.giphy.com/rSNAVVANV5XhK.gif',
+			'https://i.imgur.com/08LC0RH.gif'
+			]
+		const taggedUser = msg.mentions.members.first();
+		if (taggedUser.id === msg.author.id) {
+			
+        var author = msg.author.id;
+        var tagged = msg.author.id;
+        
+        if(eboys.some(eboy => eboy.id === author)){
+            for (var i in eboys) {
+              if (eboys[i].id === author) {
+                if ('console' in eboys[i]) {
+                      for (var j in eboys[i].console) {
+                      	if (tagged in eboys[i].console[j]) {
+                      		eboys[i].console[j][tagged] = eboys[i].console[j][tagged] + 1;
+                     }
+                     else {
+                     	eboys[i].console[j][tagged] = 1;
+                     }
+                     }
+                }
+                else {
+                	eboys[i].console = [];
+                	eboys[i].console.push({[tagged]: 1});
+                }
+              }
+                     }
+                     }
+            else {
+            	eboys.push({ id: author, 'console': [{[tagged]: 1}] });
+            }
+            
+        for (var i in eboys) {
+          if (eboys[i].id === author) {
+            for (var j in eboys[i].console) {
+            	var drag = eboys[i].console[j][tagged];	
+            }
+          }
+        }
+
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You consoled yourself. It'll be okay, I promise.`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`${msg.guild.members.cache.get(msg.author.id).displayName} consoled themselves ${console} times.`);
+			msg.channel.send(embed);
+		}
+		else {
+			
+        var author = msg.author.id;
+        var tagged = taggedUser.id;
+        
+        if(eboys.some(eboy => eboy.id === author)){
+            for (var i in eboys) {
+              if (eboys[i].id === author) {
+                if ('console' in eboys[i]) {
+                      for (var j in eboys[i].console) {
+                      	if (tagged in eboys[i].console[j]) {
+                      		eboys[i].console[j][tagged] = eboys[i].console[j][tagged] + 1;
+                     }
+                     else {
+                     	eboys[i].console[j][tagged] = 1;
+                     }
+                     }
+                }
+                else {
+                	eboys[i].console = [];
+                	eboys[i].console.push({[tagged]: 1});
+                }
+              }
+                     }
+                     }
+            else {
+            	eboys.push({ id: author, 'console': [{[tagged]: 1}] });
+            }
+            
+        for (var i in eboys) {
+          if (eboys[i].id === author) {
+            for (var j in eboys[i].console) {
+            	var console = eboys[i].console[j][tagged];	
+            }
+          }
+        }
+
+
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} consoled **${taggedUser.displayName}**! There, there, don't be sad. We're here for you.`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`${msg.guild.members.cache.get(msg.author.id).displayName} consoled ${taggedUser.displayName} ${console} times.`);
+			msg.channel.send(embed);
+
+		}
+	}
+ } 
 
 
  
