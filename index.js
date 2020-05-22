@@ -2085,7 +2085,7 @@ else {
 				]
 					p1points = 100;
 					p2points = 100;
-					while (p1points !== 0 || p2points !== 0) {
+					while (p1points != 0 || p2points != 0) {
 						const randomOption = results[Math.floor(Math.random() * results.length)];
 						msg.channel.send(`**${player1}** casted ${randomOption.message} (∩•̀ω•́)⊃-⋆`);
 						p2points = p2points + randomOption.xp;
