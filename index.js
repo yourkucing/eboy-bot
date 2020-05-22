@@ -1959,8 +1959,9 @@ else {
 			const player2 = taggedUser.displayName;
 			var p1points = 0;
 			var p2points = 0;
-			msg.channel.send(`${taggedUser}, ${msg.guild.members.cache.get(msg.author.id).displayName} wants to duel you. Do you accept? (Reply yes or no.)`);
-			msg.channel.awaitMessages(m => m.author.id == taggedUser.id,
+			msg.channel.send(`${taggedUser}, ${msg.guild.members.cache.get(msg.author.id).displayName} wants to duel you. Do you accept? (Reply yes or no.)`)
+			.then(() => {
+				msg.channel.awaitMessages(m => m.author.id == taggedUser.id,
 					{max: 1, time: 10000}).then(collected => {
 							if (collected.first().content.toLowerCase() == 'yes') {
 								msg.channel.send("Let the battle begin!");
@@ -2120,6 +2121,7 @@ else {
 					}).catch(() => {
 							msg.channel.send('No reply after 10 seconds, duel is cancelled!');
 					});
+			});
 		}
 	}
  }
