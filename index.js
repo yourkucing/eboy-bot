@@ -6,150 +6,15 @@ const fs = require('fs');
 
 let eboys = [];
 
-function duelreply(player1, player2) {
-	var results = [
-		{
-			xp: -10,
-			message: "Herbifors!"
-		},
-		{
-			xp: -20,
-			message: "Incendio!" 
-		},
-		{
-			xp: -10,
-			message: "Locomotor Mortis!"
-		},
-		{
-			xp: -10,
-			message: "Tarantallegra!"
-		},
-		{
-			xp: -5,
-			message: "Toe Biter!"
-		},
-		{
-			xp: -10,
-			message: "Waddiwasi!"
-		},
-		{
-			xp: -5,
-			message: "Bubble-producing Spell!"
-		},
-		{
-			xp: -10,
-			message: "Diminuendo!"
-		},
-		{
-			xp: -5,
-			message: "Babbling Curse!"
-		},
-		{
-			xp: -20,
-			message: "Engorgio Skullus!"
-		},
-		{
-			xp: -5,
-			message: "Mimble Wimble!"
-		},
-		{
-			xp: -10,
-			message: "Rictusempra!"
-		},
-		{
-			xp: -30,
-			message: "Slugulus Eructo!"
-		},
-		{
-			xp: -5,
-			message: "Christmas Decorations Spell!"
-		},
-		{
-			xp: -10,
-			message: "Ectomatic!"
-		},
-		{
-			xp: -20,
-			message: "Sardine Hex!"
-		},
-		{
-			xp: -10,
-			message: "Webbed Spell!"
-		},
-		{
-			xp: -10,
-			message: "Stretching Jinx!"
-		},
-		{
-			xp: -5,
-			message: "Cheering Charm!"
-		},
-		{
-			xp: -30,
-			message: "Glacius!"
-		},
-		{
-			xp: -10,
-			message: "Sponge-Knees!"
-		},
-		{
-			xp: -5,
-			message: "Steleus!"
-		},			
-		{
-			xp: -10,
-			message: "Calvorio!"
-		},
-		{
-			xp: -40,
-			message: "Duro!"
-		},
-		{
-			xp: -20,
-			message: "Vomitare Virids!"
-		},
-		{
-			xp: -5,
-			message: "Densaugeo!"
-		},
-		{
-			xp: -10,
-			message: "Melofors!"
-		},
-		{
-			xp: -20,
-			message: "Cornflake skin spell!"
-		},
-		{
-			xp: -10,
-			message: "Piscifors!"
-		}
-	]
-		p1points = 100;
-		p2points = 100;
-		while (p1points != 0 || p2points != 0) {
-			const randomOption = results[Math.floor(Math.random() * results.length)];
-			msg.channel.send(`**${player1}** casted ${randomOption.message} (∩•̀ω•́)⊃-⋆`);
-			p2points = p2points + randomOption.xp;
-			msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
-			const randomOption2 = results[Math.floor(Math.random() * results.length)];
-			msg.channel.send(`**${player2}** casted ${randomOption2.message} ⋆-⊂(•̀ω•́∩)`);
-			p1points = p1points + randomOption2.xp;
-			msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
-		}
-		if (p1points === 0) {
-			msg.channel.send(`**${player1}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！`);
-			msg.channel.send(`CONGRATULATIONS, ${player2}! (っ◕‿◕)っ :heart:`);
-		}
-		if (p2points === 0) {
-			msg.channel.send(`**${player2}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！`);
-			msg.channel.send(`CONGRATULATIONS, ${player1}! (っ◕‿◕)っ :heart:`);
-		}
-}
-
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
  });
+ 
+client.on('guildMemberAdd', member => {
+	member.guild.channels.get('714366752489865279').send("Hey **" + member.user.username + "**, welcome to **World of Zodiac**!\n\nPlease head yourself to #elements-sorting to sort yourself into a certain house that you want to be in! And then don't forget to head yourself to #pronoun-roles as well! After that, you can go to #self-intro to introduce yourself, and have conversations with all people in this server on #stars-chat ! Just don't forget to read the rules in #rules though! It's necessary! :wink:\n\nHave fun, Stars! We hope you enjoy being in this server! :sparkles:");
+	var role = member.guild.roles.find('name', 'Star');
+	member.addRole(role)
+});
 
 client.on('message', msg => {
 	
@@ -2085,29 +1950,7 @@ else {
  }
  
 
- if (command === 'duel') {
-	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
-	}
-	else {
-		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.id !== msg.author.id) {
-			return msg.channel.send(`You can't duel yourself, ${msg.author}, unless you can split yourself into two?`);
-		}
-		else {
-			const player1 = msg.guild.members.cache.get(msg.author.id).displayName;
-			const player2 = taggedUser.displayName;
-			var p1points = 0;
-			var p2points = 0;
-			msg.channel.send(`${taggedUser}, ${msg.guild.members.cache.get(msg.author.id).displayName} wants to duel you. Do you accept? (Reply yes or no.)`);
-			if (msg.content.toLowerCase() === "yes" && msg.author.id === taggedUser.id) {
-				msg.channel.send("Let the battle begin!");
-				msg.channel.send(duelreply(player1, player2));
 
-			}
-		}
-	}
- }
 	
 
  
