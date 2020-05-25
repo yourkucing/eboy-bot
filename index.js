@@ -11,9 +11,10 @@ client.on('ready', () => {
  });
  
 client.on('guildMemberAdd', member => {
-	let welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "newborn-stars") as Discord.TextChannel;
+/* 	let welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "newborn-stars") as Discord.TextChannel;
 	welcomeChannel.send(`Hey **${member.displayName}**, welcome to **World of Zodiac**!\n\nPlease head yourself to #elements-sorting to sort yourself into a certain house that you want to be in! And then don't forget to head yourself to #pronoun-roles as well! After that, you can go to #self-intro to introduce yourself, and have conversations with all people in this server on #stars-chat ! Just don't forget to read the rules in #rules though! It's necessary! :wink:\n\nHave fun, Stars! We hope you enjoy being in this server! :sparkles:`)
-	let memberRole = member.guild.roles.cache.find(role => role.id == "714374597914656810");
+ */	
+	let role = member.guild.roles.cache.find("id", "714374597914656810");
 	member.addRole(role)
 })
 
