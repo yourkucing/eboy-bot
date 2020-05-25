@@ -9,11 +9,11 @@ let eboys = [];
 
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
- bot.user.setActivity('uwu help', { type: 'STREAMING' });
+ client.user.setActivity('uwu help', { type: 'STREAMING' });
  });
  
 client.on('guildMemberAdd', member => {
-	client.channels.cache.get("714366752489865279").send(`Hey **${member.displayName}**, welcome to **World of Zodiac**!\n\nPlease head yourself to \#elements-sorting to sort yourself into a certain house that you want to be in! And then don't forget to head yourself to #pronoun-roles as well! After that, you can go to #self-intro to introduce yourself, and have conversations with all people in this server on #stars-chat ! Just don't forget to read the rules in #rules though! It's necessary! :wink:\n\nHave fun, Stars! We hope you enjoy being in this server! :sparkles:`);
+	client.channels.cache.get("714366752489865279").send(`Hey **${member.displayName}**, welcome to **World of Zodiac**!\n\nPlease head yourself to <#714370031709978665> to sort yourself into a certain house that you want to be in! And then don't forget to head yourself to <#714370627871440956> as well! After that, you can go to <#714370677632794695> to introduce yourself, and have conversations with all people in this server on <#714367141620744244> ! Just don't forget to read the rules in <#714372663841259572> though! It's necessary! :wink:\n\nHave fun, Stars! We hope you enjoy being in this server! :sparkles:`);
 	member.roles.add(member.guild.roles.cache.find(x => x.id == "714374597914656810"), "");
 })
 
