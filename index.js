@@ -49,6 +49,22 @@ if (msg.author.bot) return
 	 }
  }
  
+ if (msg.content.toLowerCase() === 'i love you' || msg.content.toLowerCase() === 'i love you maryam dinzly' || msg.content.toLowerCase() === 'i love you, maryam havich' || msg.content.toLowerCase() === 'i love you, maryam dinzly') {
+	 if (msg.author.bot) return;
+	 else {
+		 msg.channel.send('Maryam loves you too, ' + msg.author.toString() +' uwu! :heart:');
+		 if (msg.author.id == "630803907181936641" || msg.author.id == "279101053750870017") {
+			message.author.send("roman", {files: ["https://i.ibb.co/qd6H1Gy/romanlist.png"]});
+		 }
+		 if (msg.author.id == "339046861409091586") {
+			message.author.send("cedric");
+		 }
+		 if (msg.author.id == "619781173245116426") {
+			message.author.send("isla");
+		 }
+	 }
+ }
+ 
 var message = msg.content.toLowerCase()
 
  if (message.includes('hi eboy uwu')) {
@@ -88,22 +104,6 @@ const command = args.shift().toLowerCase();
 		 msg.content
 	 }
  } */
- 
- if (msg.content.toLowerCase() === 'i love you' || msg.content.toLowerCase() === 'i love you maryam dinzly' || msg.content.toLowerCase() === 'i love you, maryam havich' || msg.content.toLowerCase() === 'i love you, maryam dinzly') {
-	 if (msg.author.bot) return;
-	 else {
-		 msg.channel.send('Maryam loves you too, ' + msg.author.toString() +' uwu! :heart:');
-		 if (msg.author.id == "630803907181936641" || msg.author.id == "279101053750870017") {
-			message.author.send("roman", {files: ["https://i.ibb.co/qd6H1Gy/romanlist.png"]});
-		 }
-		 if (msg.author.id == "339046861409091586") {
-			message.author.send("cedric");
-		 }
-		 if (msg.author.id == "619781173245116426") {
-			message.author.send("isla");
-		 }
-	 }
- }
 
  if (command === 'uwu') {
 	const words = args.join(' ');
