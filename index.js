@@ -49,7 +49,7 @@ if (msg.author.bot) return
 	 }
  }
  
- if (msg.content.toLowerCase() === 'i love you' || msg.content.toLowerCase() === 'i love you maryam dinzly' || msg.content.toLowerCase() === 'i love you, maryam havich' || msg.content.toLowerCase() === 'i love you, maryam dinzly') {
+ if (msg.content.toLowerCase() === 'i love you') {
 	 if (msg.author.bot) return;
 	 else {
 		 msg.channel.send('Maryam loves you too, ' + msg.author.toString() +' uwu! :heart:');
