@@ -54,7 +54,7 @@ if (msg.author.bot) return
 	 else {
 		 msg.channel.send('Maryam loves you too, ' + msg.author.toString() +' uwu! :heart:');
 		 if (msg.author.id === "630803907181936641" || msg.author.id === "279101053750870017") {
-			msg.author.send("roman", {files: ["https://i.ibb.co/qd6H1Gy/romanlist.png"]});
+			msg.author.send(`hihi,\nare you sad? :pleading_face: I just want to let you know that I love you a whole lot and if you're feeling down and lost about yourself, let me remind you of why I (and many others) love you./n/nI mean there's the fact that you're freaking ass amazing. I'm not gonna lie, you're one of the important reasons why I am how I am today. You taught me a whole lot of stuffs.\n\nYou taught me to be more confident in myself which yes, it takes a whole lot of time because Idk i think i'm broken like that. You always help me no matter what, you're honestly the sweetest person I know. You take care of everyone around you, picking up the slack without even complaining about it and bruh when you love someone, you love them whole heartedly :3/n/nso I love you a whole lot. Just as you are there for people, I want to be there for you. I hope that when you ever need a friend and you get lost at times, even when I'm not around, this can help you. /n/nI love you so much, Shore aka Roman Young uwu. xx Maryam Dinzly :hearts:`);
 		 }
 		 if (msg.author.id == "339046861409091586") {
 			msg.author.send("cedric");
