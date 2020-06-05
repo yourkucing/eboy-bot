@@ -28,7 +28,7 @@ if (msg.author.bot) return
 	 }
  }
  
- if (message.includes('why are you called eboy')) {
+ if (msg.includes('why are you called eboy')) {
  msg.channel.send('hi ' + msg.author.toString() +' uwu! I am named after Jackolantern! He is the bestest eboy uwu.');
  }
 
