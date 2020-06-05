@@ -132,7 +132,7 @@ const command = args.shift().toLowerCase();
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
 
- if (message.includes('hey eboy, help me out here.')) {
+ if (msg.includes('hey eboy, help me out here.')) {
 	if (!msg.mentions.users.size) {
 		return msg.channel.send(`Who needs it, ${msg.author}? You gotta give me a name.`);
 	}
