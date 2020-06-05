@@ -108,6 +108,16 @@ var message = msg.content.toLowerCase()
 			msg.channel.send(`Goodnight uwu! Sleep well!`);
 		 }
  }
+ 
+ if (msg.content.toLowerCase().includes('eboy, help me out here')) {
+	if (!msg.mentions.users.size) {
+		return msg.channel.send(`Who needs it, ${msg.author}? You gotta give me a name.`);
+	}
+	else {
+		const taggedUser = msg.mentions.members.first();
+		msg.channel.send(`hey ${ taggedUser }, ${msg.guild.members.cache.get(msg.author.id).displayName} loves you a whole lot so you'd better not forget that.`);
+	}
+ }
 
 if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 const args = msg.content.slice(prefix.length).split(' ');
@@ -131,16 +141,6 @@ const command = args.shift().toLowerCase();
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
-
- if (msg.content.toLowerCase().includes('hey eboy, help me out here.')) {
-	if (!msg.mentions.users.size) {
-		return msg.channel.send(`Who needs it, ${msg.author}? You gotta give me a name.`);
-	}
-	else {
-		const taggedUser = msg.mentions.members.first();
-		msg.channel.send(`hey ${ taggedUser }, ${msg.guild.members.cache.get(msg.author.id).displayName} loves you a whole lot so you'd better not forget that.`);
-	}
- }
 
  if (command === 'defenestrate') {
 	if (!msg.mentions.users.size) {
