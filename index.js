@@ -28,7 +28,7 @@ if (msg.author.bot) return
 	 }
  }
  
- if (msg.includes('why are you called eboy')) {
+ if (msg.content.toLowerCase().includes('why are you called eboy')) {
  msg.channel.send('hi ' + msg.author.toString() +' uwu! I am named after Jackolantern! He is the bestest eboy uwu.');
  }
 
@@ -132,7 +132,7 @@ const command = args.shift().toLowerCase();
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
 
- if (msg.includes('hey eboy, help me out here.')) {
+ if (msg.content.toLowerCase().includes('hey eboy, help me out here.')) {
 	if (!msg.mentions.users.size) {
 		return msg.channel.send(`Who needs it, ${msg.author}? You gotta give me a name.`);
 	}
