@@ -34,6 +34,10 @@ if (msg.author.bot) return
  if (msg.content.toLowerCase().includes('why are you called eboy')) {
  msg.channel.send('hi ' + msg.author.toString() +' uwu! I am named after Jackolantern! He is the bestest eboy uwu.');
  }
+ 
+ if (msg.content.toLowerCase().includes('eboy, who built you?')) {
+ msg.channel.send('hi ' + msg.author.toString() +' uwu! Maryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her :heart:');
+ }
 
  
  if (msg.content.toLowerCase() === 'uwu') {
@@ -580,13 +584,125 @@ else {
 }
  }
  
+ if (command === 'smooch') {
+if (!msg.channel.nsfw) {
+	return msg.channel.send(`Go to the NSFW channel, ${msg.author}!`);
+}
+else {
+	if (!msg.mentions.users.size) {
+		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+	}
+	else {
+		var gifs = [
+			'https://media.discordapp.net/attachments/671388130712223815/718507721158164690/200.gif',
+			'https://media.giphy.com/media/of7ly2wRNo6Kk/giphy.gif',
+			'https://media.giphy.com/media/1g1cnnIbR3JkdUJR5A/giphy.gif',
+			'https://media1.tenor.com/images/3e93b32d896a23365b727c8ec8576163/tenor.gif',
+			'https://i.gifer.com/Pag6.gif',
+			'https://media1.tenor.com/images/6b9d2a780070deaa6168930bfdae64f2/tenor.gif',
+			'https://i.pinimg.com/originals/5c/9e/bf/5c9ebf04775941600df653b60cd03041.gif',
+			'https://media0.giphy.com/media/11JwraRupZNJSg/giphy.gif',
+			'https://media.giphy.com/media/SRbVg86icBP9K/200.gif'
+			]
+		const taggedUser = msg.mentions.members.first();
+		if (taggedUser.id === msg.author.id) {
+			
+        var author = msg.author.id;
+        var tagged = msg.author.id;
+        
+        if(eboys.some(eboy => eboy.id === author)){
+            for (var i in eboys) {
+              if (eboys[i].id === author) {
+                if ('smooch' in eboys[i]) {
+                      for (var j in eboys[i].smooch) {
+                      	if (tagged in eboys[i].smooch[j]) {
+                      		eboys[i].smooch[j][tagged] = eboys[i].smooch[j][tagged] + 1;
+                     }
+                     else {
+                     	eboys[i].smooch[j][tagged] = 1;
+                     }
+                     }
+                }
+                else {
+                	eboys[i].smooch = [];
+                	eboys[i].smooch.push({[tagged]: 1});
+                }
+              }
+                     }
+                     }
+            else {
+            	eboys.push({ id: author, 'smooch': [{[tagged]: 1}] });
+            }
+            
+        for (var i in eboys) {
+          if (eboys[i].id === author) {
+            for (var j in eboys[i].smooch) {
+            	var smooch = eboys[i].smooch[j][tagged];	
+            }
+          }
+        }
+			
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`I can't believe you just french kissed yourself, hot damn.`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`That was some... wew, damn.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} smooched themselves ${smooch} times.`);
+			msg.channel.send(embed);
+		}
+		else {
+			
+        var author = msg.author.id;
+        var tagged = taggedUser.id;
+        
+        if(eboys.some(eboy => eboy.id === author)){
+            for (var i in eboys) {
+              if (eboys[i].id === author) {
+                if ('smooch' in eboys[i]) {
+                      for (var j in eboys[i].smooch) {
+                      	if (tagged in eboys[i].smooch[j]) {
+                      		eboys[i].smooch[j][tagged] = eboys[i].smooch[j][tagged] + 1;
+                     }
+                     else {
+                     	eboys[i].smooch[j][tagged] = 1;
+                     }
+                     }
+                }
+                else {
+                	eboys[i].smooch = [];
+                	eboys[i].smooch.push({[tagged]: 1});
+                }
+              }
+                     }
+                     }
+            else {
+            	eboys.push({ id: author, 'smooch': [{[tagged]: 1}] });
+            }
+            
+        for (var i in eboys) {
+          if (eboys[i].id === author) {
+            for (var j in eboys[i].smooch) {
+            	var smooch = eboys[i].smooch[j][tagged];	
+            }
+          }
+        }
+			
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You smooched **${taggedUser.displayName}**. Is it me or it's getting hot in here?`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Get a room, both of you smh!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} smooched ${taggedUser.displayName} ${smooch} times.`);
+			msg.channel.send(embed);
+		}
+	}
+}
+ }
+ 
  if (command === 'kiss') {
 	if (!msg.mentions.users.size) {
 		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
 	}
 	else {
 		var gifs = [
-			'https://media.giphy.com/media/SRbVg86icBP9K/200.gif',
 			'https://media1.tenor.com/images/78095c007974aceb72b91aeb7ee54a71/tenor.gif',
 			'https://24.media.tumblr.com/5d51b3bbd64ccf1627dc87157a38e59f/tumblr_n5rfnvvj7H1t62gxao1_500.gif',
 			'https://media.giphy.com/media/JYpVJEcNrDAWc/giphy.gif',
@@ -595,7 +711,8 @@ else {
 			'https://66.media.tumblr.com/60c27235f6440d9d6ebd8168bb75c384/tumblr_nxd3nn8iJ81rcikyeo1_500.gif',
 			'https://media1.tenor.com/images/6bd9c3ba3c06556935a452f0a3679ccf/tenor.gif',
 			'https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif',
-			'https://78.media.tumblr.com/44716773d1a091d4b84efbae296ab062/tumblr_or61zhEUtM1skak2ao1_500.gif'
+			'https://78.media.tumblr.com/44716773d1a091d4b84efbae296ab062/tumblr_or61zhEUtM1skak2ao1_500.gif',
+			'https://49.media.tumblr.com/ac7e6f5ee22260439ceb89b67d57b6cb/tumblr_mwwkjpb5rh1src1c6o1_500.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
@@ -684,6 +801,115 @@ else {
 		.setDescription(`You kissed **${taggedUser.displayName}**! AwA, so cute!`)
 		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 		.setFooter(`Such cuteness uwu!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} kissed ${taggedUser.displayName} ${kiss} times.`);
+		msg.channel.send(embed);
+		}
+	}
+ }
+ 
+ if (command === 'peck') {
+	if (!msg.mentions.users.size) {
+		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+	}
+	else {
+		var gifs = [
+			'https://media1.tenor.com/images/ea51c3a083c73bf81a3c5ee6d4165115/tenor.gif',
+			'https://i.pinimg.com/originals/32/d4/f0/32d4f0642ebb373e3eb072b2b91e6064.gif',
+			'https://media.tenor.com/images/de18124ebe36764446ee2dbf54a672bf/tenor.gif',
+			'https://thumbs.gfycat.com/PopularHideousAcornweevil-size_restricted.gif',
+			'https://thumbs.gfycat.com/FatalHarmfulCormorant-size_restricted.gif',
+			'https://media.tenor.com/images/48ddb8f9bd0580697882ae5e0d70b080/tenor.gif',
+			'https://cutewallpaper.org/21/anime-kiss-on-the-cheek/Anime-Kiss-On-The-Cheek-Gif.gif',
+			'https://media.tenor.com/images/2346a83cb600c3a8feb4000d515b7c0c/tenor.gif',
+			'https://media.tenor.com/images/dc8e3ebf72fa8fd34523aa8d99a72ad4/tenor.gif',
+			''
+			]
+		const taggedUser = msg.mentions.members.first();
+		if (taggedUser.id === msg.author.id) {
+			
+        var author = msg.author.id;
+        var tagged = msg.author.id;
+        
+        if(eboys.some(eboy => eboy.id === author)){
+            for (var i in eboys) {
+              if (eboys[i].id === author) {
+                if ('peck' in eboys[i]) {
+                      for (var j in eboys[i].peck) {
+                      	if (tagged in eboys[i].peck[j]) {
+                      		eboys[i].peck[j][tagged] = eboys[i].peck[j][tagged] + 1;
+                     }
+                     else {
+                     	eboys[i].peck[j][tagged] = 1;
+                     }
+                     }
+                }
+                else {
+                	eboys[i].peck = [];
+                	eboys[i].peck.push({[tagged]: 1});
+                }
+              }
+                     }
+                     }
+            else {
+            	eboys.push({ id: author, 'peck': [{[tagged]: 1}] });
+            }
+            
+        for (var i in eboys) {
+          if (eboys[i].id === author) {
+            for (var j in eboys[i].peck) {
+            	var peck = eboys[i].peck[j][tagged];	
+            }
+          }
+        }
+			
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setDescription(`You pecked your own cheek, how even?`)
+		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+		.setFooter(`${msg.guild.members.cache.get(msg.author.id).displayName} pecked their own cheeks ${peck} times.`);
+		msg.channel.send(embed);
+		}
+		else {
+			
+        var author = msg.author.id;
+        var tagged = taggedUser.id;
+        
+        if(eboys.some(eboy => eboy.id === author)){
+            for (var i in eboys) {
+              if (eboys[i].id === author) {
+                if ('peck' in eboys[i]) {
+                      for (var j in eboys[i].peck) {
+                      	if (tagged in eboys[i].peck[j]) {
+                      		eboys[i].peck[j][tagged] = eboys[i].peck[j][tagged] + 1;
+                     }
+                     else {
+                     	eboys[i].peck[j][tagged] = 1;
+                     }
+                     }
+                }
+                else {
+                	eboys[i].peck = [];
+                	eboys[i].peck.push({[tagged]: 1});
+                }
+              }
+                     }
+                     }
+            else {
+            	eboys.push({ id: author, 'peck': [{[tagged]: 1}] });
+            }
+            
+        for (var i in eboys) {
+          if (eboys[i].id === author) {
+            for (var j in eboys[i].peck) {
+            	var peck = eboys[i].peck[j][tagged];	
+            }
+          }
+        }
+			
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setDescription(`You pecked **${taggedUser.displayName}'s** cheeks!`)
+		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+		.setFooter(`Such cuteness uwu!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} pecked ${taggedUser.displayName}'s cheeks ${peck} times.`);
 		msg.channel.send(embed);
 		}
 	}
@@ -2362,8 +2588,11 @@ if (command === 'search') {
 		.setDescription('Thank you for using Eboy bot uwu! (∩•̀ω•́)⊃-⋆')
 		.addFields(
 		{ name: 'main commands', value: 'uwu\r\nowo\r\nawa\r\nòwó\r\nhi eboy uwu\r\ncan i get a yee claw\r\nuwu uwu <words to uwuify>\r\nuwu search <word to search>' },
-		{ name: 'uwu <commands> @<username>', value: 'boop\r\ndrag\r\ndefenestrate\r\nfuck\r\nhug\r\nkick\r\nkill\r\nkiss\r\npatpat\r\npunch\r\nslap\r\nsnuggle\r\ntonk\r\nuntonk\r\nyeet' },
+		{ name: 'information about eboy (type in the following)', value: 'why are you called eboy?\r\neboy, who built you?' },
+		{ name: 'uwu <commands> @<username>', value: 'boop\r\nconsole\r\ndrag\r\ndefenestrate\r\nhug\r\nkick\r\nkill\r\nkiss\r\nlove\r\npatpat\r\npeck (aka peck on the cheeks)\r\npunch\r\nslap\r\nsnuggle\r\ntonk\r\nuntonk\r\nyeet' },
 		{ name: 'uwu <commands>', value: 'angry\r\ncry\r\ncelly\r\ndance\r\neat\r\nscream\r\ntantrum' },
+		{ name: 'uwu <commands> @<username> ONLY ALLOWED IN NSFW CHANNELS (also there are gay stuffs, so if you're not comfortable with it, don't use it.)', value: 'smooch (aka french kiss/steamy kiss)\r\nfuck' },
+		{ name: 'special commands', value: 'to cheer someone up and tell them that you love them:\r\n"eboy, help me out here @<username>"\r\nto kick someone out of the server: uwu byebye @<username>' },
 		)
 		.setFooter(`Created by Maryam#9206`);
 		msg.channel.send(embed);
