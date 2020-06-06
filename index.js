@@ -2591,7 +2591,7 @@ if (command === 'search') {
 		{ name: 'information about eboy (type in the following)', value: 'why are you called eboy?\r\neboy, who built you?' },
 		{ name: 'uwu <commands> @<username>', value: 'boop\r\nconsole\r\ndrag\r\ndefenestrate\r\nhug\r\nkick\r\nkill\r\nkiss\r\nlove\r\npatpat\r\npeck (aka peck on the cheeks)\r\npunch\r\nslap\r\nsnuggle\r\ntonk\r\nuntonk\r\nyeet' },
 		{ name: 'uwu <commands>', value: 'angry\r\ncry\r\ncelly\r\ndance\r\neat\r\nscream\r\ntantrum' },
-		{ name: 'uwu <commands> @<username> ONLY ALLOWED IN NSFW CHANNELS (also there are gay stuffs, so if you're not comfortable with it, don't use it.)', value: 'smooch (aka french kiss/steamy kiss)\r\nfuck' },
+		{ name: 'uwu <commands> @<username> ONLY ALLOWED IN NSFW CHANNELS (also there are gay stuffs, so if youre not comfortable with it, dont use it.)', value: 'smooch (aka french kiss/steamy kiss)\r\nfuck' },
 		{ name: 'special commands', value: 'to cheer someone up and tell them that you love them:\r\n"eboy, help me out here @<username>"\r\nto kick someone out of the server: uwu byebye @<username>' },
 		)
 		.setFooter(`Created by Maryam#9206`);
