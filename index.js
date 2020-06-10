@@ -10,6 +10,7 @@ let eboys = [];
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
  client.user.setActivity('uwu help', { type: 'STREAMING' });
+ client.guilds.cache.get("719493245960454194").send(`**New updates:**\n\ntook out counts because it disappears after every updates\nadded new kill gifs\ntook out some weird hug gifs\n\nThat's it for now because it's 1:30am and Maryam is tired uwu.`);
  });
  
 client.on('guildMemberAdd', member => {
@@ -38,7 +39,6 @@ if (msg.author.bot) return
  if (msg.content.toLowerCase().includes('eboy, who built you?')) {
  msg.channel.send('hi ' + msg.author.toString() +' uwu! Maryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her :heart:');
  }
-
  
  if (msg.content.toLowerCase() === 'uwu') {
 	 if (msg.author.bot) return;
@@ -130,18 +130,6 @@ if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 const args = msg.content.slice(prefix.length).split(' ');
 const command = args.shift().toLowerCase();
 
-/*  if (command === 'setwelcome') {
-	 let channel = msg.mentions.channels.first()
-	 if(!channel) {
-		 return msg.channel.send("Please include the welcome channel that you want to configure (eg. uwu setwelcome #dumdum)");
-	 }
-	 else {
-		 db.set(`welchannel_${msg.guild.id}`, channel.id)
-		 msg.channel.send(`Please reply with your welcome message like this: "welcome message"`)
-		 msg.content
-	 }
- } */
-
  if (command === 'uwu') {
 	const words = args.join(' ');
 	msg.channel.send(words.replace(/r/g,'w').replace(/s/g,'sh').replace(/l/g,'w').replace(/R/g,'W').replace(/S/g,'Sh').replace(/L/g,'W') + ' uwu');
@@ -154,94 +142,27 @@ const command = args.shift().toLowerCase();
 		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
 	}
 	else {
-		var gifs = ['https://thumbs.gfycat.com/MistyDelectableKouprey-size_restricted.gif', 'https://i.pinimg.com/originals/51/58/88/515888d6d7fadfd3dd0fa312ca287a34.gif']
+		var gifs = [
+		'https://thumbs.gfycat.com/MistyDelectableKouprey-size_restricted.gif',
+		'https://i.pinimg.com/originals/51/58/88/515888d6d7fadfd3dd0fa312ca287a34.gif'
+		]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('defenestrate' in eboys[i]) {
-                      for (var j in eboys[i].defenestrate) {
-                      	if (tagged in eboys[i].defenestrate[j]) {
-                      		eboys[i].defenestrate[j][tagged] = eboys[i].defenestrate[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].defenestrate[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].defenestrate = [];
-                	eboys[i].defenestrate.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'defenestrate': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].defenestrate) {
-            	var defenestrate = eboys[i].defenestrate[j][tagged];	
-            }
-          }
-        }
 			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You defenestrated yourself!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${taggedUser.displayName}!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} defenestrated themselves ${defenestrate} times.`);
+			.setFooter(`Yikes, byebye ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('defenestrate' in eboys[i]) {
-                      for (var j in eboys[i].defenestrate) {
-                      	if (tagged in eboys[i].defenestrate[j]) {
-                      		eboys[i].defenestrate[j][tagged] = eboys[i].defenestrate[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].defenestrate[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].defenestrate = [];
-                	eboys[i].defenestrate.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'defenestrate': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].defenestrate) {
-            	var defenestrate = eboys[i].defenestrate[j][tagged];	
-            }
-          }
-        }
 			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You defenestrated **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${taggedUser.displayName}!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} defenestrated ${taggedUser.displayName} ${defenestrate} times.`);
+			.setFooter(`Yikes, byebye ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
 		}
 	}
@@ -261,91 +182,19 @@ const command = args.shift().toLowerCase();
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('yeet' in eboys[i]) {
-                      for (var j in eboys[i].yeet) {
-                      	if (tagged in eboys[i].yeet[j]) {
-                      		eboys[i].yeet[j][tagged] = eboys[i].yeet[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].yeet[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].yeet = [];
-                	eboys[i].yeet.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'yeet': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].yeet) {
-            	var yeet = eboys[i].yeet[j][tagged];	
-            }
-          }
-        }
-			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You yeeted yourself!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${taggedUser.displayName}!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} yeeted themselves ${yeet} times.`);
+			.setFooter(`Yikes, byebye ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
 		}
-		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('yeet' in eboys[i]) {
-                      for (var j in eboys[i].yeet) {
-                      	if (tagged in eboys[i].yeet[j]) {
-                      		eboys[i].yeet[j][tagged] = eboys[i].yeet[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].yeet[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].yeet = [];
-                	eboys[i].yeet.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'yeet': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].yeet) {
-            	var yeet = eboys[i].yeet[j][tagged];	
-            }
-          }
-        }
-			
+		else {	
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You yeeted **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${taggedUser.displayName}!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} yeeted ${taggedUser.displayName} ${yeet} times.`);
+			.setFooter(`Yikes, byebye ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
 		}
 	}
@@ -383,92 +232,20 @@ const command = args.shift().toLowerCase();
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('slap' in eboys[i]) {
-                      for (var j in eboys[i].slap) {
-                      	if (tagged in eboys[i].slap[j]) {
-                      		eboys[i].slap[j][tagged] = eboys[i].slap[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].slap[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].slap = [];
-                	eboys[i].slap.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'slap': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].slap) {
-            	var slap = eboys[i].slap[j][tagged];	
-            }
-          }
-        }
-			
-		const embed = new Discord.MessageEmbed()
-		.setColor('#FF69B4')
-		.setDescription(`You slapped yourself!`)
-		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-		.setFooter(`Oof, do I see a handprint mark on your face, ${taggedUser.username}?\r\n${msg.guild.members.cache.get(msg.author.id).displayName} slapped themselves ${slap} times.`);
-		msg.channel.send(embed);
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You slapped yourself!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Oof, do I see a handprint mark on your face, ${taggedUser.username}?`);
+			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('slap' in eboys[i]) {
-                      for (var j in eboys[i].slap) {
-                      	if (tagged in eboys[i].slap[j]) {
-                      		eboys[i].slap[j][tagged] = eboys[i].slap[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].slap[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].slap = [];
-                	eboys[i].slap.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'slap': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].slap) {
-            	var slap = eboys[i].slap[j][tagged];	
-            }
-          }
-        }
-
-		const embed = new Discord.MessageEmbed()
-		.setColor('#FF69B4')
-		.setDescription(`You slapped **${taggedUser.displayName}**!`)
-		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-		.setFooter(`Oof, do I see a handprint mark on your face, ${taggedUser.displayName}?\r\n${msg.guild.members.cache.get(msg.author.id).displayName} slapped ${taggedUser.displayName} ${slap} times.`);
-		msg.channel.send(embed);
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You slapped **${taggedUser.displayName}**!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Oof, do I see a handprint mark on your face, ${taggedUser.displayName}?`);
+			msg.channel.send(embed);
 		}
 	}
  }
@@ -493,91 +270,19 @@ else {
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('fuck' in eboys[i]) {
-                      for (var j in eboys[i].fuck) {
-                      	if (tagged in eboys[i].fuck[j]) {
-                      		eboys[i].fuck[j][tagged] = eboys[i].fuck[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].fuck[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].fuck = [];
-                	eboys[i].fuck.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'fuck': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].fuck) {
-            	var fuck = eboys[i].fuck[j][tagged];	
-            }
-          }
-        }
-			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`So you're gonna do yourself? That's cool.`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Maybe you need some cold shower yeah?\r\n${msg.guild.members.cache.get(msg.author.id).displayName} fucked themselves ${fuck} times.`);
+			.setFooter(`Maybe you need some cold shower yeah?`);
 			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('fuck' in eboys[i]) {
-                      for (var j in eboys[i].fuck) {
-                      	if (tagged in eboys[i].fuck[j]) {
-                      		eboys[i].fuck[j][tagged] = eboys[i].fuck[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].fuck[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].fuck = [];
-                	eboys[i].fuck.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'fuck': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].fuck) {
-            	var fuck = eboys[i].fuck[j][tagged];	
-            }
-          }
-        }
-			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You- Well.... You want to do **${taggedUser.displayName}**?`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Get a room, both of you smh!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} fucked ${taggedUser.displayName} ${fuck} times.`);
+			.setFooter(`Get a room, both of you smh!`);
 			msg.channel.send(embed);
 		}
 	}
@@ -605,43 +310,7 @@ else {
 			'https://media.giphy.com/media/SRbVg86icBP9K/200.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('smooch' in eboys[i]) {
-                      for (var j in eboys[i].smooch) {
-                      	if (tagged in eboys[i].smooch[j]) {
-                      		eboys[i].smooch[j][tagged] = eboys[i].smooch[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].smooch[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].smooch = [];
-                	eboys[i].smooch.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'smooch': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].smooch) {
-            	var smooch = eboys[i].smooch[j][tagged];	
-            }
-          }
-        }
-			
+		if (taggedUser.id === msg.author.id) {			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`I can't believe you just french kissed yourself, hot damn.`)
@@ -650,47 +319,11 @@ else {
 			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('smooch' in eboys[i]) {
-                      for (var j in eboys[i].smooch) {
-                      	if (tagged in eboys[i].smooch[j]) {
-                      		eboys[i].smooch[j][tagged] = eboys[i].smooch[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].smooch[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].smooch = [];
-                	eboys[i].smooch.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'smooch': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].smooch) {
-            	var smooch = eboys[i].smooch[j][tagged];	
-            }
-          }
-        }
-			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You smooched **${taggedUser.displayName}**. Is it me or it's getting hot in here?`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Get a room, both of you smh!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} smooched ${taggedUser.displayName} ${smooch} times.`);
+			.setFooter(`Get a room, both of you smh!`);
 			msg.channel.send(embed);
 		}
 	}
@@ -715,92 +348,20 @@ else {
 			'https://49.media.tumblr.com/ac7e6f5ee22260439ceb89b67d57b6cb/tumblr_mwwkjpb5rh1src1c6o1_500.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('kiss' in eboys[i]) {
-                      for (var j in eboys[i].kiss) {
-                      	if (tagged in eboys[i].kiss[j]) {
-                      		eboys[i].kiss[j][tagged] = eboys[i].kiss[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].kiss[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].kiss = [];
-                	eboys[i].kiss.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'kiss': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].kiss) {
-            	var kiss = eboys[i].kiss[j][tagged];	
-            }
-          }
-        }
-			
+		if (taggedUser.id === msg.author.id) {		
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
 		.setDescription(`You kissed yourself! AwA, so cute!`)
 		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-		.setFooter(`Such cuteness uwu!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} kissed themselves ${kiss} times.`);
+		.setFooter(`Such cuteness uwu!`);
 		msg.channel.send(embed);
 		}
-		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('kiss' in eboys[i]) {
-                      for (var j in eboys[i].kiss) {
-                      	if (tagged in eboys[i].kiss[j]) {
-                      		eboys[i].kiss[j][tagged] = eboys[i].kiss[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].kiss[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].kiss = [];
-                	eboys[i].kiss.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'kiss': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].kiss) {
-            	var kiss = eboys[i].kiss[j][tagged];	
-            }
-          }
-        }
-			
+		else {			
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
 		.setDescription(`You kissed **${taggedUser.displayName}**! AwA, so cute!`)
 		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-		.setFooter(`Such cuteness uwu!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} kissed ${taggedUser.displayName} ${kiss} times.`);
+		.setFooter(`Such cuteness uwu!`);
 		msg.channel.send(embed);
 		}
 	}
@@ -824,93 +385,21 @@ else {
 			''
 			]
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('peck' in eboys[i]) {
-                      for (var j in eboys[i].peck) {
-                      	if (tagged in eboys[i].peck[j]) {
-                      		eboys[i].peck[j][tagged] = eboys[i].peck[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].peck[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].peck = [];
-                	eboys[i].peck.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'peck': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].peck) {
-            	var peck = eboys[i].peck[j][tagged];	
-            }
-          }
-        }
-			
-		const embed = new Discord.MessageEmbed()
-		.setColor('#FF69B4')
-		.setDescription(`You pecked your own cheek, how even?`)
-		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-		.setFooter(`${msg.guild.members.cache.get(msg.author.id).displayName} pecked their own cheeks ${peck} times.`);
-		msg.channel.send(embed);
+		if (taggedUser.id === msg.author.id) {			
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You pecked your own cheek, how even?`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Cheeksies uwu :3`);
+			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('peck' in eboys[i]) {
-                      for (var j in eboys[i].peck) {
-                      	if (tagged in eboys[i].peck[j]) {
-                      		eboys[i].peck[j][tagged] = eboys[i].peck[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].peck[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].peck = [];
-                	eboys[i].peck.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'peck': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].peck) {
-            	var peck = eboys[i].peck[j][tagged];	
-            }
-          }
-        }
-			
-		const embed = new Discord.MessageEmbed()
-		.setColor('#FF69B4')
-		.setDescription(`You pecked **${taggedUser.displayName}'s** cheeks!`)
-		.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-		.setFooter(`Such cuteness uwu!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} pecked ${taggedUser.displayName}'s cheeks ${peck} times.`);
-		msg.channel.send(embed);
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You pecked **${taggedUser.displayName}'s** cheeks!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Such cuteness uwu!`);
+			msg.channel.send(embed);
 		}
 	}
  }
@@ -934,91 +423,19 @@ else {
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('kick' in eboys[i]) {
-                      for (var j in eboys[i].kick) {
-                      	if (tagged in eboys[i].kick[j]) {
-                      		eboys[i].kick[j][tagged] = eboys[i].kick[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].kick[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].kick = [];
-                	eboys[i].kick.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'kick': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].kick) {
-            	var kick = eboys[i].kick[j][tagged];	
-            }
-          }
-        }
-			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You kicked yourself! How even?!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Are you okay, ${taggedUser.displayName}?\r\n${msg.guild.members.cache.get(msg.author.id).displayName} kicked themselves ${kick} times.`);
+			.setFooter(`Are you okay, ${taggedUser.displayName}?`);
 			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('kick' in eboys[i]) {
-                      for (var j in eboys[i].kick) {
-                      	if (tagged in eboys[i].kick[j]) {
-                      		eboys[i].kick[j][tagged] = eboys[i].kick[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].kick[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].kick = [];
-                	eboys[i].kick.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'kick': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].kick) {
-            	var kick = eboys[i].kick[j][tagged];	
-            }
-          }
-        }
-			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You kicked **${taggedUser.displayName}**! Ouch!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Are you okay, ${taggedUser.displayName}?\r\n${msg.guild.members.cache.get(msg.author.id).displayName} kicked ${taggedUser.displayName} ${kick} times.`);
+			.setFooter(`Are you okay, ${taggedUser.displayName}?`);
 			msg.channel.send(embed);			
 		}
 	}
@@ -1039,108 +456,32 @@ else {
 			'https://gifimage.net/wp-content/uploads/2017/01/Anime-hug-GIF-Image-Download-27.gif',
 			'https://gifimage.net/wp-content/uploads/2017/01/Anime-hug-GIF-Image-Download-7.gif',
 			'https://24.media.tumblr.com/3bd5d901c51689fae2a6b95531ed6bef/tumblr_mwqg8a1CQz1rwzq4jo1_500.gif',
-			'https://thumbs.gfycat.com/GeneralSlimAntarcticfurseal-size_restricted.gif',
 			'https://pa1.narvii.com/6275/8588579649e49bac663309fed7a792daacd2b82b_hq.gif',
 			'https://cdn.lowgif.com/medium/d26c65f2d66be540-merriberri-graphic-arts-services-requests.gif',
-			'https://media.tenor.com/images/839e9bd5061468374983868ea8369671/tenor.gif',
 			'https://i.gifer.com/GaYY.gif',
 			'https://66.media.tumblr.com/85d8161c57f92c9b50590d7605b34e4e/tumblr_inline_pq885e8o7T1v8hwtj_540.gif',
-			'https://gifdownload.net/wp-content/uploads/2019/01/anime-girl-tackle-hug-gif-4.gif',
 			'https://media1.giphy.com/media/117o9BJASzmLNC/giphy.gif',
 			'https://i.gifer.com/RhzY.gif',
 			'https://i.pinimg.com/originals/c2/2f/b9/c22fb9595eda0368856778a9a97483a8.gif',
 			'https://gifimage.net/wp-content/uploads/2017/11/flying-tackle-hug-gif-7.gif',
-			'https://images-ext-1.discordapp.net/external/wik3p3tqmh0YzWWYf8bOFVcRxehmF9K3OMwQeOxbIlY/https/media.discordyui.net/reactions/hug/fP0FnXi.gif',
 			'https://i.pinimg.com/originals/a8/f0/4d/a8f04d7bc4d67745a670e079130dfb54.gif',
 			'https://media.tenor.com/images/f1dc8d4a16e2de3b22ff3aa25fd62e8a/tenor.gif'
 			]
 		const taggedUser = msg.mentions.members.first();
-		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('hug' in eboys[i]) {
-                      for (var j in eboys[i].hug) {
-                      	if (tagged in eboys[i].hug[j]) {
-                      		eboys[i].hug[j][tagged] = eboys[i].hug[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].hug[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].hug = [];
-                	eboys[i].hug.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'hug': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].hug) {
-            	var hug = eboys[i].hug[j][tagged];	
-            }
-          }
-        }
-			
+		if (taggedUser.id === msg.author.id) {	
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You hugged yourself. Self-love uwu!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Everyone needs a hug once in awhile....\r\n${msg.guild.members.cache.get(msg.author.id).displayName} hugged themselves ${hug} times.`);
+			.setFooter(`Everyone needs a hug once in awhile....`);
 			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('hug' in eboys[i]) {
-                      for (var j in eboys[i].hug) {
-                      	if (tagged in eboys[i].hug[j]) {
-                      		eboys[i].hug[j][tagged] = eboys[i].hug[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].hug[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].hug = [];
-                	eboys[i].hug.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'hug': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].hug) {
-            	var hug = eboys[i].hug[j][tagged];	
-            }
-          }
-        }
-			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You hugged **${taggedUser.displayName}**.`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Everyone needs a hug once in awhile....\r\n${msg.guild.members.cache.get(msg.author.id).displayName} hugged ${taggedUser.displayName} ${hug} times.`);
+			.setFooter(`Everyone needs a hug once in awhile....`);
 			msg.channel.send(embed);
 		}
 	}
@@ -1159,91 +500,19 @@ else {
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('tonk' in eboys[i]) {
-                      for (var j in eboys[i].tonk) {
-                      	if (tagged in eboys[i].tonk[j]) {
-                      		eboys[i].tonk[j][tagged] = eboys[i].tonk[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].tonk[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].tonk = [];
-                	eboys[i].tonk.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'tonk': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].tonk) {
-            	var tonk = eboys[i].tonk[j][tagged];	
-            }
-          }
-        }
-			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You tonked yourself! KO!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Are you okay, ${taggedUser.displayName}?\r\n${msg.guild.members.cache.get(msg.author.id).displayName} tonked themselves ${tonk} times.`);
+			.setFooter(`Are you okay, ${taggedUser.displayName}?`);
 			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('tonk' in eboys[i]) {
-                      for (var j in eboys[i].tonk) {
-                      	if (tagged in eboys[i].tonk[j]) {
-                      		eboys[i].tonk[j][tagged] = eboys[i].tonk[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].tonk[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].tonk = [];
-                	eboys[i].tonk.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'tonk': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].tonk) {
-            	var tonk = eboys[i].tonk[j][tagged];	
-            }
-          }
-        }
-			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You tonked **${taggedUser.displayName}**! KO!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Are you okay, ${taggedUser.displayName}?\r\n${msg.guild.members.cache.get(msg.author.id).displayName} tonked ${taggedUser.displayName} ${tonk} times.`);
+			.setFooter(`Are you okay, ${taggedUser.displayName}?`);
 			msg.channel.send(embed);
 
 		}
@@ -1264,91 +533,19 @@ else {
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('untonk' in eboys[i]) {
-                      for (var j in eboys[i].untonk) {
-                      	if (tagged in eboys[i].untonk[j]) {
-                      		eboys[i].untonk[j][tagged] = eboys[i].untonk[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].untonk[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].untonk = [];
-                	eboys[i].untonk.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'untonk': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].untonk) {
-            	var untonk = eboys[i].untonk[j][tagged];	
-            }
-          }
-        }
-			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You untonked yourself! Yeah, no tonking!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`${msg.guild.members.cache.get(msg.author.id).displayName} untonked themselves ${untonk} times.`);
+			.setFooter(`You are now UNTONKED.`);
 			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('untonk' in eboys[i]) {
-                      for (var j in eboys[i].untonk) {
-                      	if (tagged in eboys[i].untonk[j]) {
-                      		eboys[i].untonk[j][tagged] = eboys[i].untonk[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].untonk[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].untonk = [];
-                	eboys[i].untonk.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'untonk': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].untonk) {
-            	var untonk = eboys[i].untonk[j][tagged];	
-            }
-          }
-        }
-			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You untonked **${taggedUser.displayName}**! So nice AwA!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`${msg.guild.members.cache.get(msg.author.id).displayName} untonked ${taggedUser.displayName} ${untonk} times.`);
+			.setFooter(`${taggedUser.displayName} is now UNTONKED.`);
 			msg.channel.send(embed);
 
 		}
@@ -1373,92 +570,19 @@ else {
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('patpat' in eboys[i]) {
-                      for (var j in eboys[i].patpat) {
-                      	if (tagged in eboys[i].patpat[j]) {
-                      		eboys[i].patpat[j][tagged] = eboys[i].patpat[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].patpat[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].patpat = [];
-                	eboys[i].patpat.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'patpat': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].patpat) {
-            	var patpat = eboys[i].patpat[j][tagged];	
-            }
-          }
-        }
-			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You patpats yourself! Okay?`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`${taggedUser.displayName} is patted uwu.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} patted themselves ${patpat} times.`);
+			.setFooter(`${taggedUser.displayName} is patted uwu.`);
 			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('patpat' in eboys[i]) {
-                      for (var j in eboys[i].patpat) {
-                      	if (tagged in eboys[i].patpat[j]) {
-                      		eboys[i].patpat[j][tagged] = eboys[i].patpat[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].patpat[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].patpat = [];
-                	eboys[i].patpat.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'patpat': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].patpat) {
-            	var patpat = eboys[i].patpat[j][tagged];	
-            }
-          }
-        }
-
-			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You patpats smol **${taggedUser.displayName}** UwU`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`${taggedUser.displayName} is patted uwu.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} patted ${taggedUser.displayName} ${patpat} times.`);
+			.setFooter(`${taggedUser.displayName} is patted uwu.`);
 			msg.channel.send(embed);
 
 		}
@@ -1483,92 +607,19 @@ else {
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('punch' in eboys[i]) {
-                      for (var j in eboys[i].punch) {
-                      	if (tagged in eboys[i].punch[j]) {
-                      		eboys[i].punch[j][tagged] = eboys[i].punch[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].punch[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].punch = [];
-                	eboys[i].punch.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'punch': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].punch) {
-            	var punch = eboys[i].punch[j][tagged];	
-            }
-          }
-        }
-
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You punched yourself!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Wow, what a fighter uwu!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} punched themselves ${punch} times.`);
+			.setFooter(`Wow, what a fighter uwu!`);
 			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('punch' in eboys[i]) {
-                      for (var j in eboys[i].punch) {
-                      	if (tagged in eboys[i].punch[j]) {
-                      		eboys[i].punch[j][tagged] = eboys[i].punch[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].punch[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].punch = [];
-                	eboys[i].punch.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'punch': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].punch) {
-            	var punch = eboys[i].punch[j][tagged];	
-            }
-          }
-        }
-
-			
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You punched **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Wow, what a fighter uwu!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} punched ${taggedUser.displayName} ${punch} times.`);
+			.setFooter(`Wow, what a fighter uwu!`);
 			msg.channel.send(embed);
 
 		}
@@ -1588,92 +639,19 @@ else {
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('boop' in eboys[i]) {
-                      for (var j in eboys[i].boop) {
-                      	if (tagged in eboys[i].boop[j]) {
-                      		eboys[i].boop[j][tagged] = eboys[i].boop[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].boop[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].boop = [];
-                	eboys[i].boop.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'boop': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].boop) {
-            	var boop = eboys[i].boop[j][tagged];	
-            }
-          }
-        }
-
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You booped yourself! AwA cute.`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Boop bap.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} booped themselves ${boop} times.`);
+			.setFooter(`Boop bap.`);
 			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('boop' in eboys[i]) {
-                      for (var j in eboys[i].boop) {
-                      	if (tagged in eboys[i].boop[j]) {
-                      		eboys[i].boop[j][tagged] = eboys[i].boop[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].boop[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].boop = [];
-                	eboys[i].boop.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'boop': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].boop) {
-            	var boop = eboys[i].boop[j][tagged];	
-            }
-          }
-        }
-
-
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You booped **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Boop bap.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} booped ${taggedUser.displayName} ${boop} times.`);
+			.setFooter(`Boop bap.`);
 			msg.channel.send(embed);
 
 		}
@@ -1698,92 +676,19 @@ else {
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('snuggle' in eboys[i]) {
-                      for (var j in eboys[i].snuggle) {
-                      	if (tagged in eboys[i].snuggle[j]) {
-                      		eboys[i].snuggle[j][tagged] = eboys[i].snuggle[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].snuggle[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].snuggle = [];
-                	eboys[i].snuggle.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'snuggle': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].snuggle) {
-            	var snuggle = eboys[i].snuggle[j][tagged];	
-            }
-          }
-        }
-
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You snuggled yourself!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Snugglesnuggle.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} snuggled themselves ${snuggle} times.`);
+			.setFooter(`Snugglesnuggle.`);
 			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('snuggle' in eboys[i]) {
-                      for (var j in eboys[i].snuggle) {
-                      	if (tagged in eboys[i].snuggle[j]) {
-                      		eboys[i].snuggle[j][tagged] = eboys[i].snuggle[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].snuggle[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].snuggle = [];
-                	eboys[i].snuggle.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'snuggle': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].snuggle) {
-            	var snuggle = eboys[i].snuggle[j][tagged];	
-            }
-          }
-        }
-
-
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You snuggled **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Snugglesnuggle!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} snuggled ${taggedUser.displayName} ${snuggle} times.`);
+			.setFooter(`Snugglesnuggle!`);
 			msg.channel.send(embed);
 
 		}
@@ -1808,92 +713,19 @@ else {
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('drag' in eboys[i]) {
-                      for (var j in eboys[i].drag) {
-                      	if (tagged in eboys[i].drag[j]) {
-                      		eboys[i].drag[j][tagged] = eboys[i].drag[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].drag[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].drag = [];
-                	eboys[i].drag.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'drag': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].drag) {
-            	var drag = eboys[i].drag[j][tagged];	
-            }
-          }
-        }
-
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You dragged yourself!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Weeee~\r\n${msg.guild.members.cache.get(msg.author.id).displayName} dragged themselves ${drag} times.`);
+			.setFooter(`Weeee~`);
 			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('drag' in eboys[i]) {
-                      for (var j in eboys[i].drag) {
-                      	if (tagged in eboys[i].drag[j]) {
-                      		eboys[i].drag[j][tagged] = eboys[i].drag[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].drag[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].drag = [];
-                	eboys[i].drag.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'drag': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].drag) {
-            	var drag = eboys[i].drag[j][tagged];	
-            }
-          }
-        }
-
-
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You dragged **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Bye bye, ${taggedUser.displayName} XD\r\n${msg.guild.members.cache.get(msg.author.id).displayName} dragged ${taggedUser.displayName} ${drag} times.`);
+			.setFooter(`Bye bye, ${taggedUser.displayName} XD`);
 			msg.channel.send(embed);
 
 		}
@@ -1915,92 +747,19 @@ else {
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('love' in eboys[i]) {
-                      for (var j in eboys[i].love) {
-                      	if (tagged in eboys[i].love[j]) {
-                      		eboys[i].love[j][tagged] = eboys[i].love[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].love[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].love = [];
-                	eboys[i].love.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'love': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].love) {
-            	var drag = eboys[i].love[j][tagged];	
-            }
-          }
-        }
-
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`I love myself uwu`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`${msg.guild.members.cache.get(msg.author.id).displayName} loves themselves ${love} times.`);
+			.setFooter(`It's good to love yourself.`);
 			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('love' in eboys[i]) {
-                      for (var j in eboys[i].love) {
-                      	if (tagged in eboys[i].love[j]) {
-                      		eboys[i].love[j][tagged] = eboys[i].love[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].love[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].love = [];
-                	eboys[i].love.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'love': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].love) {
-            	var love = eboys[i].love[j][tagged];	
-            }
-          }
-        }
-
-
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} loves you, **${taggedUser.displayName}**! I love you.`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`${msg.guild.members.cache.get(msg.author.id).displayName} loves ${taggedUser.displayName} ${love} times.`);
+			.setFooter(`We all love you too, **${taggedUser.displayName}**!`);
 			msg.channel.send(embed);
 
 		}
@@ -2026,92 +785,19 @@ else {
 			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('console' in eboys[i]) {
-                      for (var j in eboys[i].console) {
-                      	if (tagged in eboys[i].console[j]) {
-                      		eboys[i].console[j][tagged] = eboys[i].console[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].console[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].console = [];
-                	eboys[i].console.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'console': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].console) {
-            	var drag = eboys[i].console[j][tagged];	
-            }
-          }
-        }
-
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You consoled yourself. It'll be okay, I promise.`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`${msg.guild.members.cache.get(msg.author.id).displayName} consoled themselves ${console} times.`);
+			.setFooter(`You're gonna be okay, I promise :3`);
 			msg.channel.send(embed);
 		}
 		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('console' in eboys[i]) {
-                      for (var j in eboys[i].console) {
-                      	if (tagged in eboys[i].console[j]) {
-                      		eboys[i].console[j][tagged] = eboys[i].console[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].console[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].console = [];
-                	eboys[i].console.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'console': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].console) {
-            	var console = eboys[i].console[j][tagged];	
-            }
-          }
-        }
-
-
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} consoled **${taggedUser.displayName}**! There, there, don't be sad. We're here for you.`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`${msg.guild.members.cache.get(msg.author.id).displayName} consoled ${taggedUser.displayName} ${console} times.`);
+			.setFooter(`Aww, don't be sad. ${msg.guild.members.cache.get(msg.author.id).displayName} got your back okay? :heart:`);
 			msg.channel.send(embed);
 
 		}
@@ -2125,96 +811,32 @@ else {
 		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
 	}
 	else {
+		var gifs = [
+			'https://i.pinimg.com/originals/06/de/3a/06de3a0af78355bf7d4774cda4e4180e.gif',
+			'https://media1.tenor.com/images/2da282c6034d91db471f81d29eb691d9/tenor.gif',
+			'https://media1.tenor.com/images/f16e5bcbac25180fa09b9d5c405b3f95/tenor.gif',
+			'https://pa1.narvii.com/6559/c8d88737c0eb45dd9f967b04dcbd414a17b8b570_hq.gif',
+			'https://i.pinimg.com/originals/4d/6b/0f/4d6b0f94e42656e9ada7d9833409cb75.gif',
+			'https://thumbs.gfycat.com/EminentSlowClownanemonefish-size_restricted.gif',
+			'https://pa1.narvii.com/5741/4b70053325cbf1fd616dfda66a49210e72b23027_hq.gif',
+			'https://thumbs.gfycat.com/AdorableGivingCrayfish-max-1mb.gif',
+			'https://media1.tenor.com/images/d3a3e21de3393b6a3b4f16247e283e7b/tenor.gif'
+			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			
-        var author = msg.author.id;
-        var tagged = msg.author.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('kill' in eboys[i]) {
-                      for (var j in eboys[i].kill) {
-                      	if (tagged in eboys[i].kill[j]) {
-                      		eboys[i].kill[j][tagged] = eboys[i].kill[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].kill[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].kill = [];
-                	eboys[i].kill.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'kill': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].kill) {
-            	var kill = eboys[i].kill[j][tagged];	
-            }
-          }
-        }
-
-		
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You assassinated yourself!`)
-			.setImage('https://i.pinimg.com/originals/06/de/3a/06de3a0af78355bf7d4774cda4e4180e.gif')
-			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} killed themselves ${kill} times.`);
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.`);
 			msg.channel.send(embed);
 		}
-		else {
-			
-        var author = msg.author.id;
-        var tagged = taggedUser.id;
-        
-        if(eboys.some(eboy => eboy.id === author)){
-            for (var i in eboys) {
-              if (eboys[i].id === author) {
-                if ('kill' in eboys[i]) {
-                      for (var j in eboys[i].kill) {
-                      	if (tagged in eboys[i].kill[j]) {
-                      		eboys[i].kill[j][tagged] = eboys[i].kill[j][tagged] + 1;
-                     }
-                     else {
-                     	eboys[i].kill[j][tagged] = 1;
-                     }
-                     }
-                }
-                else {
-                	eboys[i].kill = [];
-                	eboys[i].kill.push({[tagged]: 1});
-                }
-              }
-                     }
-                     }
-            else {
-            	eboys.push({ id: author, 'kill': [{[tagged]: 1}] });
-            }
-            
-        for (var i in eboys) {
-          if (eboys[i].id === author) {
-            for (var j in eboys[i].kill) {
-            	var kill = eboys[i].kill[j][tagged];	
-            }
-          }
-        }
-
-                          
-			
+		else {	
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You assassinated **${taggedUser.displayName}**!`)
-			.setImage('https://i.pinimg.com/originals/06/de/3a/06de3a0af78355bf7d4774cda4e4180e.gif')
-			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} killed ${taggedUser.displayName} ${kill} times.`);
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`${taggedUser.displayName} is dead! I'll revive them soon uwu.`);
 			msg.channel.send(embed);
 
 		}
@@ -2238,33 +860,9 @@ else {
  }
  
 
-
-	
-
- 
 //-----------------------------------------------------------------------------------------------------------------------------------------
  
  if (command === 'celly') {
-	if(eboys.some(eboy => eboy.id === msg.author.id)){
-		for (var i in eboys) {
-		  if (eboys[i].id === msg.author.id) {
-			if ('celly' in eboys[i]) {
-				eboys[i].celly = eboys[i].celly + 1;
-			}
-			else {
-				eboys[i].celly = 1;
-			}
-		  }
-		}
-	}
-	else {
-		eboys.push({ id: msg.author.id, celly: 1 });
-	}
-        for (var i in eboys) {
-          if (eboys[i].id === msg.author.id) {
-            var celly = eboys[i].celly;
-          }
-        }
 		var gifs = [
 			'https://media.giphy.com/media/9MJ6yDJk2hPUs5wOWc/giphy.gif',
 			'https://media3.giphy.com/media/l0IsGAtZTngWc3GCY/giphy.gif',
@@ -2279,31 +877,11 @@ else {
 		.setColor('#FF69B4')
 		.setDescription(`YAYYYYY CELEBRATE WOOOOHOOO!`)
 		.setImage(randomgif)
-		.setFooter(`I don't know why you're happy but I'm glad you're happy :3\r\n${msg.guild.members.cache.get(msg.author.id).displayName} celly-ed ${celly} times.`);
+		.setFooter(`I don't know why you're happy but I'm glad you're happy :3`);
 		msg.channel.send(embed);
  }
  
  if (command === 'eat') {
-	if(eboys.some(eboy => eboy.id === msg.author.id)){
-		for (var i in eboys) {
-		  if (eboys[i].id === msg.author.id) {
-			if ('eat' in eboys[i]) {
-				eboys[i].eat = eboys[i].eat + 1;
-			}
-			else {
-				eboys[i].eat = 1;
-			}
-		  }
-		}
-	}
-	else {
-		eboys.push({ id: msg.author.id, eat: 1 });
-	}
-        for (var i in eboys) {
-          if (eboys[i].id === msg.author.id) {
-            var eat = eboys[i].eat;
-          }
-        }
 		var gifs = [
 			'https://media.giphy.com/media/5ev3alRsskWA0/giphy.gif',
 			'https://i.pinimg.com/originals/fd/d2/2f/fdd22fe6112b90d08d6c63aa53d0762d.gif',
@@ -2327,32 +905,12 @@ else {
 		.setColor('#FF69B4')
 		.setDescription(`Omnomnomnom.`)
 		.setImage(randomgif)
-		.setFooter(`\r\n${msg.guild.members.cache.get(msg.author.id).displayName} ate ${eat} times.`);
+		.setFooter(`Eat eat eat eat yes :3`);
 		msg.channel.send(embed);
  } 
 
 
  if (command === 'cry') {
-	if(eboys.some(eboy => eboy.id === msg.author.id)){
-		for (var i in eboys) {
-		  if (eboys[i].id === msg.author.id) {
-			if ('cry' in eboys[i]) {
-				eboys[i].cry = eboys[i].cry + 1;
-			}
-			else {
-				eboys[i].cry = 1;
-			}
-		  }
-		}
-	}
-	else {
-		eboys.push({ id: msg.author.id, cry: 1 });
-	}
-        for (var i in eboys) {
-          if (eboys[i].id === msg.author.id) {
-            var cry = eboys[i].cry;
-          }
-        }
 		var gifs = [
 			'https://media2.giphy.com/media/Ws4Mtju5Sq1swakFzU/giphy.gif',
 			'https://25.media.tumblr.com/cac15db77acffa7a1fbab43a272594c7/tumblr_myjojt29AM1t0951zo1_400.gif',
@@ -2372,31 +930,11 @@ else {
 		.setColor('#FF69B4')
 		.setDescription(`Are you okay? :(`)
 		.setImage(randomgif)
-		.setFooter(`Don't cry :(\r\n${msg.guild.members.cache.get(msg.author.id).displayName} cried ${cry} times.`);
+		.setFooter(`Don't cry :( We're here for you. :heart:`);
 		msg.channel.send(embed);
  }
  
  if (command === 'angry') {
-	if(eboys.some(eboy => eboy.id === msg.author.id)){
-		for (var i in eboys) {
-		  if (eboys[i].id === msg.author.id) {
-			if ('angry' in eboys[i]) {
-				eboys[i].angry = eboys[i].angry + 1;
-			}
-			else {
-				eboys[i].angry = 1;
-			}
-		  }
-		}
-	}
-	else {
-		eboys.push({ id: msg.author.id, angry: 1 });
-	}
-        for (var i in eboys) {
-          if (eboys[i].id === msg.author.id) {
-            var angry = eboys[i].angry;
-          }
-        }
 		var gifs = [
 			'https://i.pinimg.com/originals/b3/96/e0/b396e0fd1ced8ad36545a9094c5218ad.gif',
 			'https://i.pinimg.com/originals/01/48/a2/0148a2c426e64d9ce20db34779832197.gif',
@@ -2411,31 +949,11 @@ else {
 		.setColor('#FF69B4')
 		.setDescription(`yikes, ${msg.guild.members.cache.get(msg.author.id).displayName} is angry!`)
 		.setImage(randomgif)
-		.setFooter(`Everyone, back away!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} got angry ${angry} times.`);
+		.setFooter(`Everyone, back away!`);
 		msg.channel.send(embed);
  }
  
  if (command === 'dance') {
-	if(eboys.some(eboy => eboy.id === msg.author.id)){
-		for (var i in eboys) {
-		  if (eboys[i].id === msg.author.id) {
-			if ('dance' in eboys[i]) {
-				eboys[i].dance = eboys[i].dance + 1;
-			}
-			else {
-				eboys[i].dance = 1;
-			}
-		  }
-		}
-	}
-	else {
-		eboys.push({ id: msg.author.id, dance: 1 });
-	}
-        for (var i in eboys) {
-          if (eboys[i].id === msg.author.id) {
-            var dance = eboys[i].dance;
-          }
-        }
 		var gifs = [
 			'https://media.tenor.com/images/7fa3b39ddac5925af0d81aefeeeb3ad4/tenor.gif',
 			'https://gifimage.net/wp-content/uploads/2017/10/dance-anime-gif-7.gif',
@@ -2450,32 +968,11 @@ else {
 		.setColor('#FF69B4')
 		.setDescription(`Dance dance dance!`)
 		.setImage(randomgif)
-		.setFooter(`Let's dance together uwu!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} danced ${dance} times.`);
+		.setFooter(`Let's dance together uwu!`);
 		msg.channel.send(embed);
  }
  
  if (command === 'tantrum') {
-	if(eboys.some(eboy => eboy.id === msg.author.id)){
-		for (var i in eboys) {
-		  if (eboys[i].id === msg.author.id) {
-			if ('tantrum' in eboys[i]) {
-				eboys[i].tantrum = eboys[i].tantrum + 1;
-			}
-			else {
-				eboys[i].tantrum = 1;
-			}
-		  }
-		}
-	}
-	else {
-		eboys.push({ id: msg.author.id, tantrum: 1 });
-	}
-	
-        for (var i in eboys) {
-          if (eboys[i].id === msg.author.id) {
-            var tantrum = eboys[i].tantrum;
-        }
-		}
 		var gifs = [
 			'https://gifimage.net/wp-content/uploads/2017/09/anime-tantrum-gif-9.gif',
 			'https://media.tenor.com/images/04db8316e7f739bdb6edb90f93eb0ea0/tenor.gif',
@@ -2487,47 +984,29 @@ else {
 		.setColor('#FF69B4')
 		.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is throwing a tantrum.`)
 		.setImage(randomgif)
-		.setFooter(`Everyone stay away from ${msg.guild.members.cache.get(msg.author.id).displayName}!\r\n${msg.guild.members.cache.get(msg.author.id).displayName} threw tantrums ${tantrum} times.`);
+		.setFooter(`Aww, what's wrong, ${msg.guild.members.cache.get(msg.author.id).displayName}?`);
 		msg.channel.send(embed);
  }
 
 
  if (command === 'scream') {
-	if(eboys.some(eboy => eboy.id === msg.author.id)){
-		for (var i in eboys) {
-		  if (eboys[i].id === msg.author.id) {
-			if ('scream' in eboys[i]) {
-				eboys[i].scream = eboys[i].scream + 1;
-			}
-			else {
-				eboys[i].scream = 1;
-			}
-		  }
-		}
-	}
-	else {
-		eboys.push({ id: msg.author.id, scream: 1 });
-	}
-	
-        for (var i in eboys) {
-          if (eboys[i].id === msg.author.id) {
-            var scream = eboys[i].scream;
-        }
-		}
 		var gifs = [
 			'https://media.giphy.com/media/qFi3fACSMnP4Q/giphy.gif',
 			'https://38.media.tumblr.com/d9bf97c7aee862ca4858e20122043662/tumblr_nt6f20RFxb1sgl0ajo1_500.gif',
 			'https://i.pinimg.com/originals/0d/52/17/0d52176ac1ea9f1be10b5e767493888a.gif',
 			'https://66.media.tumblr.com/276977220659dd7969104412605a8a52/tumblr_inline_oyw96aoUdt1us06yu_540.gif',
 			'https://thumbs.gfycat.com/LegitimateAnchoredBoa-size_restricted.gif',
-			'https://i.pinimg.com/originals/55/83/06/5583064ed9d58208e0460e2519a1d559.gif'
+			'https://i.pinimg.com/originals/55/83/06/5583064ed9d58208e0460e2519a1d559.gif',
+			'https://66.media.tumblr.com/ccfb2a25f87c6e336edd0baf759990fc/tumblr_por8zyKOU81qjlx7n_500.gif',
+			'https://reactiongifs.me/wp-content/uploads/2018/06/Angry-Anger_63403.gif',
+			''
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
 		.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is screaming.`)
 		.setImage(randomgif)
-		.setFooter(`${msg.guild.members.cache.get(msg.author.id).displayName} screamed ${scream} times.`);
+		.setFooter(`blinks blinks. That was scary.`);
 		msg.channel.send(embed);
  }
 
@@ -2562,24 +1041,6 @@ if (command === 'search') {
 	  msg.channel.send('Definition not found.');
 	})
 }
-
-/* if (command === 'members') {
-	msg.guild.members.fetch().then(fetchedMembers => {
-		
-		for (var i in fetchedMembers) {
-			var members = i + "\r\n ";	
-        }
-
-		const embed = new Discord.MessageEmbed()
-		.setColor('#FF69B4')
-		.setTitle(`Members`)
-		.setDescription('Here are all the members uwu! (∩•̀ω•́)⊃-⋆')
-		.addFields(
-		{ name: 'Members', value: `${members}` }
-		);
-		msg.channel.send(embed);
-	});
-} */
  
  if (msg.content === '@eboy help' || command === 'help' || command === 'command' || command === 'commands') {
 		const embed = new Discord.MessageEmbed()
