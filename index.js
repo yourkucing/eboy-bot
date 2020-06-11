@@ -125,7 +125,7 @@ var message = msg.content.toLowerCase()
 	}
  }
 
-if (!msg.content.startsWith(prefix) || msg.author.bot) return;
+if (!msg.content.toLowerCase().startsWith(prefix) || msg.author.bot) return;
 const args = msg.content.slice(prefix.length).split(' ');
 const command = args.shift().toLowerCase();
 
@@ -841,6 +841,39 @@ else {
 		}
 	}
  }  
+ 
+ if (command === 'bite') {
+	if (!msg.mentions.users.size) {
+		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+	}
+	else {
+		var gifs = [
+			'https://media1.tenor.com/images/c91f7e6ca3f5c157c5e6f6e4ea2e364c/tenor.gif',
+			'https://media1.tenor.com/images/283b04320ccd718991714e38953f06d1/tenor.gif',
+			'https://media1.giphy.com/media/7NUDCypKavZzkQGyp9/giphy.gif',
+			'https://media.giphy.com/media/mEMRAZYygRyk8/giphy.gif',
+			'https://media.giphy.com/media/Cvx6i8tQDTHEI/200.gif'
+			]
+		const taggedUser = msg.mentions.members.first();
+		if (taggedUser.id === msg.author.id) {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You bit yourself!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Are you hungry, ${taggedUser.displayName}? Don't eat yourself smh.`);
+			msg.channel.send(embed);
+		}
+		else {	
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You bit **${taggedUser.displayName}**!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`LMAO, does ${taggedUser.displayName} look like food to you?`);
+			msg.channel.send(embed);
+
+		}
+	}
+ }  
 
  if (command === 'byebye') {
 	if (!msg.mentions.users.size) {
@@ -877,6 +910,28 @@ else {
 		.setDescription(`YAYYYYY CELEBRATE WOOOOHOOO!`)
 		.setImage(randomgif)
 		.setFooter(`I don't know why you're happy but I'm glad you're happy :3`);
+		msg.channel.send(embed);
+ }
+ 
+ if (command === 'spazz') {
+		var gifs = [
+			'https://vicariousbookworm.files.wordpress.com/2018/09/tenor.gif',
+			'https://i.pinimg.com/originals/c5/94/6f/c5946fa77bf152d8af6f899833829ad0.gif',
+			'https://cdn41.picsart.com/170301162000202.gif',
+			'https://media.tenor.com/images/c928b5474e688bfaa8108b6e04e043dd/tenor.gif',
+			'https://media.tenor.com/images/e5993e389cd5667789c957c05aee7c5c/tenor.gif',
+			'https://media.giphy.com/media/Rv0zzokgDrg4M/200.gif',
+			'https://thumbs.gfycat.com/VeneratedBlackHoneycreeper-size_restricted.gif',
+			'https://i.gifer.com/1hG9.gif',
+			'https://media1.popsugar-assets.com/files/thumbor/hPm4dv68O0i8Vyb2kBA8XQ84yLM/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/04/08/925/n/1922283/eeac818b5cd5bb2d_anigif_enhanced-buzz-20962-1384956300-31/i/She-jumps-she-screams-you-know-happy-person.gif'
+			]
+		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
+		const taggedUser = msg.mentions.users.first();
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setDescription(`sdjkfhsajkfhsdaj SO CUTE`)
+		.setImage(randomgif)
+		.setFooter(`AAAAAAH SPAZZ SPAZZ OMLL EFHFJHK`);
 		msg.channel.send(embed);
  }
  
@@ -997,8 +1052,7 @@ else {
 			'https://thumbs.gfycat.com/LegitimateAnchoredBoa-size_restricted.gif',
 			'https://i.pinimg.com/originals/55/83/06/5583064ed9d58208e0460e2519a1d559.gif',
 			'https://66.media.tumblr.com/ccfb2a25f87c6e336edd0baf759990fc/tumblr_por8zyKOU81qjlx7n_500.gif',
-			'https://reactiongifs.me/wp-content/uploads/2018/06/Angry-Anger_63403.gif',
-			''
+			'https://reactiongifs.me/wp-content/uploads/2018/06/Angry-Anger_63403.gif'
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
 		const embed = new Discord.MessageEmbed()
@@ -1006,6 +1060,26 @@ else {
 		.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is screaming.`)
 		.setImage(randomgif)
 		.setFooter(`blinks blinks. That was scary.`);
+		msg.channel.send(embed);
+ }
+ 
+ if (command === 'yoink') {
+		var gifs = [
+			'https://media1.giphy.com/media/5cdenDXni65aM/giphy.gif',
+			'https://media.giphy.com/media/VSiNfsl8VIRIk/giphy.gif',
+			'https://media.giphy.com/media/ofHpfBbgXhEVG/giphy.gif',
+			'https://media1.tenor.com/images/63af4cb08b86163f4ff2a7997d1ac7dc/tenor.gif',
+			'https://iruntheinternet.com/lulzdump/images/cat-steal-streat-under-couch-paw-steal-snide-14238627235.gif',
+			'https://media.tenor.com/images/1f44eb631e8b9b4cd65e3d35ac00c04b/tenor.gif',
+			'https://media1.tenor.com/images/482d0bce20389f7395948a0f52b670ee/tenor.gif',
+			'https://media1.tenor.com/images/ee5f77dab6dc52a84666f9516b49f7bf/tenor.gif'
+			]
+		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is stealing. Be careful of your stuffs and pets!`)
+		.setImage(randomgif)
+		.setFooter(`SWIPER NO SWIPING!`);
 		msg.channel.send(embed);
  }
 
