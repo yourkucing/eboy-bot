@@ -10,7 +10,6 @@ let eboys = [];
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
  client.user.setActivity('uwu help', { type: 'STREAMING' });
- client.channels.cache.get("702819924053196802").send(`**New updates:**\n\nadded yoink, bite, spazz\n\nmake uwu not case-sensitive\n\nYou can find the new commands in uwu help. That's it for now because it's 2:30am and Maryam is tired uwu again. She told me to tell all of you that she loves you and goodnight. :p`);
  });
  
 client.on('guildMemberAdd', member => {
