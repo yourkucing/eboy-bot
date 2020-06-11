@@ -10,7 +10,6 @@ let eboys = [];
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
  client.user.setActivity('uwu help', { type: 'STREAMING' });
- client.channels.cache.get("702819924053196802").send(`**New updates:**\n\ntook out counts because it disappears after every updates\nadded new kill gifs\ntook out some weird hug gifs\n\nThat's it for now because it's 1:30am and Maryam is tired uwu. She told me to tell all of you that she loves you.`);
  });
  
 client.on('guildMemberAdd', member => {
