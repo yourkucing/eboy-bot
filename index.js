@@ -854,7 +854,7 @@ else {
 					msg.channel.send("byebye!");
 				}).catch(() => {
 					 // Failmessage
-					msg.channel.send("Access Denied");
+					msg.channel.send("NOPE, no byebye. ${taggedUser.displayName} isn't going anywhere.");
 				});
 	}
  }
