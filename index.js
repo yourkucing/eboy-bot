@@ -137,20 +137,25 @@ const command = args.shift().toLowerCase();
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
 
  if (command === 'defenestrate') {
+	var gifs = [
+		'https://thumbs.gfycat.com/MistyDelectableKouprey-size_restricted.gif',
+		'https://i.pinimg.com/originals/51/58/88/515888d6d7fadfd3dd0fa312ca287a34.gif'
+	]
 	if (!msg.mentions.users.size) {
 		const words = args.join(' ');
 		if (words === "") {
 			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
 		}
 		else {
-			return msg.channel.send(`${ words }`);
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You defenestrated **${words}**!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Yikes, byebye ${words}!`);
+			msg.channel.send(embed);
 		}
 	}
 	else {
-		var gifs = [
-		'https://thumbs.gfycat.com/MistyDelectableKouprey-size_restricted.gif',
-		'https://i.pinimg.com/originals/51/58/88/515888d6d7fadfd3dd0fa312ca287a34.gif'
-		]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			
