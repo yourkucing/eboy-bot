@@ -138,7 +138,13 @@ const command = args.shift().toLowerCase();
 
  if (command === 'defenestrate') {
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			return msg.channel.send(`${ words }`);
+		}
 	}
 	else {
 		var gifs = [
