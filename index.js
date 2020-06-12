@@ -194,7 +194,7 @@ const command = args.shift().toLowerCase();
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You defenestrated **${words}**!`)
+			.setDescription(`You yeeted **${words}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Yikes, byebye ${words}!`);
 			msg.channel.send(embed);
