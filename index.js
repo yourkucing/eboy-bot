@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const ud = require('urban-dictionary');
-const client = new Discord.Client();
+const client = new Discord.Client({disableEveryone: false});
 const prefix = "uwu ";
 const fs = require('fs');
 const db = require('quick.db');
@@ -179,24 +179,35 @@ const command = args.shift().toLowerCase();
  }
  
  if (command === 'yeet') {
+	var gifs = [
+		'https://media1.tenor.com/images/42b71e0d0b5df489510e78cb4af77902/tenor.gif',
+		'https://i.pinimg.com/originals/51/b3/63/51b36342fd05af0f105dab8ade046f0d.gif',
+		'https://38.media.tumblr.com/8803e77ad2281c3e66bdf74ec748c23a/tumblr_n57jb9SmxO1tzixowo1_500.gif',
+		'https://media.tenor.com/images/0b0a9ed3d2a8ffefda817a4c96862f95/tenor.gif',
+		'https://historiasdeumotaku.files.wordpress.com/2015/06/tumblr_ndkbzr5tma1shcw33o5_500.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You defenestrated **${words}**!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Yikes, byebye ${words}!`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://media1.tenor.com/images/42b71e0d0b5df489510e78cb4af77902/tenor.gif',
-			'https://i.pinimg.com/originals/51/b3/63/51b36342fd05af0f105dab8ade046f0d.gif',
-			'https://38.media.tumblr.com/8803e77ad2281c3e66bdf74ec748c23a/tumblr_n57jb9SmxO1tzixowo1_500.gif',
-			'https://media.tenor.com/images/0b0a9ed3d2a8ffefda817a4c96862f95/tenor.gif',
-			'https://historiasdeumotaku.files.wordpress.com/2015/06/tumblr_ndkbzr5tma1shcw33o5_500.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You yeeted yourself!`)
+			.setDescription(`You yeeted **${words}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${taggedUser.displayName}!`);
+			.setFooter(`Yikes, byebye ${words}!`);
 			msg.channel.send(embed);
 		}
 		else {	
@@ -211,35 +222,46 @@ const command = args.shift().toLowerCase();
  }
  
  if (command === 'slap') {
+	var gifs = [
+		'https://media1.tenor.com/images/d14969a21a96ec46f61770c50fccf24f/tenor.gif',
+		'https://media.giphy.com/media/Gf3AUz3eBNbTW/giphy.gif',
+		'https://i.imgur.com/GPQJEx5.gif',
+		'https://i.imgur.com/Li9mx3A.gif',
+		'https://i.pinimg.com/originals/4e/9e/a1/4e9ea150354ad3159339b202cbc6cad9.gif',
+		'https://media.giphy.com/media/Zau0yrl17uzdK/giphy.gif',
+		'https://i.pinimg.com/originals/46/b0/a2/46b0a213e3ea1a9c6fcc060af6843a0e.gif',
+		'https://66.media.tumblr.com/00af342d3838fed0f978b62ff496dfea/tumblr_phizajqDcb1wj1nn0o1_400.gif',
+		'https://reallifeanime.files.wordpress.com/2014/06/akari-slap.gif',
+		'https://pa1.narvii.com/6807/ac91cef2e5ae98f598665193f37bba223301d75c_hq.gif',
+		'https://i.gifer.com/1Vbb.gif',
+		'https://gifimage.net/wp-content/uploads/2017/07/anime-slap-gif-10.gif',
+		'https://i.makeagif.com/media/10-13-2015/kTH4sW.gif',
+		'https://i.imgur.com/VW0cOyL.gif',
+		'https://media0.giphy.com/media/xT9IgzTnZHL9zp6IPS/source.gif',
+		'https://media.giphy.com/media/3oEduOWVxygmeDIKPu/giphy.gif',
+		'https://thumbs.gfycat.com/EarnestAshamedIndochinesetiger-max-1mb.gif',
+		'https://i.gifer.com/WOQM.gif',
+		'https://thumbs.gfycat.com/CaringFloweryKentrosaurus-small.gif',
+		'https://thumbs.gfycat.com/EvenSneakyGraysquirrel-size_restricted.gif',
+		'https://media.tenor.com/images/6cbccba5255abc270993e4cca01ee7ea/tenor.gif',
+		'https://1.bp.blogspot.com/-nGZ4wxXKozQ/XRkIv5cvMtI/AAAAAAAAAGk/GF4vZXDpDSk0QE0NG4PN7sFf1YMm9TZKgCLcBGAs/s1600/f3a.gif',
+		'https://media1.tenor.com/images/d4e82fc23bd94bebf5280b0682285f6a/tenor.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You slapped **${words}**!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Oof, do I see a handprint mark on your face, ${words}?`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://media1.tenor.com/images/d14969a21a96ec46f61770c50fccf24f/tenor.gif',
-			'https://media.giphy.com/media/Gf3AUz3eBNbTW/giphy.gif',
-			'https://i.imgur.com/GPQJEx5.gif',
-			'https://i.imgur.com/Li9mx3A.gif',
-			'https://i.pinimg.com/originals/4e/9e/a1/4e9ea150354ad3159339b202cbc6cad9.gif',
-			'https://media.giphy.com/media/Zau0yrl17uzdK/giphy.gif',
-			'https://i.pinimg.com/originals/46/b0/a2/46b0a213e3ea1a9c6fcc060af6843a0e.gif',
-			'https://66.media.tumblr.com/00af342d3838fed0f978b62ff496dfea/tumblr_phizajqDcb1wj1nn0o1_400.gif',
-			'https://reallifeanime.files.wordpress.com/2014/06/akari-slap.gif',
-			'https://pa1.narvii.com/6807/ac91cef2e5ae98f598665193f37bba223301d75c_hq.gif',
-			'https://i.gifer.com/1Vbb.gif',
-			'https://gifimage.net/wp-content/uploads/2017/07/anime-slap-gif-10.gif',
-			'https://i.makeagif.com/media/10-13-2015/kTH4sW.gif',
-			'https://i.imgur.com/VW0cOyL.gif',
-			'https://media0.giphy.com/media/xT9IgzTnZHL9zp6IPS/source.gif',
-			'https://media.giphy.com/media/3oEduOWVxygmeDIKPu/giphy.gif',
-			'https://thumbs.gfycat.com/EarnestAshamedIndochinesetiger-max-1mb.gif',
-			'https://i.gifer.com/WOQM.gif',
-			'https://thumbs.gfycat.com/CaringFloweryKentrosaurus-small.gif',
-			'https://thumbs.gfycat.com/EvenSneakyGraysquirrel-size_restricted.gif',
-			'https://media.tenor.com/images/6cbccba5255abc270993e4cca01ee7ea/tenor.gif',
-			'https://1.bp.blogspot.com/-nGZ4wxXKozQ/XRkIv5cvMtI/AAAAAAAAAGk/GF4vZXDpDSk0QE0NG4PN7sFf1YMm9TZKgCLcBGAs/s1600/f3a.gif',
-			'https://media1.tenor.com/images/d4e82fc23bd94bebf5280b0682285f6a/tenor.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
@@ -265,19 +287,30 @@ if (!msg.channel.nsfw) {
 	return msg.channel.send(`Go to the NSFW channel, ${msg.author}!`);
 }
 else {
+	var gifs = [
+		'https://images.gr-assets.com/hostedimages/1384590430ra/6908411.gif',
+		'https://media3.giphy.com/media/7CXIp5bcit6ZG/giphy.gif',
+		'https://i.pinimg.com/originals/85/10/a8/8510a8cf2b45ee5656521660e5cabefd.gif',
+		'https://66.media.tumblr.com/b5d3af68fba97db9389132e7990dd4d9/tumblr_okdhk3hAuu1rawmqbo1_500.gif',
+		'https://66.media.tumblr.com/95a179adbdee32e86c9d3ed3205430c6/tumblr_opn4alLVSi1rrugpso1_400.gif',
+		'https://i.pinimg.com/originals/7d/f7/2b/7df72b4cb04b3735a15b925abbf9c5cc.gif',
+		'https://media.giphy.com/media/7CXIp5bcit6ZG/200_d.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You- Well.... You want to do **${words}**?`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Get a room, both of you smh!`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://images.gr-assets.com/hostedimages/1384590430ra/6908411.gif',
-			'https://media3.giphy.com/media/7CXIp5bcit6ZG/giphy.gif',
-			'https://i.pinimg.com/originals/85/10/a8/8510a8cf2b45ee5656521660e5cabefd.gif',
-			'https://66.media.tumblr.com/b5d3af68fba97db9389132e7990dd4d9/tumblr_okdhk3hAuu1rawmqbo1_500.gif',
-			'https://66.media.tumblr.com/95a179adbdee32e86c9d3ed3205430c6/tumblr_opn4alLVSi1rrugpso1_400.gif',
-			'https://i.pinimg.com/originals/7d/f7/2b/7df72b4cb04b3735a15b925abbf9c5cc.gif',
-			'https://media.giphy.com/media/7CXIp5bcit6ZG/200_d.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
@@ -304,21 +337,32 @@ if (!msg.channel.nsfw) {
 	return msg.channel.send(`Go to the NSFW channel, ${msg.author}!`);
 }
 else {
+	var gifs = [
+		'https://media.discordapp.net/attachments/671388130712223815/718507721158164690/200.gif',
+		'https://media.giphy.com/media/of7ly2wRNo6Kk/giphy.gif',
+		'https://media.giphy.com/media/1g1cnnIbR3JkdUJR5A/giphy.gif',
+		'https://media1.tenor.com/images/3e93b32d896a23365b727c8ec8576163/tenor.gif',
+		'https://i.gifer.com/Pag6.gif',
+		'https://media1.tenor.com/images/6b9d2a780070deaa6168930bfdae64f2/tenor.gif',
+		'https://i.pinimg.com/originals/5c/9e/bf/5c9ebf04775941600df653b60cd03041.gif',
+		'https://media0.giphy.com/media/11JwraRupZNJSg/giphy.gif',
+		'https://media.giphy.com/media/SRbVg86icBP9K/200.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You smooched **${words}**. Is it me or it's getting hot in here?`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Get a room, both of you smh!`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://media.discordapp.net/attachments/671388130712223815/718507721158164690/200.gif',
-			'https://media.giphy.com/media/of7ly2wRNo6Kk/giphy.gif',
-			'https://media.giphy.com/media/1g1cnnIbR3JkdUJR5A/giphy.gif',
-			'https://media1.tenor.com/images/3e93b32d896a23365b727c8ec8576163/tenor.gif',
-			'https://i.gifer.com/Pag6.gif',
-			'https://media1.tenor.com/images/6b9d2a780070deaa6168930bfdae64f2/tenor.gif',
-			'https://i.pinimg.com/originals/5c/9e/bf/5c9ebf04775941600df653b60cd03041.gif',
-			'https://media0.giphy.com/media/11JwraRupZNJSg/giphy.gif',
-			'https://media.giphy.com/media/SRbVg86icBP9K/200.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {			
 			const embed = new Discord.MessageEmbed()
@@ -341,22 +385,33 @@ else {
  }
  
  if (command === 'kiss') {
+	var gifs = [
+		'https://media1.tenor.com/images/78095c007974aceb72b91aeb7ee54a71/tenor.gif',
+		'https://24.media.tumblr.com/5d51b3bbd64ccf1627dc87157a38e59f/tumblr_n5rfnvvj7H1t62gxao1_500.gif',
+		'https://media.giphy.com/media/JYpVJEcNrDAWc/giphy.gif',
+		'https://media1.tenor.com/images/f03f245e14fdfcacaf06318cdc667a03/tenor.gif',
+		'https://thumbs.gfycat.com/AgedWhisperedBarnacle-small.gif',
+		'https://66.media.tumblr.com/60c27235f6440d9d6ebd8168bb75c384/tumblr_nxd3nn8iJ81rcikyeo1_500.gif',
+		'https://media1.tenor.com/images/6bd9c3ba3c06556935a452f0a3679ccf/tenor.gif',
+		'https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif',
+		'https://78.media.tumblr.com/44716773d1a091d4b84efbae296ab062/tumblr_or61zhEUtM1skak2ao1_500.gif',
+		'https://49.media.tumblr.com/ac7e6f5ee22260439ceb89b67d57b6cb/tumblr_mwwkjpb5rh1src1c6o1_500.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You kissed **${words}**! AwA, so cute!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Such cuteness uwu!`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://media1.tenor.com/images/78095c007974aceb72b91aeb7ee54a71/tenor.gif',
-			'https://24.media.tumblr.com/5d51b3bbd64ccf1627dc87157a38e59f/tumblr_n5rfnvvj7H1t62gxao1_500.gif',
-			'https://media.giphy.com/media/JYpVJEcNrDAWc/giphy.gif',
-			'https://media1.tenor.com/images/f03f245e14fdfcacaf06318cdc667a03/tenor.gif',
-			'https://thumbs.gfycat.com/AgedWhisperedBarnacle-small.gif',
-			'https://66.media.tumblr.com/60c27235f6440d9d6ebd8168bb75c384/tumblr_nxd3nn8iJ81rcikyeo1_500.gif',
-			'https://media1.tenor.com/images/6bd9c3ba3c06556935a452f0a3679ccf/tenor.gif',
-			'https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif',
-			'https://78.media.tumblr.com/44716773d1a091d4b84efbae296ab062/tumblr_or61zhEUtM1skak2ao1_500.gif',
-			'https://49.media.tumblr.com/ac7e6f5ee22260439ceb89b67d57b6cb/tumblr_mwwkjpb5rh1src1c6o1_500.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {		
 		const embed = new Discord.MessageEmbed()
@@ -378,22 +433,32 @@ else {
  }
  
  if (command === 'peck') {
+	var gifs = [
+		'https://media1.tenor.com/images/ea51c3a083c73bf81a3c5ee6d4165115/tenor.gif',
+		'https://i.pinimg.com/originals/32/d4/f0/32d4f0642ebb373e3eb072b2b91e6064.gif',
+		'https://media.tenor.com/images/de18124ebe36764446ee2dbf54a672bf/tenor.gif',
+		'https://thumbs.gfycat.com/PopularHideousAcornweevil-size_restricted.gif',
+		'https://thumbs.gfycat.com/FatalHarmfulCormorant-size_restricted.gif',
+		'https://media.tenor.com/images/48ddb8f9bd0580697882ae5e0d70b080/tenor.gif',
+		'https://cutewallpaper.org/21/anime-kiss-on-the-cheek/Anime-Kiss-On-The-Cheek-Gif.gif',
+		'https://media.tenor.com/images/2346a83cb600c3a8feb4000d515b7c0c/tenor.gif',
+		'https://media.tenor.com/images/dc8e3ebf72fa8fd34523aa8d99a72ad4/tenor.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You pecked **${words}'s** cheeks!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Such cuteness uwu!`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://media1.tenor.com/images/ea51c3a083c73bf81a3c5ee6d4165115/tenor.gif',
-			'https://i.pinimg.com/originals/32/d4/f0/32d4f0642ebb373e3eb072b2b91e6064.gif',
-			'https://media.tenor.com/images/de18124ebe36764446ee2dbf54a672bf/tenor.gif',
-			'https://thumbs.gfycat.com/PopularHideousAcornweevil-size_restricted.gif',
-			'https://thumbs.gfycat.com/FatalHarmfulCormorant-size_restricted.gif',
-			'https://media.tenor.com/images/48ddb8f9bd0580697882ae5e0d70b080/tenor.gif',
-			'https://cutewallpaper.org/21/anime-kiss-on-the-cheek/Anime-Kiss-On-The-Cheek-Gif.gif',
-			'https://media.tenor.com/images/2346a83cb600c3a8feb4000d515b7c0c/tenor.gif',
-			'https://media.tenor.com/images/dc8e3ebf72fa8fd34523aa8d99a72ad4/tenor.gif',
-			''
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {			
 			const embed = new Discord.MessageEmbed()
@@ -415,22 +480,33 @@ else {
  }
  
  if (command === 'kick') {
+	var gifs = [
+		'https://media1.tenor.com/images/15a74d10bb6dce11476acfdefe614540/tenor.gif',
+		'https://media.giphy.com/media/u2LJ0n4lx6jF6/giphy.gif',
+		'https://media.giphy.com/media/wOly8pa4s4W88/giphy.gif',
+		'https://media1.tenor.com/images/fb2a19c9b689123e6254ad9ac6719e96/tenor.gif',
+		'https://media1.tenor.com/images/d4bd24c980e46c66f67077aff59f0565/tenor.gif',
+		'https://i.gifer.com/1UDX.gif',
+		'https://i.pinimg.com/originals/0c/09/21/0c09214c4df0c7b2a8f6870144972a82.gif',
+		'https://media.tenor.com/images/64bd964e32d1c943801743aaf0565f25/tenor.gif',
+		'https://media1.tenor.com/images/1f8c90e5efbd0bbdf0d385ef4f85c9e9/tenor.gif',
+		'https://i.pinimg.com/originals/d4/37/1c/d4371ceac00951149b514e172e9dd64c.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You kicked **${words}**! Ouch!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Are you okay, ${words}?`);
+			msg.channel.send(embed);	
+		}
 	}
 	else {
-		var gifs = [
-			'https://media1.tenor.com/images/15a74d10bb6dce11476acfdefe614540/tenor.gif',
-			'https://media.giphy.com/media/u2LJ0n4lx6jF6/giphy.gif',
-			'https://media.giphy.com/media/wOly8pa4s4W88/giphy.gif',
-			'https://media1.tenor.com/images/fb2a19c9b689123e6254ad9ac6719e96/tenor.gif',
-			'https://media1.tenor.com/images/d4bd24c980e46c66f67077aff59f0565/tenor.gif',
-			'https://i.gifer.com/1UDX.gif',
-			'https://i.pinimg.com/originals/0c/09/21/0c09214c4df0c7b2a8f6870144972a82.gif',
-			'https://media.tenor.com/images/64bd964e32d1c943801743aaf0565f25/tenor.gif',
-			'https://media1.tenor.com/images/1f8c90e5efbd0bbdf0d385ef4f85c9e9/tenor.gif',
-			'https://i.pinimg.com/originals/d4/37/1c/d4371ceac00951149b514e172e9dd64c.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
@@ -452,31 +528,42 @@ else {
  }
  
  if (command === 'hug') {
+	var gifs = [
+		'https://media1.tenor.com/images/baa6f59f4b89bfff1ff9a22421eb02a6/tenor.gif',
+		'https://i.pinimg.com/originals/6e/c3/a6/6ec3a6c6e32bc9d4f01c26a717928a93.gif',
+		'https://24.media.tumblr.com/tumblr_m88t9gvikH1rpbfuco1_500.gif',
+		'https://media2.giphy.com/media/lrr9rHuoJOE0w/source.gif',
+		'https://i.pinimg.com/originals/85/72/a1/8572a1d1ebaa45fae290e6760b59caac.gif',
+		'https://media.giphy.com/media/od5H3PmEG5EVq/giphy.gif',
+		'https://gifimage.net/wp-content/uploads/2017/01/Anime-hug-GIF-Image-Download-27.gif',
+		'https://gifimage.net/wp-content/uploads/2017/01/Anime-hug-GIF-Image-Download-7.gif',
+		'https://24.media.tumblr.com/3bd5d901c51689fae2a6b95531ed6bef/tumblr_mwqg8a1CQz1rwzq4jo1_500.gif',
+		'https://pa1.narvii.com/6275/8588579649e49bac663309fed7a792daacd2b82b_hq.gif',
+		'https://cdn.lowgif.com/medium/d26c65f2d66be540-merriberri-graphic-arts-services-requests.gif',
+		'https://i.gifer.com/GaYY.gif',
+		'https://66.media.tumblr.com/85d8161c57f92c9b50590d7605b34e4e/tumblr_inline_pq885e8o7T1v8hwtj_540.gif',
+		'https://media1.giphy.com/media/117o9BJASzmLNC/giphy.gif',
+		'https://i.gifer.com/RhzY.gif',
+		'https://i.pinimg.com/originals/c2/2f/b9/c22fb9595eda0368856778a9a97483a8.gif',
+		'https://gifimage.net/wp-content/uploads/2017/11/flying-tackle-hug-gif-7.gif',
+		'https://i.pinimg.com/originals/a8/f0/4d/a8f04d7bc4d67745a670e079130dfb54.gif',
+		'https://media.tenor.com/images/f1dc8d4a16e2de3b22ff3aa25fd62e8a/tenor.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You hugged **${words}**.`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Everyone needs a hug once in awhile....`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://media1.tenor.com/images/baa6f59f4b89bfff1ff9a22421eb02a6/tenor.gif',
-			'https://i.pinimg.com/originals/6e/c3/a6/6ec3a6c6e32bc9d4f01c26a717928a93.gif',
-			'https://24.media.tumblr.com/tumblr_m88t9gvikH1rpbfuco1_500.gif',
-			'https://media2.giphy.com/media/lrr9rHuoJOE0w/source.gif',
-			'https://i.pinimg.com/originals/85/72/a1/8572a1d1ebaa45fae290e6760b59caac.gif',
-			'https://media.giphy.com/media/od5H3PmEG5EVq/giphy.gif',
-			'https://gifimage.net/wp-content/uploads/2017/01/Anime-hug-GIF-Image-Download-27.gif',
-			'https://gifimage.net/wp-content/uploads/2017/01/Anime-hug-GIF-Image-Download-7.gif',
-			'https://24.media.tumblr.com/3bd5d901c51689fae2a6b95531ed6bef/tumblr_mwqg8a1CQz1rwzq4jo1_500.gif',
-			'https://pa1.narvii.com/6275/8588579649e49bac663309fed7a792daacd2b82b_hq.gif',
-			'https://cdn.lowgif.com/medium/d26c65f2d66be540-merriberri-graphic-arts-services-requests.gif',
-			'https://i.gifer.com/GaYY.gif',
-			'https://66.media.tumblr.com/85d8161c57f92c9b50590d7605b34e4e/tumblr_inline_pq885e8o7T1v8hwtj_540.gif',
-			'https://media1.giphy.com/media/117o9BJASzmLNC/giphy.gif',
-			'https://i.gifer.com/RhzY.gif',
-			'https://i.pinimg.com/originals/c2/2f/b9/c22fb9595eda0368856778a9a97483a8.gif',
-			'https://gifimage.net/wp-content/uploads/2017/11/flying-tackle-hug-gif-7.gif',
-			'https://i.pinimg.com/originals/a8/f0/4d/a8f04d7bc4d67745a670e079130dfb54.gif',
-			'https://media.tenor.com/images/f1dc8d4a16e2de3b22ff3aa25fd62e8a/tenor.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {	
 			const embed = new Discord.MessageEmbed()
@@ -498,16 +585,27 @@ else {
  }
  
  if (command === 'tonk') {
+	var gifs = [
+		'https://media1.tenor.com/images/00ad8957bf40ba1efecd71c70f4f6f70/tenor.gif',
+		'https://media1.tenor.com/images/b515120c09f3db63ba456c6b45be5066/tenor.gif',
+		'https://i.imgur.com/LnGPvPw.gif',
+		'https://media.tenor.com/images/003c5629319c1ef6c13f181cdccfbece/tenor.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You tonked **${words}**! KO!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Are you okay, ${words}?`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://media1.tenor.com/images/00ad8957bf40ba1efecd71c70f4f6f70/tenor.gif',
-			'https://media1.tenor.com/images/b515120c09f3db63ba456c6b45be5066/tenor.gif',
-			'https://i.imgur.com/LnGPvPw.gif',
-			'https://media.tenor.com/images/003c5629319c1ef6c13f181cdccfbece/tenor.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
@@ -531,16 +629,27 @@ else {
  
  
  if (command === 'untonk') {
+	var gifs = [
+		'https://s4.gifyu.com/images/untonk1.gif',
+		'https://s4.gifyu.com/images/untonk2.gif',
+		'https://s4.gifyu.com/images/tonk3.gif',
+		'https://s6.gifyu.com/images/tonk4.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You untonked **${words}**! So nice AwA!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`${words} is now UNTONKED.`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://s4.gifyu.com/images/untonk1.gif',
-			'https://s4.gifyu.com/images/untonk2.gif',
-			'https://s4.gifyu.com/images/tonk3.gif',
-			'https://s6.gifyu.com/images/tonk4.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
@@ -563,21 +672,32 @@ else {
  }
  
  if (command === 'patpat') {
+	var gifs = [
+		'https://media.tenor.com/images/8237d7da8cbd7227d67d735d437612cf/tenor.gif',
+		'https://media.tenor.com/images/67dc5a58a23461f3f449e8f46623b1df/tenor.gif',
+		'https://media3.giphy.com/media/M3a51DMeWvYUo/giphy.gif',
+		'https://66.media.tumblr.com/a72dd82535f3e7accd827c202dacc09a/tumblr_pfyiqz0pFL1th206io1_640.gif',
+		'https://66.media.tumblr.com/d743a5e5ecc65be5cb6ac8de7978fb22/tumblr_pfyit1ofSu1th206io1_500.gif',
+		'https://i.imgur.com/2lacG7l.gif',
+		'https://archive-media-0.nyafuu.org/c/image/1501/69/1501696680832.gif',
+		'https://data.whicdn.com/images/295195659/original.gif',
+		'https://gifimage.net/wp-content/uploads/2018/04/pat-gif-3.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You patpats smol **${words}** UwU`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`${words} is patted uwu.`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://media.tenor.com/images/8237d7da8cbd7227d67d735d437612cf/tenor.gif',
-			'https://media.tenor.com/images/67dc5a58a23461f3f449e8f46623b1df/tenor.gif',
-			'https://media3.giphy.com/media/M3a51DMeWvYUo/giphy.gif',
-			'https://66.media.tumblr.com/a72dd82535f3e7accd827c202dacc09a/tumblr_pfyiqz0pFL1th206io1_640.gif',
-			'https://66.media.tumblr.com/d743a5e5ecc65be5cb6ac8de7978fb22/tumblr_pfyit1ofSu1th206io1_500.gif',
-			'https://i.imgur.com/2lacG7l.gif',
-			'https://archive-media-0.nyafuu.org/c/image/1501/69/1501696680832.gif',
-			'https://data.whicdn.com/images/295195659/original.gif',
-			'https://gifimage.net/wp-content/uploads/2018/04/pat-gif-3.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
@@ -600,21 +720,32 @@ else {
  }
  
  if (command === 'punch') {
+	var gifs = [
+		'https://66.media.tumblr.com/06f9c15ef14eea0140fff2800889eb68/tumblr_nmifhe4pyE1tb8iyko1_400.gif',
+		'https://media.giphy.com/media/D9AJVEMgXAhlm/giphy.gif',
+		'https://gifimage.net/wp-content/uploads/2017/09/anime-punch-gif-6.gif',
+		'https://i.pinimg.com/originals/bb/6b/8e/bb6b8e07c31e7ab9f481240e97704020.gif',
+		'https://cdn159.picsart.com/228190013051202.gif',
+		'https://3.bp.blogspot.com/-f2C5CBKw05A/W95nlOPZ4HI/AAAAAAABXVo/eU16NRt_qQIh64c3AvSScDYuRL2H6lAegCKgBGAs/s1600/Omake%2BGif%2BAnime%2B-%2BFairy%2BTail%2BFinal%2BSeason%2B-%2BEpisode%2B282%2B-%2BLucy%2BPunch.gif',
+		'https://pa1.narvii.com/6335/c697f13cfc2ff482fd2970fb205fd7d23d57dc32_hq.gif',
+		'https://1.soompi.io/wp-content/uploads/2014/07/kim-soo-hyun-secretly-greatly-punch.gif',
+		'https://media1.tenor.com/images/288b7338acc44e10004a1063dc5fc521/tenor.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You punched **${words}**!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Wow, what a fighter uwu!`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://66.media.tumblr.com/06f9c15ef14eea0140fff2800889eb68/tumblr_nmifhe4pyE1tb8iyko1_400.gif',
-			'https://media.giphy.com/media/D9AJVEMgXAhlm/giphy.gif',
-			'https://gifimage.net/wp-content/uploads/2017/09/anime-punch-gif-6.gif',
-			'https://i.pinimg.com/originals/bb/6b/8e/bb6b8e07c31e7ab9f481240e97704020.gif',
-			'https://cdn159.picsart.com/228190013051202.gif',
-			'https://3.bp.blogspot.com/-f2C5CBKw05A/W95nlOPZ4HI/AAAAAAABXVo/eU16NRt_qQIh64c3AvSScDYuRL2H6lAegCKgBGAs/s1600/Omake%2BGif%2BAnime%2B-%2BFairy%2BTail%2BFinal%2BSeason%2B-%2BEpisode%2B282%2B-%2BLucy%2BPunch.gif',
-			'https://pa1.narvii.com/6335/c697f13cfc2ff482fd2970fb205fd7d23d57dc32_hq.gif',
-			'https://1.soompi.io/wp-content/uploads/2014/07/kim-soo-hyun-secretly-greatly-punch.gif',
-			'https://media1.tenor.com/images/288b7338acc44e10004a1063dc5fc521/tenor.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
@@ -637,16 +768,27 @@ else {
  }
  
  if (command === 'boop') {
+	var gifs = [
+		'https://media2.giphy.com/media/oeYpYm0BOEDWo/giphy.gif',
+		'https://imgur.com/QDkTaFe.gif',
+		'https://media.giphy.com/media/12BGUcW8xxpPRS/giphy.gif',
+		'https://media.giphy.com/media/Mf4NqZAknusBq/giphy.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You booped **${words}**!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Boop bap.`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://media2.giphy.com/media/oeYpYm0BOEDWo/giphy.gif',
-			'https://imgur.com/QDkTaFe.gif',
-			'https://media.giphy.com/media/12BGUcW8xxpPRS/giphy.gif',
-			'https://media.giphy.com/media/Mf4NqZAknusBq/giphy.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
@@ -670,20 +812,31 @@ else {
  
  
  if (command === 'snuggle' || command === 'snuggles') {
+	var gifs = [
+		'https://media.giphy.com/media/kz01wlAoCLYx3v8F68/giphy.gif',
+		'https://i.gifer.com/DQp.gif',
+		'https://25.media.tumblr.com/tumblr_m1x1jtIXWQ1qf5ddxo1_500.gif',
+		'https://media.tenor.com/images/215f87079f12bccd5dd56def22140668/tenor.gif',
+		'https://media.tenor.com/images/b38e8de408c8c3581ee75713d30db469/tenor.gif',
+		'https://media.tenor.com/images/57559abb91934c8aaa325a71b0d01706/tenor.gif',
+		'https://media.giphy.com/media/3ohhwHAKGA0ilFZrkQ/giphy.gif',
+		'https://media.giphy.com/media/f4YPX09pxYGkM/giphy.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You snuggled **${words}**!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Snugglesnuggle!`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://media.giphy.com/media/kz01wlAoCLYx3v8F68/giphy.gif',
-			'https://i.gifer.com/DQp.gif',
-			'https://25.media.tumblr.com/tumblr_m1x1jtIXWQ1qf5ddxo1_500.gif',
-			'https://media.tenor.com/images/215f87079f12bccd5dd56def22140668/tenor.gif',
-			'https://media.tenor.com/images/b38e8de408c8c3581ee75713d30db469/tenor.gif',
-			'https://media.tenor.com/images/57559abb91934c8aaa325a71b0d01706/tenor.gif',
-			'https://media.giphy.com/media/3ohhwHAKGA0ilFZrkQ/giphy.gif',
-			'https://media.giphy.com/media/f4YPX09pxYGkM/giphy.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
@@ -707,20 +860,31 @@ else {
  
  
  if (command === 'drag') {
+	var gifs = [
+		'https://media.tenor.com/images/fcb3f477cd25d365c800a0e9826c0921/tenor.gif',
+		'https://media.giphy.com/media/LModbUFxtnw9q/giphy.gif',
+		'https://media1.tenor.com/images/8424903ed8b4219cee83a1417e59e20b/tenor.gif',
+		'https://media2.giphy.com/media/LXJ4hM0NB1GSs/giphy.gif',
+		'https://media.tumblr.com/ecde59f4dc9a34e3876643a57cb345a9/tumblr_inline_mpq7mtdWgz1qz4rgp.gif',
+		'https://i.pinimg.com/originals/64/c7/44/64c744f80082fb6e002cf4824655a19a.gif',
+		'https://media1.tenor.com/images/900b9598601e8875034b075f5a7bcd29/tenor.gif',
+		'https://media.tenor.com/images/ff8058ad37789799f2c58324b8a030a5/tenor.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You dragged **${words}**!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Bye bye, ${words} XD`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://media.tenor.com/images/fcb3f477cd25d365c800a0e9826c0921/tenor.gif',
-			'https://media.giphy.com/media/LModbUFxtnw9q/giphy.gif',
-			'https://media1.tenor.com/images/8424903ed8b4219cee83a1417e59e20b/tenor.gif',
-			'https://media2.giphy.com/media/LXJ4hM0NB1GSs/giphy.gif',
-			'https://media.tumblr.com/ecde59f4dc9a34e3876643a57cb345a9/tumblr_inline_mpq7mtdWgz1qz4rgp.gif',
-			'https://i.pinimg.com/originals/64/c7/44/64c744f80082fb6e002cf4824655a19a.gif',
-			'https://media1.tenor.com/images/900b9598601e8875034b075f5a7bcd29/tenor.gif',
-			'https://media.tenor.com/images/ff8058ad37789799f2c58324b8a030a5/tenor.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
@@ -744,17 +908,28 @@ else {
  
 
  if (command === 'love') {
+	var gifs = [
+		'https://media2.giphy.com/media/yc2pHdAoxVOrJ2m5Ha/200.gif',
+		'https://media3.giphy.com/media/hqTwf417EvUWeV0XcX/giphy.gif',
+		'https://media2.giphy.com/media/kG3kzEP6BCpyg0YNMi/giphy.gif',
+		'https://media.giphy.com/media/l4pTdcifPZLpDjL1e/giphy.gif',
+		'https://data.whicdn.com/images/293095869/original.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} loves **${words}**!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`We all love you too, **${words}**!`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://media2.giphy.com/media/yc2pHdAoxVOrJ2m5Ha/200.gif',
-			'https://media3.giphy.com/media/hqTwf417EvUWeV0XcX/giphy.gif',
-			'https://media2.giphy.com/media/kG3kzEP6BCpyg0YNMi/giphy.gif',
-			'https://media.giphy.com/media/l4pTdcifPZLpDjL1e/giphy.gif',
-			'https://data.whicdn.com/images/293095869/original.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
@@ -779,20 +954,31 @@ else {
 
 
  if (command === 'console') {
+	var gifs = [
+		'https://thumbs.gfycat.com/RemarkableUnluckyBlackpanther-small.gif',
+		'https://media.giphy.com/media/C1Fdach2R4HSg/giphy.gif',
+		'https://media1.tenor.com/images/2dc14e2010a0bc4786b36a3dfc2fab69/tenor.gif',
+		'https://media1.tenor.com/images/eb106be6f33b022bb34781e741e74db9/tenor.gif',
+		'https://media1.tenor.com/images/0fb5e945c195639dc28f761fd018605b/tenor.gif',
+		'https://media1.tenor.com/images/0c46c6ebe4e822eaa33771bc110de2f9/tenor.gif',
+		'https://i.giphy.com/rSNAVVANV5XhK.gif',
+		'https://i.imgur.com/08LC0RH.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} consoled **${words}**! There, there, don't be sad. We're here for you.`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`Aww, don't be sad. ${msg.guild.members.cache.get(msg.author.id).displayName} got your back okay? :heart:`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://thumbs.gfycat.com/RemarkableUnluckyBlackpanther-small.gif',
-			'https://media.giphy.com/media/C1Fdach2R4HSg/giphy.gif',
-			'https://media1.tenor.com/images/2dc14e2010a0bc4786b36a3dfc2fab69/tenor.gif',
-			'https://media1.tenor.com/images/eb106be6f33b022bb34781e741e74db9/tenor.gif',
-			'https://media1.tenor.com/images/0fb5e945c195639dc28f761fd018605b/tenor.gif',
-			'https://media1.tenor.com/images/0c46c6ebe4e822eaa33771bc110de2f9/tenor.gif',
-			'https://i.giphy.com/rSNAVVANV5XhK.gif',
-			'https://i.imgur.com/08LC0RH.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
@@ -817,21 +1003,32 @@ else {
 
  
  if (command === 'kill') {
+	var gifs = [
+		'https://i.pinimg.com/originals/06/de/3a/06de3a0af78355bf7d4774cda4e4180e.gif',
+		'https://media1.tenor.com/images/2da282c6034d91db471f81d29eb691d9/tenor.gif',
+		'https://media1.tenor.com/images/f16e5bcbac25180fa09b9d5c405b3f95/tenor.gif',
+		'https://pa1.narvii.com/6559/c8d88737c0eb45dd9f967b04dcbd414a17b8b570_hq.gif',
+		'https://i.pinimg.com/originals/4d/6b/0f/4d6b0f94e42656e9ada7d9833409cb75.gif',
+		'https://thumbs.gfycat.com/EminentSlowClownanemonefish-size_restricted.gif',
+		'https://pa1.narvii.com/5741/4b70053325cbf1fd616dfda66a49210e72b23027_hq.gif',
+		'https://thumbs.gfycat.com/AdorableGivingCrayfish-max-1mb.gif',
+		'https://media1.tenor.com/images/d3a3e21de3393b6a3b4f16247e283e7b/tenor.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You assassinated **${words}**!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`${words} is dead! I'll revive them soon uwu.`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://i.pinimg.com/originals/06/de/3a/06de3a0af78355bf7d4774cda4e4180e.gif',
-			'https://media1.tenor.com/images/2da282c6034d91db471f81d29eb691d9/tenor.gif',
-			'https://media1.tenor.com/images/f16e5bcbac25180fa09b9d5c405b3f95/tenor.gif',
-			'https://pa1.narvii.com/6559/c8d88737c0eb45dd9f967b04dcbd414a17b8b570_hq.gif',
-			'https://i.pinimg.com/originals/4d/6b/0f/4d6b0f94e42656e9ada7d9833409cb75.gif',
-			'https://thumbs.gfycat.com/EminentSlowClownanemonefish-size_restricted.gif',
-			'https://pa1.narvii.com/5741/4b70053325cbf1fd616dfda66a49210e72b23027_hq.gif',
-			'https://thumbs.gfycat.com/AdorableGivingCrayfish-max-1mb.gif',
-			'https://media1.tenor.com/images/d3a3e21de3393b6a3b4f16247e283e7b/tenor.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
@@ -854,17 +1051,28 @@ else {
  }  
  
  if (command === 'bite') {
+	var gifs = [
+		'https://media1.tenor.com/images/c91f7e6ca3f5c157c5e6f6e4ea2e364c/tenor.gif',
+		'https://media1.tenor.com/images/283b04320ccd718991714e38953f06d1/tenor.gif',
+		'https://media1.giphy.com/media/7NUDCypKavZzkQGyp9/giphy.gif',
+		'https://media.giphy.com/media/mEMRAZYygRyk8/giphy.gif',
+		'https://media.giphy.com/media/Cvx6i8tQDTHEI/200.gif'
+		]
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setDescription(`You bit **${words}**!`)
+			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
+			.setFooter(`LMAO, does ${words} look like food to you?`);
+			msg.channel.send(embed);
+		}
 	}
 	else {
-		var gifs = [
-			'https://media1.tenor.com/images/c91f7e6ca3f5c157c5e6f6e4ea2e364c/tenor.gif',
-			'https://media1.tenor.com/images/283b04320ccd718991714e38953f06d1/tenor.gif',
-			'https://media1.giphy.com/media/7NUDCypKavZzkQGyp9/giphy.gif',
-			'https://media.giphy.com/media/mEMRAZYygRyk8/giphy.gif',
-			'https://media.giphy.com/media/Cvx6i8tQDTHEI/200.gif'
-			]
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
@@ -881,7 +1089,6 @@ else {
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`LMAO, does ${taggedUser.displayName} look like food to you?`);
 			msg.channel.send(embed);
-
 		}
 	}
  }  
@@ -943,6 +1150,55 @@ else {
 		.setDescription(`sdjkfhsajkfhsdaj SO CUTE`)
 		.setImage(randomgif)
 		.setFooter(`AAAAAAH SPAZZ SPAZZ OMLL EFHFJHK`);
+		msg.channel.send(embed);
+ }
+ 
+ if (command === 'scared') {
+		var gifs = [
+			'https://media.tenor.com/images/e3c2bee74806139d56d7c08b2b15d333/tenor.gif',
+			'https://media.tenor.com/images/91843c93a618cbed9741ee1531025639/tenor.gif',
+			'https://media.tenor.com/images/55c089a4480108dde4b5bec69b48be5b/tenor.gif',
+			'https://media.tenor.com/images/e4cb8ee5ef75b8eed31dbc173fdd6e6a/tenor.gif',
+			'https://media.giphy.com/media/HkUey32gK29RS/giphy.gif',
+			'https://i.pinimg.com/originals/11/9b/d8/119bd8a40a0e4df6dce5695be9ee8bc6.gif',
+			'https://i2.kym-cdn.com/photos/images/newsfeed/001/070/220/b2d.gif',
+			'https://i.gifer.com/NJwK.gif',
+			'https://thumbs.gfycat.com/FrenchImpartialKawala-size_restricted.gif'
+			]
+		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
+		const taggedUser = msg.mentions.users.first();
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setDescription(`D: You're scared?`)
+		.setImage(randomgif)
+		.setFooter(`WHY ARE YOU SCARED D:`);
+		msg.channel.send(embed);
+ }
+ 
+ if (command === 'sleep') {
+		var gifs = [
+			'https://media1.tenor.com/images/a7e8e8f9fd0a8784012d8f14b09da4a8/tenor.gif',
+			'https://66.media.tumblr.com/9a0efe3d6c1516214e3b3ffce5a51c78/tumblr_os2qsvffPq1qzxv73o1_400.gif',
+			'https://media1.tenor.com/images/7355297a8feac260037d4109758d3be8/tenor.gif',
+			'https://i.pinimg.com/originals/ca/dd/f1/caddf1ef532d286996080f27f71f87d2.gif',
+			'https://gifimage.net/wp-content/uploads/2018/05/sleep-anime-gif-4.gif',
+			'https://media.tenor.com/images/b954c0ad5c0457d464eb6c2a8f504a73/tenor.gif',
+			'https://media3.giphy.com/media/Ml8ZIPp2dDmaA/source.gif',
+			'https://media.tenor.com/images/62f71c86005b866fc87a3a7ef1d5038a/tenor.gif',
+			'https://i.gifer.com/QC9r.gif',
+			'https://i.pinimg.com/originals/f1/0c/5f/f10c5fcdb94355b83c54eb156f5b4866.gif',
+			'https://33.media.tumblr.com/2c2d94ebae4db3569a369ca823f198d4/tumblr_ntqwcuHf6k1tvgytqo1_400.gif',
+			'https://67.media.tumblr.com/31769f4d42a89d3641021f4a722a79de/tumblr_nv5vd05KLE1tzv1dpo1_500.gif',
+			'https://media.tenor.com/images/e7ea73ed83e59cdd198d6ecbe8eeb170/tenor.gif',
+			'https://25.media.tumblr.com/47c0340672e7b03207b4f3b895bd77ee/tumblr_mmrgjsy0zE1s89hgko1_400.gif'
+			]
+		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
+		const taggedUser = msg.mentions.users.first();
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setDescription(`Feeling sleepy? Go to sleep smh.`)
+		.setImage(randomgif)
+		.setFooter(`*puts blanket on you* Goodnighty uwu!`);
 		msg.channel.send(embed);
  }
  
