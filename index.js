@@ -108,7 +108,7 @@ var message = msg.content.toLowerCase()
 		 }
  }
  
- if (message.includes('goodnight') || message.includes('good night')) {
+ if (message.includes('goodnight') || message.includes('good night') || message.includes('nighty')) {
 		 if (msg.author.bot) return;
 		 else {
 			msg.channel.send(`Goodnight uwu! Sleep well!`);
