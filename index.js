@@ -205,9 +205,9 @@ const command = args.shift().toLowerCase();
 		if (taggedUser.id === msg.author.id) {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You yeeted **${words}**!`)
+			.setDescription(`You yeeted yourself!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${words}!`);
+			.setFooter(`Yikes, byebye ${taggedUser.username}!`);
 			msg.channel.send(embed);
 		}
 		else {	
