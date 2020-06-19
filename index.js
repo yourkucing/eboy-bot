@@ -1490,7 +1490,7 @@ if (command === 'flower') {
 		.addFields(
 		{ name: 'Description:', value: randomgif.description }
 		)
-		.footer('source: wikipedia');
+		.setFooter('source: wikipedia');
 		msg.channel.send(embed);
 }
 
