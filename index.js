@@ -1387,11 +1387,18 @@ if (command === 'flower') {
 		var flowerimage = [
 			{
 				name: 'Daffodil',
-				picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Narcissus_12_7_8_3.jpg/250px-Narcissus_12_7_8_3.jpg'
+				picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Narcissus_12_7_8_3.jpg/250px-Narcissus_12_7_8_3.jpg',
+				description: 'Narcissus (Narcissi) (often called a daffodil) is the botanic name for a genus of mainly hardy, mostly spring-flowering, bulbs in the Amaryllidaceae family. They are native to Europe, North Africa, and Asia.\r\nIt has pale yellow perianths with a darker central trumpet (paracorolla or "corona"). The long, narrow leaves are slightly greyish in colour and rise from the base of the stem. During the winter, the flowering part of narcissi dies away, and the plant lives on underground in a bulb. A bulb is an onionlike structure, filled with food. The plant lives off this food during the winter, protected from the cold by the soil above.'
 			},
 			{
 				name: 'Dahlia',
-				picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Kwiat_Dalii.JPG/250px-Kwiat_Dalii.JPG'
+				picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Kwiat_Dalii.JPG/250px-Kwiat_Dalii.JPG',
+				description: 'Dahlia is a genus of plants with large brightly-colored flowers. They are from Mexico, Central America, and Colombia. There are at least 36 species of Dahlia. Dahlia are often grown in flower gardens. This flower grows well away from strong, direct sunlight.'
+			}
+			{
+				name: 'Daisy',
+				picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Bellis_perennis_white_%28aka%29.jpg/220px-Bellis_perennis_white_%28aka%29.jpg',
+				description: 'Bellis perennis is a very common European species of daisy, of the Asteraceae family, often considered the model type for the name "daisy". \r\nMany related plants also share the name "daisy", so to distinguish this species from other daisies it is sometimes qualified as common daisy, lawn daisy or English daisy. The plant resembles Leucanthemum vulgare,a similar plant in the same family. Bellis perennis is native to western, central and northern Europe, but widely naturalised in most temperate regions including the Americas and Australasia.'
 			}
 		]
 		var randomgif = flowerimage[Math.floor(Math.random()*flowerimage.length)];
@@ -1399,6 +1406,9 @@ if (command === 'flower') {
 		.setColor('#FF69B4')
 		.setDescription(randomgif.name)
 		.setImage(randomgif.picture);
+		.addFields(
+		{ name: 'Description:', value: randomgif.description }
+		);
 		msg.channel.send(embed);
 }
 
