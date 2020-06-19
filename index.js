@@ -1384,12 +1384,21 @@ if (command === 'search') {
 
 
 if (command === 'flower') {
-		const flowerimage = require('./flowers.js');
+		var flowerimage = [
+			{
+				name: 'Daffodil',
+				picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Narcissus_12_7_8_3.jpg/250px-Narcissus_12_7_8_3.jpg'
+			},
+			{
+				name: 'Dahlia',
+				picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Kwiat_Dalii.JPG/250px-Kwiat_Dalii.JPG'
+			}
+		]
 		var randomgif = flowerimage[Math.floor(Math.random()*flowerimage.length)];
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
 		.setDescription(randomgif.name)
-		.setImage(randomgif.image);
+		.setImage(randomgif.picture);
 		msg.channel.send(embed);
 }
 
