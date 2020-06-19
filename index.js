@@ -1394,7 +1394,7 @@ if (command === 'flower') {
 				name: 'Dahlia',
 				picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Kwiat_Dalii.JPG/250px-Kwiat_Dalii.JPG',
 				description: 'Dahlia is a genus of plants with large brightly-colored flowers. They are from Mexico, Central America, and Colombia. There are at least 36 species of Dahlia. Dahlia are often grown in flower gardens. This flower grows well away from strong, direct sunlight.'
-			}
+			},
 			{
 				name: 'Daisy',
 				picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Bellis_perennis_white_%28aka%29.jpg/220px-Bellis_perennis_white_%28aka%29.jpg',
@@ -1404,7 +1404,7 @@ if (command === 'flower') {
 		var randomgif = flowerimage[Math.floor(Math.random()*flowerimage.length)];
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
-		.setDescription(randomgif.name)
+		.setTitle(randomgif.name)
 		.setImage(randomgif.picture);
 		.addFields(
 		{ name: 'Description:', value: randomgif.description }
