@@ -1384,7 +1384,7 @@ if (command === 'search') {
 
 
 if (command === 'flower') {
-		const flowerimage = require('./flowers.json');
+		const flowerimage = require('./flowers.js');
 		var randomgif = flowerimage[Math.floor(Math.random()*flowerimage.length)];
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
