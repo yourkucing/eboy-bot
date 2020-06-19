@@ -1405,7 +1405,7 @@ if (command === 'flower') {
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
 		.setTitle(randomgif.name)
-		.setImage(randomgif.picture);
+		.setImage(randomgif.picture)
 		.addFields(
 		{ name: 'Description:', value: randomgif.description }
 		);
