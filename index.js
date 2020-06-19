@@ -3,14 +3,13 @@ const ud = require('urban-dictionary');
 const client = new Discord.Client({disableEveryone: false});
 const prefix = "uwu ";
 const fs = require('fs');
-const db = require('quick.db');
+const flowerimage = require('./flowers.json');
 
 let eboys = [];
 
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
  client.user.setActivity('uwu help', { type: 'STREAMING' });
- client.channels.cache.get("702819924053196802").send(`<@313845179239104524> :3 At the end of the day, you matter to us and that's what... matter? So many matter ANYWAY I think its safe to say that you being in my owner's life has been one of the coolest things ever so please don't be sad. Like the old man said, who knows about these chucklefucks? theyre just brainless cockroaches. :heart:`);
  });
  
 client.on('guildMemberAdd', member => {
@@ -1383,6 +1382,15 @@ if (command === 'search') {
 	})
 }
 
+
+if (command === 'flower') {
+		var randomgif = flowerimage[Math.floor(Math.random()*flowerimage.length)];
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setDescription(randomgif.name)
+		.setImage(randomgif.image);
+		msg.channel.send(embed);
+}
 
  
  if (msg.content === '@eboy help' || command === 'help' || command === 'command' || command === 'commands') {
