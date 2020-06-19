@@ -3,7 +3,7 @@ const ud = require('urban-dictionary');
 const client = new Discord.Client({disableEveryone: false});
 const prefix = "uwu ";
 const fs = require('fs');
-const flowerimage = require('./flowers.json');
+
 
 let eboys = [];
 
@@ -1384,6 +1384,7 @@ if (command === 'search') {
 
 
 if (command === 'flower') {
+		const flowerimage = require('./flowers.json');
 		var randomgif = flowerimage[Math.floor(Math.random()*flowerimage.length)];
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
