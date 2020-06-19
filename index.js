@@ -10,6 +10,7 @@ let eboys = [];
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
  client.user.setActivity('uwu help', { type: 'STREAMING' });
+ client.channels.cache.get("702819924053196802").send(`<@313845179239104524> :3 Joel, I love you too and I'm sorry people are being shitty to you. I wish I could really end them for you, but you have to know that all of us here love you and I promise you I'll try my best to make you realise you're worth something to all of us. :heart:`);
  });
  
 client.on('guildMemberAdd', member => {
@@ -207,7 +208,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You yeeted yourself!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Yikes, byebye ${taggedUser.username}!`);
+			.setFooter(`Yikes, byebye ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
 		}
 		else {	
@@ -1381,6 +1382,8 @@ if (command === 'search') {
 	  msg.channel.send('Definition not found.');
 	})
 }
+
+
  
  if (msg.content === '@eboy help' || command === 'help' || command === 'command' || command === 'commands') {
 		const embed = new Discord.MessageEmbed()
