@@ -1349,6 +1349,28 @@ else {
 		.setFooter(`SWIPER NO SWIPING!`);
 		msg.channel.send(embed);
  }
+ 
+ if (command === 'flop') {
+		var gifs = [
+			'https://media.tenor.com/images/d12f9890d49ea8a68664115a68585545/tenor.gif',
+			'https://media1.tenor.com/images/3593aa01d50e7bee38fa017ec07f643d/tenor.gif',
+			'https://media.tenor.com/images/fae521807c9affd8c624efdf25811ac2/tenor.gif',
+			'https://media.tenor.com/images/0efb3170753d0b88c68ada2497f0d42f/tenor.gif',
+			'https://media1.tenor.com/images/1bd629c0c85492ccd073661d1f00ca13/tenor.gif',
+			'https://media.tenor.com/images/36543b5b0a8da71955cf919d576dbdaa/tenor.gif',
+			'https://media.giphy.com/media/olyqByuQ9o5gY/giphy.gif',
+			'https://imgur.com/5kxtJ5c.gif',
+			'https://gif-finder.com/wp-content/uploads/2019/05/Corgi-pup-just-loves-to-flop.gif',
+			'https://i.imgur.com/cg82b.gif'
+			]
+		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} flops uwu`)
+		.setImage(randomgif)
+		.setFooter(`floppityflopflop`);
+		msg.channel.send(embed);
+ }
 
 /*  if (command === 'test') {
 	if (eboys.some(eboy => eboy.id === msg.author.id)) {
@@ -1504,7 +1526,7 @@ if (command === 'flower') {
 		{ name: 'main commands', value: 'uwu\r\nowo\r\nawa\r\nòwó\r\nhi eboy uwu\r\ncan i get a yee claw\r\nuwu uwu <words to uwuify>\r\nuwu search <word to search>' },
 		{ name: 'information about eboy (type in the following)', value: 'why are you called eboy?\r\neboy, who built you?' },
 		{ name: 'uwu <commands> @<username>', value: 'bite\r\nboop\r\nconsole\r\ndrag\r\ndefenestrate\r\nhug\r\nkick\r\nkill\r\nkiss\r\nlove\r\npatpat\r\npeck (aka peck on the cheeks)\r\npunch\r\nslap\r\nsnuggle\r\ntonk\r\nuntonk\r\nyeet' },
-		{ name: 'uwu <commands>', value: 'angry\r\ncry\r\ncelly\r\ndance\r\neat\r\nscared\r\nscream\r\nsleep\r\nspazz\r\ntantrum\r\nyoink' },
+		{ name: 'uwu <commands>', value: 'angry\r\ncry\r\ncelly\r\ndance\r\nflop\r\neat\r\nscared\r\nscream\r\nsleep\r\nspazz\r\ntantrum\r\nyoink' },
 		{ name: 'uwu <commands> @<username> ONLY ALLOWED IN NSFW CHANNELS (also there are gay stuffs, so if youre not comfortable with it, dont use it.)', value: 'smooch (aka french kiss/steamy kiss)\r\nfuck' },
 		{ name: 'special commands', value: 'to cheer someone up and tell them that you love them:\r\n"eboy, help me out here @<username>"\r\nto kick someone out of the server: uwu byebye @<username>' },
 		)
