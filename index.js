@@ -10,8 +10,7 @@ let eboys = [];
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
  client.user.setActivity('uwu help', { type: 'STREAMING' });
- client.channels.cache.get("719493404190572604").send('boo.');
- client.guilds.cache.get("719491348713046057").leave();
+ client.guilds.cache.get("688298737713545241").leave();
  });
  
 client.on('guildMemberAdd', member => {
