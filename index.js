@@ -1743,7 +1743,7 @@ if (command === 'flower') {
 		return `${user.id} `;
 		});
 		userid = userids.toString().split(',');
-		if (userid[0] === '632493999818670091' && userid[1] === '630803907181936641') {
+		if ((userid[0] === '632493999818670091' && userid[1] === '630803907181936641') || (userid[1] === '632493999818670091' && userid[0] === '630803907181936641')) {
 			players = users.toString().split(',');
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
