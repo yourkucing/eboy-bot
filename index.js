@@ -10,6 +10,10 @@ let eboys = [];
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
  client.user.setActivity('uwu help', { type: 'STREAMING' });
+ client.channels.cache.get("723416326210715708").send(`**New updates:**\n\nadded:\nuwu laugh\nuwu scold <@username>\nuwu ew\nuwu flop\nuwu confused\nuwu summon <@username>\nuwu hide\nuwu clap\nuwu hydrate\nuwu match <@username> <@username>\n\nnew gifs for uwu tonk\n\nMy uwu help page has also been updated so do check that out :p That's it for now because it's 5:12pm and Maryam is tired and hasn't eaten since morning uwu. She will continue later uwu :heart:`);
+ client.channels.cache.get("702819924053196802").send(`**New updates:**\n\nadded:\nuwu laugh\nuwu scold <@username>\nuwu ew\nuwu flop\nuwu confused\nuwu summon <@username>\nuwu hide\nuwu clap\nuwu hydrate\nuwu match <@username> <@username>\n\nnew gifs for uwu tonk\n\nMy uwu help page has also been updated so do check that out :p That's it for now because it's 5:12pm and Maryam is tired and hasn't eaten since morning uwu. She will continue later uwu :heart:`);
+ client.channels.cache.get("718298129274765343").send(`**New updates:**\n\nadded:\nuwu laugh\nuwu scold <@username>\nuwu ew\nuwu flop\nuwu confused\nuwu summon <@username>\nuwu hide\nuwu clap\nuwu hydrate\nuwu match <@username> <@username>\n\nnew gifs for uwu tonk\n\nMy uwu help page has also been updated so do check that out :p That's it for now because it's 5:12pm and Maryam is tired and hasn't eaten since morning uwu. She will continue later uwu :heart:`);
+ client.channels.cache.get("681241919963267074").send(`**New updates:**\n\nadded:\nuwu laugh\nuwu scold <@username>\nuwu ew\nuwu flop\nuwu confused\nuwu summon <@username>\nuwu hide\nuwu clap\nuwu hydrate\nuwu match <@username> <@username>\n\nnew gifs for uwu tonk\n\nMy uwu help page has also been updated so do check that out :p That's it for now because it's 5:12pm and Maryam is tired and hasn't eaten since morning uwu. She will continue later uwu :heart:`);
  });
  
 client.on('guildMemberAdd', member => {
@@ -233,14 +237,12 @@ const command = args.shift().toLowerCase();
 		'https://66.media.tumblr.com/00af342d3838fed0f978b62ff496dfea/tumblr_phizajqDcb1wj1nn0o1_400.gif',
 		'https://reallifeanime.files.wordpress.com/2014/06/akari-slap.gif',
 		'https://pa1.narvii.com/6807/ac91cef2e5ae98f598665193f37bba223301d75c_hq.gif',
-		'https://i.gifer.com/1Vbb.gif',
 		'https://gifimage.net/wp-content/uploads/2017/07/anime-slap-gif-10.gif',
 		'https://i.makeagif.com/media/10-13-2015/kTH4sW.gif',
 		'https://i.imgur.com/VW0cOyL.gif',
 		'https://media0.giphy.com/media/xT9IgzTnZHL9zp6IPS/source.gif',
 		'https://media.giphy.com/media/3oEduOWVxygmeDIKPu/giphy.gif',
 		'https://thumbs.gfycat.com/EarnestAshamedIndochinesetiger-max-1mb.gif',
-		'https://i.gifer.com/WOQM.gif',
 		'https://thumbs.gfycat.com/CaringFloweryKentrosaurus-small.gif',
 		'https://thumbs.gfycat.com/EvenSneakyGraysquirrel-size_restricted.gif',
 		'https://media.tenor.com/images/6cbccba5255abc270993e4cca01ee7ea/tenor.gif',
@@ -268,7 +270,7 @@ const command = args.shift().toLowerCase();
 			.setColor('#FF69B4')
 			.setDescription(`You slapped yourself!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Oof, do I see a handprint mark on your face, ${taggedUser.username}?`);
+			.setFooter(`Oof, do I see a handprint mark on your face, ${taggedUser.displayName}?`);
 			msg.channel.send(embed);
 		}
 		else {
@@ -342,7 +344,6 @@ else {
 		'https://media.giphy.com/media/of7ly2wRNo6Kk/giphy.gif',
 		'https://media.giphy.com/media/1g1cnnIbR3JkdUJR5A/giphy.gif',
 		'https://media1.tenor.com/images/3e93b32d896a23365b727c8ec8576163/tenor.gif',
-		'https://i.gifer.com/Pag6.gif',
 		'https://media1.tenor.com/images/6b9d2a780070deaa6168930bfdae64f2/tenor.gif',
 		'https://i.pinimg.com/originals/5c/9e/bf/5c9ebf04775941600df653b60cd03041.gif',
 		'https://media0.giphy.com/media/11JwraRupZNJSg/giphy.gif',
@@ -486,7 +487,6 @@ else {
 		'https://media.giphy.com/media/wOly8pa4s4W88/giphy.gif',
 		'https://media1.tenor.com/images/fb2a19c9b689123e6254ad9ac6719e96/tenor.gif',
 		'https://media1.tenor.com/images/d4bd24c980e46c66f67077aff59f0565/tenor.gif',
-		'https://i.gifer.com/1UDX.gif',
 		'https://i.pinimg.com/originals/0c/09/21/0c09214c4df0c7b2a8f6870144972a82.gif',
 		'https://media.tenor.com/images/64bd964e32d1c943801743aaf0565f25/tenor.gif',
 		'https://media1.tenor.com/images/1f8c90e5efbd0bbdf0d385ef4f85c9e9/tenor.gif',
@@ -541,10 +541,8 @@ else {
 		'https://24.media.tumblr.com/3bd5d901c51689fae2a6b95531ed6bef/tumblr_mwqg8a1CQz1rwzq4jo1_500.gif',
 		'https://pa1.narvii.com/6275/8588579649e49bac663309fed7a792daacd2b82b_hq.gif',
 		'https://cdn.lowgif.com/medium/d26c65f2d66be540-merriberri-graphic-arts-services-requests.gif',
-		'https://i.gifer.com/GaYY.gif',
 		'https://66.media.tumblr.com/85d8161c57f92c9b50590d7605b34e4e/tumblr_inline_pq885e8o7T1v8hwtj_540.gif',
 		'https://media1.giphy.com/media/117o9BJASzmLNC/giphy.gif',
-		'https://i.gifer.com/RhzY.gif',
 		'https://i.pinimg.com/originals/c2/2f/b9/c22fb9595eda0368856778a9a97483a8.gif',
 		'https://gifimage.net/wp-content/uploads/2017/11/flying-tackle-hug-gif-7.gif',
 		'https://i.pinimg.com/originals/a8/f0/4d/a8f04d7bc4d67745a670e079130dfb54.gif',
@@ -819,7 +817,6 @@ else {
  if (command === 'snuggle' || command === 'snuggles') {
 	var gifs = [
 		'https://media.giphy.com/media/kz01wlAoCLYx3v8F68/giphy.gif',
-		'https://i.gifer.com/DQp.gif',
 		'https://25.media.tumblr.com/tumblr_m1x1jtIXWQ1qf5ddxo1_500.gif',
 		'https://media.tenor.com/images/215f87079f12bccd5dd56def22140668/tenor.gif',
 		'https://media.tenor.com/images/b38e8de408c8c3581ee75713d30db469/tenor.gif',
@@ -1148,7 +1145,6 @@ else {
  
  if (command === 'scold') {
 	var gifs = [
-		'https://i.gifer.com/N9GI.gif',
 		'https://media.tenor.com/images/55bd0b903b703f36cf6085262f48fdb5/tenor.gif',
 		'https://media1.giphy.com/media/26ufeGxY6J7l6k86c/source.gif',
 		'https://media1.giphy.com/media/cn2vHXruExI3nqOFE2/giphy.gif',
@@ -1242,7 +1238,6 @@ else {
 			'https://media.tenor.com/images/e5993e389cd5667789c957c05aee7c5c/tenor.gif',
 			'https://media.giphy.com/media/Rv0zzokgDrg4M/200.gif',
 			'https://thumbs.gfycat.com/VeneratedBlackHoneycreeper-size_restricted.gif',
-			'https://i.gifer.com/1hG9.gif',
 			'https://media1.popsugar-assets.com/files/thumbor/hPm4dv68O0i8Vyb2kBA8XQ84yLM/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/04/08/925/n/1922283/eeac818b5cd5bb2d_anigif_enhanced-buzz-20962-1384956300-31/i/She-jumps-she-screams-you-know-happy-person.gif'
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
@@ -1264,7 +1259,6 @@ else {
 			'https://media.giphy.com/media/HkUey32gK29RS/giphy.gif',
 			'https://i.pinimg.com/originals/11/9b/d8/119bd8a40a0e4df6dce5695be9ee8bc6.gif',
 			'https://i2.kym-cdn.com/photos/images/newsfeed/001/070/220/b2d.gif',
-			'https://i.gifer.com/NJwK.gif',
 			'https://thumbs.gfycat.com/FrenchImpartialKawala-size_restricted.gif'
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
@@ -1308,8 +1302,6 @@ else {
 			'https://media2.giphy.com/media/l3q2XhfQ8oCkm1Ts4/giphy.gif',
 			'https://media1.tenor.com/images/1bd3aaa14e6c60866238e0009fb042b4/tenor.gif',
 			'https://media1.tenor.com/images/0de120c10a661c15cb60fe77b8eac367/tenor.gif',
-			'https://i.gifer.com/8SW.gif',
-			'https://i.gifer.com/QYYD.gif',
 			'https://cdn.lowgif.com/full/01be67c39428150b-gif-anime-happy-smile-animated-gif-on-gifer-by-anayaswyn.gif',
 			'https://media1.giphy.com/media/6TvzcVLRLDNZu/giphy.gif',
 			'https://thumbs.gfycat.com/ClumsyExcellentLeveret-size_restricted.gif',
@@ -1336,7 +1328,6 @@ else {
 			'https://media.tenor.com/images/b954c0ad5c0457d464eb6c2a8f504a73/tenor.gif',
 			'https://media3.giphy.com/media/Ml8ZIPp2dDmaA/source.gif',
 			'https://media.tenor.com/images/62f71c86005b866fc87a3a7ef1d5038a/tenor.gif',
-			'https://i.gifer.com/QC9r.gif',
 			'https://i.pinimg.com/originals/f1/0c/5f/f10c5fcdb94355b83c54eb156f5b4866.gif',
 			'https://33.media.tumblr.com/2c2d94ebae4db3569a369ca823f198d4/tumblr_ntqwcuHf6k1tvgytqo1_400.gif',
 			'https://67.media.tumblr.com/31769f4d42a89d3641021f4a722a79de/tumblr_nv5vd05KLE1tzv1dpo1_500.gif',
@@ -1362,7 +1353,6 @@ else {
 			'https://thumbs.gfycat.com/ContentFrenchBadger-size_restricted.gif',
 			'https://66.media.tumblr.com/465fd76d4ac2dc7c6cb492f394f8c743/tumblr_oa2k3wiMsY1smufyzo1_400.gif',
 			'https://gifimage.net/wp-content/uploads/2018/04/kirby-eating-gif-8.gif',
-			'https://i.gifer.com/TJrF.gif',
 			'https://media1.tenor.com/images/21f1f30024f331959b1c7818a7aa0136/tenor.gif',
 			'https://media.giphy.com/media/ViC6liI1iz3TGxb4po/giphy.gif',
 			'https://i.pinimg.com/originals/db/a1/fc/dba1fca1c27106c53b04ee2333099217.gif',
@@ -1871,10 +1861,10 @@ if (command === 'flower') {
 		.addFields(
 		{ name: 'main commands', value: 'uwu\r\nowo\r\nawa\r\nòwó\r\nhi eboy uwu\r\ncan i get a yee claw\r\nuwu uwu <words to uwuify>\r\nuwu search <word to search>' },
 		{ name: 'information about eboy (type in the following)', value: 'why are you called eboy?\r\neboy, who built you?' },
-		{ name: 'uwu <commands> @<username>', value: 'bite\r\nboop\r\nconsole\r\ndrag\r\ndefenestrate\r\nhug\r\nkick\r\nkill\r\nkiss\r\nlove\r\npatpat\r\npeck (aka peck on the cheeks)\r\npunch\r\nslap\r\nsnuggle\r\ntonk\r\nuntonk\r\nyeet' },
-		{ name: 'uwu <commands>', value: 'angry\r\ncry\r\ncelly\r\ndance\r\nflop\r\neat\r\nscared\r\nscream\r\nsleep\r\nspazz\r\ntantrum\r\nyoink' },
+		{ name: 'uwu <commands> @<username>', value: 'bite\r\nboop\r\nconsole\r\ndrag\r\ndefenestrate\r\nhug\r\nkick\r\nkill\r\nkiss\r\nlove\r\npatpat\r\npeck (aka peck on the cheeks)\r\npunch\r\nscold\r\nslap\r\nsnuggle\r\nsummon\r\ntonk\r\nuntonk\r\nyeet' },
+		{ name: 'uwu <commands>', value: 'angry\r\nclap\r\ncry\r\ncelly\r\nconfused\r\ndance\r\nhydrate\r\new\r\nflop\r\nhide\r\nlaugh\r\neat\r\nscared\r\nscream\r\nsleep\r\nspazz\r\ntantrum\r\nyoink' },
 		{ name: 'uwu <commands> @<username> ONLY ALLOWED IN NSFW CHANNELS (also there are gay stuffs, so if youre not comfortable with it, dont use it.)', value: 'smooch (aka french kiss/steamy kiss)\r\nfuck' },
-		{ name: 'special commands', value: 'to cheer someone up and tell them that you love them:\r\n"eboy, help me out here @<username>"\r\nto kick someone out of the server: uwu byebye @<username>' },
+		{ name: 'special commands', value: 'to cheer someone up and tell them that you love them:\r\n"eboy, help me out here @<username>"\r\nto kick someone out of the server: uwu byebye @<username>\r\nto matchmake someone: uwu match @<username> @<username> BOTH MUST BE DIFFERENT USERS.' },
 		)
 		.setFooter(`Created by Maryam#9206`);
 		msg.channel.send(embed);
