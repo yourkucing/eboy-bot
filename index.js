@@ -1736,9 +1736,10 @@ if (command === 'flower') {
 		return msg.channel.send(`You didn't provide any names, ${msg.author}! You gotta provide 2 names. What a dumdum.`);
 	}
 	else {
-		let player1 = msg.mentions.members.first();
-		let player2 = msg.mentions.members.second();
-		msg.channel.send(`${player1} and ${player2}`);
+		const users = msg.mentions.users.map(user => {
+		return `${user.displayName}`;
+		});
+		msg.channel.send(`${users}`);
 	}
  }
 
