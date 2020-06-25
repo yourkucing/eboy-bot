@@ -1822,7 +1822,7 @@ if (command === 'flower') {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
-			.setDescription('Come come, let eboy show you how compatible you are :3')
+			.setDescription('Come come, let eboy show you how compatible you are :3\r\nI\'m just a bot messenger btw, this is definitely not real so please do not shoot or kill the messenger uwu thankies :3')
 			.addFields(
 				{ name: 'Hooman 1', value: `${players[0]}`, inline: true },
 				{ name: 'Hooman 2', value: `${players[1]}`, inline: true },
