@@ -530,6 +530,7 @@ else {
  if (command === 'hug') {
 	var gifs = [
 		'https://media1.tenor.com/images/baa6f59f4b89bfff1ff9a22421eb02a6/tenor.gif',
+		'https://cdn.discordapp.com/attachments/688409696364789765/723605363638796398/image0.gif',
 		'https://i.pinimg.com/originals/6e/c3/a6/6ec3a6c6e32bc9d4f01c26a717928a93.gif',
 		'https://24.media.tumblr.com/tumblr_m88t9gvikH1rpbfuco1_500.gif',
 		'https://media2.giphy.com/media/lrr9rHuoJOE0w/source.gif',
@@ -589,6 +590,10 @@ else {
 		'https://media1.tenor.com/images/00ad8957bf40ba1efecd71c70f4f6f70/tenor.gif',
 		'https://media1.tenor.com/images/b515120c09f3db63ba456c6b45be5066/tenor.gif',
 		'https://i.imgur.com/LnGPvPw.gif',
+		'https://media1.tenor.com/images/f2059cfecd9343a5a3d1fb8af10c3aaf/tenor.gif',
+		'https://media.tenor.com/images/5376fa4e263ef3d21bea9fb175d09a59/tenor.gif',
+		'https://media.tenor.com/images/4516ee548d7acbe5e4c106c86d92bccf/tenor.gif',
+		'https://media1.tenor.com/images/1b88846ca4d36ca14c955bd6364f21f3/tenor.gif',
 		'https://media.tenor.com/images/003c5629319c1ef6c13f181cdccfbece/tenor.gif'
 		]
 	if (!msg.mentions.users.size) {
@@ -820,7 +825,8 @@ else {
 		'https://media.tenor.com/images/b38e8de408c8c3581ee75713d30db469/tenor.gif',
 		'https://media.tenor.com/images/57559abb91934c8aaa325a71b0d01706/tenor.gif',
 		'https://media.giphy.com/media/3ohhwHAKGA0ilFZrkQ/giphy.gif',
-		'https://media.giphy.com/media/f4YPX09pxYGkM/giphy.gif'
+		'https://media.giphy.com/media/f4YPX09pxYGkM/giphy.gif',
+		'https://cdn.discordapp.com/attachments/720332521828778064/724318165907013792/tenor-3.gif'
 		]
 	if (!msg.mentions.users.size) {
 		const words = args.join(' ');
@@ -1541,6 +1547,26 @@ else {
 		.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is laughing.`)
 		.setImage(randomgif)
 		.setFooter(`Bruh whats so funny? XD`);
+		msg.channel.send(embed);
+ }
+ 
+ if (command === 'hydrate') {
+		var gifs = [
+			'https://media.tenor.com/images/91b7e8c89b7509c61ec50ac2ad95dbaa/tenor.gif',
+			'https://media.giphy.com/media/nfnF2zVPRemXu/giphy.gif',
+			'https://www.ohmagif.com/wp-content/uploads/2012/08/clever-cat-drinking-water-from-tap.gif',
+			'https://thumbs.gfycat.com/BetterPortlyApisdorsatalaboriosa-max-1mb.gif',
+			'https://media2.giphy.com/media/4VIACsYrWirEQ/giphy.gif',
+			'https://media0.giphy.com/media/y7ZWNmtIcf2TxTBDmE/200.gif',
+			'https://media1.tenor.com/images/3219e45726514f8bb0525ebdcd1e010a/tenor.gif',
+			'https://i.pinimg.com/originals/23/00/d5/2300d52c64171c70642fd61f4d1451ce.gif'
+			]
+		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is drinking water.`)
+		.setImage(randomgif)
+		.setFooter(`Please hydrate yourself, especially if you are River ._.`);
 		msg.channel.send(embed);
  }
  
