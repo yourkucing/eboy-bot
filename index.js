@@ -1743,7 +1743,7 @@ if (command === 'flower') {
 		return `${user.id} `;
 		});
 		userid = userids.toString().split(',');
-		if ((userid[0] === '632493999818670091' && userid[1] === '630803907181936641') || (userid[1] === '632493999818670091' && userid[0] === '630803907181936641')) {
+/* 		if ((userid[0] === '632493999818670091' && userid[1] === '630803907181936641') || (userid[1] === '632493999818670091' && userid[0] === '630803907181936641')) {
 			players = users.toString().split(',');
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
@@ -1755,9 +1755,9 @@ if (command === 'flower') {
 				{ name: 'Love score', value: `100/100`, inline: true },
 				{ name: 'Love bar', value: `██████████`},
 				{ name: 'Conclusion', value: `You will last till eternity. :heart:`},
-			);
+			); */
 			
-			msg.channel.send(embed);
+			msg.channel.send(`${userid[0]} and ${userid[1]}`);
 		}
 		else {
 			msg.channel.send(`nuhuh. nop.`);
