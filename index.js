@@ -1271,6 +1271,55 @@ else {
 		msg.channel.send(embed);
  }
  
+ if (command === 'hide') {
+		var gifs = [
+			'https://media2.giphy.com/media/COYGe9rZvfiaQ/giphy.gif',
+			'https://media3.giphy.com/media/B37cYPCruqwwg/200.gif',
+			'https://media0.giphy.com/media/dxqOkrl29R8ac/giphy.gif',
+			'https://thumbs.gfycat.com/ColorfulJadedBittern-size_restricted.gif',
+			'https://media1.tenor.com/images/7f45cc8bdccab844a04658546770b634/tenor.gif',
+			'https://media1.giphy.com/media/V1NxC1YoNEHBe/giphy.gif',
+			'https://media.tenor.com/images/c5220f1e411a16c0afeb35e068345f4f/tenor.gif',
+			'https://thumbs.gfycat.com/EsteemedContentBongo-small.gif',
+			'https://i2.wp.com/media1.giphy.com/media/Adqe9XUP3x9LO/giphy.gif',
+			'https://viralviralvideos.com/wp-content/uploads/GIF/2014/12/Hiding-GIF.gif',
+			'https://giffiles.alphacoders.com/209/209148.gif'
+			]
+		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
+		const taggedUser = msg.mentions.users.first();
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setDescription(`Why are you hiding? XD`)
+		.setImage(randomgif)
+		.setFooter(`Be careful not to get caught smh XD`);
+		msg.channel.send(embed);
+ }
+ 
+ if (command === 'clap') {
+		var gifs = [
+			'https://media.tenor.com/images/039b76f457e474fccd92a26f5562393d/tenor.gif',
+			'https://media3.giphy.com/media/srg19CG0cKMuI/200.gif',
+			'https://media2.giphy.com/media/l3q2XhfQ8oCkm1Ts4/giphy.gif',
+			'https://media1.tenor.com/images/1bd3aaa14e6c60866238e0009fb042b4/tenor.gif',
+			'https://media1.tenor.com/images/0de120c10a661c15cb60fe77b8eac367/tenor.gif',
+			'https://i.gifer.com/8SW.gif',
+			'https://i.gifer.com/QYYD.gif',
+			'https://cdn.lowgif.com/full/01be67c39428150b-gif-anime-happy-smile-animated-gif-on-gifer-by-anayaswyn.gif',
+			'https://media1.giphy.com/media/6TvzcVLRLDNZu/giphy.gif',
+			'https://thumbs.gfycat.com/ClumsyExcellentLeveret-size_restricted.gif',
+			'https://i.kym-cdn.com/photos/images/original/000/840/249/375.gif',
+			'https://giffiles.alphacoders.com/139/139354.gif'
+			]
+		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
+		const taggedUser = msg.mentions.users.first();
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setDescription(`Clap clap clap!`)
+		.setImage(randomgif)
+		.setFooter(`YAY BRAVO! Standing ovation uwu.`);
+		msg.channel.send(embed);
+ }
+ 
  if (command === 'sleep') {
 		var gifs = [
 			'https://media1.tenor.com/images/a7e8e8f9fd0a8784012d8f14b09da4a8/tenor.gif',
@@ -1680,6 +1729,18 @@ if (command === 'flower') {
 		.setFooter('source: wikipedia');
 		msg.channel.send(embed);
 }
+
+
+ if (command === 'match') {
+	if (msg.mentions.users.size < 2) {
+		return msg.channel.send(`You didn't provide any names, ${msg.author}! You gotta provide 2 names. What a dumdum.`);
+	}
+	else {
+		let player1 = msg.mentions.members.first();
+		let player2 = msg.mentions.members.second();
+		msg.channel.send(`${player1} and ${player2}`);
+	}
+ }
 
  
  if (msg.content === '@eboy help' || command === 'help' || command === 'command' || command === 'commands') {
