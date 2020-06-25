@@ -1748,7 +1748,7 @@ if (command === 'flower') {
 		.addFields(
 			{ name: 'Hooman 1', value: `${players[0]}`, inline: true },
 			{ name: 'Hooman 2', value: `${players[1]}`, inline: true },
-			{ name: 'Love score', value: `100/100`, inline: true }
+			{ name: 'Love score', value: `100/100`, inline: true },
 		)
 		.addField('Love bar', `██████████`, true);
 		.addField('Conclusion', `You will last till eternity. :heart:`, true);
