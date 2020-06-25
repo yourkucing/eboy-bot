@@ -369,7 +369,7 @@ else {
 			.setColor('#FF69B4')
 			.setDescription(`I can't believe you just french kissed yourself, hot damn.`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`That was some... wew, damn.\r\n${msg.guild.members.cache.get(msg.author.id).displayName} smooched themselves ${smooch} times.`);
+			.setFooter(`That was some... wew, damn.\r\n`);
 			msg.channel.send(embed);
 		}
 		else {
