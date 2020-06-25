@@ -10,10 +10,6 @@ let eboys = [];
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
  client.user.setActivity('uwu help', { type: 'STREAMING' });
- client.channels.cache.get("723416326210715708").send(`**New updates:**\n\nadded:\nuwu laugh\nuwu scold <@username>\nuwu ew\nuwu flop\nuwu confused\nuwu summon <@username>\nuwu hide\nuwu clap\nuwu hydrate\nuwu match <@username> <@username>\n\nnew gifs for uwu tonk\n\nMy uwu help page has also been updated so do check that out :p That's it for now because it's 5:12pm and Maryam is tired and hasn't eaten since morning uwu. She will continue later uwu :heart:`);
- client.channels.cache.get("702819924053196802").send(`**New updates:**\n\nadded:\nuwu laugh\nuwu scold <@username>\nuwu ew\nuwu flop\nuwu confused\nuwu summon <@username>\nuwu hide\nuwu clap\nuwu hydrate\nuwu match <@username> <@username>\n\nnew gifs for uwu tonk\n\nMy uwu help page has also been updated so do check that out :p That's it for now because it's 5:12pm and Maryam is tired and hasn't eaten since morning uwu. She will continue later uwu :heart:`);
- client.channels.cache.get("718298129274765343").send(`**New updates:**\n\nadded:\nuwu laugh\nuwu scold <@username>\nuwu ew\nuwu flop\nuwu confused\nuwu summon <@username>\nuwu hide\nuwu clap\nuwu hydrate\nuwu match <@username> <@username>\n\nnew gifs for uwu tonk\n\nMy uwu help page has also been updated so do check that out :p That's it for now because it's 5:12pm and Maryam is tired and hasn't eaten since morning uwu. She will continue later uwu :heart:`);
- client.channels.cache.get("681241919963267074").send(`**New updates:**\n\nadded:\nuwu laugh\nuwu scold <@username>\nuwu ew\nuwu flop\nuwu confused\nuwu summon <@username>\nuwu hide\nuwu clap\nuwu hydrate\nuwu match <@username> <@username>\n\nnew gifs for uwu tonk\n\nMy uwu help page has also been updated so do check that out :p That's it for now because it's 5:12pm and Maryam is tired and hasn't eaten since morning uwu. She will continue later uwu :heart:`);
  });
  
 client.on('guildMemberAdd', member => {
