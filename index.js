@@ -1739,21 +1739,29 @@ if (command === 'flower') {
 		const users = msg.mentions.users.map(user => {
 		return `${msg.guild.members.cache.get(user.id).displayName} `;
 		});
-		players = users.toString().split(',');
-		msg.channel.send(`${players[0]} and ${players[1]}`);
-		const embed = new Discord.MessageEmbed()
-		.setColor('#FF69B4')
-		.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
-		.setDescription('Come come, let eboy show you how compatible you are :3')
-		.addFields(
-			{ name: 'Hooman 1', value: `${players[0]}`, inline: true },
-			{ name: 'Hooman 2', value: `${players[1]}`, inline: true },
-			{ name: 'Love score', value: `100/100`, inline: true },
-			{ name: 'Love bar', value: `██████████`},
-			{ name: 'Conclusion', value: `You will last till eternity. :heart:`},
-		);
-		
-		msg.channel.send(embed);
+		const userids = msg.mentions.users.map(user => {
+		return `${user.id} `;
+		});
+		userid = userids.toString().split(',');
+		if (userid[0] === '632493999818670091' && userid[1] === '630803907181936641') {
+			players = users.toString().split(',');
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
+			.setDescription('Come come, let eboy show you how compatible you are :3')
+			.addFields(
+				{ name: 'Hooman 1', value: `${players[0]}`, inline: true },
+				{ name: 'Hooman 2', value: `${players[1]}`, inline: true },
+				{ name: 'Love score', value: `100/100`, inline: true },
+				{ name: 'Love bar', value: `██████████`},
+				{ name: 'Conclusion', value: `You will last till eternity. :heart:`},
+			);
+			
+			msg.channel.send(embed);
+		}
+		else {
+			msg.channel.send(`nuhuh. nop.`);
+		}
 	}
  }
 
