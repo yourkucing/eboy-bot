@@ -1741,6 +1741,19 @@ if (command === 'flower') {
 		});
 		players = users.toString().split(',');
 		msg.channel.send(`${players[0]} and ${players[1]}`);
+		const embed = new Discord.MessageEmbed()
+		.setColor('#FF69B4')
+		.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
+		.setDescription('Come come, let eboy show you how compatible you are :3')
+		.addFields(
+			{ name: 'Hooman 1', value: `${players[0]}`, inline: true },
+			{ name: 'Hooman 2', value: `${players[1]}`, inline: true },
+			{ name: 'Love score', value: `100/100`, inline: true }
+		)
+		.addField('Love bar', `██████████`, true);
+		.addField('Conclusion', `You will last till eternity. :heart:`, true);
+		
+		msg.channel.send(embed);
 	}
  }
 
