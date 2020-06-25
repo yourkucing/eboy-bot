@@ -1739,7 +1739,8 @@ if (command === 'flower') {
 		const users = msg.mentions.users.map(user => {
 		return `${msg.guild.members.cache.get(user.id).displayName} `;
 		});
-		msg.channel.send(`${users}`);
+		players = users.split(',');
+		msg.channel.send(`${players[0]} and ${players[1]}`);
 	}
  }
 
