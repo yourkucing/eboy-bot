@@ -1757,7 +1757,7 @@ if (command === 'flower') {
 				{ name: 'Conclusion', value: `You will last till eternity. :heart:`},
 			); */
 			
-			msg.channel.send(`${userid[0]} and ${userid[1]}`);
+			msg.channel.send(`${userid[0].trim()},${userid[1].trim()}`);
 /* 		}
 		else {
 			msg.channel.send(`nuhuh. nop.`);
