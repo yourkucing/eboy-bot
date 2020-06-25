@@ -1758,10 +1758,10 @@ if (command === 'flower') {
 			); */
 			
 			msg.channel.send(`${userid[0]} and ${userid[1]}`);
-		}
+/* 		}
 		else {
 			msg.channel.send(`nuhuh. nop.`);
-		}
+		} */
 	}
  }
 
