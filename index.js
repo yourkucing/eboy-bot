@@ -1824,7 +1824,7 @@ if (command === 'flower') {
 					conclusion: 'You guys will probably last till eternity :3'
 				},
 				{
-					score: '10/100',
+					score: '100/100',
 					bar: '██████████',
 					conclusion: 'You will definitely last till eternity. :heart:'
 				}
