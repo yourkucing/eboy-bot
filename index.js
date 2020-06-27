@@ -1771,6 +1771,22 @@ if (command === 'flower') {
 			
 			msg.channel.send(embed);
 		}
+		else if ((userid[0].trim() === '589816379511668756' && userid[1].trim() === '671158558880038922') || (userid[1].trim() === '589816379511668756' && userid[0].trim() === '671158558880038922')) {
+			players = users.toString().split(',');
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
+			.setDescription('Come come, let eboy show you how compatible you are :3')
+			.addFields(
+				{ name: 'Hooman 1', value: `${players[0]}`, inline: true },
+				{ name: 'Hooman 2', value: `${players[1]}`, inline: true },
+				{ name: 'Love score', value: `100/100`, inline: true },
+				{ name: 'Love bar', value: `██████████`},
+				{ name: 'Conclusion', value: `You will last till eternity. :heart:`},
+			);
+			
+			msg.channel.send(embed);
+		}
 		else {
 			var results = [
 				{
