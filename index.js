@@ -19,7 +19,7 @@ client.on('guildMemberAdd', member => {
 		member.roles.add(member.guild.roles.cache.find(x => x.id == "714374597914656810"), "");
 	}
 	if (guild.id === "733541632275644427") {
-		client.channels.cache.get("733541632275644430").send(`Hihi ${member.displayName}, welcome to Carcosa and World of Eldritch County!\n\nPlease head yourself to <#733542476035653643> to introduce yourself so that others can get to know you better! And then don't forget to head yourself to <#733551174250266729> as well! \n\nI hope you have fun and I'm really glad that you're in Carcosa :meow:`);
+		client.channels.cache.get("733541632275644430").send(`Hihi **${member.displayName}**, welcome to Carcosa and World of Eldritch County!\n\nPlease head yourself to <#733542476035653643> to introduce yourself so that others can get to know you better! And then don't forget to head yourself to <#733551174250266729> as well! \n\nI hope you have fun and I'm really glad that you're in Carcosa :heart: <:meow:733551416114937856>`);
 		member.roles.add(member.guild.roles.cache.find(x => x.id == "733542068563083285"), "");
 	}
 })
