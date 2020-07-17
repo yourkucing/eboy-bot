@@ -18,6 +18,10 @@ client.on('guildMemberAdd', member => {
 		client.channels.cache.get("714366752489865279").send(`Hey **${member.displayName}**, welcome to **World of Zodiac**!\n\nPlease head yourself to <#714370031709978665> to sort yourself into a certain house that you want to be in! And then don't forget to head yourself to <#714370627871440956> as well! After that, you can go to <#714370677632794695> to introduce yourself, and have conversations with all people in this server on <#714367141620744244> ! Just don't forget to read the rules in <#714372663841259572> though! It's necessary! :wink:\n\nHave fun, Stars! We hope you enjoy being in this server! :sparkles:`);
 		member.roles.add(member.guild.roles.cache.find(x => x.id == "714374597914656810"), "");
 	}
+	if (guild.id === "733541632275644427") {
+		client.channels.cache.get("733541632275644430").send(`Hihi ${member.displayName}, welcome to Carcosa and World of Eldritch County!\n\nPlease head yourself to <#733542476035653643> to introduce yourself so that others can get to know you better! And then don't forget to head yourself to <#733551174250266729> as well! \n\nI hope you have fun and I'm really glad that you're in Carcosa :meow:`);
+		member.roles.add(member.guild.roles.cache.find(x => x.id == "733542068563083285"), "");
+	}
 })
 
 client.on('message', msg => {
@@ -133,6 +137,11 @@ const command = args.shift().toLowerCase();
 	const words = args.join(' ');
 	msg.channel.send(words.replace(/r/g,'w').replace(/s/g,'sh').replace(/l/g,'w').replace(/R/g,'W').replace(/S/g,'Sh').replace(/L/g,'W') + ' uwu');
 }
+
+/*  if (command === 'banner') {
+	const words = args.join(' ');
+	msg.channel.send(words.replace(/r/g,'w').replace(/s/g,'sh').replace(/l/g,'w').replace(/R/g,'W').replace(/S/g,'Sh').replace(/L/g,'W') + ' uwu');
+} */
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1772,6 +1781,22 @@ if (command === 'flower') {
 			msg.channel.send(embed);
 		}
 		else if ((userid[0].trim() === '589816379511668756' && userid[1].trim() === '671158558880038922') || (userid[1].trim() === '589816379511668756' && userid[0].trim() === '671158558880038922')) {
+			players = users.toString().split(',');
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
+			.setDescription('Come come, let eboy show you how compatible you are :3')
+			.addFields(
+				{ name: 'Hooman 1', value: `${players[0]}`, inline: true },
+				{ name: 'Hooman 2', value: `${players[1]}`, inline: true },
+				{ name: 'Love score', value: `100/100`, inline: true },
+				{ name: 'Love bar', value: `██████████`},
+				{ name: 'Conclusion', value: `You will last till eternity. :heart:`},
+			);
+			
+			msg.channel.send(embed);
+		}
+		else if ((userid[0].trim() === '332123726864973837' && userid[1].trim() === '279101053750870017') || (userid[1].trim() === '332123726864973837' && userid[0].trim() === '279101053750870017')) {
 			players = users.toString().split(',');
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
