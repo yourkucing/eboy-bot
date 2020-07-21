@@ -1,7 +1,5 @@
 module.exports.run = async(client, msg, args) => {
-	msg.channel.send(args);
-	msg.channel.send(msg);
-/* 	var gifs = [
+	var gifs = [
 		'https://thumbs.gfycat.com/MistyDelectableKouprey-size_restricted.gif',
 		'https://i.pinimg.com/originals/51/58/88/515888d6d7fadfd3dd0fa312ca287a34.gif'
 	]
@@ -39,5 +37,5 @@ module.exports.run = async(client, msg, args) => {
 			.setFooter(`Yikes, byebye ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
 		}
-	} */
+	}
 }
