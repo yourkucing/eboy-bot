@@ -139,7 +139,7 @@ var message = msg.content.toLowerCase()
  }
 
 if (!msg.content.toLowerCase().startsWith(prefix) || msg.author.bot) return;
-const args = msg.content.slice(prefix.length).split(' ');
+const args = msg.content.slice(prefix.length).split(new RegExp(/\s+/));
 const command = args.shift().toLowerCase();
 
  if (command === 'uwu') {
@@ -154,7 +154,14 @@ const command = args.shift().toLowerCase();
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
 
- if (command === 'defenestrate') {
+ if(client.commands.get(command)) {
+	 client.commands.get(command).run(client, msg, args);
+	 
+ }
+
+
+
+/*  if (command === 'defenestrate') {
 	var gifs = [
 		'https://thumbs.gfycat.com/MistyDelectableKouprey-size_restricted.gif',
 		'https://i.pinimg.com/originals/51/58/88/515888d6d7fadfd3dd0fa312ca287a34.gif'
@@ -194,7 +201,7 @@ const command = args.shift().toLowerCase();
 			msg.channel.send(embed);
 		}
 	}
- }
+ } */
  
  if (command === 'yeet') {
 	var gifs = [
@@ -1929,7 +1936,6 @@ if (command === 'flower') {
 				 let cmdName = file.substring(0, file.indexOf(".js"));
 				 let cmdModule = require(path.join(__dirname, dir, file));
 				 client.commands.set(cmdName, cmdModule);
-				 console.log(client.commands)
 			 }
 		 }
 	 }
