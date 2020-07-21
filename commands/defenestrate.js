@@ -14,7 +14,7 @@ module.exports.run = async(client, msg, args) => {
 			.setDescription(`You defenestrated **${words}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Yikes, byebye ${words}!`);
-			msg.channel.send(embed);
+			msg.channel.send(words);
 		}
 	}
 	else {
@@ -35,7 +35,7 @@ module.exports.run = async(client, msg, args) => {
 			.setDescription(`You defenestrated **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Yikes, byebye ${taggedUser.displayName}!`);
-			msg.channel.send(embed);
+			msg.channel.send(`${taggedUser.displayName}`);
 		}
 	}
 }
