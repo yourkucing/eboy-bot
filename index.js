@@ -155,8 +155,7 @@ const command = args.shift().toLowerCase();
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
 
  if(client.commands.get(command)) {
-	 client.commands.get(command).run(client, msg, args);
-	 
+	 client.commands.get(command).run(client, msg, args).catch((e) => { console.log(e); });
  }
 
 
@@ -1896,6 +1895,6 @@ if (command === 'flower') {
 			 }
 		 }
 	 }
- })()
+ })();
 
 client.login(process.env.token);
