@@ -1918,7 +1918,7 @@ if (command === 'flower') {
  
  });
  
- (async function registerCommands(dir + 'commands') {
+ (async function registerCommands(dir = 'commands') {
 	 let files = await fs.readdir(path.join(_dirname, dir));
 	 console.log(files);
  })()
