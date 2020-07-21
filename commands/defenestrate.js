@@ -4,7 +4,7 @@ module.exports.run = async(client, msg, args) => {
 		'https://i.pinimg.com/originals/51/58/88/515888d6d7fadfd3dd0fa312ca287a34.gif'
 	]
 	if (!msg.mentions.users.size) {
-		const words = args.join(' ');
+		let words = args.join(' ');
 		if (words === "") {
 			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
 		}
@@ -18,7 +18,7 @@ module.exports.run = async(client, msg, args) => {
 		}
 	}
 	else {
-		const taggedUser = msg.mentions.members.first();
+		let taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
 			
 			const embed = new Discord.MessageEmbed()
