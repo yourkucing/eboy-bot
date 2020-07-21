@@ -1,6 +1,6 @@
 module.exports.run = async(client, msg, args) => {
-	msg.channel.send("boo");
-	msg.channel.send("work?");
+	msg.channel.send(args);
+	msg.channel.send(msg);
 /* 	var gifs = [
 		'https://thumbs.gfycat.com/MistyDelectableKouprey-size_restricted.gif',
 		'https://i.pinimg.com/originals/51/58/88/515888d6d7fadfd3dd0fa312ca287a34.gif'
