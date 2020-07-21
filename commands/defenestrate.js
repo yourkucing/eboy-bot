@@ -1,4 +1,5 @@
-const { Discord } = require('discord.js');
+const Discord = require('discord.js');
+
 module.exports.run = async(client, msg, args) => {
 	var gifs = [
 		'https://thumbs.gfycat.com/MistyDelectableKouprey-size_restricted.gif',
