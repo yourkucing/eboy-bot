@@ -2,7 +2,8 @@ const Discord = require('discord.js');
 const ud = require('urban-dictionary');
 const client = new Discord.Client({disableEveryone: false});
 const prefix = "uwu ";
-const fs = require('fs');
+const fs = require('fs').promises;
+const path = require('path');
 
 
 let eboys = [];
@@ -23,6 +24,7 @@ client.on('guildMemberAdd', member => {
 		member.roles.add(member.guild.roles.cache.find(x => x.id == "733542068563083285"), "");
 	}
 })
+
 
 client.on('message', msg => {
 	
@@ -1915,5 +1917,10 @@ if (command === 'flower') {
  }
  
  });
+ 
+ (async function registerCommands(dir + 'commands') {
+	 let files = await fs.readdir(path.join(_dirname, dir));
+	 console.log(files);
+ })()
 
 client.login(process.env.token);
