@@ -6,7 +6,7 @@ const fs = require('fs').promises;
 const path = require('path');
 
 
-let eboys = [];
+client.commands = new Map();
 
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
@@ -1920,7 +1920,19 @@ if (command === 'flower') {
  
  (async function registerCommands(dir = 'commands') {
 	 let files = await fs.readdir(path.join(__dirname, dir));
-	 console.log(files);
+	 for(let file of files) {
+		 let stat = await fs.lstat(path.join(__dirname, dir, file));
+		 if(stat.isDirectory())
+			 registerModels(path.join(dir, file));
+		 else {
+			 if(file.endsWith(".js")) {
+				 let cmdName = file.substring(0, file.indexOf(".js"));
+				 let cmdModule = require(path.join(__dirname, dir, file));
+				 client.commands.set(cmdName, cmdModule);
+				 console.log(client.commands)
+			 }
+		 }
+	 }
  })()
 
 client.login(process.env.token);
