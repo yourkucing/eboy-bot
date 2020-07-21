@@ -10,6 +10,7 @@ let eboys = [];
 
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
+ console.log(files);
  client.user.setActivity('uwu help', { type: 'STREAMING' });
  });
  
