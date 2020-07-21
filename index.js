@@ -10,7 +10,6 @@ let eboys = [];
 
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
- console.log(files);
  client.user.setActivity('uwu help', { type: 'STREAMING' });
  });
  
@@ -1920,7 +1919,7 @@ if (command === 'flower') {
  });
  
  (async function registerCommands(dir = 'commands') {
-	 let files = await fs.readdir(path.join(_dirname, dir));
+	 let files = await fs.readdir(path.join(__dirname, dir));
 	 console.log(files);
  })()
 
