@@ -212,7 +212,7 @@ if (command === 'flower') {
 	 for(let file of files) {
 		 let stat = await fs.lstat(path.join(__dirname, dir, file));
 		 if(stat.isDirectory())
-			 registerModels(path.join(dir, file));
+			 registerCommands(path.join(dir, file));
 		 else {
 			 if(file.endsWith(".js")) {
 				 let cmdName = file.substring(0, file.indexOf(".js"));
