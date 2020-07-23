@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
-	if(args.split(new RegExp(/\s+/)).length !== 1) {
+	 if(args.slice().length !== 1) {
 		let msg1 = await msg.channel.send(`You only need to provide one message ID, ${msg.author}! What a dumdum.`);
 	    await msg1.delete({ timeout: 3500 }).catch(err => console.log(err));
 	}
