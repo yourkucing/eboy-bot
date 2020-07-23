@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const fs = require('fs').promises;
 
 module.exports.run = async(client, msg, args) => {
 	if(args.split(/\s+/).length !== 1) {
