@@ -6,7 +6,7 @@ let msgCollectorFilter = (newMsg, originalMsg) => {
     console.log(args);
 }
 
-module.exports.run = {
+module.exports = {
     run: async(client, msg, args) => {
         if(args.split(/\s+/).length !== 1) {
             let msg1 = await msg.channel.send(`You only need to provide one message ID, ${msg.author}! What a dumdum.`);
