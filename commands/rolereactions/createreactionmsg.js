@@ -15,7 +15,7 @@ module.exports.run = async(client, msg, args) => {
 			let fetchedMessage = await msg.channel.messages.fetch(args);
             if(fetchedMessage) {
                 await msg.channel.send("Please provide all of the emoji names with the role name.\neg: emojiname, rolename");
-                let collector = new MessageCollector(message.channel, msgCollectorFilter.bind(null, msg));
+                let collector = new MessageCollector(msg.channel, msgCollectorFilter.bind(null, msg));
                 collector.on('collect', message => {
                     console.log(`${message.content} was collected.`);
                 });
