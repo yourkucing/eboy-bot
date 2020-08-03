@@ -12,7 +12,12 @@ module.exports.run = async(client, msg, args) => {
 		'https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif',
 		'https://78.media.tumblr.com/44716773d1a091d4b84efbae296ab062/tumblr_or61zhEUtM1skak2ao1_500.gif',
 		'https://49.media.tumblr.com/ac7e6f5ee22260439ceb89b67d57b6cb/tumblr_mwwkjpb5rh1src1c6o1_500.gif',
-		'https://i.pinimg.com/originals/ca/4e/fd/ca4efd302a2c335f5d8d1ffc05734ab9.gif'
+		'https://i.pinimg.com/originals/ca/4e/fd/ca4efd302a2c335f5d8d1ffc05734ab9.gif',
+        'https://i.pinimg.com/originals/31/21/77/3121775da1ebe9779bf8daebc472dad8.gif',
+        'https://data.whicdn.com/images/88262356/original.gif',
+        'https://media.giphy.com/media/hnNyVPIXgLdle/giphy.gif',
+        'https://thumbs.gfycat.com/InconsequentialMeaslyFly-size_restricted.gif',
+        'https://media1.tenor.com/images/f5167c56b1cca2814f9eca99c4f4fab8/tenor.gif'
 		]
 	if (!msg.mentions.users.size) {
 		const words = args.join(' ');
