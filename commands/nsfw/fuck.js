@@ -12,7 +12,16 @@ module.exports.run = async(client, msg, args) => {
 			'https://66.media.tumblr.com/b5d3af68fba97db9389132e7990dd4d9/tumblr_okdhk3hAuu1rawmqbo1_500.gif',
 			'https://66.media.tumblr.com/95a179adbdee32e86c9d3ed3205430c6/tumblr_opn4alLVSi1rrugpso1_400.gif',
 			'https://i.pinimg.com/originals/7d/f7/2b/7df72b4cb04b3735a15b925abbf9c5cc.gif',
-			'https://media.giphy.com/media/7CXIp5bcit6ZG/200_d.gif'
+			'https://media.giphy.com/media/7CXIp5bcit6ZG/200_d.gif',
+            'https://media1.tenor.com/images/bb7d5db9778ac3e124109cd6f450f826/tenor.gif',
+            'https://media1.tenor.com/images/d1f37f2333aa790ccbda13c5fea49b46/tenor.gif',
+            'https://media1.tenor.com/images/206db91927650b0604f45aba51c5ae2c/tenor.gif',
+            'https://media1.tenor.com/images/2f9e0fad5c0273dcfab124ab355dd63a/tenor.gif',
+            'https://media1.popsugar-assets.com/files/thumbor/KHLX10V97zRMoI8jSv5g7iSVryo/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2015/04/29/107/n/3019466/1259cad28ccf9620_tumblr_n9r31s3Wsg1rvf3epo6_500/i/Like-really-steamy.gif',
+            'https://media1.tenor.com/images/957ae96c23ab0f8964ed5a59ff783dd1/tenor.gif',
+            'https://66.media.tumblr.com/e5a6b92398fd5594ff0a8adacf7f449d/tumblr_pz9ezfUeYa1v0c0kgo1_500.gif',
+            'https://66.media.tumblr.com/e0109e4cf4d1f731f75bb04be9f34e1d/tumblr_py51kv3uAD1th3s35o1_500.gif',
+            'https://i.pinimg.com/originals/38/ad/a3/38ada38d6b86be4fbfa9d45ee524d118.gif'
 			]
 		if (!msg.mentions.users.size) {
 			const words = args.join(' ');
