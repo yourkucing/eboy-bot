@@ -21,7 +21,10 @@ module.exports.run = async(client, msg, args) => {
             'https://media1.tenor.com/images/957ae96c23ab0f8964ed5a59ff783dd1/tenor.gif',
             'https://66.media.tumblr.com/e5a6b92398fd5594ff0a8adacf7f449d/tumblr_pz9ezfUeYa1v0c0kgo1_500.gif',
             'https://66.media.tumblr.com/e0109e4cf4d1f731f75bb04be9f34e1d/tumblr_py51kv3uAD1th3s35o1_500.gif',
-            'https://i.pinimg.com/originals/38/ad/a3/38ada38d6b86be4fbfa9d45ee524d118.gif'
+            'https://i.pinimg.com/originals/38/ad/a3/38ada38d6b86be4fbfa9d45ee524d118.gif',
+            'https://24.media.tumblr.com/ccd26c379508c10f6c7fbc1b3c546509/tumblr_mm4i57kjxa1snstk2o1_500.gif',
+            'https://24.media.tumblr.com/tumblr_lxxfhaM87c1rnxf0fo1_500.gif',
+            'https://i.pinimg.com/originals/7f/bd/a1/7fbda119a597f8b40f7505e3a900c6a2.gif'
 			]
 		if (!msg.mentions.users.size) {
 			const words = args.join(' ');
