@@ -15,12 +15,7 @@ module.exports.run = async(client, msg, args) => {
 		'https://pa1.narvii.com/6275/8588579649e49bac663309fed7a792daacd2b82b_hq.gif',
 		'https://cdn.lowgif.com/medium/d26c65f2d66be540-merriberri-graphic-arts-services-requests.gif',
 		'https://66.media.tumblr.com/85d8161c57f92c9b50590d7605b34e4e/tumblr_inline_pq885e8o7T1v8hwtj_540.gif',
-		'https://media1.giphy.com/media/117o9BJASzmLNC/giphy.gif',
-		'https://i.pinimg.com/originals/c2/2f/b9/c22fb9595eda0368856778a9a97483a8.gif',
-		'https://gifimage.net/wp-content/uploads/2017/11/flying-tackle-hug-gif-7.gif',
-		'https://i.pinimg.com/originals/a8/f0/4d/a8f04d7bc4d67745a670e079130dfb54.gif',
-		'https://media.tenor.com/images/f1dc8d4a16e2de3b22ff3aa25fd62e8a/tenor.gif'
-		]
+        ]
 	if (!msg.mentions.users.size) {
 		const words = args.join(' ');
 		if (words === "") {
