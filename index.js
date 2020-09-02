@@ -37,13 +37,13 @@ if (msg.author.bot) return
 	 }
  }
  
- if (msg.content.toLowerCase().includes('why are you called eboy')) {
- msg.channel.send('hi ' + msg.author.toString() +' uwu! I am named after Jackolantern! He is the bestest eboy uwu.');
- }
- 
  if (msg.content.toLowerCase().includes('eboy, who built you?')) {
  msg.channel.send('hi ' + msg.author.toString() +' uwu! Maryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her :heart:');
  }
+    
+if (msg.content.toLowerCase().includes('eboy, how do I submit a suggestion or feedback?')) {
+    msg.channel.send('hi ' + msg.author.toString() + 'you can submit your suggestion or feedback here: https://forms.gle/GpoHX32kVQznvY3h6 though don\'t forget to leave down your name and a way to contact you, just in case there are questions we need to specify!')
+}
  
  if (msg.content.toLowerCase() === 'uwu') {
 	 if (msg.author.bot) return;
@@ -199,7 +199,7 @@ if (command === 'flower') {
 		.setDescription('Thank you for using Eboy bot uwu! (∩•̀ω•́)⊃-⋆')
 		.addFields(
 		{ name: 'main commands', value: 'uwu\r\nowo\r\nawa\r\nòwó\r\nhi eboy uwu\r\neboy, i love you\r\ncan i get a yee claw\r\nuwu uwu <words to uwuify>\r\nuwu search <word to search>' },
-		{ name: 'information about eboy (type in the following)', value: 'why are you called eboy?\r\neboy, who built you?' },
+		{ name: 'information about eboy (type in the following)', value: 'eboy, how do I submit a suggestion or feedback?\r\neboy, who built you?' },
 		{ name: 'uwu <commands> @<username>', value: 'bite\r\nboop\r\ncling\r\nconsole\r\ndefenestrate\r\ndrag\r\nhug\r\nkick\r\nkill\r\nkiss\r\nlove\r\npatpat\r\npeck (aka peck on the cheeks)\r\npunch\r\nscold\r\nshake\r\nslap\r\nsnuggle\r\nsummon\r\ntackle\r\ntonk\r\nuntonk\r\nyeet' },
 		{ name: 'uwu <commands>', value: 'axe\r\nangry\r\ncelly\r\nclap\r\nconfused\r\ncry\r\ndance\r\ndrink\r\neat\r\new\r\nflop\r\nhide\r\nhydrate\r\nlaugh\r\nscared\r\nscream\r\nsleep\r\nspazz\r\ntantrum\r\nyoink' },
 		{ name: 'uwu <commands> @<username> ONLY ALLOWED IN NSFW CHANNELS (also there are gay stuffs, so if youre not comfortable with it, dont use it.)', value: 'choke\r\nfuck\r\nsmooch (aka french kiss/steamy kiss)' },
