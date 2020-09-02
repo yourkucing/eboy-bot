@@ -42,7 +42,7 @@ if (msg.author.bot) return
  }
     
 if (msg.content.toLowerCase().includes('eboy, how do I submit a suggestion or feedback?')) {
-    msg.channel.send('hi ' + msg.author.toString() + 'you can submit your suggestion or feedback here: https://forms.gle/GpoHX32kVQznvY3h6 though don\'t forget to leave down your name and a way to contact you, just in case there are questions we need to specify!')
+    msg.channel.send('hi ' + msg.author.toString() + 'you can submit your suggestion or feedback here: https://forms.gle/GpoHX32kVQznvY3h6 though don\'t forget to leave down your name and a way to contact you, just in case there are questions we need to specify!');
 }
  
  if (msg.content.toLowerCase() === 'uwu') {
