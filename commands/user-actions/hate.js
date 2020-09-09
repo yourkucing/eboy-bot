@@ -33,7 +33,7 @@ module.exports.run = async(client, msg, args) => {
 			.setColor('#FF69B4')
 			.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} hates you, **${taggedUser.displayName}** bweeee! But I love you still, uwu :pleading_face:`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`Don't worry, we still love you, **${taggedUser.displayName}**!`);
+			.setFooter(`Don't worry, we still love you, ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
 
 		}
