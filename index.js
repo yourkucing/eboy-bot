@@ -101,9 +101,6 @@ if (msg.author.bot) return
 		 if (msg.author.id === "332123726864973837") {
 		     msg.author.send(`Dear Diary,\n\nI want to marry Noa. That's it. That's the entire damn `)
 		 }
-         else {
-             msg.channel.send('it appears that you cannot read the diary because this is a special command that you have to unlock by Maryam being pretty much best friends with you. but uwu, she still loves you though :hearts:');
-         }
 	 }
  }
  
