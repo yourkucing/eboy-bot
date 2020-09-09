@@ -31,7 +31,7 @@ module.exports.run = async(client, msg, args) => {
 		else {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} hates you, **${taggedUser.displayName}** bweeee! But I love you still, uwu :pleading_face:`)
+			.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} hates you, **${taggedUser.displayName}** bweeee! But they love you still, uwu :pleading_face:`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Don't worry, we still love you, ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
