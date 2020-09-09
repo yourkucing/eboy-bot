@@ -2,7 +2,8 @@ const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
 	var gifs = [
-		'https://cdn.discordapp.com/emojis/717706418651922465.gif'
+		'https://cdn.discordapp.com/emojis/717706418651922465.gif',
+        'https://media.tenor.com/images/efef0a0b04a78392697ef7882ee251e6/tenor.gif'
 		]
 	if (!msg.mentions.users.size) {
 		const words = args.join(' ');
