@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
 	var gifs = [
-		'https://i.gifer.com/EJEW.gif',
         'https://media.tenor.com/images/83b9f04aeeb52ba08b6a081d0f5fe085/tenor.gif',
         'https://thumbs.gfycat.com/EmotionalCompleteGourami-size_restricted.gif'
 		]
