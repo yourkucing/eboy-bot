@@ -203,7 +203,7 @@ if (command === 'flower') {
 		.addFields(
 		{ name: 'main commands', value: 'uwu\r\nowo\r\nawa\r\nòwó\r\nhi eboy uwu\r\neboy, i love you\r\ncan i get a yee claw\r\nuwu uwu <words to uwuify>\r\nuwu search <word to search>' },
 		{ name: 'information about eboy (type in the following)', value: 'eboy, how do I submit a suggestion or feedback?\r\neboy, who built you?' },
-		{ name: 'uwu <commands> @<username>', value: 'bite\r\nboop\r\ncling\r\nconsole\r\ndefenestrate\r\ndrag\r\nhug\r\nkick\r\nkill\r\nkiss\r\nlove\r\npatpat\r\npeck (aka peck on the cheeks)\r\npunch\r\nscold\r\nshake\r\nslap\r\nsnuggle\r\nsummon\r\ntackle\r\ntonk\r\nuntonk\r\nyeet' },
+		{ name: 'uwu <commands> @<username>', value: 'bite\r\nboop\r\ncling\r\nconsole\r\ndefenestrate\r\ndrag\r\nhate\r\nhug\r\nkick\r\nkill\r\nkiss\r\nlove\r\npatpat\r\npeck (aka peck on the cheeks)\r\npunch\r\nscold\r\nshake\r\nslap\r\nsnuggle\r\nsummon\r\ntackle\r\ntonk\r\nuntonk\r\nyeet' },
 		{ name: 'uwu <commands>', value: 'axe\r\nangry\r\ncelly\r\nclap\r\nconfused\r\ncry\r\ndance\r\ndrink\r\neat\r\new\r\nflop\r\nhide\r\nhydrate\r\nlaugh\r\nscared\r\nscream\r\nsleep\r\nspazz\r\ntantrum\r\nyoink' },
 		{ name: 'uwu <commands> @<username> ONLY ALLOWED IN NSFW CHANNELS (also there are gay stuffs, so if youre not comfortable with it, dont use it.)', value: 'choke\r\nfuck\r\nsmooch (aka french kiss/steamy kiss)' },
 		{ name: 'special commands', value: 'to cheer someone up and tell them that you love them:\r\n"eboy, help me out here @<username>"\r\nto kick someone out of the server: uwu byebye @<username>\r\nto matchmake someone: uwu match @<username> @<username> BOTH MUST BE DIFFERENT USERS.' },
