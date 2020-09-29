@@ -66,15 +66,15 @@ module.exports.run = async(client, msg, args) => {
                         dice = [Math.floor(Math.random() * 6) + 1] + [Math.floor(Math.random() * 6) + 1];
                         if (dice >= 10) {
                             hp = 50;
-                            msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)**`);
+                            msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)** dice: ${dice}`);
                         }
                         else if (dice > 6 && dice < 10) {
                             hp = 20;
-                            msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)**`);
+                            msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)** dice: ${dice}`);
                         }
                         else if (dice <= 6) {
                             hp = 0;
-                            msg.channel.send(`**${player1}**'s spell was blocked by **${player2}**! :shield: **(-${hp} HP)**`);
+                            msg.channel.send(`**${player1}**'s spell was blocked by **${player2}**! :shield: **(-${hp} HP)** dice: ${dice}`);
                         }
                         p2points = p2points - hp; 
                         msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
@@ -89,15 +89,15 @@ module.exports.run = async(client, msg, args) => {
                         dice2 = [Math.floor(Math.random() * 6) + 1] + [Math.floor(Math.random() * 6) + 1];
                         if (dice2 >= 10) {
                             hp = 50;
-                            msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)**`);
+                            msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)** dice: ${dice2}`);
                         }
                         else if (dice2 > 6 && dice2 < 10) {
                             hp = 20;
-                            msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)**`);
+                            msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)** dice: ${dice2}`);
                         }
                         else if (dice2 <= 6) {
                             hp = 0;
-                            msg.channel.send(`**${player2}**'s spell was blocked by **${player1}**! :shield: **(-${hp} HP)**`);
+                            msg.channel.send(`**${player2}**'s spell was blocked by **${player1}**! :shield: **(-${hp} HP)** dice: ${dice2}`);
                         }
                         p1points = p1points - hp; 
                         
