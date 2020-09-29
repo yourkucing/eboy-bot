@@ -27,7 +27,12 @@ module.exports.run = async(client, msg, args) => {
             msg.channel.awaitMessages(m => m.author.id == taggedUser.id, {max: 1, time: 30000}).then(collected => {
                 if (collected.first().content.toLowerCase() == 'yes') {
                     msg.channel.send("Let the battle begin!");
-                    msg.channel.send("sike.");
+                    p1points = 100;
+                    p2points = 100;
+                    if (p1points == 100)
+                        {
+                            msg.channel.send("yes.");
+                        }
                 }
 
                 else if (collected.first().content.toLowerCase() == 'no') {
