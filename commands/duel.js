@@ -125,7 +125,7 @@ module.exports.run = async(client, msg, args) => {
                         const embed = new Discord.MessageEmbed()
                         .setColor('#FF69B4')
                         .setTitle(`${player2} won the duel!`)
-                        .setThumbnail(msg.guild.members.cache.get(player2id).avatarURL);
+                        .setImage('https://i.gifer.com/WKta.gif');
                         msg.channel.send(embed);
                     }
                     else if (p2points <= 0 && p1points > 0) {
@@ -133,7 +133,7 @@ module.exports.run = async(client, msg, args) => {
                         const embed = new Discord.MessageEmbed()
                         .setColor('#FF69B4')
                         .setTitle(`${player1} won the duel!`)
-                        .setThumbnail(msg.guild.members.cache.get(player1id).avatarURL);
+                        .setImage('https://i.gifer.com/WKta.gif');
                         msg.channel.send(embed);
                     }
                 }
