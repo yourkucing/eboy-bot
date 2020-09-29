@@ -48,6 +48,8 @@ module.exports.run = async(client, msg, args) => {
             //later
 		}
 		else {	
+            player2id = taggedUser.id;
+            player1id = msg.author.id;
             msg.channel.send(`${taggedUser}, ${msg.guild.members.cache.get(msg.author.id).displayName} wants to duel you. Do you accept? (Reply yes or no.)`);
             msg.channel.awaitMessages(m => m.author.id == taggedUser.id, {max: 1, time: 30000}).then(collected => {
                 if (collected.first().content.toLowerCase() == 'yes') {
@@ -59,7 +61,7 @@ module.exports.run = async(client, msg, args) => {
                     msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
                     while (p1points > 0 && p2points > 0) {
                         const randomOption = results[Math.floor(Math.random() * results.length)];
-                        msg.channel.send(`**${player1}** casted ${randomOption.message} (∩•̀ω•́)⊃-⋆`);
+                        msg.channel.send(`**${player1}** casted ${randomOption} (∩•̀ω•́)⊃-⋆`);
 
                         dice = [Math.floor(Math.random() * ((6 - 1) + 1) + 1)] + [Math.floor(Math.random() * ((6 - 1) + 1) + 1)];
                         if (dice >= 10) {
@@ -82,18 +84,18 @@ module.exports.run = async(client, msg, args) => {
                         }
                         
                         const randomOption2 = results[Math.floor(Math.random() * results.length)];
-                        msg.channel.send(`**${player2}** casted ${randomOption2.message} ⋆-⊂(•̀ω•́∩)`);
+                        msg.channel.send(`**${player2}** casted ${randomOption2} ⋆-⊂(•̀ω•́∩)`);
 
-                        dice = [Math.floor(Math.random() * ((6 - 1) + 1) + 1)] + [Math.floor(Math.random() * ((6 - 1) + 1) + 1)];
-                        if (dice >= 10) {
+                        dice2 = [Math.floor(Math.random() * ((6 - 1) + 1) + 1)] + [Math.floor(Math.random() * ((6 - 1) + 1) + 1)];
+                        if (dice2 >= 10) {
                             hp = 50;
                             msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)**`);
                         }
-                        else if (dice > 6 && dice < 10) {
+                        else if (dice2 > 6 && dice2 < 10) {
                             hp = 20;
                             msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)**`);
                         }
-                        else if (dice <= 6) {
+                        else if (dice2 <= 6) {
                             hp = 0;
                             msg.channel.send(`**${player2}**'s spell was blocked by **${player1}**! :shield: **(-${hp} HP)**`);
                         }
@@ -103,12 +105,20 @@ module.exports.run = async(client, msg, args) => {
                     }
                     
                     if (p1points <= 0 && p2points > 0) {
-                        msg.channel.send(`**${player1}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！`);
-                        msg.channel.send(`CONGRATULATIONS, ${player2}! (っ◕‿◕)っ :heart:`);
+                        msg.channel.send(`**${player1}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！\r\nCONGRATULATIONS, **${player2}**! (っ◕‿◕)っ :heart:`);
+                        const embed = new Discord.MessageEmbed()
+                        .setColor('#FF69B4')
+                        .setTitle(`${player2} won the duel!`)
+                        .setThumbnail(msg.guild.members.cache.get(player2id).avatarURL);
+                        msg.channel.send(embed);
                     }
                     else if (p2points <= 0 && p1points > 0) {
-                        msg.channel.send(`**${player2}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！`);
-                        msg.channel.send(`CONGRATULATIONS, ${player1}! (っ◕‿◕)っ :heart:`);
+                        msg.channel.send(`**${player2}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！\r\nCONGRATULATIONS, **${player1}**! (っ◕‿◕)っ :heart:`);
+                        const embed = new Discord.MessageEmbed()
+                        .setColor('#FF69B4')
+                        .setTitle(`${player1} won the duel!`)
+                        .setThumbnail(msg.guild.members.cache.get(player1id).avatarURL);
+                        msg.channel.send(embed);
                     }
                 }
 
