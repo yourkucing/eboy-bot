@@ -63,7 +63,7 @@ module.exports.run = async(client, msg, args) => {
                         const randomOption = results[Math.floor(Math.random() * results.length)];
                         msg.channel.send(`**${player1}** casted ${randomOption} (∩•̀ω•́)⊃-⋆`);
 
-                        dice = [Math.floor(Math.random() * 6) + 1] + [Math.floor(Math.random() * 6) + 1];
+                        dice = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
                         if (dice >= 10) {
                             hp = 50;
                             msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)** dice: ${dice}`);
@@ -86,7 +86,7 @@ module.exports.run = async(client, msg, args) => {
                         const randomOption2 = results[Math.floor(Math.random() * results.length)];
                         msg.channel.send(`**${player2}** casted ${randomOption2} ⋆-⊂(•̀ω•́∩)`);
 
-                        dice2 = [Math.floor(Math.random() * 6) + 1] + [Math.floor(Math.random() * 6) + 1];
+                        dice2 = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
                         if (dice2 >= 10) {
                             hp = 50;
                             msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)** dice: ${dice2}`);
