@@ -29,13 +29,25 @@ module.exports.run = async(client, msg, args) => {
                     msg.channel.send("Let the battle begin!");
                     p1points = 100;
                     p2points = 100;
-                    while (p1points > 0 && p2points > 0)
-                        {
-                            const randomOption = results[Math.floor(Math.random() * results.length)];
-                            msg.channel.send("noa is hot");
-                            p1points = p1points - Number(randomOption.xp);
-                            p2points = p2points - Number(randomOption.xp);
-                        }
+                    msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
+                    while (p1points > 0 && p2points > 0) {
+                        const randomOption = results[Math.floor(Math.random() * results.length)];
+                        msg.channel.send(`**${player1}** casted ${randomOption.message} (∩•̀ω•́)⊃-⋆`);
+                        p2points = p2points - Number(randomOption.xp);
+                        msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
+                        const randomOption2 = results[Math.floor(Math.random() * results.length)];
+                        msg.channel.send(`**${player2}** casted ${randomOption2.message} ⋆-⊂(•̀ω•́∩)`);
+                        p1points = p1points - Number(randomOption2.xp);
+                        msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
+                    }
+                    if (p1points <= 0) {
+                        msg.channel.send(`**${player1}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！`);
+                        msg.channel.send(`CONGRATULATIONS, ${player2}! (っ◕‿◕)っ :heart:`);
+                    }
+                    if (p2points <= 0) {
+                        msg.channel.send(`**${player2}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！`);
+                        msg.channel.send(`CONGRATULATIONS, ${player1}! (っ◕‿◕)っ :heart:`);
+                    }
                 }
 
                 else if (collected.first().content.toLowerCase() == 'no') {
