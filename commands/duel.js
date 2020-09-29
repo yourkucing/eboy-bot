@@ -29,9 +29,11 @@ module.exports.run = async(client, msg, args) => {
                     msg.channel.send("Let the battle begin!");
                     p1points = 100;
                     p2points = 100;
-                    if (p1points > 0 && p2points >0)
+                    while (p1points > 0 && p2points >0)
                         {
-                            msg.channel.send("yes.");
+                            msg.channel.send("noa is cute");
+                            p1points = p1points - 20;
+                            p2points = p2points - 20;
                         }
                 }
 
