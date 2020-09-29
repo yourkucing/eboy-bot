@@ -85,7 +85,7 @@ module.exports.run = async(client, msg, args) => {
                         if (p2points < 0) {
                             p2points = 0
                         }
-                        msg.channel.send(```${player1}: ${p1points}, ${player2}: ${p2points}```);
+                        msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`");
                         
                         if (p1points <= 0 || p2points <= 0) {
                             continue;
@@ -117,7 +117,7 @@ module.exports.run = async(client, msg, args) => {
                             p2points = 0
                         }
                         
-                        msg.channel.send(```${player1}: ${p1points}, ${player2}: ${p2points}```);
+                        msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`");
                     }
                     
                     if (p1points <= 0 && p2points > 0) {
