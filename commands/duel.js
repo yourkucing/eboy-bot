@@ -29,6 +29,8 @@ module.exports.run = async(client, msg, args) => {
                     msg.channel.send("Let the battle begin!");
                     p1points = 100;
                     p2points = 100;
+                    player1 = msg.guild.members.cache.get(msg.author.id).displayName;
+                    player2 = taggedUser.displayName;
                     msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
                     while (p1points > 0 && p2points > 0) {
                         const randomOption = results[Math.floor(Math.random() * results.length)];
