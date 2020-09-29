@@ -27,26 +27,7 @@ module.exports.run = async(client, msg, args) => {
             msg.channel.awaitMessages(m => m.author.id == taggedUser.id, {max: 1, time: 30000}).then(collected => {
                 if (collected.first().content.toLowerCase() == 'yes') {
                     msg.channel.send("Let the battle begin!");
-                    p1points = 100;
-                    p2points = 100;
-                    while (p1points > 0 && p2points > 0) {
-                        const randomOption = results[Math.floor(Math.random() * results.length)];
-                        msg.channel.send(`**${player1}** casted ${randomOption.message} (∩•̀ω•́)⊃-⋆`);
-                        p2points = p2points - randomOption.xp;
-                        msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
-                        const randomOption2 = results[Math.floor(Math.random() * results.length)];
-                        msg.channel.send(`**${player2}** casted ${randomOption2.message} ⋆-⊂(•̀ω•́∩)`);
-                        p1points = p1points - randomOption2.xp;
-                        msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
-                    }
-                    if (p1points <= 0) {
-                        msg.channel.send(`**${player1}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！`);
-                        msg.channel.send(`CONGRATULATIONS, ${player2}! (っ◕‿◕)っ :heart:`);
-                    }
-                    if (p2points <= 0) {
-                        msg.channel.send(`**${player2}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！`);
-                        msg.channel.send(`CONGRATULATIONS, ${player1}! (っ◕‿◕)っ :heart:`);
-                    }
+                    msg.channel.send("sike.");
                 }
 
                 else if (collected.first().content.toLowerCase() == 'no') {
