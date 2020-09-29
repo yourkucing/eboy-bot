@@ -77,7 +77,15 @@ module.exports.run = async(client, msg, args) => {
                             msg.channel.send(`**${player1}**'s spell was blocked by **${player2}**! :shield: **(-${hp} HP)** `);
                         }
                         p2points = p2points - hp; 
-                        msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
+                        
+                        if (p1points < 0) {
+                            p1points = 0
+                        }
+                        
+                        if (p2points < 0) {
+                            p2points = 0
+                        }
+                        msg.channel.send(```**${player1}**: ${p1points}, **${player2}**: ${p2points}```);
                         
                         if (p1points <= 0 || p2points <= 0) {
                             continue;
@@ -101,7 +109,15 @@ module.exports.run = async(client, msg, args) => {
                         }
                         p1points = p1points - hp; 
                         
-                        msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
+                        if (p1points < 0) {
+                            p1points = 0
+                        }
+                        
+                        if (p2points < 0) {
+                            p2points = 0
+                        }
+                        
+                        msg.channel.send(```**${player1}**: ${p1points}, **${player2}**: ${p2points}```);
                     }
                     
                     if (p1points <= 0 && p2points > 0) {
