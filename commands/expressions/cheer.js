@@ -9,7 +9,8 @@ module.exports.run = async(client, msg, args) => {
             'https://media1.tenor.com/images/0f5c9cda7f0db2457d09024a1b837e0f/tenor.gif',
             'https://media.tenor.com/images/cb0da29acf22b6f6874f80aabbcda778/tenor.gif',
             'https://media1.tenor.com/images/fc10efb4b431b4e36bb2e679af592a00/tenor.gif',
-            'https://media1.tenor.com/images/a6c0c9bf9f7b825c9ccc1a857bd97e15/tenor.gif'
+            'https://media1.tenor.com/images/a6c0c9bf9f7b825c9ccc1a857bd97e15/tenor.gif',
+            'https://media1.tenor.com/images/9679d019929d180c2f30ba8b03b8e3af/tenor.gif'
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
 		const taggedUser = msg.mentions.users.first();
