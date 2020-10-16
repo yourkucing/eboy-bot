@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+    return msg.channel.send(`Noa is a dumdum.`);
     const filter = (reaction, user) => {
         return reaction.emoji.name === `:regional_indicator_f:` && user.id === msg.author.id;
     };
