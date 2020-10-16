@@ -51,7 +51,7 @@ module.exports.run = async(client, msg, args) => {
 		.setColor('#FF69B4')
 		.setDescription(`You kissed **${taggedUser.displayName}**! AwA, so cute!`)
 		.setImage(gifs[random])
-		.setFooter(`Such cuteness uwu! number: ${random}`);
+		.setFooter(`Such cuteness uwu!`);
 		msg.channel.send(embed);
 		}
 	}
