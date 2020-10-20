@@ -18,7 +18,7 @@ module.exports.run = async(client, msg, args) => {
 			.setColor('#FF69B4')
 			.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} loves **${words}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`We all love you too, **${words}**!`);
+			.setFooter(`We all love you too, ${words}!`);
 			msg.channel.send(embed);
 		}
 	}
@@ -37,7 +37,7 @@ module.exports.run = async(client, msg, args) => {
 			.setColor('#FF69B4')
 			.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} loves you, **${taggedUser.displayName}**! I love you.`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`We all love you too, **${taggedUser.displayName}**!`);
+			.setFooter(`We all love you too, ${taggedUser.displayName}!`);
 			msg.channel.send(embed);
 
 		}
