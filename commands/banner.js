@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     const words = args.join(' ').toLowerCase();
+    const newWords = words.split('').join(' ');
     const replacements = {
         a: ':regional_indicator_a:',
         b: ':regional_indicator_b:',
@@ -41,6 +42,6 @@ module.exports.run = async(client, msg, args) => {
         9: ':nine:'
     }
     const pattern = new RegExp(Object.keys(replacements).join('|'), 'g');
-    const replacedText = words.replace(pattern, key => replacements[key]);
-    msg.channel.send(replacedText.replace(/ /g, '  ').split('').join(' '));
+    const replacedText = newWords.replace(pattern, key => replacements[key]);
+    msg.channel.send(replacedText.replace(/ /g, '  '));
 }
