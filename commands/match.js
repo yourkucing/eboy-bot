@@ -67,6 +67,7 @@ module.exports.run = async(client, msg, args) => {
         }
         else if (userid[0] === userid[1]) {
             player = msg.guild.members.cache.get(userid[0]).displayName
+            var randomresults = results[Math.floor(Math.random()*results.length)];
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
