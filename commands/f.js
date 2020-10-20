@@ -19,8 +19,15 @@ module.exports.run = async(client, msg, args) => {
                     });
 
                     collector.on('end', collected => {
-                        msg.channel.send(`**${collected.get('🇫').count-1}** users paid their respects.`);
-                        msg.channel.send("`Author's Note: Also Noa is still a dumdum. That's the real F.`");
+                count = collected.get('🇫').count
+                if (count === 1) {
+                    msg.channel.send(`No users paid their respects. What a shame.`);
+                    msg.channel.send("`Author's Note: Also Noa is still a dumdum. That's the real F.`");                    
+                } 
+                else {
+                    msg.channel.send(`**${count-1}** users paid their respects.`);
+                    msg.channel.send("`Author's Note: Also Noa is still a dumdum. That's the real F.`");
+                }
                     });
                 });
             }
@@ -40,8 +47,15 @@ module.exports.run = async(client, msg, args) => {
                     });
 
                     collector.on('end', collected => {
-                        msg.channel.send(`**${collected.get('🇫').count-1}** users paid their respects to **${words}**.`);
-                        msg.channel.send("`Author's Note: Also Noa is still a dumdum. That's the real F.`");
+                count = collected.get('🇫').count
+                if (count === 1) {
+                    msg.channel.send(`No users paid their respects to **${words}**. What a shame.`);
+                    msg.channel.send("`Author's Note: Also Noa is still a dumdum. That's the real F.`");                    
+                } 
+                else {
+                    msg.channel.send(`**${count-1}** users paid their respects to **${words}**.`);
+                    msg.channel.send("`Author's Note: Also Noa is still a dumdum. That's the real F.`");
+                }
                     });
                 });
             }   
@@ -65,7 +79,7 @@ module.exports.run = async(client, msg, args) => {
             collector.on('end', collected => {
                 count = collected.get('🇫').count
                 if (count === 1) {
-                    msg.channel.send(`**${count-1}** users paid their respects to **${taggedUser.displayName}**. What a shame.`);
+                    msg.channel.send(`No users paid their respects to **${taggedUser.displayName}**. What a shame.`);
                     msg.channel.send("`Author's Note: Also Noa is still a dumdum. That's the real F.`");                    
                 } 
                 else {
