@@ -22,7 +22,14 @@ module.exports.run = async(client, msg, args) => {
             'https://thumbs.gfycat.com/MeagerIndolentCivet-small.gif',
             'https://media1.tenor.com/images/f1cddfbea8a58007549e020cc2566e01/tenor.gif',
             'https://media1.tenor.com/images/b9fc64bdde19bc390ce96a24c0f3c2b5/tenor.gif',
-            'https://media1.tenor.com/images/f5faa3abe17547c2e89fbe45d94abb2b/tenor.gif'
+            'https://media1.tenor.com/images/f5faa3abe17547c2e89fbe45d94abb2b/tenor.gif',
+            'https://64.media.tumblr.com/10371cdb0005280bd29e3d981c5aacca/tumblr_pmcv1fNSyj1x5uys5o4_500.gif',
+            'https://i.pinimg.com/originals/7f/a9/ce/7fa9ce29b9281fd7c2096fed5680ad3f.gif',
+            'https://data.whicdn.com/images/297133668/original.gif',
+            'https://i.pinimg.com/originals/56/53/6e/56536e5bcdc1f989e703ec0e1412fbb7.gif',
+            'https://64.media.tumblr.com/ebc8dd42fb8d34e8ea8f1a2d53dd1af7/tumblr_p1tz9rkpBD1sek4xio1_400.gif',
+            'https://64.media.tumblr.com/c88dd26affe28f375718cdcfd889bca2/0207d7cc235bda30-f5/s400x600/ebe208617fc6d1a2c7f2ec92e48a55d501d9790a.gif',
+            'https://64.media.tumblr.com/ffc6f8a4390caf44d29c64e7f0bdde55/tumblr_p91zmqPBjU1xu2qtpo1_400.gif'
 			]
 		if (!msg.mentions.users.size) {
 			const words = args.join(' ');

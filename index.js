@@ -154,10 +154,10 @@ const command = args.shift().toLowerCase();
 	msg.channel.send(words.replace(/r/g,'w').replace(/s/g,'sh').replace(/l/g,'w').replace(/R/g,'W').replace(/S/g,'Sh').replace(/L/g,'W') + ' uwu');
 }
 
-/*  if (command === 'banner') {
+if (command === 'banner') {
 	const words = args.join(' ');
-	msg.channel.send(words.replace(/r/g,'w').replace(/s/g,'sh').replace(/l/g,'w').replace(/R/g,'W').replace(/S/g,'Sh').replace(/L/g,'W') + ' uwu');
-} */
+    words = words.toLowerCase(); msg.channel.send(words.replace(/a/g,':regional_indicator_a:').replace(/b/g,':regional_indicator_b:').replace(/c/g,':regional_indicator_c:').replace(/d/g,':regional_indicator_d:').replace(/e/g,':regional_indicator_e:').replace(/f/g,':regional_indicator_f:').replace(/g/g,':regional_indicator_g:').replace(/h/g,':regional_indicator_h:').replace(/i/g,':regional_indicator_i:').replace(/j/g,':regional_indicator_j:').replace(/k/g,':regional_indicator_k:').replace(/l/g,':regional_indicator_l:').replace(/m/g,':regional_indicator_m:').replace(/n/g,':regional_indicator_n:').replace(/o/g,':regional_indicator_o:').replace(/p/g,':regional_indicator_p:').replace(/q/g,':regional_indicator_q:').replace(/r/g,':regional_indicator_r:').replace(/s/g,':regional_indicator_s:').replace(/t/g,':regional_indicator_t:').replace(/u/g,':regional_indicator_u:').replace(/v/g,':regional_indicator_v:').replace(/w/g,':regional_indicator_w:').replace(/x/g,':regional_indicator_x:').replace(/y/g,':regional_indicator_y:').replace(/z/g,':regional_indicator_z:').replace(/0/g,':zero:').replace(/1/g,':one:').replace(/2/g,':two:').replace(/3/g,':three:').replace(/4/g,':four:').replace(/5/g,':five:').replace(/6/g,':six:').replace(/7/g,':seven:').replace(/8/g,':eight:').replace(/9/g,':nine:'));
+}
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
 

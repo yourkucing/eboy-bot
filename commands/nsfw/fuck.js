@@ -27,7 +27,8 @@ module.exports.run = async(client, msg, args) => {
             'https://i.pinimg.com/originals/7f/bd/a1/7fbda119a597f8b40f7505e3a900c6a2.gif',
             'https://media1.tenor.com/images/668ae6487462b5693f688928a372d4e5/tenor.gif',
             'https://media1.tenor.com/images/9ca956b8bf031b26da6e902a0e137f4b/tenor.gif',
-            'https://media1.tenor.com/images/0c15565d6b7cef0072217aac1bba6221/tenor.gif'
+            'https://media1.tenor.com/images/0c15565d6b7cef0072217aac1bba6221/tenor.gif',
+            'https://media1.tenor.com/images/dd210c3634c5bd4fc4609a4ac37b0a11/tenor.gif'
 			]
 		if (!msg.mentions.users.size) {
 			const words = args.join(' ');
