@@ -42,5 +42,5 @@ module.exports.run = async(client, msg, args) => {
     }
     const pattern = new RegExp(Object.keys(replacements).join('|'), 'g');
     const replacedText = words.replace(pattern, key => replacements[key]);
-    msg.channel.send(replacedText);
+    msg.channel.send(replacedText.replace(/ /g, '   '));
 }
