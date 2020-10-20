@@ -66,8 +66,8 @@ module.exports.run = async(client, msg, args) => {
             return msg.channel.send(`You didn't provide any names, ${msg.author}! You gotta provide 2 names. What a dumdum.`);
         }
         else if (userid[0] === userid[1]) {
-            player = ${msg.guild.members.cache.get(userid[0]).displayName}
-            msg.channel.send(player)
+            //player = ${msg.guild.members.cache.get(userid[0]).displayName}
+            msg.channel.send(userid[0]+"and"+userid[1])
         }
 	}
 	else {
