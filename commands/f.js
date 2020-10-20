@@ -12,11 +12,11 @@ module.exports.run = async(client, msg, args) => {
         const collector = msg.createReactionCollector(filter, { time: 15000 });
 
         collector.on('collect', (reaction, user) => {
-            console.log(reaction.users.username);
+            console.log(reaction.user);
         });
 
         collector.on('end', collected => {
-            console.log(`Collected ${collected.size} items`);
+            console.log(`**${collected.get('🇫').count-1}** users paid their respects.`);
         });
     });
 }
