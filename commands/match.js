@@ -66,8 +66,20 @@ module.exports.run = async(client, msg, args) => {
             return msg.channel.send(`You didn't provide any names, ${msg.author}! You gotta provide 2 names. What a dumdum.`);
         }
         else if (userid[0] === userid[1]) {
-            //player = ${msg.guild.members.cache.get(userid[0]).displayName}
-            msg.channel.send(userid[0]+"and"+userid[1])
+            player = msg.guild.members.cache.get(userid[0]).displayName
+			const embed = new Discord.MessageEmbed()
+			.setColor('#FF69B4')
+			.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
+			.setDescription('Come come, let eboy show you how compatible you are :3')
+			.addFields(
+				{ name: 'Hooman 1', value: `${player}`, inline: true },
+				{ name: 'Hooman 2', value: `${player}`, inline: true },
+				{ name: 'Love score', value: `100/100`, inline: true },
+				{ name: 'Love bar', value: `██████████`},
+				{ name: 'Conclusion', value: `You will last till eternity. :heart:`},
+			);
+			
+			msg.channel.send(embed);
         }
 	}
 	else {
