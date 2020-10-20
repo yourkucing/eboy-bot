@@ -12,9 +12,7 @@ module.exports.run = async(client, msg, args) => {
         const collector = msg.createReactionCollector(filter, { time: 15000 });
 
         collector.on('collect', (reaction, user) => {
-            if user.bot === 'false' {
-                msg.channel.send(user.username)
-            }
+
         });
 
         collector.on('end', collected => {
