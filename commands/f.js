@@ -13,7 +13,7 @@ module.exports.run = async(client, msg, args) => {
 
         collector.on('collect', (reaction, user) => {
             if user.bot === 'false' {
-                console.log(user.username)
+                msg.channel.send(user.username)
             }
         });
 
