@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
-    msg.channel.send(`Noa is a dumdum.`)
+    msg.channel.send(`Press :regional_indicator_f: to pay your respects.`)
     .then(async function(msg) {
         await msg.react('🇫')    
 
@@ -12,11 +12,12 @@ module.exports.run = async(client, msg, args) => {
         const collector = msg.createReactionCollector(filter, { time: 15000 });
 
         collector.on('collect', (reaction, user) => {
-            console.log(user.username)
+            msg.channel.send(`**${user.username}** has paid their respects.`)
         });
 
         collector.on('end', collected => {
-            console.log(`**${collected.get('🇫').count-1}** users paid their respects.`);
+            msg.channel.send(`**${collected.get('🇫').count-1}** users paid their respects.`);
+            msg.channel.send(`Also Noa is still a dumdum. That's the real F.`);
         });
     });
 }
