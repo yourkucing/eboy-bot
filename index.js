@@ -195,7 +195,8 @@ if (command === 'search') {
 		{ name: 'special commands', value: 'to cheer someone up and tell them that you love them:\r\n"eboy, help me out here @<username>"\r\nto kick someone out of the server: uwu byebye @<username>\r\nto matchmake someone: uwu match @<username> @<username> BOTH MUST BE DIFFERENT USERS.' },
 		)
 		.setFooter(`Created by Maryam#9206`);
-		msg.channel.send(embed);
+		msg.author.send(embed);
+        msg.channel.send(`Psssst. Check your DMs, **${msg.guild.members.cache.get(msg.author.id).displayName}**! :wink:`)
  }
  
  });
