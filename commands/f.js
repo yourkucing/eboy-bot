@@ -3,10 +3,10 @@ const Discord = require('discord.js');
 module.exports.run = async(client, msg, args) => {
     msg.channel.send(`Noa is a dumdum.`)
     .then(async function(msg) {
-        await msg.react(':regional_indicator_f:')    
+        await msg.react('🇫')    
 
         const filter = (reaction, user) => {
-            return reaction.emoji.name === ':regional_indicator_f:' && user.id === msg.author.id;
+            return reaction.emoji.name === '🇫' && user.id === msg.author.id;
         };
 
         const collector = msg.createReactionCollector(filter, { time: 15000 });
