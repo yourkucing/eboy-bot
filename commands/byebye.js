@@ -2,7 +2,13 @@ const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
 	if (!msg.mentions.users.size) {
-		return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		const words = args.join(' ');
+		if (words === "") {
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+		}
+		else {
+			msg.channel.send(`OH, BYEBYE ${words.toUpperCase}! See you later, but highly likely never u.u`);
+		}
 	}
 	else {
 		let taggedUser = msg.mentions.members.first();

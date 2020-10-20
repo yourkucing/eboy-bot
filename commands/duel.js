@@ -140,7 +140,10 @@ module.exports.run = async(client, msg, args) => {
 
                 else if (collected.first().content.toLowerCase() == 'no') {
                     msg.channel.send("Yikes, are you scared? Maybe next time then!"); 
-                }                                   
+                }
+                else {
+                    msg.channel.send("Bruh, can you just reply **yes** or **no**? Oh my God, you had ONE job, dumdum. TSK. Please resend the duel invitation if you wanna duel T^T");
+                }
             }).catch(collected => {
                 msg.channel.send('No reply after 30 seconds, duel is cancelled!');
                 });
