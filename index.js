@@ -154,12 +154,6 @@ const command = args.shift().toLowerCase();
 	msg.channel.send(words.replace(/r/g,'w').replace(/s/g,'sh').replace(/l/g,'w').replace(/R/g,'W').replace(/S/g,'Sh').replace(/L/g,'W') + ' uwu');
 }
 
-if (command === 'banner') {
-	const words = args.join(' ').toLowerCase();
-    const newwords = words.replaceAll('a',':regional_indicator_a:').replaceAll('b',':regional_indicator_b:').replaceAll('c',':regional_indicator_c:').replaceAll('d',':regional_indicator_d:').replaceAll('e',':regional_indicator_e:').replaceAll('f',':regional_indicator_f:').replaceAll('g',':regional_indicator_g:').replaceAll('h',':regional_indicator_h:').replaceAll('i',':regional_indicator_i:').replaceAll('j',':regional_indicator_j:').replaceAll('k',':regional_indicator_k:').replaceAll('l',':regional_indicator_l:').replaceAll('m',':regional_indicator_m:').replaceAll('n',':regional_indicator_n:').replaceAll('o',':regional_indicator_o:').replaceAll('p',':regional_indicator_p:').replaceAll('q',':regional_indicator_q:').replaceAll('r',':regional_indicator_r:').replaceAll('s',':regional_indicator_s:').replaceAll('t',':regional_indicator_t:').replaceAll('u',':regional_indicator_u:').replaceAll('v',':regional_indicator_v:').replaceAll('w',':regional_indicator_w:').replaceAll('x',':regional_indicator_x:').replaceAll('y',':regional_indicator_y:').replaceAll('z',':regional_indicator_z:').replaceAll('0',':zero:').replaceAll('1',':one:').replaceAll('2',':two:').replaceAll('3',':three:').replaceAll('4',':four:').replaceAll('5',':five:').replaceAll('6',':six:').replaceAll('7',':seven:').replaceAll('8',':eight:').replaceAll('9',':nine:')
-    msg.channel.send(newwords);
-}
-
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
 
  if(client.commands.get(command)) {
