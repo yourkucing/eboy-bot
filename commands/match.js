@@ -67,26 +67,10 @@ module.exports.run = async(client, msg, args) => {
 		return `${user.id} `;
 		});
 		userid = userids.toString().split(',');
-        if (userid[0] === "" || userid[1] === "") {
-            return msg.channel.send(`You didn't provide any names, ${msg.author}! You gotta provide 2 names. What a dumdum.`);
-        }
-        else if (userid[0].trim() === userid[1].trim()) {
-            var randomresults = results[Math.floor(Math.random()*results.length)];
-			players = users.toString().split(',');
-			const embed = new Discord.MessageEmbed()
-			.setColor('#FF69B4')
-			.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
-			.setDescription('Come come, let eboy show you how compatible you are :3\r\nI\'m just a bot messenger btw, this is definitely not real so please do not shoot or kill the messenger uwu thankies :3')
-			.addFields(
-				{ name: 'Hooman 1', value: `${players[0]}`, inline: true },
-				{ name: 'Hooman 2', value: `${players[1]}`, inline: true },
-				{ name: 'Love score', value: `${randomresults.score}`, inline: true },
-				{ name: 'Love bar', value: `${randomresults.bar}`},
-				{ name: 'Conclusion', value: `${randomresults.conclusion}`},
-			);
-			
-			msg.channel.send(embed);
-        }
+        msg.channel.send(userid[0] + " & " userid[1]);
+        //if (userid[0] === "" || userid[1] === "") {
+            //return msg.channel.send(`You didn't provide any names, ${msg.author}! You gotta provide 2 names. What a dumdum.`);
+        //}
 	}
 	else {
 		const users = msg.mentions.users.map(user => {
