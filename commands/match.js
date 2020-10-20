@@ -67,7 +67,7 @@ module.exports.run = async(client, msg, args) => {
 		return `${user.id} `;
 		});
 		userid = userids.toString().split(',');
-        if (userid[0].trim() === "" || userid[1].trim() === "") {
+        if (userid[0] === "" || userid[1] === "") {
             return msg.channel.send(`You didn't provide any names, ${msg.author}! You gotta provide 2 names. What a dumdum.`);
         }
         else if (userid[0].trim() === userid[1].trim()) {
