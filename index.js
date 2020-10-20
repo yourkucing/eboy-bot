@@ -4,7 +4,6 @@ const client = new Discord.Client({disableEveryone: false});
 const prefix = "uwu ";
 const fs = require('fs').promises;
 const path = require('path');
-const fetch = require('node-fetch');
 
 
 client.commands = new Map();
@@ -181,12 +180,6 @@ if (command === 'search') {
 	})
 }
 
-    
-if (command === 'cat') {
-	const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
-
-	msg.channel.send(file);
-}
  
  if (msg.content === '@eboy help' || command === 'help' || command === 'command' || command === 'commands') {
 		const embed = new Discord.MessageEmbed()
