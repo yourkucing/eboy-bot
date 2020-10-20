@@ -12,7 +12,11 @@ module.exports.run = async(client, msg, args) => {
 			'https://0.soompi.io/wp-content/uploads/2018/05/31015948/sun1.gif',
 			'https://66.media.tumblr.com/288c98a5fa9db9685a2235e99cfd5e5f/c1603ff26e43b4e4-2a/s500x750/757d7addc38fce25488eea6b8671c9e1859a3880.gif',
 			'https://media.tenor.com/images/1186d85399c24953459c7d516f57f346/tenor.gif',
-			'https://66.media.tumblr.com/df182d407162f72277331c7843316225/tumblr_p3n2reSZNE1uku9tco5_500.gif'
+			'https://66.media.tumblr.com/df182d407162f72277331c7843316225/tumblr_p3n2reSZNE1uku9tco5_500.gif',
+            'https://i.gifer.com/XZ9.gif',
+            'https://i.pinimg.com/originals/a3/67/c3/a367c3875b642f636077484d2566d7d3.gif',
+            'https://www.animatedimages.org/data/media/1498/animated-sad-image-0020.gif',
+            'https://i.pinimg.com/originals/60/68/b8/6068b8de6a62b9c24fa7ab8769e588fb.gif'
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
 		const taggedUser = msg.mentions.users.first();

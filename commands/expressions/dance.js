@@ -7,7 +7,15 @@ module.exports.run = async(client, msg, args) => {
 			'https://media.giphy.com/media/6k6iDdi5NN8ZO/giphy.gif',
 			'https://media.giphy.com/media/mJIa7rg9VPEhzU1dyQ/giphy.gif',
 			'https://pa1.narvii.com/5676/e928b2e40a76e21f334651ec0ed71cfc0c8c6835_hq.gif',
-			'https://cutewallpaper.org/21/anime-boy-and-girl-dancing/Animated-gif-about-cute-in-AyoDAIaIs-Eo-AIaEIaNIa-by-airi.gif'
+			'https://cutewallpaper.org/21/anime-boy-and-girl-dancing/Animated-gif-about-cute-in-AyoDAIaIs-Eo-AIaEIaNIa-by-airi.gif',
+            'https://i.pinimg.com/originals/82/34/83/823483cfa99a1165523255368b8742ea.gif',
+            'https://media.tenor.com/images/53106c0ace70edc3fc4838d0234d3c54/tenor.gif',
+            'https://media1.tenor.com/images/cacb26720b733ebf1793046a959e98f0/tenor.gif',
+            'https://tenor.com/view/dancing-excited-dance-dance-move-smile-gif-16099354',
+            'https://media1.tenor.com/images/04ceb352b8e6b4e08644fe63f6408f58/tenor.gif',
+            'https://media.tenor.com/images/240eae8ca4e65a5417cc44eab2fe3286/tenor.gif',
+            'https://i.pinimg.com/originals/0b/a8/e2/0ba8e2989811721a348c576a1d24ce77.gif',
+            'https://media4.giphy.com/media/JRsQiAN79bPWUv43Ko/giphy.gif'
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
 		const taggedUser = msg.mentions.users.first();
