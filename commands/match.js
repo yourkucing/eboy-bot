@@ -67,19 +67,7 @@ module.exports.run = async(client, msg, args) => {
         }
         else if (userid[0] === userid[1]) {
             player = ${msg.guild.members.cache.get(userid[0]).displayName}
-			const embed = new Discord.MessageEmbed()
-			.setColor('#FF69B4')
-			.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
-			.setDescription('Come come, let eboy show you how compatible you are :3')
-			.addFields(
-				{ name: 'Hooman 1', value: `${player}`, inline: true },
-				{ name: 'Hooman 2', value: `${player}`, inline: true },
-				{ name: 'Love score', value: `100/100`, inline: true },
-				{ name: 'Love bar', value: `██████████`},
-				{ name: 'Conclusion', value: `You will last till eternity. :heart:`},
-			);
-			
-			msg.channel.send(embed);
+            msg.channel.send(player)
         }
 	}
 	else {
