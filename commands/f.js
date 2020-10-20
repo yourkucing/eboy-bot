@@ -12,7 +12,7 @@ module.exports.run = async(client, msg, args) => {
         const collector = msg.createReactionCollector(filter, { time: 15000 });
 
         collector.on('collect', (reaction, user) => {
-            console.log(user);
+            console.log(user.username);
         });
 
         collector.on('end', collected => {
