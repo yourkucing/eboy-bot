@@ -20,7 +20,7 @@ module.exports.run = async(client, msg, args) => {
 
                     collector.on('end', collected => {
                         msg.channel.send(`**${collected.get('🇫').count-1}** users paid their respects.`);
-                        msg.channel.send("`Also Noa is still a dumdum. That's the real F.`");
+                        msg.channel.send("`Author's Note: Also Noa is still a dumdum. That's the real F.`");
                     });
                 });
             }
@@ -41,7 +41,7 @@ module.exports.run = async(client, msg, args) => {
 
                     collector.on('end', collected => {
                         msg.channel.send(`**${collected.get('🇫').count-1}** users paid their respects to **${words}**.`);
-                        msg.channel.send("`Also Noa is still a dumdum. That's the real F.`");
+                        msg.channel.send("`Author's Note: Also Noa is still a dumdum. That's the real F.`");
                     });
                 });
             }
@@ -64,7 +64,7 @@ module.exports.run = async(client, msg, args) => {
 
             collector.on('end', collected => {
                 msg.channel.send(`**${collected.get('🇫').count-1}** users paid their respects to **${taggedUser.displayName}**.`);
-                msg.channel.send("`Also Noa is still a dumdum. That's the real F.`");
+                msg.channel.send("`Author's Note: Also Noa is still a dumdum. That's the real F.`");
             });
         });
     }
