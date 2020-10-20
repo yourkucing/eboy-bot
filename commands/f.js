@@ -6,13 +6,13 @@ module.exports.run = async(client, msg, args) => {
         await msg.react('🇫')    
 
         const filter = (reaction, user) => {
-            return reaction.emoji.name === '🇫' && user.id === msg.author.id;
+            return reaction.emoji.name === '🇫';
         };
 
         const collector = msg.createReactionCollector(filter, { time: 15000 });
 
         collector.on('collect', (reaction, user) => {
-            console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
+            console.log(reaction.users);
         });
 
         collector.on('end', collected => {
