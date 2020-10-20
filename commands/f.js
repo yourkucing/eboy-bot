@@ -19,7 +19,7 @@ module.exports.run = async(client, msg, args) => {
                     });
 
                     collector.on('end', collected => {
-                        if (typeof collected.get('🇫') === "undefined")
+                        if (typeof collected.get('🇫').count === "undefined")
                             msg.channel.send(`No users paid their respects. What a shame.`);
                             msg.channel.send("`Author's Note: Also Noa is still a dumdum. That's the real F.`");                    
                         } 
