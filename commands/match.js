@@ -61,10 +61,13 @@ module.exports.run = async(client, msg, args) => {
     
 	if (msg.mentions.users.size < 2) {
 		const words = args.join(' ').toString();
-        msg.channel.send(words.replace(/<@!/g, '').replace(/>/g, ''))
-        //if (userid[0] === "" || userid[1] === "") {
-            //return msg.channel.send(`You didn't provide any names, ${msg.author}! You gotta provide 2 names. What a dumdum.`);
-        //}
+        userid = words.replace(/<@!/g, '').replace(/>/g, '').split(" ")
+        if (userid[0] === "" || userid[1] === "") {
+            return msg.channel.send(`You didn't provide any names, ${msg.author}! You gotta provide 2 names. What a dumdum.`);
+        }
+        else if (userid[0] === userid[1]) {
+            msg.channel.send("same same sameeee")
+        }
 	}
 	else {
 		const users = msg.mentions.users.map(user => {
