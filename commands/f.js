@@ -64,8 +64,8 @@ module.exports.run = async(client, msg, args) => {
 
             collector.on('end', collected => {
                 count = collected.get('🇫').count
-                if (count === 0) {
-                    msg.channel.send(`**${count}** users paid their respects to **${taggedUser.displayName}**. What a shame.`);
+                if (count === 1) {
+                    msg.channel.send(`**${count-1}** users paid their respects to **${taggedUser.displayName}**. What a shame.`);
                     msg.channel.send("`Author's Note: Also Noa is still a dumdum. That's the real F.`");                    
                 } 
                 else {
