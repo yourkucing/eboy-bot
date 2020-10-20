@@ -44,7 +44,7 @@ module.exports.run = async(client, msg, args) => {
                         msg.channel.send("`Author's Note: Also Noa is still a dumdum. That's the real F.`");
                     });
                 });
-            }
+            }   
     }
     else {
 		const taggedUser = msg.mentions.members.first();
