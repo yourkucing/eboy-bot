@@ -60,14 +60,8 @@ module.exports.run = async(client, msg, args) => {
     ]
     
 	if (msg.mentions.users.size < 2) {
-		const users = msg.mentions.users.map(user => {
-		return `${msg.guild.members.cache.get(user.id).displayName} `;
-		});
-		const userids = msg.mentions.users.map(user => {
-		return `${user.id} `;
-		});
-		userid = userids.toString().split(',');
-        msg.channel.send(userid[0] + " & " userid[1]);
+		const words = args.join(' ');
+        msg.channel.send(words)
         //if (userid[0] === "" || userid[1] === "") {
             //return msg.channel.send(`You didn't provide any names, ${msg.author}! You gotta provide 2 names. What a dumdum.`);
         //}
