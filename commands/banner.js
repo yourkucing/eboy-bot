@@ -29,7 +29,7 @@ module.exports.run = async(client, msg, args) => {
         w: ':regional_indicator_w:',
         x: ':regional_indicator_x:',
         y: ':regional_indicator_y:',
-        Z: ':regional_indicator_z:',
+        z: ':regional_indicator_z:',
         0: ':zero:',
         1: ':one:',
         2: ':two:',
