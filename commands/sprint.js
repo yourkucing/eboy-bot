@@ -13,9 +13,9 @@ module.exports.run = async(client, msg, args) => {
             msg.channel.send(`Nani the fuck is "uwu sprint ${args}"?`)
         }
         else {
-            msg.channel.send(`<@&${773848625989156879}>! Writing sprint for ${args} minutes starts now!`)
+            msg.channel.send(`<@& 773848625989156879 >! Writing sprint for ${args} minutes starts now!`)
             setTimeout(() => {
-              msg.channel.send(`<@&${773848625989156879}>! Writing sprint is up!`);
+              msg.channel.send(`<@& 773848625989156879 >! Writing sprint is up!`);
             }, time);
         }
     }
