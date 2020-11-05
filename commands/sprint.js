@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
-    if (args === "role") {
+    if (args == "role") {
         member = msg.member
         role = msg.guild.roles.cache.find(x => x.id == "773848625989156879")
         member.roles.add(role)
