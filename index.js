@@ -11,6 +11,7 @@ client.commands = new Map();
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
  client.user.setActivity('uwu help', { type: 'STREAMING' });
+ client.channels.cache.get('776281759460360205').send('Testtesttest. n.n')
  });
  
 client.on('guildMemberAdd', member => {
@@ -27,6 +28,8 @@ client.on('guildMemberAdd', member => {
 
 
 client.on('message', msg => {
+    
+
 	
 if (msg.author.bot) return
 
