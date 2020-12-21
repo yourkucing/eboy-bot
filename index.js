@@ -123,14 +123,14 @@ var message = msg.content.toLowerCase()
  msg.channel.send('yee claw!');
  }
  
- if (message.includes('goodmorning') || message.includes('good morning')) {
+ if (message.includes('goodmorning')) {
 		 if (msg.author.bot) return;
 		 else {
 			msg.channel.send(`Goodmorning uwu! Have a great day!`);
 		 }
  }
  
- if (message.includes('goodnight') || message.includes('good night') || message.includes('nighty')) {
+ if (message.includes('goodnight')) {
 		 if (msg.author.bot) return;
 		 else {
 			msg.channel.send(`Goodnight uwu! Sleep well!`);
@@ -194,7 +194,7 @@ if (command === 'search') {
 		{ name: 'uwu <commands> @<username>', value: 'bite\r\nboop\r\ncling\r\nconsole\r\ndefenestrate\r\ndelete\r\ndrag\r\nhate\r\nhug\r\nkick\r\nkill\r\nkiss\r\nlove\r\npatpat\r\npaypal\r\npeck (aka peck on the cheeks)\r\npunch\r\nscold\r\nshake\r\nshoot\r\nslap\r\nsnuggle\r\nstab\r\nsummon\r\ntackle\r\ntonk\r\nuntonk\r\nyeet' },
 		{ name: 'uwu <commands>', value: 'angry\r\axe\r\ncelly\r\ncheer\r\nclap\r\nconfused\r\ncry\r\ndance\r\ndie\r\ndrink\r\neat\r\new\r\nflop\r\nhide\r\nhydrate\r\njitter\r\nlaugh\r\npoof\r\nscared\r\nscream\r\nsleep\r\nspazz\r\ntantrum\r\nwork\r\nyoink' },
 		{ name: 'uwu <commands> @<username> ONLY ALLOWED IN NSFW CHANNELS (also there are gay stuffs, so if youre not comfortable with it, dont use it.)', value: 'choke\r\nfuck\r\nsmooch (aka french kiss/steamy kiss)' },
-		{ name: 'special commands', value: 'to cheer someone up and tell them that you love them:\r\n"eboy, help me out here @<username>"\r\nto kick someone out of the server: uwu byebye @<username>\r\nto matchmake someone: uwu match @<username> @<username> BOTH MUST BE DIFFERENT USERS.' },
+		{ name: 'special commands', value: 'to cheer someone up and tell them that you love them:\r\n"eboy, help me out here @<username>"\r\nto kick someone out of the server: uwu byebye @<username>\r\nto matchmake someone: uwu match @<username> @<username> BOTH MUST BE DIFFERENT USERS.\r\nto roll dice: eg. uwu dice 2d6 (2d6 = 2 d6 dice)\r\nuwu choose [choice1, choice2, ....]' },
 		)
 		.setFooter(`Created by Maryam#9206`);
 		msg.author.send(embed);
