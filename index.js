@@ -11,7 +11,7 @@ client.commands = new Map();
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
  client.user.setActivity('uwu help', { type: 'STREAMING' });
- client.channels.cache.get('776281759460360205').send('Testtesttest. n.n')
+ client.channels.cache.get('749361201867128890').send('"I, Ollie Anderson, would like access to use the #ranty-rant channel. I have read and understood the rules. I am responsible for everything I write and I also understand that improper tagging of trigger warnings, or spamming/guilt-tripping in the channel is strictly prohibited.  Failure to abide by channel rules may result in a warning, strike, loss of permissions, kick or ban depending on the severity of my offense."\n\nAlso, I think my presence there would be appreciated in case hugs and snuggles are needed. :pleading_face::heart:')
  });
  
 client.on('guildMemberAdd', member => {
