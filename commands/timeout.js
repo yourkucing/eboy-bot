@@ -13,6 +13,8 @@ module.exports.run = async(client, msg, args) => {
                 data: {
                   name: 'Time Out Corner',
                   color: 'BLACK',
+                  hoist:  true,
+                  position: 1
                 },
                 reason: 'to time people out',
               })
