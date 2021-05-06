@@ -168,7 +168,6 @@ if (command === 'search') {
  
  (async function registerCommands(dir = 'commands') {
 	 let files = await fs.readdir(path.join(__dirname, dir));
-	 console.log(files);
 	 for(let file of files) {
 		 let stat = await fs.lstat(path.join(__dirname, dir, file));
 		 if(stat.isDirectory())

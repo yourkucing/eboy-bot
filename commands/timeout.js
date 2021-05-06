@@ -8,8 +8,8 @@ module.exports.run = async(client, msg, args) => {
         taggedUser = msg.mentions.members.first()
         msg.channel.send(`I will time ${taggedUser.displayName} out for the default time of 15 minutes. Uh-oh, what did you do? Well, see you later then!`)
         time = 15000
-        if (!guild.roles.cache.find(x => x.name == "Time Out Corner")){
-            guild.roles.create({
+        if (!msg.guild.roles.cache.find(x => x.name == "Time Out Corner")){
+            msg.guild.roles.create({
                 data: {
                   name: 'Time Out Corner',
                   color: 'BLACK',
