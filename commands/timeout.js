@@ -19,7 +19,7 @@ module.exports.run = async(client, msg, args) => {
                 .then(console.log)
                 .catch(console.error);
         }
-        taggedUser.roles.add(guild.roles.cache.find(x => x.name == "Time Out Corner"), "");
+        taggedUser.roles.add(msg.guild.roles.cache.find(x => x.name == "Time Out Corner"), "");
         
     }
 }
