@@ -4,7 +4,6 @@ module.exports.run = async(client, msg, args) => {
 		var gifs = [
 			'https://media.tenor.com/images/91b7e8c89b7509c61ec50ac2ad95dbaa/tenor.gif',
 			'https://media.giphy.com/media/nfnF2zVPRemXu/giphy.gif',
-			'https://www.ohmagif.com/wp-content/uploads/2012/08/clever-cat-drinking-water-from-tap.gif',
 			'https://thumbs.gfycat.com/BetterPortlyApisdorsatalaboriosa-max-1mb.gif',
 			'https://media2.giphy.com/media/4VIACsYrWirEQ/giphy.gif',
 			'https://media0.giphy.com/media/y7ZWNmtIcf2TxTBDmE/200.gif',
@@ -16,6 +15,6 @@ module.exports.run = async(client, msg, args) => {
 		.setColor('#FF69B4')
 		.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is drinking water.`)
 		.setImage(randomgif)
-		.setFooter(`Please hydrate yourself, especially if you are River ._.`);
+		.setFooter(`Please hydrate yourself!`);
 		msg.channel.send(embed);
 }

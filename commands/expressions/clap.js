@@ -8,7 +8,6 @@ module.exports.run = async(client, msg, args) => {
 			'https://media1.tenor.com/images/1bd3aaa14e6c60866238e0009fb042b4/tenor.gif',
 			'https://media1.tenor.com/images/0de120c10a661c15cb60fe77b8eac367/tenor.gif',
 			'https://cdn.lowgif.com/full/01be67c39428150b-gif-anime-happy-smile-animated-gif-on-gifer-by-anayaswyn.gif',
-			'https://media1.giphy.com/media/6TvzcVLRLDNZu/giphy.gif',
 			'https://thumbs.gfycat.com/ClumsyExcellentLeveret-size_restricted.gif',
 			'https://i.kym-cdn.com/photos/images/original/000/840/249/375.gif',
 			'https://giffiles.alphacoders.com/139/139354.gif'

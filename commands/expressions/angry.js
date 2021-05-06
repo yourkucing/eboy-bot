@@ -7,9 +7,7 @@ module.exports.run = async(client, msg, args) => {
 			'https://media0.giphy.com/media/FAI5TtHYYEges/giphy.gif',
 			'https://cdn.shopify.com/s/files/1/0318/2649/files/tenor-1_776d86a0-7df7-415c-b5e7-5b5af686ff5a_large.gif',
 			'https://media.giphy.com/media/l3fZONy55gOZacqD6/giphy.gif',
-			'https://media.tenor.com/images/41c8e606a1e4c3b5d1239afd593d062b/tenor.gif',
-            'https://i.pinimg.com/originals/99/a5/c8/99a5c8a3b795505bebc0d7ff1788208e.gif',
-            'https://media.giphy.com/media/gqcFN7ycdn5m0/giphy.gif'
+            'https://i.pinimg.com/originals/99/a5/c8/99a5c8a3b795505bebc0d7ff1788208e.gif'
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
 		const taggedUser = msg.mentions.users.first();

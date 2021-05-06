@@ -14,7 +14,6 @@ module.exports.run = async(client, msg, args) => {
 			'https://i.pinimg.com/originals/db/a1/fc/dba1fca1c27106c53b04ee2333099217.gif',
 			'https://media0.giphy.com/media/9n4muqn344LMA/source.gif',
 			'https://gifimage.net/wp-content/uploads/2017/11/eating-anime-gif-2.gif',
-			'https://media3.giphy.com/media/vh4GM3DcAC9cA/giphy.gif',
 			'https://gifimage.net/wp-content/uploads/2017/11/eating-anime-gif-14.gif'
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];

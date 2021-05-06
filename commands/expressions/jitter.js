@@ -8,7 +8,9 @@ module.exports.run = async(client, msg, args) => {
             'https://media1.tenor.com/images/cfd5c19b4fb05c9e3c338815b714b21b/tenor.gif',
             'https://media3.giphy.com/media/lvzdeWk12qjmM/giphy.gif',
             'https://media0.giphy.com/media/3oz8xLlw6GHVfokaNW/200.gif',
-            'https://kmadsblog.files.wordpress.com/2016/07/hyperventilating-gif.gif'
+            'https://kmadsblog.files.wordpress.com/2016/07/hyperventilating-gif.gif',
+			'https://cdn.discordapp.com/emojis/768567178655301652.gif',
+			'https://cdn.discordapp.com/emojis/770622613000814592.gif'
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
 		const taggedUser = msg.mentions.users.first();

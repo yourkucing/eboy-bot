@@ -16,7 +16,8 @@ module.exports.run = async(client, msg, args) => {
             'https://i.gifer.com/XZ9.gif',
             'https://i.pinimg.com/originals/a3/67/c3/a367c3875b642f636077484d2566d7d3.gif',
             'https://www.animatedimages.org/data/media/1498/animated-sad-image-0020.gif',
-            'https://i.pinimg.com/originals/60/68/b8/6068b8de6a62b9c24fa7ab8769e588fb.gif'
+            'https://i.pinimg.com/originals/60/68/b8/6068b8de6a62b9c24fa7ab8769e588fb.gif',
+			'https://tenor.com/view/baby-sad-cry-tears-gif-6165001'
 			]
 		var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
 		const taggedUser = msg.mentions.users.first();
@@ -24,6 +25,6 @@ module.exports.run = async(client, msg, args) => {
 		.setColor('#FF69B4')
 		.setDescription(`Are you okay? :(`)
 		.setImage(randomgif)
-		.setFooter(`Don't cry :( We're here for you. :heart:`);
+		.setFooter(`Don't cry :( We're here for you.`);
 		msg.channel.send(embed);
 }
