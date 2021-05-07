@@ -52,9 +52,9 @@ module.exports.run = async(client, msg, args) => {
                                              id: result.id,
                                              deny: ['SEND_MESSAGES'],
                                           },
-                                        ], 'Needed to change permissions');
-                                        }).then(result3 => {
+                                        ], 'Needed to change permissions').then(result3 => {
                                             console.log(result3)
+                                        })
                                         })
                                 }
                             ).catch((err) => console.error(err))
