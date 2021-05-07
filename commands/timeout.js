@@ -31,7 +31,7 @@ module.exports.run = async(client, msg, args) => {
                 } 
                 else if (collected.first().content.toLowerCase() == 'no') {
                     msg.channel.send(`Just remember that if your bot has a lower role, only the Time Out role will be assigned, and that's it!`)
-                    const timeout = msg.guild.roles.create({
+                    msg.guild.roles.create({
                         data: {
                             name: 'Time Out Corner',
                             color: 'BLACK',
@@ -41,13 +41,14 @@ module.exports.run = async(client, msg, args) => {
                         reason: 'to time people out',
                         }).then(result => {
                             console.log(result)
+                            taggedUser.roles.add(result).then(
+                                () => {
+                                    msg.channel.send(`**${taggedUser.displayName}** has been timed out for 15 minutes (default time). Shame on you!`)
+                                }
+                            ).catch((err) => console.error(err))
                         })
 
-                        taggedUser.roles.add(timeout).then(
-                            () => {
-                                msg.channel.send(`**${taggedUser.displayName}** has been timed out for 15 minutes (default time). Shame on you!`)
-                            }
-                        ).catch((err) => console.error(err))
+                        
                 }
                 else {
                     msg.channel.send(`Right... Okay, goodbye!`)
