@@ -16,21 +16,21 @@ module.exports.run = async(client, msg, args) => {
             console.log(bothighest)
             msg.channel.send(`\`\`\`Since this is the first time you run this command, I would like to let you know what is expected uwu.
             
-            Timeout Command:\ncommand syntax: uwu timeout <tagged user> time [time should be in this format: 1m (1 minute) or 5s (5 seconds) or 4h (4 hours)]
-            A role will be created and given to the person being timed out. This will last for the specified time. However, if no time is stated, they will be timed out for a default of 5mins.
+Timeout Command:\ncommand syntax: uwu timeout <tagged user> time [time should be in this format: 1m (1 minute) or 5s (5 seconds) or 4h (4 hours)]
+A role will be created and given to the person being timed out. This will last for the specified time. However, if no time is stated, they will be timed out for a default of 5mins.
             
-            What happens when being timed out:\nThis is where it differs depending on (a) if your bot has the highest role (or at least higher than most roles other than the admin) and (b) if they don't.\nIf they don't have a higher role, the user will be assigned the Time Out Corner role and that's it.
+What happens when being timed out:\nThis is where it differs depending on (a) if your bot has the highest role (or at least higher than most roles other than the admin) and (b) if they don't.
             
-            On the other hand, if the bot's role is one of the highest, the user will be assigned the Timed Out Corner role and they will be redirected to a Timeout Channel where they will only be able to chat in there for the designated timeout time.
+On the other hand, if the bot's role is one of the highest, the user will be assigned the Timed Out Corner role and it will always be seen from the user list. If they don't have a higher role, the user will be assigned the Time Out Corner role and that's it, you might not be able to see any effects taking place in the user list, which frankly, defeats the purpose of a Time Out Corner.
             
-            With that being said, would you like to change your bot's role position? (Just answer yes or no within the next 1 minute.)
+With that being said, would you like to change your bot's role position right now? (Just answer yes or no within the next 1 minute.)
             \`\`\``)
             msg.channel.awaitMessages(m => m.author.id == hooman.id, {max: 1, time: 60000, errors: ['time']}).then(collected => { 
                 if (collected.first().content.toLowerCase() == 'yes') {
                     msg.channel.send(`Alright, come back later!`)
                 } 
                 else if (collected.first().content.toLowerCase() == 'no') {
-                    msg.channel.send(`Just remember that if your bot has a lower role, only the Time Out role will be assigned, and that's it!`)
+                    msg.channel.send(`Just remember that if your bot has a lower role, the Time Out role might not be seen in the user role, and that's it!`)
                     msg.guild.roles.create({
                         data: {
                             name: 'Time Out Corner',
@@ -43,19 +43,13 @@ module.exports.run = async(client, msg, args) => {
                             console.log(result.id)
                             taggedUser.roles.add(result).then(
                                 (result2) => {
+                                    msg.guild.channels.cache.find('time-out-corner').then(channel => {
+                                        if (!channel) {
+                                            message.guild.createChannel('time-out-corner', 'text')
+                                        }
+                                    })
+                                    
                                     msg.channel.send(`**${taggedUser.displayName}** has been timed out for 15 minutes (default time). Shame on you!`)
-                                    msg.guild.channels.cache.forEach(ch => 
-                                        {
-                                        if(ch.type == "text")
-                                          ch.overwritePermissions([
-                                          {
-                                             id: result.id,
-                                             deny: ['SEND_MESSAGES'],
-                                          },
-                                        ], 'Needed to change permissions').then(result3 => {
-                                            console.log(result3)
-                                        })
-                                        })
                                 }
                             ).catch((err) => console.error(err))
                             
