@@ -10,7 +10,7 @@ module.exports.run = async(client, msg, args) => {
         time = 15000
         if (!msg.guild.roles.cache.find(x => x.name == "Time Out Corner")){
             highest = msg.guild.roles.highest.position
-            bothighest = msg.guild.members.resolve(bot.user).roles.highest.position
+            bothighest = msg.guild.me.roles.highest.position
             console.log(highest)
             console.log(bothighest)
             const timeout = await msg.guild.roles.create({
