@@ -25,13 +25,13 @@ module.exports.run = async(client, msg, args) => {
             
             With that being said, would you like to change your bot's role position? (Just answer yes or no within the next 1 minute.)
             \`\`\``)
-            msg.channel.awaitMessages(m => m.author.id == hooman.id, {max: 1, time: 60000}).then(collected => { 
+            msg.channel.awaitMessages(m => m.author.id == hooman.id, {max: 1, time: 60000, errors: ['time']}).then(collected => { 
                 if (collected.first().content.toLowerCase() == 'yes') {
                     msg.channel.send(`Alright, come back later!`)
                 } 
                 else if (collected.first().content.toLowerCase() == 'no') {
                     msg.channel.send(`Just remember that if your bot has a lower role, only the Time Out role will be assigned, and that's it!`)
-                    const timeout = msg.guild.roles.create({
+                    const timeout = await msg.guild.roles.create({
                         data: {
                             name: 'Time Out Corner',
                             color: 'BLACK',
@@ -39,11 +39,8 @@ module.exports.run = async(client, msg, args) => {
                             position: bothighest-1
                         },
                         reason: 'to time people out',
-                        }).catch((err) => console.error(err)).then(result => {
-                            if (result) {
-                                console.log(`Time Out Corner has been added!`)
-                            }
-                        })
+                        }).catch((err) => console.error(err))
+
                         taggedUser.roles.add(timeout).then(
                             () => {
                                 msg.channel.send(`**${taggedUser.displayName}** has been timed out for 15 minutes (default time). Shame on you!`)

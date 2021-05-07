@@ -122,6 +122,7 @@ const command = args.shift().toLowerCase();
 		 msg.channel.send(`Unfortunately, this command has been taken out. If you would like them to come back, please submit a feedback at https://forms.gle/GpoHX32kVQznvY3h6 :3
 		 You can view the commands available by using uwu help.`)
 	 }
+	 console.log(client.commands.get(command).run(client, msg, args))
 	 client.commands.get(command).run(client, msg, args).catch((e) => { console.log(e); });
  }
 
