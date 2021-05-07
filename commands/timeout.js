@@ -43,7 +43,7 @@ With that being said, would you like to change your bot's role position right no
                             console.log(result.id)
                             taggedUser.roles.add(result).then(
                                 (result2) => {
-                                    msg.guild.channels.cache.find('time-out-corner').then(channel => {
+                                    msg.guild.channels.cache.find(channel => channel.name === 'time-out-corner').then(channel => {
                                         if (!channel) {
                                             message.guild.createChannel('time-out-corner', 'text')
                                         }
