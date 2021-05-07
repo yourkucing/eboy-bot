@@ -10,8 +10,9 @@ module.exports.run = async(client, msg, args) => {
         time = 15000
         if (!msg.guild.roles.cache.find(x => x.name == "Time Out Corner")){
             highest = msg.guild.roles.highest.position
+            console.log(highest)
             try {
-                msg.guild.roles.create({
+                await msg.guild.roles.create({
                     data: {
                       name: 'Time Out Corner',
                       color: 'BLACK',
@@ -23,6 +24,9 @@ module.exports.run = async(client, msg, args) => {
             } catch(err) {
                 console.log(err)
             }
+        }
+        else {
+            taggedUser.roles.add(msg.guild.roles.cache.find(x => x.name == "Time Out Corner"), "");
         }
         
     }
