@@ -31,7 +31,7 @@ module.exports.run = async(client, msg, args) => {
                 } 
                 else if (collected.first().content.toLowerCase() == 'no') {
                     msg.channel.send(`Just remember that if your bot has a lower role, only the Time Out role will be assigned, and that's it!`)
-                    const timeout = msg.guild.roles.create({
+                    const timeout = await msg.guild.roles.create({
                         data: {
                             name: 'Time Out Corner',
                             color: 'BLACK',
