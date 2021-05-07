@@ -46,7 +46,7 @@ With that being said, would you like to change your bot's role position right no
                                     let findchannel = msg.guild.channels.cache.find(channel => channel.name === 'time-out-corner')
                                     if (!findchannel) {
                                         msg.guild.channels.create('time-out-corner').then(newchannel => {
-                                            msg.channels.cache.get(newchannel.id).send(`${taggedUser}, get your ass in here.`)
+                                            await msg.channels.cache.get(newchannel.id).send(`${taggedUser}, get your ass in here.`)
                                         })
                                     }
                                     
