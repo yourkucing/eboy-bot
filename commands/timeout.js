@@ -46,6 +46,16 @@ module.exports.run = async(client, msg, args) => {
                                     msg.channel.send(`**${taggedUser.displayName}** has been timed out for 15 minutes (default time). Shame on you!`)
                                 }
                             ).catch((err) => console.error(err))
+                            msg.guild.channels.cache.forEach(ch => 
+                                {
+                                if(ch.type == "text")
+                                  ch.overwritePermissions([
+                                  {
+                                     id: result.id,
+                                     deny: ['SEND_MESSAGES'],
+                                  },
+                                ], 'Needed to change permissions');
+                                }) 
                         })
 
                         
