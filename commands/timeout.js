@@ -24,34 +24,7 @@ module.exports.run = async(client, msg, args) => {
             On the other hand, if the bot's role is one of the highest, the user will be assigned the Timed Out Corner role and they will be redirected to a Timeout Channel where they will only be able to chat in there for the designated timeout time.
             
             With that being said, would you like to change your bot's role position? (Just answer yes or no within the next 1 minute.)\``)
-            msg.channel.awaitMessages(m => m.author.id == taggedUser.id, {max: 1, time: 60000}).then(collected => { 
-                if (collected.first().content.toLowerCase() == 'yes') {
-                    msg.channel.send(`Alright, come back later!`)
-                } 
-                else if (collected.first().content.toLowerCase() == 'no') {
-                    msg.channel.send(`Just remember that if your bot has a lower role, only the Time Out role will be assigned, and that's it!`)
-                    const timeout = await msg.guild.roles.create({
-                        data: {
-                            name: 'Time Out Corner',
-                            color: 'BLACK',
-                            hoist:  true,
-                            position: bothighest-1
-                        },
-                        reason: 'to time people out',
-                        }).catch((err) => console.error(err))
-        
-                    taggedUser.roles.add(timeout).then(
-                        () => {
-                            msg.channel.send(`**${taggedUser.displayName}** has been timed out for 15 minutes (default time). Shame on you!`)
-                        }
-                    ).catch((err) => console.error(err))
-                }
-                else {
-                    msg.channel.send(`Right... Okay, goodbye!`)
-                }
-            }).catch(collected => {
-                msg.channel.send('No reply after 1 minute, command is cancelled!');
-            });
+
         }
         else {
             taggedUser.roles.add(msg.guild.roles.cache.find(x => x.name == "Time Out Corner"), "");
