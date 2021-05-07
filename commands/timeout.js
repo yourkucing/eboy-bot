@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+    hooman = msg.author
     if (!msg.mentions.users.size) {
         msg.channel.send(`I'm not sure... who you wanted me to time out?`)
     }
@@ -24,7 +25,7 @@ module.exports.run = async(client, msg, args) => {
             
             With that being said, would you like to change your bot's role position? (Just answer yes or no within the next 1 minute.)
             \`\`\``)
-            msg.channel.awaitMessages(m => m.author.id == taggedUser.id, {max: 1, time: 60000}).then(collected => { 
+            msg.channel.awaitMessages(m => m.author.id == hooman.id, {max: 1, time: 60000}).then(collected => { 
                 if (collected.first().content.toLowerCase() == 'yes') {
                     msg.channel.send(`Alright, come back later!`)
                 } 
