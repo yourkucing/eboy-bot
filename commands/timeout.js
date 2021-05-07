@@ -40,22 +40,23 @@ module.exports.run = async(client, msg, args) => {
                         },
                         reason: 'to time people out',
                         }).then(result => {
-                            console.log(result)
+                            console.log(result.id)
                             taggedUser.roles.add(result).then(
-                                () => {
+                                (result2) => {
                                     msg.channel.send(`**${taggedUser.displayName}** has been timed out for 15 minutes (default time). Shame on you!`)
+                                    msg.guild.channels.cache.forEach(ch => 
+                                        {
+                                        if(ch.type == "text")
+                                          ch.overwritePermissions([
+                                          {
+                                             id: result.id,
+                                             deny: ['SEND_MESSAGES'],
+                                          },
+                                        ], 'Needed to change permissions');
+                                        }) 
                                 }
                             ).catch((err) => console.error(err))
-                            msg.guild.channels.cache.forEach(ch => 
-                                {
-                                if(ch.type == "text")
-                                  ch.overwritePermissions([
-                                  {
-                                     id: result.id,
-                                     deny: ['SEND_MESSAGES'],
-                                  },
-                                ], 'Needed to change permissions');
-                                }) 
+                            
                         })
 
                         
