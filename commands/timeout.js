@@ -45,9 +45,7 @@ With that being said, would you like to change your bot's role position right no
                                 (result2) => {
                                     let findchannel = msg.guild.channels.cache.find(channel => channel.name === 'time-out-corner')
                                     if (!findchannel) {
-                                        msg.guild.channels.create('time-out-corner').then(newchannel => {
-                                            await msg.channels.cache.get(newchannel.id).send(`${taggedUser}, get your ass in here.`)
-                                        })
+                                        msg.guild.channels.create('time-out-corner').then(channel => channel.send(`${taggedUser}, get your ass in here.`))
                                     }
                                     
                                     msg.channel.send(`**${taggedUser.displayName}** has been timed out for 15 minutes (default time). Shame on you!`)
