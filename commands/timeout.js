@@ -39,13 +39,15 @@ module.exports.run = async(client, msg, args) => {
                             position: bothighest-1
                         },
                         reason: 'to time people out',
-                        }).catch((err) => console.error(err))
-        
-                    taggedUser.roles.add(timeout).then(
-                        () => {
-                            msg.channel.send(`**${taggedUser.displayName}** has been timed out for 15 minutes (default time). Shame on you!`)
-                        }
-                    ).catch((err) => console.error(err))
+                        }).catch((err) => console.error(err)).then(result => {
+                            if (result) {
+                                taggedUser.roles.add(timeout).then(
+                                    () => {
+                                        msg.channel.send(`**${taggedUser.displayName}** has been timed out for 15 minutes (default time). Shame on you!`)
+                                    }
+                                ).catch((err) => console.error(err))
+                            }
+                        })
                 }
                 else {
                     msg.channel.send(`Right... Okay, goodbye!`)
