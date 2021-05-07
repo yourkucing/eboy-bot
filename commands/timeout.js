@@ -36,7 +36,7 @@ module.exports.run = async(client, msg, args) => {
                             name: 'Time Out Corner',
                             color: 'BLACK',
                             hoist:  true,
-                            position: bothighest-1
+                            position: bothighest
                         },
                         reason: 'to time people out',
                         }).then(result => {
