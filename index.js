@@ -37,31 +37,26 @@ client.on('ready', () => {
 		const results = await timeoutModel.find(query)
 		for (const post of results) {
 			console.log(post)
-			userID = userID
-			guildID = guildID
-			channelID = channelID
+			userID = post.userID
+			guildID = post.guildID
+			channelID = post.channelID
 
 			const guild = await client.guilds.fetch(guildID)
 
 			console.log(guild)
-			// if (!guild) {
-			// 	continue
-			// }
-			// else {
-			// 	console.log(guild)
-			// }
+			if (!guild) {
+				continue
+			}
 			
 			const channel = await client.channels.cache.get(channelID)
 
 			console.log(channel)
-			// if (!channel) {
-			// 	continue
-			// }
-			// else {
-			// 	console.log(guild)
-			// }
-			// guild.members.cache.get(userID).roles.remove(result)
-			// channel.send(`<@${userID}>, your timeout has ended!`)
+			if (!channel) {
+				continue
+			}
+
+			guild.members.cache.get(userID).roles.remove(result)
+			channel.send(`<@${userID}>, your timeout has ended!`)
 		}
 
 		await timeoutModel.deleteMany(query)
