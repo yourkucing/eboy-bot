@@ -106,10 +106,14 @@ module.exports.run = async(client, msg, args) => {
         const date = Date.now(); // today
         const timeout = Date.now() + timeoutData.timeout
         if (date > timeout) {
-            deletion = await timeoutModel.deleteOne({userID: hooman.id, serverID: guild})
-            msg.channel.send(`yeet`)
-            .catch(e => console.log(e))
-            clearInterval(interval)
+            deletion = timeoutModel.deleteOne({userID: hooman.id, serverID: guild}).then(result => {
+                if (result) {
+                    msg.channel.send(`yeet`)
+                    .catch(e => console.log(e))
+                    clearInterval(interval)
+                }
+            })
+   
         }
       }, 60000); // check every minute
 }
