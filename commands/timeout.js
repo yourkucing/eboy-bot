@@ -102,7 +102,7 @@ module.exports.run = async(client, msg, args) => {
         }
     }
 
-    setInterval(() => {
+    const interval = setInterval(() => {
         const date = Date.now(); // today
         
         if (date > timeoutData.timeout) {
