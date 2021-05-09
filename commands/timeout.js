@@ -17,14 +17,14 @@ module.exports.run = async(client, msg, args) => {
             guildID = post.guildID
             channelID = post.channelID
     
-            const guild = client.guilds.cache.get(guildID)
+            const guild = msg.guilds.cache.get(guildID)
     
             console.log(guild)
             if (!guild) {
                 continue
             }
             
-            const channel = client.channels.cache.get(channelID)
+            const channel = msg.channels.cache.get(channelID)
     
             console.log(channel)
             if (!channel) {
