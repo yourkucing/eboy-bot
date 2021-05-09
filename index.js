@@ -10,6 +10,10 @@ const timeoutModel = require('./models/timeoutSchema');
 
 client.commands = new Map();
 
+checkforTimeouts().catch((err) => {
+	console.log(err)
+})
+
 mongoose.connect(process.env.MONGODB_SRV, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -17,9 +21,6 @@ mongoose.connect(process.env.MONGODB_SRV, {
     useCreateIndex: true
 }).then(()=>{
     console.log('Connected to the database!');
-	checkforTimeouts().catch((err) => {
-		console.log(err)
-	})
 }).catch((err) => {
     console.log(err);
 });
