@@ -102,26 +102,4 @@ module.exports.run = async(client, msg, args) => {
         }
     }
 
-    const interval = setInterval(() => {
-        const date = Date.now(); // today
-        
-        if (date > timeoutData.timeout) {
-            try{
-                deletion = timeoutModel.deleteOne({userID: hooman.id, serverID: guild}).then(result => {
-                    if (result) {
-                        msg.channel.send(`yeet`)
-                        .catch(e => console.log(e))
-                        clearInterval(interval)
-                    }
-                })
-            }
-            catch(err) {
-                console.log(err)
-            }
-            
-        }
-        else {
-            msg.channel.send(`okai`)
-        }
-      }, 60000); // check every minute
 }
