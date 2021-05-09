@@ -5,6 +5,7 @@ const prefix = "uwu ";
 const fs = require('fs').promises;
 const path = require('path');
 const mongoose = require('mongoose');
+const timeoutModel = require('./models/timeoutSchema');
 
 
 client.commands = new Map();
@@ -21,9 +22,26 @@ mongoose.connect(process.env.MONGODB_SRV, {
 });
 
 
+
+
 client.on('ready', () => {
- console.log(`Logged in as ${client.user.tag}!`);
- client.user.setActivity('uwu help', { type: 'STREAMING' });
+	console.log(`Logged in as ${client.user.tag}!`);
+	client.user.setActivity('uwu help', { type: 'STREAMING' });
+
+	const checkforTimeouts = async() => {
+		const query = {
+			timeout: {
+				$lte: Date.now()
+			}
+		}
+		const results = await timeoutModel.find(query)
+		for (const post of results) {
+			console.log(post)
+		}
+
+		setTimeout(checkforTimeouts, 1000 * 10)
+	}
+	checkforTimeouts()
  });
  
 client.on('guildMemberAdd', member => {
