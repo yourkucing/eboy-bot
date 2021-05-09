@@ -49,12 +49,12 @@ module.exports.run = async(client, msg, args) => {
                             (result2) => {
                                 if (!args[1]) {
                                     time = 900000
-                                    // usertimeout = timeoutModel.create({
-                                    //     userID: hooman.id,
-                                    //     serverID: guild,
-                                    //     channelID: channel,
-                                    //     timeout: time
-                                    // }).catch((e) => { console.log(e); })
+                                    usertimeout = timeoutModel.create({
+                                        userID: hooman.id,
+                                        serverID: guild,
+                                        channelID: channel,
+                                        timeout: time
+                                    }).catch((e) => { console.log(e); })
 
                                     msg.channel.send(`**${taggedUser.displayName}** has been timed out for ${time/60000} minutes (default time). Shame on you!`)
                                 }
