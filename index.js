@@ -56,7 +56,7 @@ const checkforTimeouts = async() => {
 		}
 		user.roles.remove(timeoutrole.id)
 		channel.send(`<@${userID}>, your timeout has ended!`)
-		await timeoutModel.deleteOne({userID: userID, guildID: guildID, channelID: channelID})
+		await timeoutModel.deleteOne({userID: userID, serverID: guildID, channelID: channelID})
 	}
 
 	
