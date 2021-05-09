@@ -23,42 +23,6 @@ mongoose.connect(process.env.MONGODB_SRV, {
 
 
 
-const checkforTimeouts = async() => {
-	const query = {
-		timeout: {
-			$lte: Date.now()
-		}
-	}
-	const results = await timeoutModel.find(query)
-	for (const post of results) {
-		console.log(post)
-		userID = post.userID
-		guildID = post.guildID
-		channelID = post.channelID
-
-		const guild = client.guilds.cache.get(guildID)
-
-		console.log(guild)
-		if (!guild) {
-			continue
-		}
-		
-		const channel = client.channels.cache.get(channelID)
-
-		console.log(channel)
-		if (!channel) {
-			continue
-		}
-
-		await timeoutModel.deleteOne({userID: userID, guildID: guildID, channelID: channelID})
-		guild.members.cache.get(userID).roles.remove(result)
-		channel.send(`<@${userID}>, your timeout has ended!`)
-	}
-
-	
-	setTimeout(checkforTimeouts, 1000 * 10)
-}
-
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setActivity('uwu help', { type: 'STREAMING' });
@@ -77,9 +41,7 @@ client.on('guildMemberAdd', member => {
 	}
 })
 
-checkforTimeouts().catch((err) => {
-	console.log(err)
-})
+
 
 client.on('message', msg => {
     
