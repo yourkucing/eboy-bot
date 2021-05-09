@@ -50,9 +50,11 @@ const checkforTimeouts = async() => {
 			continue
 		}
 
-		await timeoutModel.deleteOne({userID: userID, guildID: guildID, channelID: channelID})
-		guild.members.cache.get(userID).roles.remove(result)
+		const timeoutrole = guild.roles.cache.find(role => role.name === "Time Out Corner")
+		
+		guild.members.cache.get(userID).roles.remove(timeoutrole.id)
 		channel.send(`<@${userID}>, your timeout has ended!`)
+		await timeoutModel.deleteOne({userID: userID, guildID: guildID, channelID: channelID})
 	}
 
 	

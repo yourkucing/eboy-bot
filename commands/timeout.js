@@ -3,47 +3,7 @@ const timeoutModel = require('../models/timeoutSchema');
 const ms = require('ms');
 
 module.exports.run = async(client, msg, args) => {
-
-    const checkforTimeouts = async() => {
-        const query = {
-            timeout: {
-                $lte: Date.now()
-            }
-        }
-        const results = await timeoutModel.find(query)
-        for (const post of results) {
-            console.log(post)
-            userID = post.userID
-            guildID = post.guildID
-            channelID = post.channelID
     
-            const guild = msg.guilds.cache.get(guildID)
-    
-            console.log(guild)
-            if (!guild) {
-                continue
-            }
-            
-            const channel = msg.channels.cache.get(channelID)
-    
-            console.log(channel)
-            if (!channel) {
-                continue
-            }
-    
-            await timeoutModel.deleteOne({userID: userID, guildID: guildID, channelID: channelID})
-            guild.members.cache.get(userID).roles.remove(result)
-            channel.send(`<@${userID}>, your timeout has ended!`)
-        }
-    
-        
-        setTimeout(checkforTimeouts, 1000 * 10)
-    }
-    
-    checkforTimeouts().catch((err) => {
-        console.log(err)
-    })
-
     hooman = msg.author
     guild = msg.guild.id
     channel = msg.channel.id
