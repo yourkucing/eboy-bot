@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+		var d = new Date
 		var gifs = [
 			'https://media.tenor.com/images/6ce51eaa48401e0aa7b0ea46b7a98bb7/tenor.gif',
             'https://thumbs.gfycat.com/ClosePitifulBluetickcoonhound-max-1mb.gif',
@@ -13,7 +14,7 @@ module.exports.run = async(client, msg, args) => {
 		const taggedUser = msg.mentions.users.first();
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
-		.setDescription(`Just let me pass away in peace. Please. -${msg.guild.members.cache.get(msg.author.id).displayName} ${currentdate.getFullYear()}`)
+		.setDescription(`Just let me pass away in peace. Please. -${msg.guild.members.cache.get(msg.author.id).displayName} ${d.getFullYear()}`)
 		.setImage(randomgif)
 		.setFooter(`Uh, should I revive them or nah?`);
 		msg.channel.send(embed);
