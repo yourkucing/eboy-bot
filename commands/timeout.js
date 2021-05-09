@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const timeoutModel = require('../models/timeoutSchema');
 const ms = require('ms');
 
-module.exports = async(client, msg, args) => {
+module.exports.run = async(client, msg, args) => {
     hooman = msg.author
     guild = msg.guild.id
     channel = msg.channel.id
