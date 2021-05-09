@@ -103,14 +103,14 @@ module.exports.run = async(client, msg, args) => {
         }
     }
 
-    setInterval(() => {
-        const date = Date.now(); // today
-        const timeout = Date.now() + timeoutData.timeout
-        if (date > timeout) {
-            deletion = await timeoutModel.deleteOne({userID: hooman.id, serverID: guild})
-            msg.guild.channels.get("ChannelID").send(`yeet`)
-            .catch(e => console.log(e))
-            clearInterval(interval)
-        }
-      }, 60000); // check every minute
+    // setInterval(() => {
+    //     const date = Date.now(); // today
+    //     const timeout = Date.now() + timeoutData.timeout
+    //     if (date > timeout) {
+    //         deletion = await timeoutModel.deleteOne({userID: hooman.id, serverID: guild})
+    //         msg.guild.channels.get("ChannelID").send(`yeet`)
+    //         .catch(e => console.log(e))
+    //         clearInterval(interval)
+    //     }
+    //   }, 60000); // check every minute
 }
