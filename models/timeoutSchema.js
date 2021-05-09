@@ -4,7 +4,7 @@ const timeoutSchema = new mongoose.Schema({
     userID: { type: String, require: true},
     serverID: { type: String, require: true},
     channelID: { type: String, require: true},
-    timeout: { type: Number, default: 0}
+    timeout: { type: Date}
 })
 
 const model = mongoose.model('timeoutSchema', timeoutSchema);

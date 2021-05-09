@@ -76,7 +76,7 @@ module.exports.run = async(client, msg, args) => {
                                             userID: hooman.id,
                                             serverID: guild,
                                             channelID: channel,
-                                            timeout: time1
+                                            timeout: Date(now) + time1
                                         }).then(gettimeout => {
                                             timeoutData = timeoutModel.findOne({userID: hooman.id, serverID: guild}).then(answers => {
                                                 if(answers) {
@@ -104,8 +104,8 @@ module.exports.run = async(client, msg, args) => {
 
     setInterval(() => {
         const date = Date.now(); // today
-        const timeout = Date.now() + timeoutData.timeout
-        if (date > timeout) {
+        
+        if (date > timeoutData.timeout) {
             deletion = timeoutModel.deleteOne({userID: hooman.id, serverID: guild}).then(result => {
                 if (result) {
                     msg.channel.send(`yeet`)
