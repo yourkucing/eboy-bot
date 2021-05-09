@@ -62,7 +62,7 @@ module.exports.run = async(client, msg, args) => {
 
                                     msg.channel.send(`**${taggedUser.displayName}** has been timed out for ${time/60000} minutes (default time). Shame on you!`)
                                 }
-                                else {
+/*                                 else {
                                     time = args[1]
                                     units = args[1].slice(-1)
                                     if (units == "s") {
@@ -94,7 +94,7 @@ module.exports.run = async(client, msg, args) => {
                                     } catch (err) {
                                         console.log(err)
                                     }
-                                }
+                                } */
                             }
                         ).catch((err) => console.error(err))
                         
