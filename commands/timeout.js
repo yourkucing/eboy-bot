@@ -49,7 +49,7 @@ module.exports.run = async(client, msg, args) => {
                                 if (!args[1]) {
                                     time = 900000
                                     usertimeout = timeoutModel.create({
-                                        userID: hooman.id,
+                                        userID: taggedUser.id,
                                         serverID: guild,
                                         channelID: channel,
                                         timeout: Date.now() + time1
@@ -74,7 +74,7 @@ module.exports.run = async(client, msg, args) => {
                                     }
                                     try {
                                         usertimeout = timeoutModel.create({
-                                            userID: hooman.id,
+                                            userID: taggedUser.id,
                                             serverID: guild,
                                             channelID: channel,
                                             timeout: Date.now() + time1
