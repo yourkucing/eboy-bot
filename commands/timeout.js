@@ -122,7 +122,6 @@ module.exports.run = async(client, msg, args) => {
         }
         else {
             msg.channel.send(`okai`)
-            clearInterval(interval)
         }
       }, 60000); // check every minute
 }
