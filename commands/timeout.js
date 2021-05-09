@@ -3,6 +3,7 @@ const timeoutModel = require('../models/timeoutSchema');
 const ms = require('ms');
 
 module.exports.run = async(client, msg, args) => {
+
     hooman = msg.author
     guild = msg.guild.id
     channel = msg.channel.id

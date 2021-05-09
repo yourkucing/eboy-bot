@@ -17,6 +17,9 @@ mongoose.connect(process.env.MONGODB_SRV, {
     useCreateIndex: true
 }).then(()=>{
     console.log('Connected to the database!');
+	checkforTimeouts().catch((err) => {
+		console.log(err)
+	})
 }).catch((err) => {
     console.log(err);
 });
@@ -62,9 +65,7 @@ const checkforTimeouts = async() => {
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setActivity('uwu help', { type: 'STREAMING' });
-	checkforTimeouts().catch((err) => {
-		console.log(err)
-	})
+
  });
  
 client.on('guildMemberAdd', member => {
