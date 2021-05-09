@@ -4,9 +4,21 @@ const client = new Discord.Client({disableEveryone: false});
 const prefix = "uwu ";
 const fs = require('fs').promises;
 const path = require('path');
+const mongoose = require('mongoose');
 
 
 client.commands = new Map();
+
+mongoose.connect(process.env.MONGODB_SRV, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+}).then(()=>{
+    console.log('Connected to the database!');
+}).catch((err) => {
+    console.log(err);
+});
 
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
@@ -118,10 +130,6 @@ const command = args.shift().toLowerCase();
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
 
  if(client.commands.get(command)) {
-	 if(command == "celly" || command == "axe" || command == "ew" || command == "drink" || command == "poof" || command == "scared") {
-		 msg.channel.send(`Unfortunately, this command has been taken out. If you would like them to come back, please submit a feedback at https://forms.gle/GpoHX32kVQznvY3h6 :3
-		 You can view the commands available by using uwu help.`)
-	 }
 	 client.commands.get(command).run(client, msg, args).catch((e) => { console.log(e); });
  }
 
