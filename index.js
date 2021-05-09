@@ -41,25 +41,26 @@ client.once('ready', () => {
 			guildID = post.guildID
 			channelID = post.channelID
 
-			const guild = await client.guilds.cache.get(guildID)
+			const guild = client.guilds.cache.get(guildID)
 
 			console.log(guild)
 			if (!guild) {
 				continue
 			}
 			
-			const channel = await client.channels.cache.get(channelID)
+			const channel = client.channels.cache.get(channelID)
 
 			console.log(channel)
 			if (!channel) {
 				continue
 			}
 
-			// guild.members.cache.get(userID).roles.remove(result)
-			// channel.send(`<@${userID}>, your timeout has ended!`)
+			await timeoutModel.deleteOne({userID: userID, guildID: guildID, channelID: channelID})
+			guild.members.cache.get(userID).roles.remove(result)
+			channel.send(`<@${userID}>, your timeout has ended!`)
 		}
 
-		await timeoutModel.deleteMany(query)
+		
 		setTimeout(checkforTimeouts, 1000 * 10)
 	}
 	checkforTimeouts().catch((err) => {
