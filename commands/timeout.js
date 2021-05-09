@@ -60,13 +60,13 @@ module.exports.run = async(client, msg, args) => {
                                     time = args[1]
                                     units = args[1].slice(-1)
                                     if (units == "s") {
-                                        time = ms(time)
+                                        time1 = ms(time)
                                     }
                                     else if (units == "m") {
-                                        time = ms(time)
+                                        time1 = ms(time)
                                     }
                                     else if (units == "h") {
-                                        time = ms(time)
+                                        time1 = ms(time)
                                     }
                                     else {
                                         msg.channel.send(`Are you sure you inputted the right format? It should be like this: 12m for 12 minutes. 12s for 12 seconds. 12h for 12 hours.`)
@@ -76,11 +76,12 @@ module.exports.run = async(client, msg, args) => {
                                             userID: hooman.id,
                                             serverID: guild,
                                             channelID: channel,
-                                            timeout: time
+                                            timeout: time1
                                         }).then(gettimeout => {
                                             timeoutData = timeoutModel.findOne({userID: hooman.id, serverID: guild}).then(answers => {
                                                 if(answers) {
                                                     msg.channel.send(`**${taggedUser.displayName}** has been timed out for ${time}. Shame on you!`)
+                                                    console.log(answers)
                                                 }
                                             }
                                             )
@@ -101,14 +102,14 @@ module.exports.run = async(client, msg, args) => {
         }
     }
 
-    // setInterval(() => {
-    //     const date = Date.now(); // today
-    //     const timeout = Date.now() + timeoutData.timeout
-    //     if (date > timeout) {
-    //         deletion = await timeoutModel.deleteOne({userID: hooman.id, serverID: guild})
-    //         msg.guild.channels.get("ChannelID").send(`yeet`)
-    //         .catch(e => console.log(e))
-    //         clearInterval(interval)
-    //     }
-    //   }, 60000); // check every minute
+    setInterval(() => {
+        const date = Date.now(); // today
+        const timeout = Date.now() + timeoutData.timeout
+        if (date > timeout) {
+            deletion = await timeoutModel.deleteOne({userID: hooman.id, serverID: guild})
+            msg.channel.send(`yeet`)
+            .catch(e => console.log(e))
+            clearInterval(interval)
+        }
+      }, 60000); // check every minute
 }
