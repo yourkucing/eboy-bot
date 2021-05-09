@@ -20,6 +20,8 @@ mongoose.connect(process.env.MONGODB_SRV, {
     console.log(err);
 });
 
+client.on('debug', console.log);
+
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
  client.user.setActivity('uwu help', { type: 'STREAMING' });
