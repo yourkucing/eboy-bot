@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const timeoutModel = require('../models/timeoutSchema');
 
 module.exports.run = async(client, msg, args) => {
     hooman = msg.author
@@ -11,7 +12,7 @@ module.exports.run = async(client, msg, args) => {
         }
         else {
             taggedUser = msg.mentions.members.first()
-            time = 15000
+
             if (!msg.guild.roles.cache.find(x => x.name == "Time Out Corner")){
 
                 highest = msg.guild.roles.highest.position
@@ -47,7 +48,13 @@ module.exports.run = async(client, msg, args) => {
                                 console.log(result.id)
                                 taggedUser.roles.add(result).then(
                                     (result2) => {
-                                        msg.channel.send(`**${taggedUser.displayName}** has been timed out for 15 minutes (default time). Shame on you!`)
+                                        if (!args[1]) {
+
+                                            msg.channel.send(`**${taggedUser.displayName}** has been timed out for ${time/1000} minutes (default time). Shame on you!`)
+                                        }
+                                        else {
+
+                                        }
                                     }
                                 ).catch((err) => console.error(err))
                                 
