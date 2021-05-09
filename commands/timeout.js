@@ -115,5 +115,8 @@ module.exports.run = async(client, msg, args) => {
             })
    
         }
+        else {
+            clearInterval(interval)
+        }
       }, 60000); // check every minute
 }
