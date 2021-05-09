@@ -36,6 +36,7 @@ client.on('ready', () => {
 		}
 		const results = await timeoutModel.find(query)
 		for (const post of results) {
+			console.log(post)
 			userID = userID
 			guildID = guildID
 			channelID = channelID
@@ -44,10 +45,16 @@ client.on('ready', () => {
 			if (!guild) {
 				continue
 			}
+			else {
+				console.log(guild)
+			}
 			
 			const channel = await client.channels.cache.get(channelID)
 			if (!channel) {
 				continue
+			}
+			else {
+				console.log(guild)
 			}
 			guild.members.cache.get(userID).roles.remove(result)
 			channel.send(`<@${userID}>, your timeout has ended!`)
