@@ -41,7 +41,7 @@ client.on('ready', () => {
 			guildID = post.guildID
 			channelID = post.channelID
 
-			const guild = await client.guilds.fetch(guildID)
+			const guild = await client.guilds.cache.get(guildID)
 
 			console.log(guild)
 			if (!guild) {
