@@ -55,14 +55,16 @@ client.on('ready', () => {
 				continue
 			}
 
-			guild.members.cache.get(userID).roles.remove(result)
-			channel.send(`<@${userID}>, your timeout has ended!`)
+			// guild.members.cache.get(userID).roles.remove(result)
+			// channel.send(`<@${userID}>, your timeout has ended!`)
 		}
 
 		await timeoutModel.deleteMany(query)
 		setTimeout(checkforTimeouts, 1000 * 10)
 	}
-	checkforTimeouts()
+	checkforTimeouts().catch((err) => {
+		console.log(err)
+	})
  });
  
 client.on('guildMemberAdd', member => {
