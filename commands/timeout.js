@@ -51,7 +51,7 @@ module.exports.run = async(client, msg, args) => {
                                         userID: hooman.id,
                                         serverID: guild,
                                         channelID: channel,
-                                        timeout: time
+                                        timeout: Date.now() + time1
                                     }).catch((e) => { console.log(e); })
 
                                     msg.channel.send(`**${taggedUser.displayName}** has been timed out for ${time/60000} minutes (default time). Shame on you!`)
@@ -76,7 +76,7 @@ module.exports.run = async(client, msg, args) => {
                                             userID: hooman.id,
                                             serverID: guild,
                                             channelID: channel,
-                                            timeout: Date(now) + time1
+                                            timeout: Date.now() + time1
                                         }).then(gettimeout => {
                                             timeoutData = timeoutModel.findOne({userID: hooman.id, serverID: guild}).then(answers => {
                                                 if(answers) {
