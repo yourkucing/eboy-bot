@@ -21,8 +21,7 @@ module.exports.run = async(client, msg, args) => {
 
                 highest = msg.guild.roles.highest.position
                 bothighest = msg.guild.me.roles.highest.position
-                console.log(highest)
-                console.log(bothighest)
+
 /*                 msg.channel.send(`\`\`\`Since this is the first time you run this command, I would like to let you know what is expected uwu.
                 
     Timeout Command:\ncommand syntax: uwu timeout <tagged user> time [time should be in this format: 1m (1 minute) or 5s (5 seconds) or 4h (4 hours)]
@@ -44,7 +43,6 @@ module.exports.run = async(client, msg, args) => {
                     },
                     reason: 'to time people out',
                     }).then(result => {
-                        console.log(result.id)
                         taggedUser.roles.add(result).then(
                             (result2) => {
                                 if (!args[1]) {
@@ -58,7 +56,7 @@ module.exports.run = async(client, msg, args) => {
 
                                     msg.channel.send(`**${taggedUser.displayName}** has been timed out for ${time/60000} minutes (default time). Shame on you!`)
                                 }
-/*                                 else {
+                                else {
                                     time = args[1]
                                     units = args[1].slice(-1)
                                     if (units == "s") {
@@ -90,7 +88,7 @@ module.exports.run = async(client, msg, args) => {
                                     } catch (err) {
                                         console.log(err)
                                     }
-                                } */
+                                }
                             }
                         ).catch((err) => console.error(err))
                         
