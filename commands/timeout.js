@@ -89,7 +89,12 @@ module.exports.run = async(client, msg, args) => {
                                                     channelID: channel,
                                                     timeout: time
                                                 }).then(gettimeout => {
-                                                    timeoutData = await timeoutModel.findOne({userID: hooman.id, serverID: guild})
+                                                    timeoutData = timeoutModel.findOne({userID: hooman.id, serverID: guild}).then(answers => {
+                                                        if(answers) {
+                                                            msg.channel.send(`**${taggedUser.displayName}** has been timed out for ${time}. Shame on you!`)
+                                                        }
+                                                    }
+                                                    )
                                                 })
                                             } catch (err) {
                                                 console.log(err)
@@ -114,5 +119,14 @@ module.exports.run = async(client, msg, args) => {
         }
     }
 
-
+    setInterval(() => {
+        const date = Date.now(); // today
+        const timeout = Date.now() + timeoutData.timeout
+        if (date > timeout) {
+            deletion = await timeoutModel.deleteOne({userID: hooman.id, serverID: guild})
+            msg.guild.channels.get("ChannelID").send(`yeet`)
+            .catch(e => console.log(e))
+            clearInterval(interval)
+        }
+      }, 60000); // check every minute
 }
