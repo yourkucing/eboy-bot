@@ -10,10 +10,6 @@ const timeoutModel = require('./models/timeoutSchema');
 
 client.commands = new Map();
 
-checkforTimeouts().catch((err) => {
-	console.log(err)
-})
-
 mongoose.connect(process.env.MONGODB_SRV, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -81,6 +77,9 @@ client.on('guildMemberAdd', member => {
 	}
 })
 
+checkforTimeouts().catch((err) => {
+	console.log(err)
+})
 
 client.on('message', msg => {
     
