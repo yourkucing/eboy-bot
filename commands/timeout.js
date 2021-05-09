@@ -1,8 +1,12 @@
 const Discord = require('discord.js');
 const timeoutModel = require('../models/timeoutSchema');
+const ms = require('ms');
 
 module.exports.run = async(client, msg, args) => {
     hooman = msg.author
+    guild = msg.guild.id
+    channel = msg.channel.id
+
     if (!msg.mentions.users.size) {
         msg.channel.send(`I'm not sure... who you wanted me to time out?`)
     }
@@ -49,11 +53,47 @@ module.exports.run = async(client, msg, args) => {
                                 taggedUser.roles.add(result).then(
                                     (result2) => {
                                         if (!args[1]) {
+                                            time = 900000
+                                            try {
+                                                usertimeout = timeoutModel.create({
+                                                    userID: hooman.id,
+                                                    serverID: guild,
+                                                    channelID: channel,
+                                                    timeout: time
+                                                })
+                                            } catch (err) {
+                                                console.log(err)
+                                            }
 
-                                            msg.channel.send(`**${taggedUser.displayName}** has been timed out for ${time/1000} minutes (default time). Shame on you!`)
+                                            msg.channel.send(`**${taggedUser.displayName}** has been timed out for ${time/60000} minutes (default time). Shame on you!`)
                                         }
                                         else {
-
+                                            time = args[1]
+                                            units = args[1].slice(-1)
+                                            if (units == "s") {
+                                                time = ms(time)
+                                            }
+                                            else if (units == "m") {
+                                                time = ms(time)
+                                            }
+                                            else if (units == "h") {
+                                                time = ms(time)
+                                            }
+                                            else {
+                                                msg.channel.send(`Are you sure you inputted the right format? It should be like this: 12m for 12 minutes. 12s for 12 seconds. 12h for 12 hours.`)
+                                            }
+                                            try {
+                                                usertimeout = timeoutModel.create({
+                                                    userID: hooman.id,
+                                                    serverID: guild,
+                                                    channelID: channel,
+                                                    timeout: time
+                                                }).then(gettimeout => {
+                                                    timeoutData = await timeoutModel.findOne({userID: hooman.id, serverID: guild})
+                                                })
+                                            } catch (err) {
+                                                console.log(err)
+                                            }
                                         }
                                     }
                                 ).catch((err) => console.error(err))
@@ -73,4 +113,15 @@ module.exports.run = async(client, msg, args) => {
             }
         }
     }
+
+    setInterval(() => {
+        const date = Date.now(); // today
+        const timeout = Date.now() + timeoutData.timeout
+        if (date > timeout) {
+            deletion = await timeoutModel.deleteOne({userID: hooman.id, serverID: guild})
+            msg.guild.channels.get("ChannelID").send(`yeet`)
+            .catch(e => console.log(e))
+            clearInterval(interval)
+        }
+      }, 60000); // check every minute
 }

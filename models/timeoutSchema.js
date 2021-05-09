@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const timeoutSchema = new mongoose.Schema({
     userID: { type: String, require: true},
     serverID: { type: String, require: true},
+    channelID: { type: String, require: true},
     timeout: { type: Number, default: 0}
 })
 
