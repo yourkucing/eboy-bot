@@ -37,7 +37,7 @@ const checkforTimeouts = async() => {
 		channelID = post.channelID
 
 		const guild = client.guilds.cache.get(guildID)
-
+		console.log(guild)
 		if (!guild) {
 			continue
 		}
@@ -91,7 +91,6 @@ if (msg.author.bot) return
  if (msg.content.toLowerCase() === 'òwó') {
 	 if (msg.author.bot) return;
 	 else {
-		 console.log(msg.guild)
 		 msg.channel.send('buzz buzz');
 	 }
  }
