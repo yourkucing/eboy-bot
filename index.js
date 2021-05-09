@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGODB_SRV, {
 
 
 
-client.on('ready', () => {
+client.once('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setActivity('uwu help', { type: 'STREAMING' });
 
