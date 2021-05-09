@@ -91,6 +91,7 @@ if (msg.author.bot) return
  if (msg.content.toLowerCase() === 'òwó') {
 	 if (msg.author.bot) return;
 	 else {
+		 console.log(msg.guild)
 		 msg.channel.send('buzz buzz');
 	 }
  }
