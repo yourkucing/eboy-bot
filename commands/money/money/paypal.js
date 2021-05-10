@@ -3,20 +3,22 @@ const moneyModel = require('../../../models/moneySchema');
 
 module.exports.run = async(client, msg, args) => {
 	hooman = msg.author.id
-	moneyData = await moneyModel.findOne({userID: hooman})
-	if (!moneyData) {
-		let wallet;
-        try {
-            wallet = moneyModel.create({
-                userID: hooman,
-                serverID: server
-            }).then(result => {
-                moneyData = await moneyModel.findOne({userID: hooman})
-            })
-        } catch (err) {
-            console.log(err)
-        }
-	}
+	moneyData = await moneyModel.findOne({userID: hooman}).then(result => {
+		if (!result) {
+			let wallet;
+			try {
+				wallet = moneyModel.create({
+					userID: hooman,
+					serverID: server
+				}).then(result => {
+					moneyData = await moneyModel.findOne({userID: hooman}).catch(err => { console.log(err)})
+				})
+			} catch (err) {
+				console.log(err)
+			}
+		}
+	})
+	
 	var gifs = [
 		'https://media1.tenor.com/images/06e438bb03983a7c7087618f20b2c25a/tenor.gif?itemid=8203989',
         'https://media0.giphy.com/media/Tex4wVhhs4iwKoV7YT/giphy-downsized-large.gif',

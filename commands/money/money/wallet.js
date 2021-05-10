@@ -5,6 +5,7 @@ module.exports.run = async(client, msg, args) => {
     let hooman = msg.author.id
     let server = msg.guild.id
     moneyData = await moneyModel.findOne({userID: hooman})
+    console.log(moneyData)
     if (!moneyData) {
         msg.channel.send(`Oh, you do not have a wallet! Let me create one for you...`)
         money = 0
