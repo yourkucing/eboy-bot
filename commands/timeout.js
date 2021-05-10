@@ -105,8 +105,9 @@ module.exports.run = async(client, msg, args) => {
                     msg.channel.send(`**${taggedUser.displayName}** is already in the time out corner!`)
                 }
                 else {
-                    taggedUser.roles.add(msg.guild.roles.cache.find(x => x.name == "Time Out Corner"), "");
+                    
                     if (!args[1]) {
+                        taggedUser.roles.add(msg.guild.roles.cache.find(x => x.name == "Time Out Corner"), "");
                         time = 900000
                         usertimeout = timeoutModel.create({
                             userID: taggedUser.id,
@@ -133,6 +134,7 @@ module.exports.run = async(client, msg, args) => {
                             msg.channel.send(`Are you sure you inputted the right format? It should be like this: 12m for 12 minutes. 12s for 12 seconds. 12h for 12 hours.`)
                             return
                         }
+                        taggedUser.roles.add(msg.guild.roles.cache.find(x => x.name == "Time Out Corner"), "");
                         try {
                             usertimeout = timeoutModel.create({
                                 userID: taggedUser.id,
