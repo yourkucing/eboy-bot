@@ -1,6 +1,7 @@
 const moneyModel = require('../../models/moneySchema');
 const Discord = require('discord.js');
-module.exports.run = async(client, msg, args) => {
+
+try {module.exports.run = async(client, msg, args) => {
     let hooman = msg.author.id
     let server = msg.guild.id
     moneyModel.findOne({userID: hooman}).then(moneyData => {
@@ -44,4 +45,8 @@ module.exports.run = async(client, msg, args) => {
     msg.channel.send(embed);
     }
     })
+}
+}
+catch (err) {
+    console.log(err)
 }
