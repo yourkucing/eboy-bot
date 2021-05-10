@@ -101,7 +101,7 @@ module.exports.run = async(client, msg, args) => {
             else {
                 const user = msg.guild.members.cache.get(taggedUser.id)
                 timeoutrole = msg.guild.roles.cache.find(x => x.name == "Time Out Corner")
-                if (user.roles.has(timeoutrole.id)) {
+                if (user.roles.cache.some((role) => role.id === timeoutrole.id)) {
                     msg.channel.send(`**${taggedUser.displayName}** is already in the time out corner!`)
                 }
                 else {
