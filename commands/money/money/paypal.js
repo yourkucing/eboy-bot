@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const moneyModel = require('../models/moneySchema');
+const moneyModel = require('../../../models/moneySchema');
 
 module.exports.run = async(client, msg, args) => {
 	hooman = msg.author.id
@@ -17,7 +17,6 @@ module.exports.run = async(client, msg, args) => {
             console.log(err)
         }
 	}
-
 	var gifs = [
 		'https://media1.tenor.com/images/06e438bb03983a7c7087618f20b2c25a/tenor.gif?itemid=8203989',
         'https://media0.giphy.com/media/Tex4wVhhs4iwKoV7YT/giphy-downsized-large.gif',
@@ -99,4 +98,5 @@ module.exports.run = async(client, msg, args) => {
 
 		}
 	}
+
 }
