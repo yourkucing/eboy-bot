@@ -1,6 +1,23 @@
 const Discord = require('discord.js');
+const moneyModel = require('../models/moneySchema');
 
 module.exports.run = async(client, msg, args) => {
+	hooman = msg.author.id
+	moneyData = await moneyModel.findOne({userID: hooman})
+	if (!moneyData) {
+		let wallet;
+        try {
+            wallet = moneyModel.create({
+                userID: hooman,
+                serverID: server
+            }).then(result => {
+                moneyData = await moneyModel.findOne({userID: hooman})
+            })
+        } catch (err) {
+            console.log(err)
+        }
+	}
+
 	var gifs = [
 		'https://media1.tenor.com/images/06e438bb03983a7c7087618f20b2c25a/tenor.gif?itemid=8203989',
         'https://media0.giphy.com/media/Tex4wVhhs4iwKoV7YT/giphy-downsized-large.gif',
@@ -11,7 +28,7 @@ module.exports.run = async(client, msg, args) => {
 	if (!msg.mentions.users.size) {
 		const words = args.join(' ');
 		if (words === "") {
-			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
+			return msg.channel.send(`You didn't provide any name, ${msg.author}! Are you trying to give your money to the ghosts in the server?`);
 		}
 		else {
 			const embed = new Discord.MessageEmbed()
@@ -29,13 +46,53 @@ module.exports.run = async(client, msg, args) => {
 			.setColor('#FF69B4')
 			.setDescription(`You gave yourself money! Okay?`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`${taggedUser.displayName} is rich now.`);
+			.setFooter(`${taggedUser.displayName} is rich now. (Your money still stays the same, dumdum!)`);
 			msg.channel.send(embed);
 		}
 		else {
+			moneyData2 = await moneyModel.findOne({userID: taggedUser.id})
+			if (!moneyData2) {
+				let wallet;
+				try {
+					wallet = moneyModel.create({
+						userID: hooman,
+						serverID: server
+					}).then(result => {
+						moneyData2 = await moneyModel.findOne({userID: taggedUser.id})
+					})
+				} catch (err) {
+					console.log(err)
+				}
+			}
+			if (!args[1]) {
+				money = Math.floor(Math.random() * moneyData.gold) + 1
+				extra = `(random amount since no amount was not specified any)`
+			}
+			else {
+				money = parseInt(args[1])
+            	units = args[1].slice(-1)
+				extra = ``
+				if (units != "g") {
+					msg.channel.send(`Are you sure you inputted the right format? It should be like this: 5g for 5 gold.`)
+                    return
+				}
+			}
+			
+
+			await moneyModel.findOneAndUpdate({userID: hooman.id}, {
+				$set: {
+					gold: moneyData.gold - money
+				}
+			})
+
+			await moneyModel.findOneAndUpdate({userID: taggedUser.id}, {
+				$set: {
+					gold: moneyData2.gold + money
+				}
+			})
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`You gave **${taggedUser.displayName}** money wow!`)
+			.setDescription(`${msg.guild.members.cache.get(moneyData.userID).displayName} gave **${taggedUser.displayName}** ${money}g wow! ${extra}`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`${taggedUser.displayName} is rich now.`);
 			msg.channel.send(embed);
