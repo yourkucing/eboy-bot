@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const moneyModel = require('../../../models/moneySchema');
+const moneyModel = require('../../models/moneySchema');
 
 module.exports.run = async(client, msg, args) => {
 	hooman = msg.author.id
