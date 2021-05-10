@@ -36,7 +36,7 @@ module.exports.run = async(client, msg, args) => {
                 
     With that being said, would you like to change your bot's role position right now? (Just answer yes or no within the next 1 minute.)
                 \`\`\``) */
-                msg.channel.send(`If your bot has a lower role, the Time Out role might not be seen in the user role, and that's it!`)
+                msg.channel.send(`Please do not change the name of the role (Time Out Corner) as it may affect the functionality of this command.\nIf your bot has a lower role, the Time Out role might not be seen in the user role, and that's it!`)
                 msg.guild.roles.create({
                     data: {
                         name: 'Time Out Corner',
