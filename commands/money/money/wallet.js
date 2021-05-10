@@ -6,6 +6,11 @@ module.exports.run = async(client, msg, args) => {
     let server = msg.guild.id
 
     msg.channel.send(`bro i dont even know`)
+
+    moneyModel.create({
+        userID: hooman,
+        serverID: server
+    })
     // let hooman = msg.author.id
     // let server = msg.guild.id
     // moneyModel.findOne({userID: hooman}).then(moneyData => {
