@@ -10,10 +10,12 @@ module.exports.run = async(client, msg, args) => {
 
     if (!msg.mentions.users.size) {
         msg.channel.send(`I'm not sure... who you wanted me to time out?`)
+        return
     }
     else {
         if (!msg.guild.me.hasPermission("ADMINISTRATOR")) {
             msg.channel.send(`I don't have an admininstrator permission to do this uwu! So sorry. >.<`)
+            return
         }
         else {
             taggedUser = msg.mentions.members.first()
@@ -44,56 +46,55 @@ module.exports.run = async(client, msg, args) => {
                     },
                     reason: 'to time people out',
                     }).then(result => {
-                        taggedUser.roles.add(result).then(
-                            (result2) => {
-                                if (!args[1]) {
-                                    time = 900000
-                                    usertimeout = timeoutModel.create({
-                                        userID: taggedUser.id,
-                                        serverID: guild,
-                                        channelID: channel,
-                                        timeout: Date.now() + time
-                                    }).catch((e) => { console.log(e); })
 
-                                    msg.channel.send(`**${taggedUser.displayName}** has been timed out for ${time/60000} minutes (default time). Shame on you!`)
-                                }
-                                else {
-                                    time = args[1]
-                                    units = args[1].slice(-1)
-                                    if (units == "s") {
-                                        time1 = ms(time)
-                                    }
-                                    else if (units == "m") {
-                                        time1 = ms(time)
-                                    }
-                                    else if (units == "h") {
-                                        time1 = ms(time)
-                                    }
-                                    else {
-                                        msg.channel.send(`Are you sure you inputted the right format? It should be like this: 12m for 12 minutes. 12s for 12 seconds. 12h for 12 hours.`)
-                                        return
-                                    }
-                                    try {
-                                        usertimeout = timeoutModel.create({
-                                            userID: taggedUser.id,
-                                            serverID: guild,
-                                            channelID: channel,
-                                            timeout: Date.now() + time1
-                                        }).then(gettimeout => {
-                                            timeoutData = timeoutModel.findOne({userID: taggedUser.id, serverID: guild}).then(answers => {
-                                                if(answers) {
-                                                    msg.channel.send(`**${taggedUser.displayName}** has been timed out for ${time}. Shame on you!`)
-                                                    console.log(answers)
-                                                }
-                                            }
-                                            )
-                                        })
-                                    } catch (err) {
-                                        console.log(err)
-                                    }
-                                }
+                        if (!args[1]) {
+                            time = 900000
+                            usertimeout = timeoutModel.create({
+                                userID: taggedUser.id,
+                                serverID: guild,
+                                channelID: channel,
+                                timeout: Date.now() + time
+                            }).catch((e) => { console.log(e); })
+
+                            msg.channel.send(`**${taggedUser.displayName}** has been timed out for ${time/60000} minutes (default time). Shame on you!`)
+                        }
+                        else {
+                            time = args[1]
+                            units = args[1].slice(-1)
+                            if (units == "s") {
+                                time1 = ms(time)
                             }
-                        ).catch((err) => console.error(err))
+                            else if (units == "m") {
+                                time1 = ms(time)
+                            }
+                            else if (units == "h") {
+                                time1 = ms(time)
+                            }
+                            else {
+                                msg.channel.send(`Are you sure you inputted the right format? It should be like this: 12m for 12 minutes. 12s for 12 seconds. 12h for 12 hours.`)
+                                return
+                            }
+                            try {
+                                usertimeout = timeoutModel.create({
+                                    userID: taggedUser.id,
+                                    serverID: guild,
+                                    channelID: channel,
+                                    timeout: Date.now() + time1
+                                }).then(gettimeout => {
+                                    timeoutData = timeoutModel.findOne({userID: taggedUser.id, serverID: guild}).then(answers => {
+                                        if(answers) {
+                                            msg.channel.send(`**${taggedUser.displayName}** has been timed out for ${time}. Shame on you!`)
+                                            console.log(answers)
+                                        }
+                                    }
+                                    )
+                                })
+                            } catch (err) {
+                                console.log(err)
+                            }
+                        }
+
+                        taggedUser.roles.add(result).catch((err) => console.error(err))
                         
                     })
                     
