@@ -131,6 +131,7 @@ module.exports.run = async(client, msg, args) => {
                         }
                         else {
                             msg.channel.send(`Are you sure you inputted the right format? It should be like this: 12m for 12 minutes. 12s for 12 seconds. 12h for 12 hours.`)
+                            return
                         }
                         try {
                             usertimeout = timeoutModel.create({
