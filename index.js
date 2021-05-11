@@ -91,16 +91,16 @@ channelModel.findOne({channelID: msg.channel.id}).then(moneychannel => {
 		// }).catch(e => {console.log(e)})
 	}
 	else {
-		moneyModel.create({
-			userID: msg.author.id,
-			serverID: msg.guild.id,
-			gold: 52
-		}).then(r => {
-			if(!r) {
-				console.log(r)
-			}
-		}).catch(err => {console.log(err)})
-	}
+	// 	moneyModel.create({
+	// 		userID: msg.author.id,
+	// 		serverID: msg.guild.id,
+	// 		gold: 52
+	// 	}).then(r => {
+	// 		if(!r) {
+	// 			console.log(r)
+	// 		}
+	// 	}).catch(err => {console.log(err)})
+	// }
 })
 
 
