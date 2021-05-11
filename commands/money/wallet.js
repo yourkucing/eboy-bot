@@ -13,11 +13,9 @@ module.exports.run = async(client, msg, args) => {
     console.log(moneyData)
 
     if (!moneyData) {
-        usertimeout = timeoutModel.create({
+        wallet = moneyModel.create({
             userID: hooman,
-            serverID: server,
-            channelID: channel,
-            timeout: Date.now() + 3600000
+            serverID: server
         }).catch((e) => { console.log(e); })
         msg.channel.send(`added!`)
     }
