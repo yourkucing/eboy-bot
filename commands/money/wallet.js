@@ -7,8 +7,12 @@ module.exports.run = async(client, msg, args) => {
     hooman = msg.author.id
     server = msg.guild.id
 
-    moneyData = moneyModel.findOne({userID: hooman})
+    moneyData = await moneyModel.findOne({userID: hooman})
     console.log(moneyData)
+
+    if (!moneyData) {
+        msg.channel.send(`nothing bro`)
+    }
     /* 
     let hooman = msg.author.id
     let server = msg.guild.id
