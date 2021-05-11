@@ -80,7 +80,26 @@ if (msg.author.bot) return
 	
 channelModel.findOne({channelID: msg.channel.id}).then(moneychannel => {
 	if(moneychannel){
-		console.log(msg.content)
+		moneyModel.findOneAndUpdate({userID: msg.author.id}, {
+			$inc: {
+				gold: 2
+			}
+		}).then(result => {
+			if(!result) {
+				console.log(result)
+			}
+		}).catch(e => {console.log(e)})
+	}
+	else {
+		moneyModel.create({
+			userID: msg.author.id,
+			serverID: msg.guild.id,
+			gold: 52
+		}).then(r => {
+			if(!r) {
+				console.log(r)
+			}
+		}).catch(err => {console.log(err)})
 	}
 })
 
