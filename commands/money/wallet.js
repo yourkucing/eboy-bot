@@ -19,8 +19,10 @@ module.exports.run = async(client, msg, args) => {
         }).catch((e) => { console.log(e); }).then(result => {
             if (result) {
                 msg.channel.send(`added!`)
-                // moneyData = await moneyModel.findOne({userID: hooman})
-                // console.log(moneyData)
+                moneyModel.findOne({userID: hooman}).then(moneyData => {
+                    console.log(moneyData)
+                })
+                
             }
             else {
                 console.log(result)
