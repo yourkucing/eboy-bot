@@ -11,7 +11,19 @@ module.exports.run = async(client, msg, args) => {
     console.log(moneyData)
 
     if (!moneyData) {
-        msg.channel.send(`nothing bro`)
+        try {
+            wallet = moneyModel.create({
+                userID = hooman,
+                serverID = server
+            })
+            msg.channel.send(`added!`)
+        }
+        catch(err) {
+            console.log(err)
+        }
+    }
+    else {
+        msg.channel.send(`yeah it's there!`)
     }
     /* 
     let hooman = msg.author.id
