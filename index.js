@@ -74,7 +74,7 @@ client.on('message', msg => {
 	
 if (msg.author.bot) return
 
-if(msg.channel.id.equals("719493404190572604")){
+if(msg.channel.id == "719493404190572604"){
     console.log(msg.content)
 }
 
