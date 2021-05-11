@@ -85,10 +85,20 @@ client.on('guildMemberAdd', member => {
 
 
 client.on('message', msg => {
-    
-
 	
 if (msg.author.bot) return
+
+let filter = message => {
+    return message.content == msg.content && // check if the content is the same (sort of)
+           message.author == msg.author; // check if the author is the same
+  }
+
+  msg.channel.awaitMessages(filter, {
+    maxMatches: 1, // you only need that to happen once
+    time: 5 * 1000 // time is in milliseconds
+  }).then(collected => {
+    console.log(message.content)
+  }).catch(console.error);
 
  if (msg.content.toLowerCase() === 'òwó') {
 	 if (msg.author.bot) return;
