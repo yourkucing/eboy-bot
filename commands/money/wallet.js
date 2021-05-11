@@ -40,7 +40,7 @@ module.exports.run = async(client, msg, args) => {
     { name: `Name: ${msg.guild.members.cache.get(moneyData.userID).displayName}`, value: `Gold: ${moneyData.gold} gp`}
     )
     .setThumbnail(`${url}`);
-
+    msg.channel.send(embed);
 
     /* 
     let hooman = msg.author.id
