@@ -1,4 +1,5 @@
 const moneyModel = require('../../models/moneySchema');
+const timeoutModel = require('../../models/timeoutSchema');
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
@@ -6,15 +7,18 @@ module.exports.run = async(client, msg, args) => {
     msg.channel.send(`hello!`)
     hooman = msg.author.id
     server = msg.guild.id
+    channel = msg.channel.id
 
     moneyData = await moneyModel.findOne({userID: hooman})
     console.log(moneyData)
 
     if (!moneyData) {
-        wallet = moneyModel.create({
-            userID = hooman,
-            serverID = server
-        }).catch((e) => { console.log(e) })
+        usertimeout = timeoutModel.create({
+            userID: hooman,
+            serverID: server,
+            channelID: channel,
+            timeout: Date.now() + 3600000
+        }).catch((e) => { console.log(e); })
         msg.channel.send(`added!`)
     }
     else {
