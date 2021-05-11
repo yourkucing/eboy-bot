@@ -31,7 +31,7 @@ module.exports.run = async(client, msg, args) => {
 	}
 	else {
 		if (!args[1]) {
-			money = Math.floor(Math.random() * moneyData.gold) + 1
+			money = Math.floor(Math.random() * 50) + 1
 			extra = `(random amount since no amount was not specified any)`
 		}
 		else {
