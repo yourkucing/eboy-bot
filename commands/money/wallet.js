@@ -1,7 +1,10 @@
 const moneyModel = require('../../models/moneySchema');
 const Discord = require('discord.js');
 
-try {module.exports.run = async(client, msg, args) => {
+module.exports.run = async(client, msg, args) => {
+    
+    msg.channel.send(`hello!`)
+    /* 
     let hooman = msg.author.id
     let server = msg.guild.id
     moneyModel.findOne({userID: hooman}).then(moneyData => {
@@ -44,9 +47,5 @@ try {module.exports.run = async(client, msg, args) => {
     .setThumbnail(`${url}`);
     msg.channel.send(embed);
     }
-    })
-}
-}
-catch (err) {
-    console.log(err)
+    }) */
 }
