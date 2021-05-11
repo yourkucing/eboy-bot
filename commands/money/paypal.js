@@ -94,31 +94,39 @@ module.exports.run = async(client, msg, args) => {
 									return
 								}
 								else {
-									await moneyModel.findOneAndUpdate({userID: hooman}, {
+									moneyModel.findOneAndUpdate({userID: hooman}, {
 										$set: {
 											gold: moneyData.gold - money
 										}
+									}).then(y => {
+										moneyModel.findOneAndUpdate({userID: taggedUser.id}, {
+											$set: {
+												gold: taggedData.gold + money
+											}
+										}).then(z =>
+											{
+												console.log('Successful!')
+											})
 									})
 					
-									await moneyModel.findOneAndUpdate({userID: taggedUser.id}, {
-										$set: {
-											gold: taggedData.gold + money
-										}
-									})
+									
 								}
 							})
 						}
 						else {
-							await moneyModel.findOneAndUpdate({userID: hooman}, {
+							moneyModel.findOneAndUpdate({userID: hooman}, {
 								$set: {
 									gold: moneyData.gold - money
 								}
-							})
-			
-							await moneyModel.findOneAndUpdate({userID: taggedUser.id}, {
-								$set: {
-									gold: taggedData.gold + money
-								}
+							}).then(y => {
+								moneyModel.findOneAndUpdate({userID: taggedUser.id}, {
+									$set: {
+										gold: taggedData.gold + money
+									}
+								}).then(z =>
+									{
+										console.log('Successful!')
+									})
 							})
 						}
 					}
@@ -137,31 +145,37 @@ module.exports.run = async(client, msg, args) => {
 							return
 						}
 						else {
-							await moneyModel.findOneAndUpdate({userID: hooman}, {
+							moneyModel.findOneAndUpdate({userID: hooman}, {
 								$set: {
 									gold: moneyData.gold - money
 								}
-							})
-			
-							await moneyModel.findOneAndUpdate({userID: taggedUser.id}, {
-								$set: {
-									gold: taggedData.gold + money
-								}
+							}).then(y => {
+								moneyModel.findOneAndUpdate({userID: taggedUser.id}, {
+									$set: {
+										gold: taggedData.gold + money
+									}
+								}).then(z =>
+									{
+										console.log('Successful!')
+									})
 							})
 						}
 					})
 				}
 				else {
-					await moneyModel.findOneAndUpdate({userID: hooman}, {
+					moneyModel.findOneAndUpdate({userID: hooman}, {
 						$set: {
 							gold: moneyData.gold - money
 						}
-					})
-	
-					await moneyModel.findOneAndUpdate({userID: taggedUser.id}, {
-						$set: {
-							gold: taggedData.gold + money
-						}
+					}).then(y => {
+						moneyModel.findOneAndUpdate({userID: taggedUser.id}, {
+							$set: {
+								gold: taggedData.gold + money
+							}
+						}).then(z =>
+							{
+								console.log('Successful!')
+							})
 					})
 				}
 			}
