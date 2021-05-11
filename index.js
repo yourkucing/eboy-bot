@@ -29,8 +29,7 @@ const checkforTimeouts = async() => {
 		}
 	}
 	const results = await timeoutModel.find(query)
-	for (const post of results) {
-		console.log(post)
+	for (const post of results) 
 		userID = post.userID
 		guildID = post.serverID
 		channelID = post.channelID
@@ -53,7 +52,8 @@ const checkforTimeouts = async() => {
 		if (!user) {
 			continue
 		}
-		user.roles.remove(timeoutrole.id)
+		console.log(user, channel, guild)
+		user.roles.remove(timeoutrole.id).catch((e) => {console.log(e)})
 		channel.send(`<@${userID}>, your timeout has ended!`)
 		await timeoutModel.deleteOne({userID: userID, serverID: guildID, channelID: channelID})
 	}
