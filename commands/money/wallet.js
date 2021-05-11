@@ -1,13 +1,10 @@
 const moneyModel = require('../../models/moneySchema');
-const timeoutModel = require('../../models/timeoutSchema');
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     
-    msg.channel.send(`hello!`)
     hooman = msg.author.id
     server = msg.guild.id
-    channel = msg.channel.id
 
     moneyData = await moneyModel.findOne({userID: hooman})
     console.log(moneyData)
@@ -18,7 +15,6 @@ module.exports.run = async(client, msg, args) => {
             serverID: server
         }).catch((e) => { console.log(e); }).then(result => {
             if (result) {
-                msg.channel.send(`added!`)
                 moneyModel.findOne({userID: hooman}).then(moneyData => {
                     console.log(moneyData)
                     url = `https://cdn.discordapp.com/avatars/${hooman}/${msg.author.avatar}.png`
