@@ -77,18 +77,20 @@ client.on('ready', () => {
 client.on('message', msg => {
 
 if (msg.author.bot) return
-	
+
 channelModel.findOne({channelID: msg.channel.id}).then(moneychannel => {
 	if(moneychannel){
-		moneyModel.findOneAndUpdate({userID: msg.author.id}, {
-			$inc: {
-				gold: 2
-			}
-		}).then(result => {
-			if(!result) {
-				console.log(result)
-			}
-		}).catch(e => {console.log(e)})
+		console.log(msg.content)
+		console.log(msg.author.id)
+		// moneyModel.findOneAndUpdate({userID: msg.author.id}, {
+		// 	$inc: {
+		// 		gold: 2
+		// 	}
+		// }).then(result => {
+		// 	if(!result) {
+		// 		console.log(result)
+		// 	}
+		// }).catch(e => {console.log(e)})
 	}
 })
 
