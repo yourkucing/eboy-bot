@@ -6,6 +6,8 @@ const fs = require('fs').promises;
 const path = require('path');
 const mongoose = require('mongoose');
 const timeoutModel = require('./models/timeoutSchema');
+const channelModel = require('./models/channelSchema');
+const moneyModel = require('./models/moneySchema');
 
 
 client.commands = new Map();
@@ -74,11 +76,14 @@ client.on('ready', () => {
 
 client.on('message', msg => {
 	
-if (msg.author.bot) return
-
-if(msg.channel.id == "719493404190572604"){
+moneychannel = await channelModel.findOne({channelID: msg.channel.id})
+if(moneychannel){
     console.log(msg.content)
 }
+
+if (msg.author.bot) return
+
+
 
  if (msg.content.toLowerCase() === 'òwó') {
 	 if (msg.author.bot) return;
