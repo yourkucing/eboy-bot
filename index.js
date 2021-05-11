@@ -100,7 +100,7 @@ channelModel.findOne({channelID: msg.channel.id}).then(moneychannel => {
 	// 			console.log(r)
 	// 		}
 	// 	}).catch(err => {console.log(err)})
-	// }
+	}
 })
 
 
