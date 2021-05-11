@@ -22,7 +22,6 @@ mongoose.connect(process.env.MONGODB_SRV, {
 });
 
 
-
 const checkforTimeouts = async() => {
 	const query = {
 		timeout: {
@@ -70,24 +69,14 @@ client.on('ready', () => {
 		console.log(err)
 	})
  });
- 
-client.on('guildMemberAdd', member => {
-	const guild = member.guild;
-	if (guild.id === "714366752489865276") { 
-		client.channels.cache.get("714366752489865279").send(`Hey **${member.displayName}**, welcome to **World of Zodiac**!\n\nPlease head yourself to <#714370031709978665> to sort yourself into a certain house that you want to be in! And then don't forget to head yourself to <#714370627871440956> as well! After that, you can go to <#714370677632794695> to introduce yourself, and have conversations with all people in this server on <#714367141620744244> ! Just don't forget to read the rules in <#714372663841259572> though! It's necessary! :wink:\n\nHave fun, Stars! We hope you enjoy being in this server! :sparkles:`);
-		member.roles.add(member.guild.roles.cache.find(x => x.id == "714374597914656810"), "");
-	}
-	if (guild.id === "733541632275644427") {
-		client.channels.cache.get("733541632275644430").send(`Hihi **${member.displayName}**, welcome to Carcosa and World of Eldritch County!\n\nPlease head yourself to <#733542476035653643> to introduce yourself so that others can get to know you better! And then don't forget to head yourself to <#733551174250266729> as well! \n\nI hope you have fun and I'm really glad that you're in Carcosa :heart: <:meow:733551416114937856>`);
-		member.roles.add(member.guild.roles.cache.find(x => x.id == "733542068563083285"), "");
-	}
-})
-
 
 client.on('message', msg => {
 	
 if (msg.author.bot) return
 
+if(msg.channel.id.equals("719493404190572604")){
+    console.log(msg.content)
+}
 
  if (msg.content.toLowerCase() === 'òwó') {
 	 if (msg.author.bot) return;
