@@ -60,7 +60,7 @@ module.exports.run = async(client, msg, args) => {
 			console.log(taggedData)
 
 			if (moneyData && taggedData) {
-				await moneyModel.findOneAndUpdate({userID: hooman.id}, {
+				await moneyModel.findOneAndUpdate({userID: hooman}, {
 					$set: {
 						gold: moneyData.gold - money
 					}
@@ -71,13 +71,107 @@ module.exports.run = async(client, msg, args) => {
 						gold: taggedData.gold + money
 					}
 				})
+			}
+			else if (!moneyData) {
+				wallet = moneyModel.create({
+					userID: hooman,
+					serverID: server
+				}).catch((e) => { console.log(e); }).then(r => {
+					if (!r) {
+						msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+						console.log(r)
+						return
+					}
+					else {
+						if (!taggedData) {
+							wallet2 = moneyModel.create({
+								userID: taggedUser.id,
+								serverID: server
+							}).catch((e) => { console.log(e); }).then(t => {
+								if (!t) {
+									msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+									console.log(r)
+									return
+								}
+								else {
+									await moneyModel.findOneAndUpdate({userID: hooman}, {
+										$set: {
+											gold: moneyData.gold - money
+										}
+									})
+					
+									await moneyModel.findOneAndUpdate({userID: taggedUser.id}, {
+										$set: {
+											gold: taggedData.gold + money
+										}
+									})
+								}
+							})
+						}
+						else {
+							await moneyModel.findOneAndUpdate({userID: hooman}, {
+								$set: {
+									gold: moneyData.gold - money
+								}
+							})
+			
+							await moneyModel.findOneAndUpdate({userID: taggedUser.id}, {
+								$set: {
+									gold: taggedData.gold + money
+								}
+							})
+						}
+					}
+				})
+				
+			}
+			else {
+				if (!taggedData) {
+					wallet2 = moneyModel.create({
+						userID: taggedUser.id,
+						serverID: server
+					}).catch((e) => { console.log(e); }).then(t => {
+						if (!t) {
+							msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+							console.log(r)
+							return
+						}
+						else {
+							await moneyModel.findOneAndUpdate({userID: hooman}, {
+								$set: {
+									gold: moneyData.gold - money
+								}
+							})
+			
+							await moneyModel.findOneAndUpdate({userID: taggedUser.id}, {
+								$set: {
+									gold: taggedData.gold + money
+								}
+							})
+						}
+					})
+				}
+				else {
+					await moneyModel.findOneAndUpdate({userID: hooman}, {
+						$set: {
+							gold: moneyData.gold - money
+						}
+					})
+	
+					await moneyModel.findOneAndUpdate({userID: taggedUser.id}, {
+						$set: {
+							gold: taggedData.gold + money
+						}
+					})
+				}
+			}
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
-			.setDescription(`${msg.guild.members.cache.get(moneyData.userID).displayName} gave **${taggedUser.displayName}** ${money}g wow! ${extra}`)
+			.setDescription(`${msg.guild.members.cache.get(hooman).displayName} gave **${taggedUser.displayName}** ${money}g wow! ${extra}`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`${taggedUser.displayName} is rich now.`);
 			msg.channel.send(embed);
-			}
+			
 
 		}
 
