@@ -23,6 +23,7 @@ mongoose.connect(process.env.MONGODB_SRV, {
 
 
 const checkforTimeouts = async() => {
+	console.log(`checking for timeouts that are done!`)
 	const query = {
 		timeout: {
 			$lte: Date.now()
@@ -53,7 +54,7 @@ const checkforTimeouts = async() => {
 		if (!user) {
 			continue
 		}
-		console.log(user, channel, guild)
+		console.log(user.nickname, channel.name, guild.name)
 		user.roles.remove(timeoutrole.id).catch((e) => {console.log(e)})
 		channel.send(`<@${userID}>, your timeout has ended!`)
 		await timeoutModel.deleteOne({userID: userID, serverID: guildID, channelID: channelID})
