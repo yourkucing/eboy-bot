@@ -22,18 +22,26 @@ module.exports.run = async(client, msg, args) => {
                 moneyModel.findOne({userID: hooman}).then(moneyData => {
                     console.log(moneyData)
                 })
-                
             }
             else {
+                msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
                 console.log(result)
                 return
             }
         })
         
     }
-    else {
-        msg.channel.send(`yeah it's there!`)
-    }
+    url = `https://cdn.discordapp.com/avatars/${hooman}/${msg.author.avatar}.png`
+    const embed = new Discord.MessageEmbed()
+    .setColor('#FF69B4')
+    .setTitle(`**${msg.guild.members.cache.get(moneyData.userID).displayName}'s** Wallet`)
+    .setDescription('You can see your money here.')
+    .addFields(
+    { name: `Name: ${msg.guild.members.cache.get(moneyData.userID).displayName}`, value: `Gold: ${moneyData.gold} gp`}
+    )
+    .setThumbnail(`${url}`);
+
+
     /* 
     let hooman = msg.author.id
     let server = msg.guild.id
