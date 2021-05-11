@@ -16,8 +16,18 @@ module.exports.run = async(client, msg, args) => {
         wallet = moneyModel.create({
             userID: hooman,
             serverID: server
-        }).catch((e) => { console.log(e); })
-        msg.channel.send(`added!`)
+        }).catch((e) => { console.log(e); }).then(result => {
+            if (result) {
+                msg.channel.send(`added!`)
+                moneyData = await moneyModel.findOne({userID: hooman})
+                console.log(moneyData)
+            }
+            else {
+                console.log(result)
+                return
+            }
+        })
+        
     }
     else {
         msg.channel.send(`yeah it's there!`)
