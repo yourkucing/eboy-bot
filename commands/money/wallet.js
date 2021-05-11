@@ -4,6 +4,11 @@ const Discord = require('discord.js');
 module.exports.run = async(client, msg, args) => {
     
     msg.channel.send(`hello!`)
+    hooman = msg.author.id
+    server = msg.guild.id
+
+    moneyData = moneyModel.findOne({userID: hooman})
+    console.log(moneyData)
     /* 
     let hooman = msg.author.id
     let server = msg.guild.id
