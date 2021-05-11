@@ -29,7 +29,8 @@ const checkforTimeouts = async() => {
 		}
 	}
 	const results = await timeoutModel.find(query)
-	for (const post of results) 
+	for (const post of results) {
+
 		userID = post.userID
 		guildID = post.serverID
 		channelID = post.channelID
