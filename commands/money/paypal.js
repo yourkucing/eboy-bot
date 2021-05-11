@@ -68,7 +68,7 @@ module.exports.run = async(client, msg, args) => {
 
 				await moneyModel.findOneAndUpdate({userID: taggedUser.id}, {
 					$set: {
-						gold: moneyData2.gold + money
+						gold: taggedData.gold + money
 					}
 				})
 			const embed = new Discord.MessageEmbed()
