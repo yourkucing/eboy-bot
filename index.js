@@ -75,13 +75,16 @@ client.on('ready', () => {
  });
 
 client.on('message', msg => {
-	
-moneychannel = await channelModel.findOne({channelID: msg.channel.id})
-if(moneychannel){
-    console.log(msg.content)
-}
 
 if (msg.author.bot) return
+	
+channelModel.findOne({channelID: msg.channel.id}).then(moneychannel => {
+	if(moneychannel){
+		console.log(msg.content)
+	}
+})
+
+
 
 
 
