@@ -47,10 +47,17 @@ const checkforTimeouts = async() => {
 				console.log(userID)
 				continue
 			}
-			console.log(user.nickname)
-			console.log(user.nickname, channel.name, guild.name)
-			user.roles.remove(timeoutrole.id).catch((e) => {console.log(e)})
+			
 			channel.send(`<@${userID}>, your timeout has ended!`)
+			console.log(user.nickname, channel.name, guild.name)
+			user.roles.remove(timeoutrole.id).catch((e) => {console.log(e)}).then(removed =>
+				{if (removed) {
+					console.log("yes")
+				}
+			else {
+				return
+			}})
+			
 			await timeoutModel.deleteOne({userID: userID, serverID: guildID, channelID: channelID})
 		}
 	}
