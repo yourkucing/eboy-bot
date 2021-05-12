@@ -2,6 +2,7 @@ const moneyModel = require('../../models/moneySchema');
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+    hooman = msg.author.id
     if (!args[0]) {
         url = `https://i.ibb.co/r2YqDBg/Screenshot-2021-05-12-at-3-07-17-PM.png`
         const embed = new Discord.MessageEmbed()
@@ -32,7 +33,54 @@ module.exports.run = async(client, msg, args) => {
                     return
                 }
                 else if (collected.first().content.toLowerCase() == 'yes') {
-                    msg.channel.send(`You have bought ${args[0]}! Aw, it looks so happy to see you. You can see its details through uwu pets.`)
+                    if (args[0].toLowerCase() == "spider") {
+                        cost = 5000
+                    }
+                    else if (args[0].toLowerCase() == "crab") {
+                        cost = 7500
+                    }
+                    else if (args[0].toLowerCase() == "dog" || args[0].toLowerCase() == "cat") {
+                        cost = 20000
+                    }
+                    else if (args[0].toLowerCase() == "owl") {
+                        cost = 35000
+                    }
+                    else if (args[0].toLowerCase() == "snake") {
+                        cost = 40000
+                    }
+                    else if (args[0].toLowerCase() == "penguin") {
+                        cost = 50000
+                    }
+                    else if (args[0].toLowerCase() == "tiger") {
+                        cost = 75000
+                    }
+                    else if (args[0].toLowerCase() == "unicorn" || args[0].toLowerCase() == "dragon") {
+                        cost = 200000
+                    }
+                    moneyModel.findOne({userID: hooman}).then(customer => {
+                        if (customer) {
+                            if (customer.gold >= cost) {
+                                moneyModel.findOneAndUpdate({userID: hooman}, {
+                                    $inc: {
+                                        gold: -cost
+                                    }
+                                }).then(updatemoney => {
+                                    if (updatemoney) {
+                                        msg.channel.send(`You have bought ${args[0]}! Aw, it looks so happy to see you. You can see its details through \`uwu pets.\``)
+                                    }
+                                    else {
+                                        msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                                        console.log(r)
+                                        return
+                                    }
+                                })
+                            }
+                            else {
+                                msg.channel.send(`You don't have enough money! You are short of ${cost - customer.gold} g.`)
+                                return
+                            }
+                        }
+                    })
                 }
                 else {
                     msg.channel.send(`Uh, right okay? Goodbye then!`)
