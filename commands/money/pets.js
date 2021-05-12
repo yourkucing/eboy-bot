@@ -7,9 +7,9 @@ module.exports.run = async(client, msg, args) => {
 
     url = `https://cdn.discordapp.com/avatars/${hooman}/${msg.author.avatar}.png`
     const embed = new Discord.MessageEmbed()
-    embed.setColor('#FF69B4')
-    embed.setTitle(`**${msg.guild.members.cache.get(hooman).displayName}'s** Pets`)
-    embed.setDescription(`You can view your pets here.`)
+    .setColor('#FF69B4')
+    .setTitle(`**${msg.guild.members.cache.get(hooman).displayName}'s** Pets`)
+    .setDescription(`You can view your pets here.`);
 
     if (pets.length == 0) {
         embed.addField({value: `You have no pets.`})
