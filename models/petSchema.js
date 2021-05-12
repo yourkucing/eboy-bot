@@ -9,6 +9,6 @@ const petSchema = new mongoose.Schema({
     personality: { type: String}
 })
 
-const model = mongoose.model('PetModels', PetSchema);
+const model = mongoose.model('PetModels', petSchema);
 
 module.exports = model;

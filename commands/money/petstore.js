@@ -175,18 +175,13 @@ module.exports.run = async(client, msg, args) => {
                                 }).then(updatemoney => {
                                     if (updatemoney) {
                                         msg.channel.send(`${args[0]}, ${petname}, ${type}, ${personality}`)
-                                        try {
-                                            petModel.create({
-                                                userID: hooman,
-                                                pet: args[0],
-                                                petname: petname,
-                                                type: type,
-                                                personality: personality
-                                            })
+                                        pets = petModel.create({
+                                            userID: hooman,
+                                            serverID: server,
+                                            createdby: hooman
+                                        }).catch((e) => { console.log(e); }).then(pets => {
                                             msg.channel.send(`You have bought ${args[0]}! Aw, it looks so happy to see you. You can see its details through \`uwu pets.\``)
-                                        } catch(err) {
-                                            console.log(err)
-                                        }
+                                        })
                                     }
                                     else {
                                         msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
