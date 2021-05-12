@@ -9,13 +9,14 @@ module.exports.run = async(client, msg, args) => {
         }
         else {
             const taggedUser = msg.mentions.members.first();
-            timeout = await timeoutModel.findOne({userID: taggedUser.id, serverID: msg.guild.id})
+            serverID = args[0]
+            timeout = await timeoutModel.findOne({userID: taggedUser.id, serverID: serverID})
             if (timeout) {
                 const timeoutrole = msg.guild.roles.cache.find(role => role.name === "Time Out Corner")
                 const channel = client.channels.cache.get(channelID)
                 taggedUser.roles.remove(timeoutrole.id).catch((e) => {console.log(e)})
 			    channel.send(`<@${taggedUser.id}>, your timeout has ended!`)
-                timeoutModel.deleteOne({userID: taggedUser.id, serverID: msg.guild.id}).then(r => {
+                timeoutModel.deleteOne({userID: taggedUser.id, serverID: serverID}).then(r => {
                     if (r) {
                         console.log(`Success deletion!`)
                     }
@@ -25,7 +26,7 @@ module.exports.run = async(client, msg, args) => {
                 })
             }
             else {
-                const timeoutrole = msg.guild.roles.cache.find(role => role.name === "Time Out Corner")
+                ctimeoutrole = msg.guild.roles.cache.find(role => role.name === "Time Out Corner")
                 if (taggedUser.roles.cache.some((role) => role.id === timeoutrole.id)) {
                     taggedUser.roles.remove(timeoutrole.id).catch((e) => {console.log(e)})
 			        channel.send(`<@${taggedUser.id}>, your timeout has ended!`)
