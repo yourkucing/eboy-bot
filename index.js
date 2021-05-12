@@ -31,7 +31,6 @@ const checkforTimeouts = async() => {
 		}
 	}
 	const results = await timeoutModel.find(query)
-	console.log(results)
 	if (results) {
 		for (const post of results) {
 
@@ -40,12 +39,16 @@ const checkforTimeouts = async() => {
 			channelID = post.channelID
 	
 			const guild = client.guilds.cache.get(guildID)
+			console.log(guild.id)
 			const channel = client.channels.cache.get(channelID)
+			console.log(channel.id)
 			const timeoutrole = guild.roles.cache.find(role => role.name === "Time Out Corner")
+			console.log(timeoutrole.id)
 			const user = guild.members.cache.get(userID)
 			if (!user) {
 				continue
 			}
+			console.log(user.id)
 			console.log(user.nickname, channel.name, guild.name)
 			user.roles.remove(timeoutrole.id).catch((e) => {console.log(e)})
 			channel.send(`<@${userID}>, your timeout has ended!`)
