@@ -75,7 +75,8 @@ module.exports.run = async(client, msg, args) => {
 			else if (!moneyData) {
 				wallet = moneyModel.create({
 					userID: hooman,
-					serverID: server
+					serverID: server,
+					createdby: hooman
 				}).catch((e) => { console.log(e); }).then(r => {
 					if (!r) {
 						msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
@@ -86,7 +87,8 @@ module.exports.run = async(client, msg, args) => {
 						if (!taggedData) {
 							wallet2 = moneyModel.create({
 								userID: taggedUser.id,
-								serverID: server
+								serverID: server,
+								createdby: taggedUser.id
 							}).catch((e) => { console.log(e); }).then(t => {
 								if (!t) {
 									msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
@@ -137,7 +139,8 @@ module.exports.run = async(client, msg, args) => {
 				if (!taggedData) {
 					wallet2 = moneyModel.create({
 						userID: taggedUser.id,
-						serverID: server
+						serverID: server,
+						createdby: taggedUser.id
 					}).catch((e) => { console.log(e); }).then(t => {
 						if (!t) {
 							msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)

@@ -12,7 +12,8 @@ module.exports.run = async(client, msg, args) => {
     if (!moneyData) {
         wallet = moneyModel.create({
             userID: hooman,
-            serverID: server
+            serverID: server,
+            createdby: hooman
         }).catch((e) => { console.log(e); }).then(result => {
             if (result) {
                 moneyModel.findOne({userID: hooman}).then(moneyData => {
