@@ -69,6 +69,9 @@ client.on('ready', () => {
  });
 
 client.on('message', msg => {
+	checkforTimeouts().catch((err) => {
+		console.log(err)
+	})
 
 if (msg.author.bot) return
 
