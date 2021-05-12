@@ -67,7 +67,7 @@ module.exports.run = async(client, msg, args) => {
     
 
 
-            embed.addField({name: `${pets[x].pet}: ${pets[x].petname}`, value: `**Type:** ${pets[x].type}\n**Personality:** ${pets[x].personality}\n\n**Mood:** ${mood}\n**Health:** ${hpbar}`, inline: true})
+            embed.addFields({name: `${pets[x].pet}: ${pets[x].petname}`, value: `**Type:** ${pets[x].type}\n**Personality:** ${pets[x].personality}\n\n**Mood:** ${mood}\n**Health:** ${hpbar}`, inline: true})
         }
     }
 
