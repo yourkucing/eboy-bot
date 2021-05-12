@@ -2,14 +2,13 @@ const petModel = require('../../models/petSchema')
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
-    msg.channel.send(`hi`)
     hooman = msg.author.id
     pets = await petModel.find({userID: hooman})
 
     url = `https://cdn.discordapp.com/avatars/${hooman}/${msg.author.avatar}.png`
     const embed = new Discord.MessageEmbed()
     embed.setColor('#FF69B4')
-    embed.setTitle(`**${msg.guild.members.cache.get(hooman).displayName}'s** Wallet`)
+    embed.setTitle(`**${msg.guild.members.cache.get(hooman).displayName}'s** Pets`)
     embed.setDescription(`You can view your pets here.`)
 
     if (pets.length == 0) {
@@ -17,7 +16,7 @@ module.exports.run = async(client, msg, args) => {
     }
     else {
         for (x in pets) {
-            console.log(pets[x])
+            console.log(x)
             hpbar = '░░░░░░░░░░'
             mood = ''
     
