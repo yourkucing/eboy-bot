@@ -44,6 +44,8 @@ const checkforTimeouts = async() => {
 			const user = client.users.cache.get(userID)
 			if (!user) {
 				console.log(user)
+				console.log(userID)
+				continue
 			}
 			console.log(user.nickname)
 			console.log(user.nickname, channel.name, guild.name)
