@@ -9,7 +9,7 @@ module.exports.run = async(client, msg, args) => {
         }
         else {
             const taggedUser = msg.mentions.members.first();
-            timeout = await findOne({userID: taggedUser.id, serverID: msg.guild.id})
+            timeout = await timeoutModel.findOne({userID: taggedUser.id, serverID: msg.guild.id})
             if (timeout) {
                 const timeoutrole = msg.guild.roles.cache.find(role => role.name === "Time Out Corner")
                 const channel = client.channels.cache.get(channelID)
@@ -23,6 +23,16 @@ module.exports.run = async(client, msg, args) => {
                         console.log(`Error in deletion from timeout db.`)
                     }
                 })
+            }
+            else {
+                const timeoutrole = msg.guild.roles.cache.find(role => role.name === "Time Out Corner")
+                if (taggedUser.roles.cache.some((role) => role.id === timeoutrole.id)) {
+                    taggedUser.roles.remove(timeoutrole.id).catch((e) => {console.log(e)})
+			        channel.send(`<@${taggedUser.id}>, your timeout has ended!`)
+                }
+                else {
+                    msg.channel.send(`They're not in timeout!`)
+                }
             }
 
         }
