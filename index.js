@@ -25,13 +25,13 @@ mongoose.connect(process.env.MONGODB_SRV, {
 
 
 const checkforTimeouts = async() => {
-	console.log(`checking for timeouts that are done!`)
 	const query = {
 		timeout: {
 			$lte: Date.now()
 		}
 	}
 	const results = await timeoutModel.find(query)
+	console.log(results)
 	for (const post of results) {
 
 		userID = post.userID
