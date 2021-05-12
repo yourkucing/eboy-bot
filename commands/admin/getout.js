@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     msg.channel.send('hi')
-    if (msg.author.hasPermission("ADMINISTRATOR")) {
+    if (msg.author.id == "279101053750870017") {
         
         const guild = client.guilds.cache.get(arg[2])
         const channel = client.channels.cache.get(arg[1])
