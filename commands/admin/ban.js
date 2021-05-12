@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const timeoutModel = require('./models/timeoutSchema');
 
 module.exports.run = async(client, msg, args) => {
 
