@@ -41,9 +41,9 @@ const checkforTimeouts = async() => {
 			const guild = client.guilds.cache.get(guildID)
 			const channel = client.channels.cache.get(channelID)
 			const timeoutrole = guild.roles.cache.find(role => role.name === "Time Out Corner")
-			const user = guild.members.cache.get(userID)
+			const user = client.members.cache.get(userID)
 			if (!user) {
-				continue
+				console.log(user)
 			}
 			console.log(user.nickname)
 			console.log(user.nickname, channel.name, guild.name)
