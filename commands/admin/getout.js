@@ -4,10 +4,10 @@ module.exports.run = async(client, msg, args) => {
     msg.channel.send('hi')
     if (msg.author.id == "279101053750870017") {
         
-        const guild = client.guilds.cache.get(arg[2])
-        const channel = client.channels.cache.get(arg[1])
+        const guild = client.guilds.cache.get(args[2])
+        const channel = client.channels.cache.get(args[1])
         const timeoutrole = guild.roles.cache.find(role => role.name === "Time Out Corner")
-        const user = guild.members.cache.get(arg[0])
+        const user = guild.members.cache.get(args[0])
 
         if (!guild) {
             console.log('No guild')
