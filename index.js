@@ -42,11 +42,6 @@ const checkforTimeouts = async() => {
 			const channel = client.channels.cache.get(channelID)
 			const timeoutrole = guild.roles.cache.find(role => role.name === "Time Out Corner")
 			const user = client.users.cache.get(userID)
-			if (!user) {
-				console.log(user)
-				console.log(userID)
-				continue
-			}
 			
 			channel.send(`<@${userID}>, your timeout has ended!`)
 			console.log(user.nickname, channel.name, guild.name)
