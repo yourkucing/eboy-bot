@@ -63,9 +63,9 @@ const checkforTimeouts = async() => {
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setActivity('uwu help', { type: 'STREAMING' });
-	checkforTimeouts().catch((err) => {
-		console.log(err)
-	})
+	// checkforTimeouts().catch((err) => {
+	// 	console.log(err)
+	// })
  });
 
 client.on('message', msg => {
