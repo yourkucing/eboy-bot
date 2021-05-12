@@ -2,6 +2,79 @@ const moneyModel = require('../../models/moneySchema');
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+
+    cat = [ 'Abyssinian',
+        'American Curl',
+        'Birman',
+        'Munchkin',
+        'Norwegian Forest',
+        'Ragdoll',
+        'Scottish Fold',
+        'Russian Blue'
+    ]
+
+    dog = [
+        'German Shepherd',
+        'Golden Retriever',
+        'Siberian Husky',
+        'Pomeranian',
+        'Corgi',
+        'Dalmatian',
+        'Shiba Inu'
+    ]
+
+    owl = [
+        'Snowy Owl',
+        'Little Owl'
+    ]
+
+    snake = [
+        'Viper',
+        'King Snake',
+        'Common Snake',
+        'Milk Snake'
+    ]
+
+    penguin = [
+        'Magellanic Penguin',
+        'Little Penguin',
+        'King Penguin'
+    ]
+
+    dragon = [
+        'Oriental Dragon',
+        'Standard Western Dragon',
+        'Wyvern',
+        'Hydra'
+    ]
+
+    personality = [
+        'Busy, active, agenda-driven and affectionate',
+        'Loving and intelligent',
+        'Energetic and affectionate',
+        'Even tempered and quiet',
+        'Even temperament',
+        'Vocal, affectionate, active',
+        'Curious and athletic',
+        'Sweet and affectionate',
+        'Playful and affectionate',
+        'Calm and quiet; enjoy people',
+        'People oriented, affectionate',
+        'Sociable, playful, and affectionate',
+        'Quickly become attached to their owner',
+        'Vocal, affectionate, active; can be insistent',
+        'Active, racy, affectionate',
+        'Pixie look and personality',
+        'Athletic and active',
+        'Highly intelligent, affectionate and extremely loyal',
+        'Curious and Intelligent',
+        'Large and powerful'
+    ]
+
+    names = ['Joy','Opal','Kelsey','Maria','Clement','Marsh','Hughie','Urban','Alban','Hazel','Theobold','Rebecca','Theo','Kingsley','Nina','Theodore','Shane','Craig',
+            'Denton','Grant','Estelle','Les','Norman','Kelsey','Matilda','Davy','Damian','Willard','Madison','Violet','Truman','Maxwell','Abe','Grover','Abby']
+
+
     hooman = msg.author.id
     if (!args[0]) {
         url = `https://i.ibb.co/r2YqDBg/Screenshot-2021-05-12-at-3-07-17-PM.png`
@@ -35,61 +108,61 @@ module.exports.run = async(client, msg, args) => {
                 else if (collected.first().content.toLowerCase() == 'yes') {
                     if (args[0].toLowerCase() == "spider") {
                         cost = 5000
-                        // petname = names[Math.floor(Math.random()*names.length)]
-                        // personality = personality[Math.floor(Math.random()*personality.length)]
-                        // type = "Spider"
+                        petname = names[Math.floor(Math.random()*names.length)]
+                        personality = personality[Math.floor(Math.random()*personality.length)]
+                        type = "Spider"
                     }
                     else if (args[0].toLowerCase() == "crab") {
                         cost = 7500
-                        // petname = names[Math.floor(Math.random()*names.length)]
-                        // personality = personality[Math.floor(Math.random()*personality.length)]
-                        // type = "Crab"
+                        petname = names[Math.floor(Math.random()*names.length)]
+                        personality = personality[Math.floor(Math.random()*personality.length)]
+                        type = "Crab"
                     }
                     else if (args[0].toLowerCase() == "dog" || args[0].toLowerCase() == "cat") {
                         cost = 0
-                        // petname = names[Math.floor(Math.random()*names.length)]
-                        // personality = personality[Math.floor(Math.random()*personality.length)]
-                        // if (args[0].toLowerCase() == "dog") {
-                        //     type = dog[Math.floor(Math.random()*dog.length)]
-                        // }
-                        // else {
-                        //     type = cat[Math.floor(Math.random()*cat.length)]
-                        // }
+                        petname = names[Math.floor(Math.random()*names.length)]
+                        personality = personality[Math.floor(Math.random()*personality.length)]
+                        if (args[0].toLowerCase() == "dog") {
+                            type = dog[Math.floor(Math.random()*dog.length)]
+                        }
+                        else {
+                            type = cat[Math.floor(Math.random()*cat.length)]
+                        }
                     }
                     else if (args[0].toLowerCase() == "owl") {
                         cost = 35000
-                        // petname = names[Math.floor(Math.random()*names.length)]
-                        // personality = personality[Math.floor(Math.random()*personality.length)]
-                        // type = owl[Math.floor(Math.random()*owl.length)]
+                        petname = names[Math.floor(Math.random()*names.length)]
+                        personality = personality[Math.floor(Math.random()*personality.length)]
+                        type = owl[Math.floor(Math.random()*owl.length)]
                     }
                     else if (args[0].toLowerCase() == "snake") {
                         cost = 40000
-                        // petname = names[Math.floor(Math.random()*names.length)]
-                        // personality = personality[Math.floor(Math.random()*personality.length)]
-                        // type = snake[Math.floor(Math.random()*snake.length)]
+                        petname = names[Math.floor(Math.random()*names.length)]
+                        personality = personality[Math.floor(Math.random()*personality.length)]
+                        type = snake[Math.floor(Math.random()*snake.length)]
                     }
                     else if (args[0].toLowerCase() == "penguin") {
                         cost = 50000
-                        // petname = names[Math.floor(Math.random()*names.length)]
-                        // personality = personality[Math.floor(Math.random()*personality.length)]
-                        // type = penguin[Math.floor(Math.random()*penguin.length)]
+                        petname = names[Math.floor(Math.random()*names.length)]
+                        personality = personality[Math.floor(Math.random()*personality.length)]
+                        type = penguin[Math.floor(Math.random()*penguin.length)]
                     }
                     else if (args[0].toLowerCase() == "tiger") {
                         cost = 75000
-                        // petname = names[Math.floor(Math.random()*names.length)]
-                        // personality = personality[Math.floor(Math.random()*personality.length)]
-                        // type = "Tiger"
+                        petname = names[Math.floor(Math.random()*names.length)]
+                        personality = personality[Math.floor(Math.random()*personality.length)]
+                        type = "Tiger"
                     }
                     else if (args[0].toLowerCase() == "unicorn" || args[0].toLowerCase() == "dragon") {
                         cost = 200000
-                        // petname = names[Math.floor(Math.random()*names.length)]
-                        // personality = personality[Math.floor(Math.random()*personality.length)]
-                        // if (args[0].toLowerCase() == "dragon"){
-                        //     type = dragon[Math.floor(Math.random()*dragon.length)]
-                        // }
-                        // else {
-                        //     type = "Unicorn"
-                        // }
+                        petname = names[Math.floor(Math.random()*names.length)]
+                        personality = personality[Math.floor(Math.random()*personality.length)]
+                        if (args[0].toLowerCase() == "dragon"){
+                            type = dragon[Math.floor(Math.random()*dragon.length)]
+                        }
+                        else {
+                            type = "Unicorn"
+                        }
                     }
                     moneyModel.findOne({userID: hooman}).then(customer => {
                         if (customer) {
@@ -101,21 +174,20 @@ module.exports.run = async(client, msg, args) => {
                                 }).then(updatemoney => {
                                     if (updatemoney) {
                                         msg.channel.send('yes')
-                                    //     petModel.create({
-                                    //         userID: homan,
-                                    //         pet: args[0],
-                                    //         petname: petname,
-                                    //         type: type,
-                                    //         personality: personality
-                                    //     }).then(petbought => {
-                                    //         msg.channel.send(`You have bought ${args[0]}! Aw, it looks so happy to see you. You can see its details through \`uwu pets.\``)
-                                    //     })
-                                    // }
-                                    // else {
-                                    //     msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
-                                    //     console.log(r)
-                                    //     return
-                                    // }
+                                        petModel.create({
+                                            userID: hooman,
+                                            pet: args[0],
+                                            petname: petname,
+                                            type: type,
+                                            personality: personality
+                                        }).then(petbought => {
+                                            msg.channel.send(`You have bought ${args[0]}! Aw, it looks so happy to see you. You can see its details through \`uwu pets.\``)
+                                        })
+                                    }
+                                    else {
+                                        msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                                        console.log(r)
+                                        return
                                     }
                                 })
                             }
