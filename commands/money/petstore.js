@@ -1,5 +1,5 @@
 const moneyModel = require('../../models/moneySchema');
-// const petModel = require('../../models/petSchema');
+const petModel = require('../../models/petSchema');
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
@@ -175,23 +175,18 @@ module.exports.run = async(client, msg, args) => {
                                 }).then(updatemoney => {
                                     if (updatemoney) {
                                         msg.channel.send(`${args[0]}, ${petname}, ${type}, ${personality}`)
-                                        petModel.create({
-                                            userID: hooman,
-                                            pet: args[0],
-                                            petname: petname,
-                                            type: type,
-                                            personality: personality
-                                        }).then(petbought => {
-                                            if (petbought) {
-                                                msg.channel.send(`You have bought ${args[0]}! Aw, it looks so happy to see you. You can see its details through \`uwu pets.\``)
-
-                                            }
-                                            else {
-                                                msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
-                                                console.log(r)
-                                                return
-                                            }
-                                        })
+                                        try {
+                                            petModel.create({
+                                                userID: hooman,
+                                                pet: args[0],
+                                                petname: petname,
+                                                type: type,
+                                                personality: personality
+                                            })
+                                            msg.channel.send(`You have bought ${args[0]}! Aw, it looks so happy to see you. You can see its details through \`uwu pets.\``)
+                                        } catch(err) {
+                                            console.log(err)
+                                        }
                                     }
                                     else {
                                         msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
