@@ -32,29 +32,29 @@ const checkforTimeouts = async() => {
 	}
 	const results = await timeoutModel.find(query)
 	if (results) {
-		for (const post of results) {
+		// for (const post of results) {
 
-			userID = post.userID
-			guildID = post.serverID
-			channelID = post.channelID
+		// 	userID = post.userID
+		// 	guildID = post.serverID
+		// 	channelID = post.channelID
 	
-			const guild = client.guilds.cache.get(guildID)
-			const channel = client.channels.cache.get(channelID)
-			const timeoutrole = guild.roles.cache.find(role => role.name === "Time Out Corner")
-			const user = client.users.cache.get(userID)
+		// 	const guild = client.guilds.cache.get(guildID)
+		// 	const channel = client.channels.cache.get(channelID)
+		// 	const timeoutrole = guild.roles.cache.find(role => role.name === "Time Out Corner")
+		// 	const user = client.users.cache.get(userID)
 			
-			channel.send(`<@${userID}>, your timeout has ended!`)
-			console.log(user.nickname, channel.name, guild.name)
-			user.roles.remove(timeoutrole.id).catch((e) => {console.log(e)}).then(removed =>
-				{if (removed) {
-					console.log("yes")
-				}
-			else {
-				return
-			}})
+		// 	channel.send(`<@${userID}>, your timeout has ended!`)
+		// 	console.log(user.nickname, channel.name, guild.name)
+		// 	user.roles.remove(timeoutrole.id).catch((e) => {console.log(e)}).then(removed =>
+		// 		{if (removed) {
+		// 			console.log("yes")
+		// 		}
+		// 	else {
+		// 		return
+		// 	}})
 			
-			await timeoutModel.deleteOne({userID: userID, serverID: guildID, channelID: channelID})
-		}
+		// 	await timeoutModel.deleteOne({userID: userID, serverID: guildID, channelID: channelID})
+		// }
 	}
 
 
