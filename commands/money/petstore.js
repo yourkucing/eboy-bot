@@ -173,20 +173,22 @@ module.exports.run = async(client, msg, args) => {
                                     }
                                 }).then(updatemoney => {
                                     if (updatemoney) {
-                                        petModel.create({
-                                            userID: homan,
-                                            pet: args[0],
-                                            petname: petname,
-                                            type: type,
-                                            personality: personality
-                                        }).then(petbought => {
-                                            msg.channel.send(`You have bought ${args[0]}! Aw, it looks so happy to see you. You can see its details through \`uwu pets.\``)
-                                        })
-                                    }
-                                    else {
-                                        msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
-                                        console.log(r)
-                                        return
+                                        msg.channel.send('yes')
+                                    //     petModel.create({
+                                    //         userID: homan,
+                                    //         pet: args[0],
+                                    //         petname: petname,
+                                    //         type: type,
+                                    //         personality: personality
+                                    //     }).then(petbought => {
+                                    //         msg.channel.send(`You have bought ${args[0]}! Aw, it looks so happy to see you. You can see its details through \`uwu pets.\``)
+                                    //     })
+                                    // }
+                                    // else {
+                                    //     msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                                    //     console.log(r)
+                                    //     return
+                                    // }
                                     }
                                 })
                             }
