@@ -3,6 +3,7 @@ const petModel = require('../../models/petSchema')
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+    msg.channel.send(`hi`)
 
     // cat = [ 'Abyssinian',
     // 'American Curl',

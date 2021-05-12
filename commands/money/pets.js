@@ -2,6 +2,7 @@ const petModel = require('../../models/petSchema')
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+    msg.channel.send(`hi`)
     // hooman = msg.author.id
     // pets = await petModel.find({userID: hooman})
 
