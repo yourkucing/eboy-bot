@@ -7,10 +7,7 @@ module.exports.run = async(client, msg, args) => {
     hooman = msg.author
     guild = msg.guild.id
     channel = msg.channel.id
-    if (hooman.id == "557013039795273750"){
-        msg.channel.send("NO CALUM, YOU'RE BANNED FROM TIMING OUT ANYONE UNTIL TMR.")
-        return
-    }
+
     if (!msg.mentions.users.size) {
         msg.channel.send(`I'm not sure... who you wanted me to time out?`)
         return
