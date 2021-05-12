@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const timeoutModel = require('./models/timeoutSchema');
 
 module.exports.run = async(client, msg, args) => {
+    msg.channel.send('hi')
     if (msg.author.hasPermission("ADMINISTRATOR")) {
         if (!msg.mentions.users.size) {
             msg.channel.send(`Uh... Do I remove the role of the server's ghost? o.o`)
