@@ -1,4 +1,5 @@
 const moneyModel = require('../../models/moneySchema');
+const petModel = require('../../models/petSchema');
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
