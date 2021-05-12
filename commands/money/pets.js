@@ -16,7 +16,7 @@ module.exports.run = async(client, msg, args) => {
     }
     else {
         for (x in pets) {
-            console.log(x)
+            console.log(pets[x])
             hpbar = '░░░░░░░░░░'
             mood = ''
     
