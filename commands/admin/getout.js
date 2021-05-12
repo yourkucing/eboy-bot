@@ -11,31 +11,33 @@ module.exports.run = async(client, msg, args) => {
         else {
             const taggedUser = msg.mentions.members.first();
             serverID = args[0]
-            timeout = await timeoutModel.findOne({userID: taggedUser.id, serverID: serverID})
-            if (timeout) {
-                const timeoutrole = msg.guild.roles.cache.find(role => role.name === "Time Out Corner")
-                const channel = client.channels.cache.get(channelID)
-                taggedUser.roles.remove(timeoutrole.id).catch((e) => {console.log(e)})
-			    channel.send(`<@${taggedUser.id}>, your timeout has ended!`)
-                timeoutModel.deleteOne({userID: taggedUser.id, serverID: serverID}).then(r => {
-                    if (r) {
-                        console.log(`Success deletion!`)
-                    }
-                    else {
-                        console.log(`Error in deletion from timeout db.`)
-                    }
-                })
-            }
-            else {
-                ctimeoutrole = msg.guild.roles.cache.find(role => role.name === "Time Out Corner")
-                if (taggedUser.roles.cache.some((role) => role.id === timeoutrole.id)) {
+            timeoutModel.findOne({userID: taggedUser.id, serverID: serverID}).then(timeout => {
+                if (timeout) {
+                    const timeoutrole = msg.guild.roles.cache.find(role => role.name === "Time Out Corner")
+                    const channel = client.channels.cache.get(channelID)
                     taggedUser.roles.remove(timeoutrole.id).catch((e) => {console.log(e)})
-			        channel.send(`<@${taggedUser.id}>, your timeout has ended!`)
+                    channel.send(`<@${taggedUser.id}>, your timeout has ended!`)
+                    timeoutModel.deleteOne({userID: taggedUser.id, serverID: serverID}).then(r => {
+                        if (r) {
+                            console.log(`Success deletion!`)
+                        }
+                        else {
+                            console.log(`Error in deletion from timeout db.`)
+                        }
+                    })
                 }
                 else {
-                    msg.channel.send(`They're not in timeout!`)
+                    ctimeoutrole = msg.guild.roles.cache.find(role => role.name === "Time Out Corner")
+                    if (taggedUser.roles.cache.some((role) => role.id === timeoutrole.id)) {
+                        taggedUser.roles.remove(timeoutrole.id).catch((e) => {console.log(e)})
+                        channel.send(`<@${taggedUser.id}>, your timeout has ended!`)
+                    }
+                    else {
+                        msg.channel.send(`They're not in timeout!`)
+                    }
                 }
-            }
+            })
+            
 
         }
     }
