@@ -177,8 +177,10 @@ module.exports.run = async(client, msg, args) => {
                                         msg.channel.send(`${args[0]}, ${petname}, ${type}, ${personality}`)
                                         pets = petModel.create({
                                             userID: hooman,
-                                            serverID: server,
-                                            createdby: hooman
+                                            pet: args[0],
+                                            petname: petname,
+                                            type: type,
+                                            personality: personality
                                         }).catch((e) => { console.log(e); }).then(pets => {
                                             msg.channel.send(`You have bought ${args[0]}! Aw, it looks so happy to see you. You can see its details through \`uwu pets.\``)
                                         })
