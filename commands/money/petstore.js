@@ -2,7 +2,7 @@ const moneyModel = require('../../models/moneySchema');
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
-    if (!args) {
+    if (!args[0]) {
         url = `https://i.ibb.co/r2YqDBg/Screenshot-2021-05-12-at-3-07-17-PM.png`
         const embed = new Discord.MessageEmbed()
         .setColor('#FF69B4')
