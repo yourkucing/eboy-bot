@@ -31,7 +31,7 @@ module.exports.run = async(client, msg, args) => {
 
             
 
-            petModel.findOneAndUpdate({_id: ObjectId(pets[x]._id)}, {
+            petModel.findOneAndUpdate({_id: pets[x]._id}, {
                 $inc: {
                     health: -hungry
                 }
