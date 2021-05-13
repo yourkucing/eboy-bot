@@ -23,7 +23,7 @@ module.exports.run = async(client, msg, args) => {
         for (x in pets) {
 
             date = Date.now()
-            hungry = Math.floor((pet[x].updatedtime-date)/86400000)
+            hungry = Math.floor((pets[x].updatedtime-date)/86400000)
 
             if (pets[x].health-hungry < 0) {
                 hungry = pets[x].health
