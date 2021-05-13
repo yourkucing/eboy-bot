@@ -13,7 +13,7 @@ module.exports.run = async(client, msg, args) => {
     .setDescription(`You can view your pets here.`);
 
     if (pets.length == 0) {
-        embed.addField({value: `You have no pets.`})
+        embed.addFields({value: `You have no pets.`})
     }
     else {
 
@@ -29,15 +29,13 @@ module.exports.run = async(client, msg, args) => {
                 hungry = pets[x].health
             }
 
-            
-
             petModel.findOneAndUpdate({_id: pets[x]._id}, {
                 $inc: {
                     health: -hungry
                 }
             }).then(updatepet => {
                 if (updatepet) {
-                    petModel.findOne({}).then(pets => {
+                    petModel.findOne({_id: pets[x]._id}}).then(pets => {
                         if (pets) {
                             hpbar = '░░░░░░░░░░'
                             mood = ''
