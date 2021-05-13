@@ -35,6 +35,7 @@ module.exports.run = async(client, msg, args) => {
                 }
             }).then(updatepet => {
                 if (updatepet) {
+                    console.long(updatepet)
                     petModel.findOne({_id: pets[x]._id}).then(pets => {
                         if (pets) {
                             hpbar = '░░░░░░░░░░'
