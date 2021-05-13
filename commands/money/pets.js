@@ -16,7 +16,6 @@ module.exports.run = async(client, msg, args) => {
     }
     else {
         for (x in pets) {
-            console.log(pets[x])
             hpbar = '░░░░░░░░░░'
             mood = ''
     
@@ -67,7 +66,7 @@ module.exports.run = async(client, msg, args) => {
     
 
 
-            embed.addFields({name: `${pets[x].pet}: ${pets[x].petname}`, value: `**Type:** ${pets[x].type}\n**Personality:** ${pets[x].personality}\n\n**Mood:** ${mood}\n**Health:** ${hpbar}`, inline: true})
+            embed.addFields({name: `${pets[x].pet.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())}: ${pets[x].petname}`, value: `**Type:** ${pets[x].type}\n**Personality:** ${pets[x].personality}\n\n**Mood:** ${mood}\n**Health:** ${hpbar}`, inline: true})
         }
     }
 

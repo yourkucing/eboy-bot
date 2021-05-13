@@ -74,6 +74,10 @@ module.exports.run = async(client, msg, args) => {
                                 msg.channel.send(`Are you sure you inputted the right format? It should be like this: 12m for 12 minutes. 12s for 12 seconds. 12h for 12 hours.`)
                                 return
                             }
+                            if (time1 > ms("8760h")) {
+                                msg.channel.send(`No. If you wanna be timed out permanently, just ask your admin to assign the role. Limit of timeout is 1 year uwu!`)
+                                return
+                            }
                             try {
                                 usertimeout = timeoutModel.create({
                                     userID: taggedUser.id,
@@ -101,8 +105,8 @@ module.exports.run = async(client, msg, args) => {
             }
             else {
                 const user = msg.guild.members.cache.get(taggedUser.id)
-                timeoutrole = msg.guild.roles.cache.find(x => x.name == "Time Out Corner")
-                if (user.roles.cache.some((role) => role.id === timeoutrole.id)) {
+                timeoutData = await timeoutModel.findOne({userID: taggedUser.id, serverID: guild})
+                if (timeoutData) {
                     msg.channel.send(`**${taggedUser.displayName}** is already in the time out corner!`)
                 }
                 else {
