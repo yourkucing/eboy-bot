@@ -35,6 +35,7 @@ module.exports.run = async(client, msg, args) => {
                     health: -hungry
                 }
             }).then(updatepet => {
+                console.log(updatepet)
                 if (updatepet) {
                     console.log(updatepet)
                     petModel.findOne({_id: pets[x]._id}).then(pets => {
