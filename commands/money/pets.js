@@ -29,13 +29,14 @@ module.exports.run = async(client, msg, args) => {
                 hungry = pets[x].health
             }
 
+                
             petModel.findOneAndUpdate({_id: pets[x]._id}, {
                 $inc: {
                     health: -hungry
                 }
             }).then(updatepet => {
                 if (updatepet) {
-                    console.long(updatepet)
+                    console.log(updatepet)
                     petModel.findOne({_id: pets[x]._id}).then(pets => {
                         if (pets) {
                             hpbar = '░░░░░░░░░░'
