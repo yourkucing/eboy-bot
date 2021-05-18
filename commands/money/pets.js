@@ -26,7 +26,7 @@ module.exports.run = async(client, msg, args) => {
             }
 
                 
-            updatepet = await petModel.findOneAndUpdate({_id: pets[x].name}, {
+            updatepet = await petModel.findOneAndUpdate({_id: pets[x]._id}, {
                 $inc: {
                     health: -hungry
                 }
@@ -88,7 +88,7 @@ module.exports.run = async(client, msg, args) => {
                 }
                 else {
                     msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
-                    console.log(r)
+                    console.log(updatepet)
                     return
                 }
     
