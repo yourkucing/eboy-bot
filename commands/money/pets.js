@@ -39,7 +39,7 @@ module.exports.run = async(client, msg, args) => {
             }
 
             if (pets[x].health-hungry < 0) {
-                hungry = 0
+                hungry = pets[x].health
             }
 
                 
