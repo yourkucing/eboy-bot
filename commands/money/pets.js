@@ -20,8 +20,26 @@ module.exports.run = async(client, msg, args) => {
             date = Date.now()
             hungry = Math.floor((date-pets[x].updatedtime)/86400000)
 
+            if (hungry > 90) {
+                msg.channel.send(`Your ${pets[x].pet}, ${pets[x].petname} ran away because they were hungry and neglected for more than 3 months! Please take better care of your pets.`)
+                moneyModel.deleteOne({_id: pets[x]._id}).then(deleted => {
+                    if (!deleted) {
+                        console.log(`Error in deleting pets after neglected.`)
+                        continue
+                    }
+                    else {
+                        console.log(`Deleted neglected pets!`)
+                        continue
+                    }
+                });
+            }
+
+            if (hungry == 0) {
+                date = pets[x].updatedtime
+            }
+
             if (pets[x].health-hungry < 0) {
-                hungry = pets[x].health
+                hungry = 0
             }
 
                 
@@ -30,7 +48,7 @@ module.exports.run = async(client, msg, args) => {
                     health: -hungry
                 },
                 $set: {
-                    updatedtime: Date.now()
+                    updatedtime: date
                 }
             }, {
                 new: true
