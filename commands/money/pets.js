@@ -22,16 +22,16 @@ module.exports.run = async(client, msg, args) => {
 
             if (hungry > 90) {
                 msg.channel.send(`Your ${pets[x].pet}, ${pets[x].petname} ran away because they were hungry and neglected for more than 3 months! Please take better care of your pets.`)
-                petModel.deleteOne({_id: pets[x]._id}).then(deleted => {
-                    if (!deleted) {
-                        console.log(`Error in deleting pets after neglected.`)
-                        continue
-                    }
-                    else {
-                        console.log(`Deleted neglected pets!`)
-                        continue
-                    }
-                });
+                deleted = await petModel.deleteOne({_id: pets[x]._id})
+                if (!deleted) {
+                    console.log(`Error in deleting pets after neglected.`)
+                    continue
+                }
+                else {
+                    console.log(`Deleted neglected pets!`)
+                    continue
+                }
+
             }
 
             if (hungry == 0) {
