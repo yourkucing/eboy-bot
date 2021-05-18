@@ -22,7 +22,7 @@ module.exports.run = async(client, msg, args) => {
 
             if (hungry > 90) {
                 msg.channel.send(`Your ${pets[x].pet}, ${pets[x].petname} ran away because they were hungry and neglected for more than 3 months! Please take better care of your pets.`)
-                moneyModel.deleteOne({_id: pets[x]._id}).then(deleted => {
+                petModel.deleteOne({_id: pets[x]._id}).then(deleted => {
                     if (!deleted) {
                         console.log(`Error in deleting pets after neglected.`)
                         continue
