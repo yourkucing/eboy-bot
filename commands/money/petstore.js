@@ -180,7 +180,8 @@ module.exports.run = async(client, msg, args) => {
                                             pet: args[0],
                                             petname: petname,
                                             type: type,
-                                            personality: personality
+                                            personality: personality,
+                                            updatedtime: Date.now()
                                         }).catch((e) => { console.log(e); }).then(pets => {
                                             msg.channel.send(`You have bought ${args[0]}! Aw, it looks so happy to see you. You can see its details through \`uwu pets.\``)
                                         })

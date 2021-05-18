@@ -26,80 +26,71 @@ module.exports.run = async(client, msg, args) => {
             }
 
                 
-            petModel.findOneAndUpdate({_id: pets[x].name}, {
+            updatepet = await petModel.findOneAndUpdate({_id: pets[x].name}, {
                 $inc: {
                     health: -hungry
                 }
-            }).then(updatepet => {
+            }, {
+                new: true
+            });
                 console.log("hi?")
                 console.log(updatepet)
                 if (updatepet) {
-                    petModel.findOne({_id: pets[x].name}).then(pets => {
-                        if (pets) {
-                            hpbar = '░░░░░░░░░░'
-                            mood = ''
-                    
-                            if (pets[x].health == 0) {
-                                hpbar = '░░░░░░░░░░'
-                                mood = 'Fainted'
-                            }
-                            else if (pets[x].health == 1) {
-                                hpbar = '█░░░░░░░░░'
-                                mood = 'Almost fainted'
-                            }
-                            else if (pets[x].health == 2) {
-                                hpbar = '██░░░░░░░░'
-                                mood = 'Really hungry'
-                            }
-                            else if (pets[x].health == 3) {
-                                hpbar = '███░░░░░░░'
-                                mood = 'Really hungry'
-                            }
-                            else if (pets[x].health == 4) {
-                                hpbar = '████░░░░░░'
-                                mood = 'Hungry'
-                            }
-                            else if (pets[x].health == 5) {
-                                hpbar = '█████░░░░░'
-                                mood = 'Hungry'
-                            }
-                            else if (pets[x].health == 6) {
-                                hpbar = '██████░░░░'
-                                mood = 'Fine'
-                            }
-                            else if (pets[x].health == 7) {
-                                hpbar = '███████░░░'
-                                mood = 'Satisfied'
-                            }
-                            else if (pets[x].health == 8) {
-                                hpbar = '████████░░'
-                                mood = 'Happy'
-                            }
-                            else if (pets[x].health == 9) {
-                                hpbar = '█████████░'
-                                mood = 'Excited'
-                            }
-                            else if (pets[x].health == 10) {
-                                hpbar = '██████████'
-                                mood = 'Really happy to see you!'
-                            }
-                            embed.addFields({name: `${pets[x].pet.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())}: ${pets[x].petname}`, value: `**Type:** ${pets[x].type}\n**Personality:** ${pets[x].personality}\n\n**Mood:** ${mood}\n**Health:** ${hpbar}`, inline: true})
+                    hpbar = '░░░░░░░░░░'
+                    mood = ''
+            
+                    if (updatepet.health == 0) {
+                        hpbar = '░░░░░░░░░░'
+                        mood = 'Fainted'
+                    }
+                    else if (updatepet.health == 1) {
+                        hpbar = '█░░░░░░░░░'
+                        mood = 'Almost fainted'
+                    }
+                    else if (updatepet.health == 2) {
+                        hpbar = '██░░░░░░░░'
+                        mood = 'Really hungry'
+                    }
+                    else if (updatepet.health == 3) {
+                        hpbar = '███░░░░░░░'
+                        mood = 'Really hungry'
+                    }
+                    else if (updatepet.health == 4) {
+                        hpbar = '████░░░░░░'
+                        mood = 'Hungry'
+                    }
+                    else if (updatepet.health == 5) {
+                        hpbar = '█████░░░░░'
+                        mood = 'Hungry'
+                    }
+                    else if (updatepet.health == 6) {
+                        hpbar = '██████░░░░'
+                        mood = 'Fine'
+                    }
+                    else if (updatepet.health == 7) {
+                        hpbar = '███████░░░'
+                        mood = 'Satisfied'
+                    }
+                    else if (updatepet.health == 8) {
+                        hpbar = '████████░░'
+                        mood = 'Happy'
+                    }
+                    else if (updatepet.health == 9) {
+                        hpbar = '█████████░'
+                        mood = 'Excited'
+                    }
+                    else if (updatepet.health == 10) {
+                        hpbar = '██████████'
+                        mood = 'Really happy to see you!'
+                    }
+                    embed.addFields({name: `${updatepet.pet.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())}: ${updatepet.petname}`, value: `**Type:** ${updatepet.type}\n**Personality:** ${updatepet.personality}\n\n**Mood:** ${mood}\n**Health:** ${hpbar}`, inline: true})
 
-                        }
-                        else {
-                            msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
-                            console.log(r)
-                            return
-                        }
-
-                    })
                 }
                 else {
                     msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
                     console.log(r)
                     return
                 }
-            })
     
 
         }
