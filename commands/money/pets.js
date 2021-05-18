@@ -21,7 +21,7 @@ module.exports.run = async(client, msg, args) => {
 
         
         for (x in pets) {
-
+            console.log(pets[x])
             date = Date.now()
             hungry = Math.floor((pets[x].updatedtime-date)/86400000)
 
