@@ -16,10 +16,6 @@ module.exports.run = async(client, msg, args) => {
         embed.addFields({value: `You have no pets.`})
     }
     else {
-
-
-
-        
         for (x in pets) {
             console.log(pets[x])
             date = Date.now()
@@ -30,7 +26,7 @@ module.exports.run = async(client, msg, args) => {
             }
 
                 
-            petModel.findOneAndUpdate({_id: pets[x]._id}, {
+            petModel.findOneAndUpdate({_id: pets[x].name}, {
                 $inc: {
                     health: -hungry
                 }
@@ -38,7 +34,7 @@ module.exports.run = async(client, msg, args) => {
                 console.log("hi?")
                 console.log(updatepet)
                 if (updatepet) {
-                    petModel.findOne({_id: pets[x]._id}).then(pets => {
+                    petModel.findOne({_id: pets[x].name}).then(pets => {
                         if (pets) {
                             hpbar = '░░░░░░░░░░'
                             mood = ''
