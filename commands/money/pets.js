@@ -17,9 +17,8 @@ module.exports.run = async(client, msg, args) => {
     }
     else {
         for (x in pets) {
-            console.log(pets[x])
             date = Date.now()
-            hungry = Math.floor((pets[x].updatedtime-date)/86400000)
+            hungry = Math.floor((date-pets[x].updatedtime)/86400000)
 
             if (pets[x].health-hungry < 0) {
                 hungry = pets[x].health
@@ -29,11 +28,13 @@ module.exports.run = async(client, msg, args) => {
             updatepet = await petModel.findOneAndUpdate({_id: pets[x]._id}, {
                 $inc: {
                     health: -hungry
+                },
+                $set: {
+                    updatedtime: Date.now()
                 }
             }, {
                 new: true
             });
-                console.log("hi?")
                 console.log(updatepet)
                 if (updatepet) {
                     hpbar = '░░░░░░░░░░'
