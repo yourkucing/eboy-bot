@@ -5,7 +5,7 @@ const { update } = require('../../models/petSchema');
 module.exports.run = async(client, msg, args) => {
     hooman = msg.author.id
     words = args.join(" ")
-    pets = await petModel.find({userID: hooman})
+    pets = await petModel.find({userID: hooman, pet: {$ne: "food"}})
 
     if (!words) {
         url = `https://cdn.discordapp.com/avatars/${hooman}/${msg.author.avatar}.png`
@@ -125,11 +125,18 @@ module.exports.run = async(client, msg, args) => {
             msg.channel.send(`You have no pets to feed. You can buy them from the petstore (_uwu petstore_).`)
         }
         else {
-            feedpets = ``
-            for (x in pets) {
-                feedpets += `${(x+1).replace(/^0+/, '')}. ${pets[x].pet.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())}: ${pets[x].petname}\n`
+            food = await petModel.find({userID: hooman, pet: "food"})
+            if (!food) {
+                msg.channel.send(`You do not have any pet food. You can buy them from the petstore (_uwu petstore_).`)
             }
-            msg.channel.send(`Reply with the number for the pet that you want to feed. If you want to feed all at once, reply with "all". Do take note that you should have enough pet food.\n${feedpets}`)
+            else {
+                if (food.health < pets.length) {
+                    msg.channel.send(`You do not have enough food to feed your pets.`)
+                }
+                else {
+                    msg.channel.send(`Pets have been fed.`)
+                }
+            }
         }
     }
 
