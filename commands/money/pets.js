@@ -15,7 +15,7 @@ module.exports.run = async(client, msg, args) => {
         .setDescription(`You can view your pets here.`);
     
         if (pets.length == 0) {
-            embed.addFields({name: ``, value: `You have no pets.`})
+            embed.addFields({name: ` `, value: `You have no pets.`})
         }
         else {
             for (x in pets) {
