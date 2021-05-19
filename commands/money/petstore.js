@@ -216,26 +216,26 @@ module.exports.run = async(client, msg, args) => {
                 }
                 else {
                     number = parseInt(collected.first().content)
-                    petModel.findOneAndUpdate({userID: hooman, pet: "food"}, {
-                        $inc: {
-                            health: number
-                        },
-                        $set: {
-                            updatedtime: Date.now()
-                        }
-                    }, {
-                        new: true,
-                        upsert: true
-                    }).then(updatefood => {
-                        if (updatefood) {
-                            msg.channel.send(`You have bought ${number} pet food.`)
-                        }
-                        else {
-                            msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
-                            console.log(updatefood)
-                            return
-                        }
-                    })
+                    // petModel.findOneAndUpdate({userID: hooman, pet: "food"}, {
+                    //     $inc: {
+                    //         health: number
+                    //     },
+                    //     $set: {
+                    //         updatedtime: Date.now()
+                    //     }
+                    // }, {
+                    //     new: true,
+                    //     upsert: true
+                    // }).then(updatefood => {
+                    //     if (updatefood) {
+                    //         msg.channel.send(`You have bought ${number} pet food.`)
+                    //     }
+                    //     else {
+                    //         msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                    //         console.log(updatefood)
+                    //         return
+                    //     }
+                    // })
                 }
             })
         }
