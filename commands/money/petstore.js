@@ -82,7 +82,7 @@ module.exports.run = async(client, msg, args) => {
         const embed = new Discord.MessageEmbed()
         .setColor('#FF69B4')
         .setTitle(`Welcome to the pet store!`)
-        .setDescription(`You can purchase pets here.\n\`uwu petstore <pet> to buy any pet you would like.\``)
+        .setDescription(`You can purchase pets here.\n\`uwu petstore <pet> to buy any pet you would like.\`\n\`To buy pet food, just use uwu petstore food.\``)
         .addFields(
         { name: `:spider: Spider`, value: `\`5 000 gp\``, inline: true},
         { name: `:crab: Crab`, value: `\`7 500 gp\``, inline: true},
@@ -207,7 +207,7 @@ module.exports.run = async(client, msg, args) => {
                 }
             })
         }
-        else if (args[0].toLowerCase() == "pet food") {
+        else if (args[0].toLowerCase() == "food") {
             msg.channel.send(`\`How many pet food are you buying? (Type out the number)\``)
             msg.channel.awaitMessages(m => m.author.id == msg.author.id, {max: 1}).then(collected => {
                 if (parseInt(collected.first().content).isNaN) {
