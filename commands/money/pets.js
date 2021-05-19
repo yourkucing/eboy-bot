@@ -127,7 +127,7 @@ module.exports.run = async(client, msg, args) => {
         else {
             feedpets = ``
             for (x in pets) {
-                feedpets += `${x+1}. ${pets[x].replace(/(^\w{1})|(\s+\w{1})/g)}: ${pets[x].petname}\n`
+                feedpets += `${x+1}. ${pets[x].pet.replace(/(^\w{1})|(\s+\w{1})/g)}: ${pets[x].petname}\n`
             }
             msg.channel.send(`Reply with the number for the pet that you want to feed. If you want to feed all at once, reply with "all". Do take note that you should have enough pet food.\n${feedpets}`)
         }
