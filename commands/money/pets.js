@@ -15,7 +15,7 @@ module.exports.run = async(client, msg, args) => {
         .setDescription(`You can view your pets here.`);
     
         if (pets.length == 0) {
-            embed.addFields({value: `You have no pets.`})
+            embed.addFields({name: ``, value: `You have no pets.`})
         }
         else {
             for (x in pets) {
@@ -122,12 +122,12 @@ module.exports.run = async(client, msg, args) => {
     }
     else if (words == "feed") {
         if (pets.length == 0) {
-            msg.channel.send(`You have no pets to feed. You can buy them from the petstore (_uwu petstore_).`)
+            msg.channel.send(`You have no pets to feed. You can buy them from the petstore (__uwu petstore__).`)
         }
         else {
             food = await petModel.find({userID: hooman, pet: "food"})
             if (food.length == 0) {
-                msg.channel.send(`You do not have any pet food. You can buy them from the petstore (_uwu petstore_).`)
+                msg.channel.send(`You do not have any pet food. You can buy them from the petstore (__uwu petstore__).`)
             }
             else {
                 if (food.health < pets.length) {

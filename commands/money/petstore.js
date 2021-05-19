@@ -82,7 +82,7 @@ module.exports.run = async(client, msg, args) => {
         const embed = new Discord.MessageEmbed()
         .setColor('#FF69B4')
         .setTitle(`Welcome to the pet store!`)
-        .setDescription(`You can purchase items here.\n\`uwu petstore <pet> to buy any pet you would like.\``)
+        .setDescription(`You can purchase pets here.\n\`uwu petstore <pet> to buy any pet you would like.\``)
         .addFields(
         { name: `:spider: Spider`, value: `\`5 000 gp\``, inline: true},
         { name: `:crab: Crab`, value: `\`7 500 gp\``, inline: true},
@@ -93,7 +93,8 @@ module.exports.run = async(client, msg, args) => {
         { name: `:penguin: Penguin`, value: `\`50 000 gp\``, inline: true},
         { name: `:tiger: Tiger`, value: `\`75 000 gp\``, inline: true},
         { name: `:unicorn: Unicorn`, value: `\`200 000 gp\``, inline: true},
-        { name: `:dragon: Dragon`, value: `\`200 000 gp\``, inline: true}
+        { name: `:dragon: Dragon`, value: `\`200 000 gp\``, inline: true},
+        { name: `Universal Pet Food`, value: `\`50 gp\``}
         )
         .setThumbnail(`${url}`);
         msg.channel.send(embed)
@@ -177,6 +178,7 @@ module.exports.run = async(client, msg, args) => {
                                         msg.channel.send(`${args[0]}, ${petname}, ${type}, ${personality}`)
                                         pets = petModel.create({
                                             userID: hooman,
+                                            health: 10,
                                             pet: args[0],
                                             petname: petname,
                                             type: type,
@@ -202,6 +204,38 @@ module.exports.run = async(client, msg, args) => {
                 }
                 else {
                     msg.channel.send(`Uh, right okay? Goodbye then!`)
+                }
+            })
+        }
+        else if (args[0].toLowerCase() == "pet food") {
+            msg.channel.send(`\`How many pet food are you buying? (Type out the number)\``)
+            msg.channel.awaitMessages(m => m.author.id == msg.author.id, {max: 1}).then(collected => {
+                if (parseInt(collected.first().content).isNaN) {
+                    msg.channel.send(`That's not a number.`)
+                    return
+                }
+                else {
+                    number = parseInt(collected.first().content)
+                    petModel.findOneAndUpdate({userID: hooman, pet: "food"}, {
+                        $inc: {
+                            health: number
+                        },
+                        $set: {
+                            updatedtime: Date.now()
+                        }
+                    }, {
+                        new: true,
+                        upsert: true
+                    }).then(updatefood => {
+                        if (updatefood) {
+                            msg.channel.send(`You have bought ${number} pet food.`)
+                        }
+                        else {
+                            msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                            console.log(updatefood)
+                            return
+                        }
+                    })
                 }
             })
         }
