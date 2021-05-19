@@ -126,7 +126,7 @@ module.exports.run = async(client, msg, args) => {
         }
         else {
             food = await petModel.find({userID: hooman, pet: "food"})
-            if (!food) {
+            if (food.length == 0) {
                 msg.channel.send(`You do not have any pet food. You can buy them from the petstore (_uwu petstore_).`)
             }
             else {
