@@ -149,9 +149,26 @@ module.exports.run = async(client, msg, args) => {
                             $set: {
                                 updatedtime: date
                             }
-                        });
+                        })
                     }
-                    msg.channel.send(`Pets have been fed.`)
+                    updatefood = await petModel.findOneAndUpdate({userID: hooman, pet: "food"}, {
+                        $inc: {
+                            health: -pets.length
+                        },
+                        $set: {
+                            updatedtime: Date.now()
+                        }
+                    })
+
+                    if (updatefood) {
+                        msg.channel.send(`Pets have been fed.`)
+                    }
+                    else {
+                        msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                        console.log(updatepet)
+                        return
+                    }
+                    
                 }
             }
         }
