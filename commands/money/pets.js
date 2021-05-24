@@ -6,13 +6,21 @@ module.exports.run = async(client, msg, args) => {
     hooman = msg.author.id
     words = args.join(" ")
     pets = await petModel.find({userID: hooman, pet: {$ne: "food"}})
+    food = await petModel.findOne({userID: hooman, pet: "food"})
+
+    if (food.length == 0) {
+        petfood = 0
+    }
+    else {
+        petfood = food.health
+    }
 
     if (!words) {
         url = `https://cdn.discordapp.com/avatars/${hooman}/${msg.author.avatar}.png`
         const embed = new Discord.MessageEmbed()
         .setColor('#FF69B4')
         .setTitle(`**${msg.guild.members.cache.get(hooman).displayName}'s** Pets`)
-        .setDescription(`You can view your pets here.`);
+        .setDescription(`You have ${petfood} pet food.`);
     
         if (pets.length == 0) {
             embed.addFields({name: `No pets`, value: `You have no pets.`})
