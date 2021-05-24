@@ -216,6 +216,44 @@ module.exports.run = async(client, msg, args) => {
                 }
                 else {
                     number = parseInt(collected.first().content)
+                    cost = number * 50
+                    moneyModel.findOne({userID: hooman}).then(customer => {
+                        if (customer) {
+                            if (customer.gold >= cost) {
+                                msg.channel.send(`That will be ${cost - customer.gold} g in total. Please be patient as we do the transaction...`)
+                                return
+                                // moneyModel.findOneAndUpdate({userID: hooman}, {
+                                //     $inc: {
+                                //         gold: -cost
+                                //     }
+                                // }).then(updatemoney => {
+                                //     if (updatemoney) {
+                                //         msg.channel.send(`${args[0]}, ${petname}, ${type}, ${personality}`)
+                                //         pets = petModel.create({
+                                //             userID: hooman,
+                                //             health: 10,
+                                //             pet: args[0],
+                                //             petname: petname,
+                                //             type: type,
+                                //             personality: personality,
+                                //             updatedtime: Date.now()
+                                //         }).catch((e) => { console.log(e); }).then(pets => {
+                                //             msg.channel.send(`You have bought ${args[0]}! Aw, it looks so happy to see you. You can see its details through \`uwu pets.\``)
+                                //         })
+                                //     }
+                                //     else {
+                                //         msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                                //         console.log(r)
+                                //         return
+                                //     }
+                                // })
+                            }
+                            else {
+                                msg.channel.send(`You don't have enough money! You are short of ${cost - customer.gold} g.`)
+                                return
+                            }
+                        }
+                    })
                     // petModel.findOneAndUpdate({userID: hooman, pet: "food"}, {
                     //     $inc: {
                     //         health: number
