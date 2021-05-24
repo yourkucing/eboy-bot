@@ -143,6 +143,7 @@ module.exports.run = async(client, msg, args) => {
                 }
                 else {
                     msg.channel.send(`Pets have been fed.`)
+                    msg.channel.send(food.health)
                     console.log(food)
                 }
             }
