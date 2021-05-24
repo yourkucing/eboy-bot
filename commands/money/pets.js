@@ -142,7 +142,7 @@ module.exports.run = async(client, msg, args) => {
                 }
                 else {
                     for (x in pets) {
-                        await petModel.findOneAndUpdate({_id: pets[x]._id}, {
+                        petModel.findOneAndUpdate({_id: pets[x]._id}, {
                             $set: {
                                 health: 10
                             },
@@ -153,7 +153,7 @@ module.exports.run = async(client, msg, args) => {
                             if (updatepet) {
                                 updatefood = await petModel.findOneAndUpdate({userID: hooman, pet: "food"}, {
                                     $inc: {
-                                        health: -pets.length
+                                        health: -1
                                     },
                                     $set: {
                                         updatedtime: Date.now()
