@@ -220,7 +220,7 @@ module.exports.run = async(client, msg, args) => {
                     moneyModel.findOne({userID: hooman}).then(customer => {
                         if (customer) {
                             if (customer.gold >= cost) {
-                                msg.channel.send(`That will be ${cost - customer.gold} g in total. Please be patient as we do the transaction...`)
+                                msg.channel.send(`That will be ${customer.gold - cost} g in total. Please be patient as we do the transaction...`)
                                 return
                                 // moneyModel.findOneAndUpdate({userID: hooman}, {
                                 //     $inc: {
