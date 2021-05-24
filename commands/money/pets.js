@@ -133,7 +133,6 @@ module.exports.run = async(client, msg, args) => {
             msg.channel.send(`You have no pets to feed. You can buy them from the petstore (__uwu petstore__).`)
         }
         else {
-            food = await petModel.findOne({userID: hooman, pet: "food"})
             if (food.length == 0) {
                 msg.channel.send(`You do not have any pet food. You can buy them from the petstore (__uwu petstore__).`)
             }
@@ -142,6 +141,16 @@ module.exports.run = async(client, msg, args) => {
                     msg.channel.send(`You do not have enough food to feed your pets.`)
                 }
                 else {
+                    for (x in pets) {
+                        updatepet = await petModel.findOneAndUpdate({_id: pets[x]._id}, {
+                            $set: {
+                                health: 10
+                            },
+                            $set: {
+                                updatedtime: date
+                            }
+                        });
+                    }
                     msg.channel.send(`Pets have been fed.`)
                 }
             }
