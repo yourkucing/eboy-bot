@@ -133,7 +133,7 @@ module.exports.run = async(client, msg, args) => {
             msg.channel.send(`You have no pets to feed. You can buy them from the petstore (__uwu petstore__).`)
         }
         else {
-            food = await petModel.find({userID: hooman, pet: "food"})
+            food = await petModel.findOne({userID: hooman, pet: "food"})
             if (food.length == 0) {
                 msg.channel.send(`You do not have any pet food. You can buy them from the petstore (__uwu petstore__).`)
             }
@@ -143,8 +143,6 @@ module.exports.run = async(client, msg, args) => {
                 }
                 else {
                     msg.channel.send(`Pets have been fed.`)
-                    msg.channel.send(food.health)
-                    console.log(food)
                 }
             }
         }
