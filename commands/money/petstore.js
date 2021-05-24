@@ -210,7 +210,7 @@ module.exports.run = async(client, msg, args) => {
         else if (args[0].toLowerCase() == "food") {
             msg.channel.send(`\`How many pet food are you buying? (Type out the number)\``)
             msg.channel.awaitMessages(m => m.author.id == msg.author.id, {max: 1}).then(collected => {
-                if (collected.first().content.isNaN) {
+                if (Number.isNaN(+(collected.first().content))) {
                     msg.channel.send(`That's not a number.`)
                     return
                 }
