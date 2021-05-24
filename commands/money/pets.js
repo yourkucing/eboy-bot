@@ -142,32 +142,36 @@ module.exports.run = async(client, msg, args) => {
                 }
                 else {
                     for (x in pets) {
-                        updatepet = await petModel.findOneAndUpdate({_id: pets[x]._id}, {
+                        await petModel.findOneAndUpdate({_id: pets[x]._id}, {
                             $set: {
                                 health: 10
                             },
                             $set: {
                                 updatedtime: date
                             }
+                        }).then(updatepet => {
+                            if (updatepet) {
+                                updatefood = await petModel.findOneAndUpdate({userID: hooman, pet: "food"}, {
+                                    $inc: {
+                                        health: -pets.length
+                                    },
+                                    $set: {
+                                        updatedtime: Date.now()
+                                    }
+                                })
+                            }
                         })
-                    }
-                    updatefood = await petModel.findOneAndUpdate({userID: hooman, pet: "food"}, {
-                        $inc: {
-                            health: -pets.length
-                        },
-                        $set: {
-                            updatedtime: Date.now()
+                        if (!updatefood) {
+                            msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                            console.log(updatepet)
+                            return
                         }
-                    })
+                    }
 
-                    if (updatefood) {
-                        msg.channel.send(`Pets have been fed.`)
-                    }
-                    else {
-                        msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
-                        console.log(updatepet)
-                        return
-                    }
+                    msg.channel.send(`Pets have been fed!`)
+                    
+
+                    
                     
                 }
             }
