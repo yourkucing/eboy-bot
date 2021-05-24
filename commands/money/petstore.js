@@ -121,7 +121,7 @@ module.exports.run = async(client, msg, args) => {
                         type = "Crab"
                     }
                     else if (args[0].toLowerCase() == "dog" || args[0].toLowerCase() == "cat") {
-                        cost = 0
+                        cost = 20000
                         petname = names[Math.floor(Math.random()*names.length)]
                         personality = personality[Math.floor(Math.random()*personality.length)]
                         if (args[0].toLowerCase() == "dog") {
