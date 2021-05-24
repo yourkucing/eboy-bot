@@ -151,22 +151,23 @@ module.exports.run = async(client, msg, args) => {
                             }
                         }).then(updatepet => {
                             if (updatepet) {
-                                updatefood = await petModel.findOneAndUpdate({userID: hooman, pet: "food"}, {
+                                petModel.findOneAndUpdate({userID: hooman, pet: "food"}, {
                                     $inc: {
                                         health: -1
                                     },
                                     $set: {
                                         updatedtime: Date.now()
                                     }
+                                }).then(updatefood => {
+                                    if (!updatefood) {
+                                        msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                                        console.log(updatepet)
+                                        return
+                                    }
                                 })
                             }
                         })
-                        if (!updatefood) {
-                            msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
-                            console.log(updatepet)
-                            return
-                        }
-                    }
+                        
 
                     msg.channel.send(`Pets have been fed!`)
                     
