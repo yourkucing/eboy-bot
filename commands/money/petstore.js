@@ -175,7 +175,7 @@ module.exports.run = async(client, msg, args) => {
                                     }
                                 }).then(updatemoney => {
                                     if (updatemoney) {
-                                        msg.channel.send(`${args[0]}, ${petname}, ${type}, ${personality}`)
+                                        // msg.channel.send(`${args[0]}, ${petname}, ${type}, ${personality}`)
                                         pets = petModel.create({
                                             userID: hooman,
                                             health: 10,
