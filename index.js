@@ -91,7 +91,7 @@ channelModel.findOne({channelID: msg.channel.id}).then(moneychannel => {
 
 var message = msg.content.toLowerCase()
 
-if (message.includes('goodmorning')) {
+if (message.includes('goodmorning') || message.includes(`good morning`)) {
 	if (msg.author.bot) return;
 	else {
 		channelModel.findOne({channelID: msg.guild.id}).then(morning => {
@@ -103,7 +103,7 @@ if (message.includes('goodmorning')) {
 	}
 }
 
-if (message.includes('goodnight')) {
+if (message.includes('goodnight') || message.includes(`good night`)) {
 		if (msg.author.bot) return;
 		else {
 			channelModel.findOne({channelID: msg.guild.id}).then(morning => {
