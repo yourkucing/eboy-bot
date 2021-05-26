@@ -88,25 +88,34 @@ channelModel.findOne({channelID: msg.channel.id}).then(moneychannel => {
 })
 
 
-channelModel.findOne({channelID: msg.server.id}).then(morning => {
-	if(morning){
-		var message = msg.content.toLowerCase()
 
-		if (message.includes('goodmorning')) {
-			if (msg.author.bot) return;
-			else {
-			   msg.channel.send(`Goodmorning uwu! Have a great day!`);
+var message = msg.content.toLowerCase()
+
+if (message.includes('goodmorning')) {
+	if (msg.author.bot) return;
+	else {
+		channelModel.findOne({channelID: msg.server.id}).then(morning => {
+			if(morning){
+				msg.channel.send(`Goodmorning uwu! Have a great day!`);
 			}
-		}
+		})
 		
-		if (message.includes('goodnight')) {
-				if (msg.author.bot) return;
-				else {
-				msg.channel.send(`Goodnight uwu! Sleep well!`);
-				}
-		}
 	}
-})
+}
+
+if (message.includes('goodnight')) {
+		if (msg.author.bot) return;
+		else {
+			channelModel.findOne({channelID: msg.server.id}).then(morning => {
+				if(morning){
+					msg.channel.send(`Goodnight uwu! Sleep well!`);
+				}
+			})
+		
+		}
+}
+	
+
 
 
  if (msg.content.toLowerCase() === 'òwó') {
