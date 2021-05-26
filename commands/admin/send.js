@@ -4,7 +4,7 @@ module.exports.run = async(client, msg, args) => {
     if (msg.author.id == "279101053750870017") {
         const channel = client.channels.cache.get(args[0])
         msg.channel.send(`Welcome, boss. Ready to have some fun?`)
-        msg.channel.awaitMessages(m => m.author.id == msg.author.id).then(collected => {
+        msg.channel.awaitMessages(m => m.author.id == msg.author.id, {max: 500}).then(collected => {
             console.log(collected)
             // if(collected.content == "exit")
             // {
