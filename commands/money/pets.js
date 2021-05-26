@@ -188,7 +188,29 @@ module.exports.run = async(client, msg, args) => {
                 }
                 else {
                     number = parseInt(collected.first().content)
-                    msg.channel.send(pets[number-1].petname)
+                    msg.channel.send(`Please state the new name: ("exit" to exit.)`)
+                    msg.channel.awaitMessages(m => m.author.id == msg.author.id, {max: 1}).then(collected => {
+                        if(collected.first().content == "exit") {
+                            msg.channel.send(`Okay, goodbye!`)
+                            return
+                        } 
+                        else {
+                            petModel.findOneAndUpdate({_id: pets[number-1]._id}, {
+                                $set: {
+                                    petname: collected.first().content
+                                }
+                            }).then(changename => {
+                                if (changename) {
+                                    msg.channel.send(`Pet's name has been changed to ${collected.first().content}.`)
+                                }
+                                else {
+                                    msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                                    console.log(updatepet)
+                                    return
+                                }
+                            })
+                        }
+                    })
                 }
             })
         }
