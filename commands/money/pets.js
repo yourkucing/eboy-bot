@@ -171,5 +171,27 @@ module.exports.run = async(client, msg, args) => {
             }
         }
     }
+    else if (words == "rename") {
+        if (pets.length == 0) {
+            msg.channel.send(`You have no pets to rename. You can buy them from the petstore (__uwu petstore__).`)
+        }
+        else {
+            petlist = 'Reply with the number of which pet you want to rename.\n'
+            for (x in pets) {
+                petlist += `**${x+1}.** ${pets[x].pet}: ${pets[x].petname}\n`
+            }
+            msg.channel.send(petlist)
+            msg.channel.awaitMessages(m => m.author.id == msg.author.id, {max: 1}).then(collected => {
+                if (Number.isNaN(+(collected.first().content))) {
+                    msg.channel.send(`That's not a number.`)
+                    return
+                }
+                else {
+                    number = parseInt(collected.first().content)
+                    msg.channel.send(pets[number-1].petname)
+                }
+            })
+        }
+    }
 
 }
