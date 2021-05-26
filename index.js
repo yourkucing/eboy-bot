@@ -94,7 +94,7 @@ var message = msg.content.toLowerCase()
 if (message.includes('goodmorning')) {
 	if (msg.author.bot) return;
 	else {
-		channelModel.findOne({channelID: msg.server.id}).then(morning => {
+		channelModel.findOne({channelID: msg.guild.id}).then(morning => {
 			if(morning){
 				msg.channel.send(`Goodmorning uwu! Have a great day!`);
 			}
@@ -106,7 +106,7 @@ if (message.includes('goodmorning')) {
 if (message.includes('goodnight')) {
 		if (msg.author.bot) return;
 		else {
-			channelModel.findOne({channelID: msg.server.id}).then(morning => {
+			channelModel.findOne({channelID: msg.guild.id}).then(morning => {
 				if(morning){
 					msg.channel.send(`Goodnight uwu! Sleep well!`);
 				}

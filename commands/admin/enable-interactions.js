@@ -7,7 +7,7 @@ module.exports.run = async(client, msg, args) => {
         return
     }
     else {
-        serverID = msg.channel.id
+        serverID = msg.guild.id
         serverModel.create({
             channelID: serverID
         }).then(r => {
