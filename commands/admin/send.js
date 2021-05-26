@@ -12,7 +12,7 @@ module.exports.run = async(client, msg, args) => {
                 collector.stop()
             }
             else {
-                console.log(m.content)
+                channel.send(m.content)
             }
         }
         msg.channel.send(`Oh, we're done? Goodbye!`)
