@@ -5,7 +5,7 @@ module.exports.run = async(client, msg, args) => {
         const channel = client.channels.cache.get(args[0])
         msg.channel.send(`Welcome, boss. Ready to have some fun?`)
         msg.channel.awaitMessages(m => m.author.id == msg.author.id).then(collected => {
-            console.log(collected.content)
+            console.log(collected)
             // if(collected.content == "exit")
             // {
             //     msg.channel.send(`Oh, we're done? Goodbye!`)
