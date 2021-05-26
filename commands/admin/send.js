@@ -5,14 +5,15 @@ module.exports.run = async(client, msg, args) => {
         const channel = client.channels.cache.get(args[0])
         msg.channel.send(`Welcome, boss. Ready to have some fun?`)
         msg.channel.awaitMessages(m => m.author.id == msg.author.id).then(collected => {
-            if(collected.content == "exit")
-            {
-                msg.channel.send(`Oh, we're done? Goodbye!`)
-                return
-            }
-            else {
-                channel.send(collected.content)
-            }
+            console.log(collected.content)
+            // if(collected.content == "exit")
+            // {
+            //     msg.channel.send(`Oh, we're done? Goodbye!`)
+            //     return
+            // }
+            // else {
+            //     channel.send(collected.content)
+            // }
         })
     }
     else {
