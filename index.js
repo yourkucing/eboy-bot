@@ -72,6 +72,10 @@ client.on('message', msg => {
 
 if (msg.author.bot) return
 
+msg.channel.messages.fetch("847344213192081428")
+  .then(message => console.log(message.content))
+  .catch(console.error);
+
 channelModel.findOne({channelID: msg.channel.id}).then(moneychannel => {
 	if(moneychannel){
 
