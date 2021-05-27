@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+    hooman = msg.author.id
     msg.channel.send(`\`Ah yes, your very first adventure. How... amazing. I do hope you survive. It would be a waste for you not to.\`
     \n\`Let's fast forward, shall we? After all, we're running out of time if you're going to help this character save his cute kitty, Amy.\``)
     msg.channel.send(`https://media.discordapp.net/attachments/835701543009124362/838257570476064778/IMG_20210501_233120_954.jpg`)
@@ -31,7 +32,7 @@ Anyway, that's pretty much it. I should be nicer, I guess. That's what everyone 
 \`You have 10 tries to figure out the code. Hint: put them in capital letters, and you already know the code the moment you stepped into this room. Good luck! (Just reply with the code, 10 tries!)\``)
 
                 const collector = msg.channel.createMessageCollector(
-                    m => m.author.id == msg.author.id, {max: 10}
+                    m => m.author.id == hooman, {max: 10}
                 );
                 collector.on('collect', m => {
                     if (m.content == "CODE") {
@@ -58,7 +59,7 @@ Anyway, that's pretty much it. I should be nicer, I guess. That's what everyone 
                 msg.channel.send(`\`He frowned and walked towards the door at the end of the hall. Sure enough, he heard some sort of meowing. That must be Amy! But... the door is locked and there's a padlock with four digits. The first digit is already shown. It's 2. All he needed are three more digits.\`\n\n\`Key in the answer in this format: digit2,digit3,digit4 (eg. 2,3,4). Take note that there are no spaces in between or at the sides. Hint: You already know the answer from this hall. You have ten tries. Good luck!\``)
 
                 const collector = msg.channel.createMessageCollector(
-                    m => m.author.id == msg.author.id, {max: 10}
+                    m => m.author.id == hooman, {max: 10}
                 );
                 collector.on('collect', m => {
                     if (m.content == "4,6,8") {
