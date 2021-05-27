@@ -3,18 +3,12 @@ const Discord = require('discord.js');
 module.exports.run = async(client, msg, args) => {
     n = "no"
     const collector = msg.channel.createMessageCollector(
-        m => m.author.id == "279101053750870017", {max: 10}
+        m => m.author.id == "279101053750870017" && m.content == "CODE", {max: 10}
       );
     collector.on('collect', m => {
-        if(m.content == "CODE") {
-            msg.channel.send(`YOU GOT IT!`)
-            n = "yes"
-            collector.stop()
-        }
+        msg.channel.send(`YOU GOT IT!`)
     });
     collector.on('end', collected => {
-        if (n = "no"){
-            msg.channel.send(`Time's up too bad!`)
-        }
+        msg.channel.send(`Time's up too bad!`)
     });
 }
