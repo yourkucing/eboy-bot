@@ -72,7 +72,7 @@ client.on('ready', () => {
 		const birthdayFilter = (reaction, user) => {
 			return reaction.emoji.name === '🥳' && !user.bot;
 		};
-		const birthday = msg.createReactionCollector(backwardsFilter);
+		const birthday = msg.createReactionCollector(birthdayFilter);
 		birthday.on('collect', (reaction, user) => {
 			console.log(user)
 		})
