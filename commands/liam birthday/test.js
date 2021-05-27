@@ -8,6 +8,7 @@ module.exports.run = async(client, msg, args) => {
     collector.on('collect', m => {
         if (m.content == "CODE") {
             msg.channel.send(`YOU GOT IT!`)
+            return
         }
     });
     collector.on('end', collected => {
