@@ -75,7 +75,7 @@ client.on('ready', () => {
 		};
 		const birthday = message.createReactionCollector(birthdayFilter);
 		birthday.on('collect', (reaction, user) => {
-			if (user.id == "376905319286046751") {
+			if (user.id == "219978207523373057") {
 				const birthdayboy = tempguild.members.cache.get(user.id)
 				birthdayboy.roles.add(tempguild.roles.cache.find(x => x.id == "847345383462010921"), "")
 			}
