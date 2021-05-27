@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
-    if (msg.channel.id == "719493404190572604" && msg.author.id == "279101053750870017") {
+    if (msg.channel.id == "847343405259554821" && msg.author.id == "376905319286046751") {
         msg.channel.send(`\`Ah yes, Liam's very first adventure. And on his birthday, how... amazing. I do hope he survives. It would be a waste for him not to.\`
         \n\`Let's fast forward, shall we? After all, we're running out of time if Liam was going to save his kitty, Amy.\``)
         msg.channel.send(`https://media.discordapp.net/attachments/835701543009124362/838257570476064778/IMG_20210501_233120_954.jpg`)
@@ -32,7 +32,7 @@ Anyway, that's pretty much it. I should be nicer, I guess. Since it's your birth
 \`You have 10 tries to figure out the code. Hint: put them in capital letters, and you already know the code the moment you stepped into this room. Good luck! (Just reply with the code, 10 tries!)\``)
 
                     const collector = msg.channel.createMessageCollector(
-                        m => m.author.id == "279101053750870017", {max: 10}
+                        m => m.author.id == "376905319286046751", {max: 10}
                     );
                     collector.on('collect', m => {
                         if (m.content == "CODE") {
@@ -59,7 +59,7 @@ Anyway, that's pretty much it. I should be nicer, I guess. Since it's your birth
                     msg.channel.send(`\`Liam frowned and walked towards the door at the end of the hall. Sure enough, he heard some sort of meowing. That must be Amy! But... the door is locked and there's a padlock with 4 digits. The first digit is already shown. It's 2. All he needed are three more digits.\`\n\n\`Key in the answer in this format: digit2,digit3,digit4 (eg. 2,3,4). Take note that there are no spaces in between or at the sides. Hint: You already know the answer from this hall. You have ten tries. Good luck!\``)
 
                     const collector = msg.channel.createMessageCollector(
-                        m => m.author.id == "279101053750870017", {max: 10}
+                        m => m.author.id == "376905319286046751", {max: 10}
                     );
                     collector.on('collect', m => {
                         if (m.content == "4,6,8") {
