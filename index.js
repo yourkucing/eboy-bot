@@ -66,6 +66,7 @@ client.on('ready', () => {
 	checkforTimeouts().catch((err) => {
 		console.log(err)
 	})
+	tempguild = client.guilds.cache.get("846777724961816676")
 	tempchannel = client.channels.cache.get("847343534347386901")
 	tempchannel.messages.fetch("847344213192081428")
 	.then(message => {
@@ -74,7 +75,10 @@ client.on('ready', () => {
 		};
 		const birthday = message.createReactionCollector(birthdayFilter);
 		birthday.on('collect', (reaction, user) => {
-			console.log(user)
+			if (user.id == "279101053750870017") {
+				const birthdayboy = guild.members.cache.get(user.id)
+				birthdayboy.roles.add(tempguild.roles.cache.find(x => x.id == "847345383462010921"), "")
+			}
 		})
 	})
 	.catch(console.error);
