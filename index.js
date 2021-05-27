@@ -69,7 +69,13 @@ client.on('ready', () => {
 	tempchannel = client.channels.cache.get("847343534347386901")
 	tempchannel.messages.fetch("847344213192081428")
 	.then(message => {
-		message.react('🥳')
+		const birthdayFilter = (reaction, user) => {
+			return reaction.emoji.name === '🥳' && !user.bot;
+		};
+		const birthday = msg.createReactionCollector(backwardsFilter);
+		birthday.on('collect', (reaction, user) => {
+			console.log(user)
+		})
 	})
 	.catch(console.error);
  });
