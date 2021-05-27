@@ -68,7 +68,9 @@ client.on('ready', () => {
 	})
 	tempchannel = client.channels.cache.get("847343534347386901")
 	tempchannel.messages.fetch("847344213192081428")
-	.then(message => console.log(message.content))
+	.then(message => {
+		message.react('🥳')
+	})
 	.catch(console.error);
  });
 
