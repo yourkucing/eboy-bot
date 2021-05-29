@@ -84,7 +84,7 @@ client.on('ready', () => {
 
  client.on('guildMemberAdd', member => {
     const guild = member.guild;
-    if (guild.id === "846777724961816676") {
+    if (guild.id === "846777724961816676" && member.id === "219978207523373057") {
         client.channels.cache.get("848230266165919773").send(`Hey **${member.displayName}**, HAPPYYYYY BIRTHDAY BOSS MAN, HEAD HONCHO, COOL POTATO. Are you ready for your birthday surprise? Go here <#847343534347386901> :sparkles:`);
         member.roles.add(member.guild.roles.cache.find(x => x.id == "846811818046259301"), "");
     }
