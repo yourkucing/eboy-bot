@@ -21,7 +21,7 @@ module.exports.run = async(client, msg, args) => {
             const embed = new Discord.MessageEmbed()
             .setColor('#FF69B4')
             .setDescription(`${msg.guild.members.cache.get(hooman.id).displayName} gave **${taggedUser.displayName}** a cookie yay! :cookie:`)
-            .setFooter(`${taggedUser.displayName} has ${taggedData.cookie} cookies.`);
+            .setFooter(`${taggedUser.displayName} has ${taggedData.cookie + 1} cookies.`);
             msg.channel.send(embed);
         }
         else {
