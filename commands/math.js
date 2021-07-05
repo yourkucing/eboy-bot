@@ -8,7 +8,6 @@ module.exports.run = async(client, msg, args) => {
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
         )
-        msg.channel.send(num)
         numbers = num.split(",")
         var newnum = numbers.map(function (x) {
             return parseInt(x.trim()); 
