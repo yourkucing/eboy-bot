@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports.run = async(client, msg, args) => {
     operation = args[0]
     if (operation == "add" || operation == "addition") {
-        numbers = args.slice(1).join()
+        numbers = args.slice(1).join("")
         num = numbers.substring(
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
@@ -17,8 +17,7 @@ module.exports.run = async(client, msg, args) => {
         msg.channel.send(`\`Result: ${result}\``)
     }
     else if (operation == "subtract" || operation == "subtraction") {
-        numbers = args.slice(1).join()
-        numbers = numbers.split(" ").join('')
+        numbers = args.slice(1).join("")
         num = numbers.substring(
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
@@ -31,8 +30,7 @@ module.exports.run = async(client, msg, args) => {
         msg.channel.send(`\`Result: ${result}\``)
     }
     else if (operation == "multiply" || operation == "multiplication") {
-        numbers = args.slice(1).join()
-        numbers = numbers.split(" ").join('')
+        numbers = args.slice(1).join("")
         num = numbers.substring(
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
@@ -45,8 +43,7 @@ module.exports.run = async(client, msg, args) => {
         msg.channel.send(`\`Result: ${result}\``)
     }
     else if (operation == "divide" || operation == "division") {
-        numbers = args.slice(1).join()
-        numbers = numbers.split(" ").join('')
+        numbers = args.slice(1).join("")
         num = numbers.substring(
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
