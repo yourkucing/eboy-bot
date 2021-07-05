@@ -4,11 +4,11 @@ module.exports.run = async(client, msg, args) => {
     operation = args[0]
     if (operation == "add" || operation == "addition") {
         numbers = args.slice(1).join()
+        numbers = numbers.split(" ").join('')
         num = numbers.substring(
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
         )
-        num = num.split(/\s+/).join('')
         numbers = num.split(",")
         var newnum = numbers.map(function (x) { 
             return parseInt(x); 
@@ -18,11 +18,11 @@ module.exports.run = async(client, msg, args) => {
     }
     else if (operation == "subtract" || operation == "subtraction") {
         numbers = args.slice(1).join()
+        numbers = numbers.split(" ").join('')
         num = numbers.substring(
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
         )
-        num = num.split(/\s+/).join('')
         numbers = num.split(",")
         var newnum = numbers.map(function (x) { 
             return parseInt(x); 
@@ -32,11 +32,11 @@ module.exports.run = async(client, msg, args) => {
     }
     else if (operation == "multiply" || operation == "multiplication") {
         numbers = args.slice(1).join()
+        numbers = numbers.split(" ").join('')
         num = numbers.substring(
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
         )
-        num = num.split(/\s+/).join('')
         numbers = num.split(",")
         var newnum = numbers.map(function (x) { 
             return parseInt(x); 
@@ -46,11 +46,11 @@ module.exports.run = async(client, msg, args) => {
     }
     else if (operation == "divide" || operation == "division") {
         numbers = args.slice(1).join()
+        numbers = numbers.split(" ").join('')
         num = numbers.substring(
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
         )
-        num = num.split(/\s+/).join('')
         numbers = num.split(",")
         var newnum = numbers.map(function (x) { 
             return parseInt(x); 
