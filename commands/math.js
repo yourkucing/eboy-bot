@@ -8,6 +8,7 @@ module.exports.run = async(client, msg, args) => {
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
         )
+        num = num.split(/\s+/).join('')
         numbers = num.split(",")
         var newnum = numbers.map(function (x) { 
             return parseInt(x); 
@@ -21,6 +22,7 @@ module.exports.run = async(client, msg, args) => {
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
         )
+        num = num.split(/\s+/).join('')
         numbers = num.split(",")
         var newnum = numbers.map(function (x) { 
             return parseInt(x); 
@@ -34,6 +36,7 @@ module.exports.run = async(client, msg, args) => {
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
         )
+        num = num.split(/\s+/).join('')
         numbers = num.split(",")
         var newnum = numbers.map(function (x) { 
             return parseInt(x); 
@@ -47,6 +50,7 @@ module.exports.run = async(client, msg, args) => {
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
         )
+        num = num.split(/\s+/).join('')
         numbers = num.split(",")
         var newnum = numbers.map(function (x) { 
             return parseInt(x); 
