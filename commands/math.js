@@ -12,7 +12,7 @@ module.exports.run = async(client, msg, args) => {
         var newnum = numbers.map(function (x) { 
             return parseInt(x); 
           });
-          result = newnum.reduce((a, b) => a + b, 0)
+          result = newnum.reduce((a, b) => a + b)
         msg.channel.send(`\`Result: ${result}\``)
     }
     else if (operation == "subtract" || operation == "subtraction") {
@@ -25,7 +25,7 @@ module.exports.run = async(client, msg, args) => {
         var newnum = numbers.map(function (x) { 
             return parseInt(x); 
           });
-          result = newnum.reduce((a, b) => a - b, 0)
+          result = newnum.reduce((a, b) => a - b)
         msg.channel.send(`\`Result: ${result}\``)
     }
     else if (operation == "multiply" || operation == "multiplication") {
@@ -38,7 +38,7 @@ module.exports.run = async(client, msg, args) => {
         var newnum = numbers.map(function (x) { 
             return parseInt(x); 
           });
-          result = newnum.reduce((a, b) => a * b, 0)
+          result = newnum.reduce((a, b) => a * b)
         msg.channel.send(`\`Result: ${result}\``)
     }
     else if (operation == "divide" || operation == "division") {
@@ -51,7 +51,7 @@ module.exports.run = async(client, msg, args) => {
         var newnum = numbers.map(function (x) { 
             return parseInt(x); 
           });
-          result = newnum.reduce((a, b) => a / b, 0)
+          result = newnum.reduce((a, b) => a / b)
         msg.channel.send(`\`Result: ${result}\``)
     }
     else {
