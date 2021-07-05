@@ -5,6 +5,7 @@ module.exports.run = async(client, msg, args) => {
     if (operation == "add" || operation == "addition") {
         numbers = args.slice(1).join()
         numbers = numbers.split(" ").join('')
+        msg.channel.send(numbers)
         num = numbers.substring(
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
