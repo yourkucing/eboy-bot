@@ -21,6 +21,7 @@ module.exports.run = async(client, msg, args) => {
             console.log('No user')
             return
         }
+        
         user.roles.remove(timeoutrole.id).catch((e) => {console.log(e)}).then(r => {
             if (r) {
                 channel.send(`<@${user.id}>, your timeout has ended!`)
