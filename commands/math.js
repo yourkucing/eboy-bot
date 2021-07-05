@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports.run = async(client, msg, args) => {
     operation = args[0]
     if (operation == "add" || operation == "addition") {
-        numbers = args.slice(1).join
+        numbers = args.slice(1).join()
         num = numbers.substring(
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")

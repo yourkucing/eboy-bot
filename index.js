@@ -25,7 +25,6 @@ mongoose.connect(process.env.MONGODB_SRV, {
 
 
 const checkforTimeouts = async() => {
-	console.log('checking for timeout expires....')
 	const query = {
 		timeout: {
 			$lte: Date.now()
