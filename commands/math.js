@@ -4,15 +4,13 @@ module.exports.run = async(client, msg, args) => {
     operation = args[0]
     if (operation == "add" || operation == "addition") {
         numbers = args.slice(1).join()
-        numbers = numbers.split(" ").join('')
-        msg.channel.send(numbers)
         num = numbers.substring(
             numbers.lastIndexOf("[") + 1, 
             numbers.lastIndexOf("]")
         )
         numbers = num.split(",")
-        var newnum = numbers.map(function (x) { 
-            return parseInt(x); 
+        var newnum = numbers.map(function (x) {
+            return parseInt(x.trim()); 
           });
           result = newnum.reduce((a, b) => a + b)
         msg.channel.send(`\`Result: ${result}\``)
@@ -25,8 +23,8 @@ module.exports.run = async(client, msg, args) => {
             numbers.lastIndexOf("]")
         )
         numbers = num.split(",")
-        var newnum = numbers.map(function (x) { 
-            return parseInt(x); 
+        var newnum = numbers.map(function (x) {
+            return parseInt(x.trim()); 
           });
           result = newnum.reduce((a, b) => a - b)
         msg.channel.send(`\`Result: ${result}\``)
@@ -39,8 +37,8 @@ module.exports.run = async(client, msg, args) => {
             numbers.lastIndexOf("]")
         )
         numbers = num.split(",")
-        var newnum = numbers.map(function (x) { 
-            return parseInt(x); 
+        var newnum = numbers.map(function (x) {
+            return parseInt(x.trim()); 
           });
           result = newnum.reduce((a, b) => a * b)
         msg.channel.send(`\`Result: ${result}\``)
@@ -53,8 +51,8 @@ module.exports.run = async(client, msg, args) => {
             numbers.lastIndexOf("]")
         )
         numbers = num.split(",")
-        var newnum = numbers.map(function (x) { 
-            return parseInt(x); 
+        var newnum = numbers.map(function (x) {
+            return parseInt(x.trim()); 
           });
           result = newnum.reduce((a, b) => a / b)
         msg.channel.send(`\`Result: ${result}\``)
