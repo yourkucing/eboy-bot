@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const cookieModel = require('../models/cookieSchema');
+const cookieModel = require('../../models/cookieSchema');
 
 module.exports.run = async(client, msg, args) => {
     if (!msg.mentions.users.size) {

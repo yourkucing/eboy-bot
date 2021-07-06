@@ -15,7 +15,7 @@ module.exports.run = async(client, msg, args) => {
 			.setColor('#FF69B4')
 			.setDescription(`You stabbed **${words}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`people in pain are IMMUNE. - Roman Shore Young, 2020`);
+			.setFooter(`STAB STAB STAB.`);
 			msg.channel.send(embed);
 		}
 	}
@@ -26,7 +26,7 @@ module.exports.run = async(client, msg, args) => {
 			.setColor('#FF69B4')
 			.setDescription(`You stabbed yourself!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`people in pain are IMMUNE. - Roman Shore Young, 2020`);
+			.setFooter(`STAB STAB STAB.`);
 			msg.channel.send(embed);
 		}
 		else {	
@@ -34,7 +34,7 @@ module.exports.run = async(client, msg, args) => {
 			.setColor('#FF69B4')
 			.setDescription(`You stabbed **${taggedUser.displayName}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
-			.setFooter(`people in pain are IMMUNE. - Roman Shore Young, 2020`);
+			.setFooter(`STAB STAB STAB.`);
 			msg.channel.send(embed);
 		}
 	}

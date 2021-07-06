@@ -65,29 +65,7 @@ client.on('ready', () => {
 	checkforTimeouts().catch((err) => {
 		console.log(err)
 	})
-	tempguild = client.guilds.cache.get("846777724961816676")
-	tempchannel = client.channels.cache.get("847343534347386901")
-	tempchannel.messages.fetch("847344213192081428")
-	.then(message => {
-		const birthdayFilter = (reaction, user) => {
-			return reaction.emoji.name === '🥳' && !user.bot;
-		};
-		const birthday = message.createReactionCollector(birthdayFilter);
-		birthday.on('collect', (reaction, user) => {
-			const birthdayboy = tempguild.members.cache.get(user.id)
-			birthdayboy.roles.add(tempguild.roles.cache.find(x => x.id == "847345383462010921"), "")
-		})
-	})
-	.catch(console.error);
  });
-
- client.on('guildMemberAdd', member => {
-    const guild = member.guild;
-    if (guild.id === "846777724961816676" && member.id === "219978207523373057") {
-        client.channels.cache.get("848230266165919773").send(`Hey **${member.displayName}**, HAPPYYYYY BIRTHDAY BOSS MAN, HEAD HONCHO, COOL POTATO. Are you ready for your birthday surprise? Go here <#847343534347386901> :sparkles:`);
-        member.roles.add(member.guild.roles.cache.find(x => x.id == "846811818046259301"), "");
-    }
-})
 
 client.on('message', msg => {
 
@@ -137,21 +115,11 @@ if (message.includes('goodnight') || message.includes(`good night`)) {
 }
 	
 
-
-
  if (msg.content.toLowerCase() === 'òwó') {
 	 if (msg.author.bot) return;
 	 else {
 		 msg.channel.send('buzz buzz');
 	 }
- }
- 
- if (msg.content.toLowerCase().includes('eboy, who built you?')) {
- msg.channel.send('hi ' + msg.author.toString() +' uwu! Maryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her :heart:');
- }
-    
- if (msg.content.toLowerCase().includes('eboy, how do i submit a suggestion or feedback?')) {
- msg.channel.send('hi ' + msg.author.toString() +', you can submit your suggestion or feedback here: https://forms.gle/GpoHX32kVQznvY3h6 though dont forget to leave down your name and a way to contact you, just in case there are questions we need to specify!');
  }
  
  if (msg.content.toLowerCase() === 'uwu') {
@@ -241,14 +209,15 @@ if (command === 'search') {
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
 		.setTitle(`Commands`)
-		.setDescription('Thank you for using Eboy bot uwu! (∩•̀ω•́)⊃-⋆')
+		.setDescription('Thank you for using Eboy bot uwu!\nMaryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her.\nYou can submit your suggestion or feedback here: https://forms.gle/GpoHX32kVQznvY3h6 though dont forget to leave down your name and a way to contact you, just in case there are questions we need to specify! (∩•̀ω•́)⊃-⋆')
 		.addFields(
-		{ name: 'main commands', value: 'uwu\r\nowo\r\nawa\r\nòwó\r\nhi eboy uwu\r\neboy, i love you\r\ncan i get a yee claw\r\nuwu uwu <words to uwuify>\r\nuwu search <word to search>\r\nuwu sortinghat\r\nuwu duel @<username>\r\nuwu banner <words to turn into banner>\r\nuwu f / uwu f <words> / uwu f @<username>' },
-		{ name: 'information about eboy (type in the following)', value: 'eboy, how do I submit a suggestion or feedback?\r\neboy, who built you?' },
-		{ name: 'uwu <commands> @<username>', value: 'bite\r\nboop\r\ncling\r\nconsole\r\ndefenestrate\r\ndelete\r\ndrag\r\nhate\r\nhug\r\nkick\r\nkill\r\nkiss\r\nlove\r\npatpat\r\npaypal\r\npeck (aka peck on the cheeks)\r\npunch\r\nscold\r\nshake\r\nshoot\r\nslap\r\nsnuggle\r\nstab\r\nsummon\r\ntackle\r\ntonk\r\nuntonk\r\nyeet' },
-		{ name: 'uwu <commands>', value: 'angry\r\axe\r\ncelly\r\ncheer\r\nclap\r\nconfused\r\ncry\r\ndance\r\ndie\r\ndrink\r\neat\r\new\r\nflop\r\nhide\r\nhydrate\r\njitter\r\nlaugh\r\npoof\r\nscared\r\nscream\r\nsleep\r\nspazz\r\ntantrum\r\nwork\r\nyoink' },
+		{ name: 'main commands', value: 'uwu\r\nowo\r\nawa\r\nòwó\r\nhi eboy uwu\r\neboy, i love you\r\ncan i get a yee claw' },
+		{ name: 'uwu <commands> @<username>', value: 'bite\r\nboop\r\ncling\r\nconsole\r\ndefenestrate\r\ndelete\r\ndrag\r\nhug\r\nkick\r\nkill\r\nkiss\r\nlove\r\npatpat\r\npeck (aka peck on the cheeks)\r\npunch\r\nscold\r\nshake\r\nshoot\r\nslap\r\nsnuggle\r\nstab\r\nsummon\r\ntackle\r\ntonk\r\nuntonk\r\nyeet' },
+		{ name: 'uwu <commands>', value: 'angry\r\ncheer\r\nclap\r\nconfused\r\ncry\r\ndance\r\ndie\r\neat\r\new\r\nhide\r\nhydrate\r\njitter\r\nlaugh\r\nscream\r\nsleep\r\nspazz\r\ntantrum\r\nwork\r\nyoink' },
 		{ name: 'uwu <commands> @<username> ONLY ALLOWED IN NSFW CHANNELS (also there are gay stuffs, so if youre not comfortable with it, dont use it.)', value: 'choke\r\nfuck\r\nsmooch (aka french kiss/steamy kiss)' },
-		{ name: 'special commands', value: 'to cheer someone up and tell them that you love them:\r\n"eboy, help me out here @<username>"\r\nto kick someone out of the server: uwu byebye @<username>\r\nto matchmake someone: uwu match @<username> @<username> BOTH MUST BE DIFFERENT USERS.\r\nto roll dice: eg. uwu dice 2d6 (2d6 = 2 d6 dice)\r\nuwu choose [choice1, choice2, ....]' },
+		{ name: 'money commands', value: 'To enable or disable money in channels (gain 2 g with every message that is sent): uwu enable-money, uwu disable-money\r\nTo give people money: uwu paypal <@username> <amount: eg "2g">\r\nTo view your wallet: uwu wallet\r\nTo view the pet store: uwu petstore\r\nTo view your pets: uwu pets'},
+		{ name: 'decision/useful commands', value: 'To ask the 8ball a question: uwu 8ball <your question>\r\nTo choose an option: uwu choose [option1, option2, option3, ...] Dont forget to use the [].\r\nTo roll dice: eg. uwu dice 2d6 (2d6 = 2 d6 dice)\r\nTo sort your choices: uwu random [option1, option2, ...]\r\nTo use the calculator (addition, subtraction, multiplication, division): uwu math <add/subtract/divide/multiply> [number1, number2, number3, ...]\r\nTo do a writing sprint (with auto calculated word count): uwu sprint <time [eg: "2" for 2 minutes. Note that it can only be done for minutes>'},
+		{ name: 'special commands', value: 'To cheer someone up and tell them that you love them:\r\n"eboy, help me out here @<username>"\r\nto matchmake someone: uwu match @<username> @<username> BOTH MUST BE DIFFERENT USERS.\r\nuwu uwu <words to uwuify>\r\nuwu search <word to search> [note that this is using Urban Dictionary, so some results might be ridiculous or NSFW.]\r\nuwu duel @<username>\r\nuwu banner <words to turn into banner>\r\nuwu f / uwu f <words> / uwu f @<username>\r\nTo timeout someone (your bot role must be higher than the person you are timing out!!!): uwu timeout <@user> <1m/2s/24h> [without the time, it will be for a default of 15 minutes.]\r\nTo give someone a cookie: uwu cookie <@user>' },
 		)
 		.setFooter(`Created by Maryam#9206`);
 		msg.author.send(embed);
