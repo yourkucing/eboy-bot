@@ -31,11 +31,6 @@ const checkforTimeouts = async() => {
 			$lte: Date.now()
 		}
 	}
-	const query2 = {
-		sprint: {
-			$lte: Date.now()
-		}
-	}
 	const results = await timeoutModel.find(query)
 	if (results) {
 		for (const post of results) {
@@ -61,6 +56,17 @@ const checkforTimeouts = async() => {
 			
 		}
 	}
+
+	setTimeout(checkforTimeouts, 1000 * 10)
+}
+
+const checkforSprints = async() => {
+	const query2 = {
+		sprint: {
+			$lte: Date.now()
+		}
+	}
+
 	sprintModel.find(query2).then(results2 => {
 		if (results2) {
 			for (const post2 of results2) {
@@ -100,13 +106,16 @@ const checkforTimeouts = async() => {
 		}
 	})
 
-	setTimeout(checkforTimeouts, 1000 * 10)
+	setTimeout(checkforSprints, 1000 * 30)
 }
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setActivity('uwu help', { type: 'STREAMING' });
 	checkforTimeouts().catch((err) => {
+		console.log(err)
+	})
+	checkforSprints().catch((err) => {
 		console.log(err)
 	})
  });
