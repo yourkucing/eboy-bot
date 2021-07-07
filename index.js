@@ -87,7 +87,7 @@ const checkforTimeouts = async() => {
 							msg.channel2.send(`Nice. You wrote ${newwordcount - wordcount} words. Good job, mate!`)
 							sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2}).then(deleted => {
 								if (deleted) {
-									continue
+									console.log("Success in deleting sprint.")
 								}
 								else {
 									console.log("Error in deleting sprint.")
