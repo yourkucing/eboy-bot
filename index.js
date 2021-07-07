@@ -69,6 +69,7 @@ const checkforSprints = async() => {
 
 	sprintModel.find(query2).then(results2 => {
 		if (results2) {
+			console.log(results2)
 			for (const post2 of results2) {
 				userID2 = post2.userID
 				guildID2 = post2.serverID
@@ -82,9 +83,10 @@ const checkforSprints = async() => {
 					continue
 				}
 				else {
-					msg.channel.send(`<@${userID2}>! Writing sprint is up!`);
-					msg.channel.send(`What is your new word count?`);
-					msg.channel.awaitMessages(m => m.author.id == userID2, {max: 1}).then(collected => {
+					console.log("Found one!")
+					msg.channel2.send(`<@${userID2}>! Writing sprint is up!`);
+					msg.channel2.send(`What is your new word count?`);
+					msg.channel2.awaitMessages(m => m.author.id == userID2, {max: 1}).then(collected => {
 						if (isNaN(parseInt(collected.first().content))) {
 							msg.channel2.send("That's not a number, bro. Count it ya self, goodbye XD")
 						}
