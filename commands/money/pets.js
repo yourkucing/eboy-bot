@@ -8,7 +8,7 @@ module.exports.run = async(client, msg, args) => {
     pets = await petModel.find({userID: hooman, pet: {$ne: "food"}})
     food = await petModel.findOne({userID: hooman, pet: "food"})
 
-    if (food.length == 0) {
+    if (!food || food.length == 0) {
         petfood = 0
     }
     else {
