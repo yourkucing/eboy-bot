@@ -85,7 +85,14 @@ const checkforTimeouts = async() => {
 						else {
 							newwordcount = parseInt(collected.first().content)
 							msg.channel2.send(`Nice. You wrote ${newwordcount - wordcount} words. Good job, mate!`)
-							await sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2})
+							sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2}).then(deleted => {
+								if (deleted) {
+									continue
+								}
+								else {
+									console.log("Error in deleting sprint.")
+								}
+							})
 						}
 					})
 				}
