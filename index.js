@@ -69,7 +69,6 @@ const checkforSprints = async() => {
 
 	sprintModel.find(query2).then(results2 => {
 		if (results2) {
-			console.log(results2)
 			for (const post2 of results2) {
 				userID2 = post2.userID
 				guildID2 = post2.serverID
@@ -83,16 +82,15 @@ const checkforSprints = async() => {
 					continue
 				}
 				else {
-					console.log("Found one!")
-					msg.channel2.send(`<@${userID2}>! Writing sprint is up!`);
-					msg.channel2.send(`What is your new word count?`);
-					msg.channel2.awaitMessages(m => m.author.id == userID2, {max: 1}).then(collected => {
+					channel2.send(`<@${userID2}>! Writing sprint is up!`);
+					channel2.send(`What is your new word count?`);
+					channel2.awaitMessages(m => m.author.id == userID2, {max: 1}).then(collected => {
 						if (isNaN(parseInt(collected.first().content))) {
-							msg.channel2.send("That's not a number, bro. Count it ya self, goodbye XD")
+							channel2.send("That's not a number, bro. Count it ya self, goodbye XD")
 						}
 						else {
 							newwordcount = parseInt(collected.first().content)
-							msg.channel2.send(`Nice. You wrote ${newwordcount - wordcount} words. Good job, mate!`)
+							channel2.send(`Nice. You wrote ${newwordcount - wordcount} words. Good job, mate!`)
 							sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2}).then(deleted => {
 								if (deleted) {
 									console.log("Success in deleting sprint.")
