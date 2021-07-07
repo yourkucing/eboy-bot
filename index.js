@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const timeoutModel = require('./models/timeoutSchema');
 const channelModel = require('./models/channelSchema');
 const moneyModel = require('./models/moneySchema');
+const sprintModel = require('./models/sprintSchema');
 
 
 client.commands = new Map();
@@ -27,6 +28,11 @@ mongoose.connect(process.env.MONGODB_SRV, {
 const checkforTimeouts = async() => {
 	const query = {
 		timeout: {
+			$lte: Date.now()
+		}
+	}
+	const query2 = {
+		sprint: {
 			$lte: Date.now()
 		}
 	}
@@ -53,6 +59,36 @@ const checkforTimeouts = async() => {
 				await timeoutModel.deleteOne({userID: userID, serverID: guildID, channelID: channelID})
 			}
 			
+		}
+	}
+	const results2 = await sprintModel.find(query2)
+	if (results2) {
+		for (const post2 of results2) {
+			userID2 = post2.userID
+			guildID2 = post2.serverID
+			channelID2 = post2.channelID
+			wordcount = post2.word
+
+			const guild2 = client.guilds.cache.get(guildID2)
+			const channel2 = client.channels.cache.get(channelID2)
+			const user2 = guild2.members.cache.get(userID2)
+			if (!user2) {
+				continue
+			}
+			else {
+				msg.channel.send(`<@${userID2}>! Writing sprint is up!`);
+				msg.channel.send(`What is your new word count?`);
+				msg.channel.awaitMessages(m => m.author.id == userID2, {max: 1}).then(collected => {
+					if (isNaN(parseInt(collected.first().content))) {
+						msg.channel2.send("That's not a number, bro. Count it ya self, goodbye XD")
+					}
+					else {
+						newwordcount = parseInt(collected.first().content)
+						msg.channel2.send(`Nice. You wrote ${newwordcount - wordcount} words. Good job, mate!`)
+						await sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2})
+					}
+				})
+			}
 		}
 	}
 
