@@ -2,8 +2,7 @@ const moneyModel = require('../../models/moneySchema');
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
-	msg.channel.send(`\`We are under construction.\``)
-/* 	var gifs = [
+	var gifs = [
 		'https://media1.tenor.com/images/06e438bb03983a7c7087618f20b2c25a/tenor.gif?itemid=8203989',
 		'https://media0.giphy.com/media/Tex4wVhhs4iwKoV7YT/giphy-downsized-large.gif',
 		'https://media1.tenor.com/images/a02cee03339a2156d20a968be61a6ee8/tenor.gif',
@@ -40,6 +39,10 @@ module.exports.run = async(client, msg, args) => {
 			extra = ``
 			if (units != "g") {
 				msg.channel.send(`Are you sure you inputted the right format? It should be like this: 5g for 5 gold.`)
+				return
+			}
+			else if (money < 0) {
+				msg.channel.send(`If you want to rob, uwse \`uwu rob\`. But be careful, it depends on how lucky you are!`)
 				return
 			}
 		}
@@ -174,7 +177,7 @@ module.exports.run = async(client, msg, args) => {
 			msg.channel.send(embed);
 			
 
-		} */
+		}
 
 	}
 

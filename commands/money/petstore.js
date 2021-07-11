@@ -3,9 +3,7 @@ const petModel = require('../../models/petSchema');
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
-	msg.channel.send(`\`We are under construction.\``)
-
-/*     cat = [ 'Abyssinian',
+    cat = [ 'Abyssinian',
         'American Curl',
         'Birman',
         'Munchkin',
@@ -266,5 +264,5 @@ module.exports.run = async(client, msg, args) => {
                 }
             })
         }
-    } */
+    }
 }

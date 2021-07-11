@@ -3,9 +3,8 @@ const Discord = require('discord.js');
 const { update } = require('../../models/petSchema');
 
 module.exports.run = async(client, msg, args) => {
-    msg.channel.send(`\`We are under construction.\``)
-
-/*     hooman = msg.author.id
+    
+    hooman = msg.author.id
     words = args.join(" ")
     pets = await petModel.find({userID: hooman, pet: {$ne: "food"}})
     food = await petModel.findOne({userID: hooman, pet: "food"})
@@ -180,7 +179,9 @@ module.exports.run = async(client, msg, args) => {
         else {
             petlist = 'Reply with the number of which pet you want to rename.\n'
             for (x in pets) {
-                petlist += `**${x+1}.** ${pets[x].pet}: ${pets[x].petname}\n`
+                n=1
+                petlist += `**${n}.** ${pets[x].pet}: ${pets[x].petname}\n`
+                n=n+1
             }
             msg.channel.send(petlist)
             msg.channel.awaitMessages(m => m.author.id == msg.author.id, {max: 1}).then(collected => {
@@ -217,5 +218,5 @@ module.exports.run = async(client, msg, args) => {
             })
         }
     }
- */
+
 }
