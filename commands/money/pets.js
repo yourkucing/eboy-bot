@@ -193,7 +193,7 @@ module.exports.run = async(client, msg, args) => {
                     number = parseInt(collected.first().content)
                     msg.channel.send(`Please state the new name: ("exit" to exit.)`)
                     msg.channel.awaitMessages(m => m.author.id == msg.author.id, {max: 1}).then(collected => {
-                        if(collected.first().content == "exit") {
+                        if(collected.first().content.toLowerCase() == "exit") {
                             msg.channel.send(`Okay, goodbye!`)
                             return
                         } 
