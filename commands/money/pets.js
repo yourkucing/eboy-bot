@@ -3,7 +3,9 @@ const Discord = require('discord.js');
 const { update } = require('../../models/petSchema');
 
 module.exports.run = async(client, msg, args) => {
-    hooman = msg.author.id
+    msg.channel.send(`\`We are under construction.\``)
+
+/*     hooman = msg.author.id
     words = args.join(" ")
     pets = await petModel.find({userID: hooman, pet: {$ne: "food"}})
     food = await petModel.findOne({userID: hooman, pet: "food"})
@@ -215,5 +217,5 @@ module.exports.run = async(client, msg, args) => {
             })
         }
     }
-
+ */
 }

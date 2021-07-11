@@ -3,8 +3,9 @@ const cookieModel = require('../../models/cookieSchema')
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+	msg.channel.send(`\`We are under construction.\``)
 
-    hooman = msg.author.id
+/*     hooman = msg.author.id
     server = msg.guild.id
 
     moneyData = await moneyModel.findOne({userID: hooman})
@@ -63,6 +64,6 @@ module.exports.run = async(client, msg, args) => {
         )
         .setThumbnail(`${url}`);
         msg.channel.send(embed);
-    }
+    } */
 
 }
