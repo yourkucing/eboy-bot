@@ -57,6 +57,9 @@ module.exports.run = async(client, msg, args) => {
                                     if (s) {
                                         msg.channel.send(`You have given ${taggedUser.displayName} ${num} pet food.`)
                                     }
+                                    else {
+                                        console.log("Pet food not updated!")
+                                    }
                                 })
                             }
                         })
