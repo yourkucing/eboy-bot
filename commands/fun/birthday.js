@@ -40,6 +40,7 @@ module.exports.run = async(client, msg, args) => {
             date = parseInt(date)
             month = months[month]
             birthday = `2000-${month}-${date}`
+            console.log(birthday)
             birthdayModel.create({
                 serverID: msg.guild.id,
                 userID: hooman,
