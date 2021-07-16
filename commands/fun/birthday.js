@@ -1,17 +1,23 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+    months = {january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12, jan: 1, feb: 2, mar: 3, apr: 4, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12}
     if (!args) {
         //show birthday details
     }
     else {
-        const words = args.join('').toLowerCase();
-        var date_regex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(0[1-9]|1[1-9]|2[1-9])$/;
-        if (date_regex.test(words)) {
-            console.log("Date follows dd/mm/yy format")
+        if (isNaN(args[0])) {
+            msg.channel.send(`**${args[0]}** is not a date. Please try again.`)
+            return
         }
-        else{
-          console.log("Invalid.")
+        else if (!months.includes(args[1].toLowerCase())) {
+            msg.channel.send(`Invalid month. Please try again.`)
+            return
+        }
+        else {
+            date = parseInt(args[0])
+            month = months[key]
+            console.log(month)
         }
     }
 }
