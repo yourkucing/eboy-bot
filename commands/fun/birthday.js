@@ -10,13 +10,13 @@ module.exports.run = async(client, msg, args) => {
             msg.channel.send(`**${args[0]}** is not a date. Please try again.`)
             return
         }
-        else if (!months.includes(args[1].toLowerCase())) {
+        else if (!(args[1].toLowerCase())) {
             msg.channel.send(`Invalid month. Please try again.`)
             return
         }
         else {
             date = parseInt(args[0])
-            month = months[key]
+            month = months[args[1].toLowerCase()]
             console.log(month)
         }
     }
