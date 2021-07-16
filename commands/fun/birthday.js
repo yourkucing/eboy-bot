@@ -47,7 +47,6 @@ module.exports.run = async(client, msg, args) => {
                 channelID: msg.channel.id,
                 birthday: new Date(birthday)
             }).then(r => {
-                console.log("is it in?")
                 if (r) {
                     msg.react(`✅`)
                 }

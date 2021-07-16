@@ -70,6 +70,7 @@ const checkforBirthdays = async() => {
 	}
 
 	birthdayModel.find(query).then(results => {
+		console.log(results)
 		if (results) {
 			for (const post of results) {
 				userID = post.userID
