@@ -65,6 +65,7 @@ const checkforBirthdays = async() => {
 	day = new Date().getDate()
 	month = new Date().getMonth() + 1
 	birthday = new Date(`2002-${month}-${day}`)
+	console.log(birthday)
 	const query = {
 		birthday: birthday
 	}
