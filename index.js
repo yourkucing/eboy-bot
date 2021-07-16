@@ -75,7 +75,7 @@ const checkforBirthdays = async() => {
 		if (results) {
 			for (const post of results) {
 				userID = post.userID
-				guildID = post.guildID
+				guildID = post.serverID
 				channelID = post.channelID
 
 				const guild = client.guilds.cache.get(guildID)
