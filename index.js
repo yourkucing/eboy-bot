@@ -64,33 +64,33 @@ const checkforTimeouts = async() => {
 const checkforBirthdays = async() => {
 	day = new Date().getDate()
 	month = new Date().getMonth() + 1
-	birthday = new Date(`2000-${month}-${day}`)
-	console.log(birthday)
-	const query = {
-		birthday: birthday
-	}
-
-	birthdayModel.find(query).then(results => {
-		console.log(results)
-		if (results) {
-			for (const post of results) {
-				userID = post.userID
-				guildID = post.serverID
-				channelID = post.channelID
-
-				const guild = client.guilds.cache.get(guildID)
-				const channel = client.channels.cache.get(channelID)
-				const user = guild.members.cache.get(userID)
-				if (!user) {
-					continue
-				}
-				else {
-					console.log(`Happy birthday, <@${userID}>!`)
-					channel.send(`Happy birthday, <@${userID}>!`)
+	console.log(Date.now())
+	if (new Date().getUTCHours == 7 && new Date().getUTCMinutes == 50 && new Date().getUTCSeconds == 0) {
+		birthday = new Date(`2000-${month}-${day}`)
+		const query = {
+			birthday: birthday
+		}
+	
+		birthdayModel.find(query).then(results => {
+			if (results) {
+				for (const post of results) {
+					userID = post.userID
+					guildID = post.serverID
+					channelID = post.channelID
+	
+					const guild = client.guilds.cache.get(guildID)
+					const channel = client.channels.cache.get(channelID)
+					const user = guild.members.cache.get(userID)
+					if (!user) {
+						continue
+					}
+					else {
+						channel.send(`Happy birthday, <@${userID}>!`)
+					}
 				}
 			}
-		}
-	})
+		})
+	}
 
 	setTimeout(checkforBirthdays, 1000 * 10)
 }
