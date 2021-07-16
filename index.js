@@ -64,8 +64,7 @@ const checkforTimeouts = async() => {
 const checkforBirthdays = async() => {
 	day = new Date().getDate()
 	month = new Date().getMonth() + 1
-	console.log(Date.now())
-	if (new Date().getUTCHours == 7 && new Date().getUTCMinutes == 50 && new Date().getUTCSeconds == 0) {
+	if (new Date().getUTCHours == 8 && new Date().getUTCMinutes == 10) {
 		birthday = new Date(`2000-${month}-${day}`)
 		const query = {
 			birthday: birthday
@@ -92,7 +91,7 @@ const checkforBirthdays = async() => {
 		})
 	}
 
-	setTimeout(checkforBirthdays, 1000 * 10)
+	setTimeout(checkforBirthdays, 1000 * 60)
 }
 
 const checkforSprints = async() => {
