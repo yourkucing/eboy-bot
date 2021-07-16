@@ -1,7 +1,9 @@
 const Discord = require('discord.js');
+const birthdayModel = require('../../models/birthdaySchema')
 
 module.exports.run = async(client, msg, args) => {
-    months = {january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12, jan: 1, feb: 2, mar: 3, apr: 4, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12}
+    hooman = msg.author.id
+    months = {january: 01, february: 02, march: 03, april: 04, may: 05, june: 06, july: 07, august: 08, september: 09, october: 10, november: 11, december: 12, jan: 01, feb: 02, mar: 03, apr: 04, jun: 06, jul: 07, aug: 08, sep: 09, oct: 10, nov: 11, dec: 12}
     if (!args) {
         //show birthday details
     }
@@ -17,7 +19,19 @@ module.exports.run = async(client, msg, args) => {
         else {
             date = parseInt(args[0])
             month = months[args[1].toLowerCase()]
-            console.log(month)
+            birthday = `2002-${month}-${date}`
+            birthdayModel.create({
+                serverID: msg.guild.id,
+                userID: hooman,
+                birthday: birthday
+            }).then(r => {
+                if (r) {
+                    msg.react(`✅`)
+                }
+                else {
+                    msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                }
+            })
         }
     }
 }
