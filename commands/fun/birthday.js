@@ -42,10 +42,11 @@ module.exports.run = async(client, msg, args) => {
             birthday = `2000-${month}-${date}`
             console.log(birthday)
             birthdayModel.create({
-                serverID: msg.guild.id,
+                serverID: server,
                 userID: hooman,
                 birthday: new Date(birthday)
             }).then(r => {
+                console.log("is it in?")
                 if (r) {
                     msg.react(`✅`)
                 }
