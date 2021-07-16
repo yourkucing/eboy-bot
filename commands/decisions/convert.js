@@ -6,7 +6,8 @@ module.exports.run = async(client, msg, args) => {
         return
     }
     else {
-        d = new Date()
+        words = args.join(" ")
+        d = new Date(words)
         msg.channel.send(`Now: ${d}`)
         utc_offset = d.getTimezoneOffset()
         d.setMinutes(d.getMinutes() + utc_offset)
