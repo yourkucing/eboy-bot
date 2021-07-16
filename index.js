@@ -85,6 +85,7 @@ const checkforBirthdays = async() => {
 					continue
 				}
 				else {
+					console.log(`Happy birthday, <@${userID}>!`)
 					channel.send(`Happy birthday, <@${userID}>!`)
 				}
 			}
