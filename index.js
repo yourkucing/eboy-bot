@@ -9,6 +9,7 @@ const timeoutModel = require('./models/timeoutSchema');
 const channelModel = require('./models/channelSchema');
 const moneyModel = require('./models/moneySchema');
 const sprintModel = require('./models/sprintSchema');
+const birthdayModel = require('./models/birthdaySchema');
 
 
 client.commands = new Map();
@@ -58,6 +59,37 @@ const checkforTimeouts = async() => {
 	}
 
 	setTimeout(checkforTimeouts, 1000 * 10)
+}
+
+const checkforBirthdays = async() => {
+	day = Date().getDate()
+	month = Date().getMonth() + 1
+	birthday = new Date(`2002-${month}-${day}`)
+	const query = {
+		birthday: birthday
+	}
+
+	birthdayModel.find(query).then(results => {
+		if (results) {
+			for (const post of results) {
+				userID = post.userID
+				guildID = post.guildID
+				channelID = post.channelID
+
+				const guild = client.guilds.cache.get(guildID)
+				const channel = client.channels.cache.get(channelID)
+				const user = guild.members.cache.get(userID)
+				if (!user) {
+					continue
+				}
+				else {
+					channel.send(`Happy birthday, <@${userID}>!`)
+				}
+			}
+		}
+	})
+
+	setTimeout(checkforBirthdays, 1000 * 10)
 }
 
 const checkforSprints = async() => {
@@ -116,6 +148,9 @@ client.on('ready', () => {
 		console.log(err)
 	})
 	checkforSprints().catch((err) => {
+		console.log(err)
+	})
+	checkforBirthdays().catch((err) => {
 		console.log(err)
 	})
  });

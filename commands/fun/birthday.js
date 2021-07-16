@@ -44,6 +44,7 @@ module.exports.run = async(client, msg, args) => {
             birthdayModel.create({
                 serverID: server,
                 userID: hooman,
+                channelID: msg.channel.id,
                 birthday: new Date(birthday)
             }).then(r => {
                 console.log("is it in?")
