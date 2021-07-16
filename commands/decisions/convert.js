@@ -7,13 +7,13 @@ module.exports.run = async(client, msg, args) => {
     }
     else {
         words = args.join(" ")
-        d = new Date(words)
+        d = new Date().getTimezoneOffset()/60;
         msg.channel.send(`Now: ${d}`)
-        utc_offset = d.getTimezoneOffset()
+/*         utc_offset = d.getTimezoneOffset()
         d.setMinutes(d.getMinutes() + utc_offset)
         msg.channel.send(`UTC: ${d}`)
         cest_offset = 2 * 60
         d.setMinutes(d.getMinutes() + cest_offset)
-        msg.channel.send(`Denmark: ${d}`)
+        msg.channel.send(`Denmark: ${d}`) */
     }
 }
