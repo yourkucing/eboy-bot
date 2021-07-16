@@ -26,18 +26,20 @@ module.exports.run = async(client, msg, args) => {
         }
     }
     else {
+        date = args[0]
+        month = args[1].toLowerCase()
         if (isNaN(args[0])) {
             msg.channel.send(`**${args[0]}** is not a date. Please try again.`)
             return
         }
-        else if (!(args[1].toLowerCase()) in months) {
+        else if (!(month in months)) {
             msg.channel.send(`Invalid month. Please try again.`)
             return
         }
         else {
-            date = parseInt(args[0])
-            month = months[args[1].toLowerCase()]
-            birthday = `2002-${month}-${date}`
+            date = parseInt(date)
+            month = months[month]
+            birthday = `2000-${month}-${date}`
             birthdayModel.create({
                 serverID: msg.guild.id,
                 userID: hooman,
