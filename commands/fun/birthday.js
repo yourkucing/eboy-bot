@@ -10,7 +10,7 @@ module.exports.run = async(client, msg, args) => {
             msg.channel.send(`**${args[0]}** is not a date. Please try again.`)
             return
         }
-        else if (!(args[1].toLowerCase())) {
+        else if (!(args[1].toLowerCase()) in months) {
             msg.channel.send(`Invalid month. Please try again.`)
             return
         }
