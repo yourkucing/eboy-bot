@@ -62,8 +62,8 @@ const checkforTimeouts = async() => {
 }
 
 const checkforBirthdays = async() => {
-	day = Date().getDate()
-	month = Date().getMonth() + 1
+	day = Date.now().getDate()
+	month = Date.now().getMonth() + 1
 	birthday = new Date(`2002-${month}-${day}`)
 	const query = {
 		birthday: birthday
