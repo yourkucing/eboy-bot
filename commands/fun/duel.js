@@ -1,6 +1,13 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+
+    function delay(ms) {
+        return new Promise(
+          resolve => setTimeout(resolve, ms)
+        );
+      }
+
 	var results = [
         'Herbifors', 
         'Incendio', 
@@ -59,9 +66,11 @@ module.exports.run = async(client, msg, args) => {
                     player1 = msg.guild.members.cache.get(msg.author.id).displayName;
                     player2 = taggedUser.displayName;
                     msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
+                    await delay(1000)
                     while (p1points > 0 && p2points > 0) {
                         const randomOption = results[Math.floor(Math.random() * results.length)];
                         msg.channel.send(`**${player1}** casted ${randomOption} (∩•̀ω•́)⊃-⋆`);
+                        await delay(1000)
 
                         dice = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
                         if (dice >= 10) {
@@ -85,6 +94,7 @@ module.exports.run = async(client, msg, args) => {
                         if (p2points < 0) {
                             p2points = 0
                         }
+                        await delay(1000)
                         msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`");
                         
                         if (p1points <= 0 || p2points <= 0) {
@@ -92,7 +102,9 @@ module.exports.run = async(client, msg, args) => {
                         }
                         
                         const randomOption2 = results[Math.floor(Math.random() * results.length)];
+                        await delay(1000)
                         msg.channel.send(`**${player2}** casted ${randomOption2} ⋆-⊂(•̀ω•́∩)`);
+                        await delay(1000)
 
                         dice2 = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
                         if (dice2 >= 10) {
@@ -116,7 +128,7 @@ module.exports.run = async(client, msg, args) => {
                         if (p2points < 0) {
                             p2points = 0
                         }
-                        
+                        await delay(1000)
                         msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`");
                     }
                     
