@@ -1,11 +1,5 @@
 const Discord = require('discord.js');
 
-function delay(ms) {
-    return new Promise(
-      resolve => setTimeout(resolve, ms)
-    );
-  }
-
 module.exports.run = async(client, msg, args) => {
 
 	var results = [
@@ -52,7 +46,8 @@ module.exports.run = async(client, msg, args) => {
 	else {
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-            //later
+            msg.channel.send("You cannot duel yourself, buddy!")
+            return
 		}
 		else {	
             player2id = taggedUser.id;
@@ -66,25 +61,27 @@ module.exports.run = async(client, msg, args) => {
                     player1 = msg.guild.members.cache.get(msg.author.id).displayName;
                     player2 = taggedUser.displayName;
                     msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
-                    await delay(1000)
                     while (p1points > 0 && p2points > 0) {
                         const randomOption = results[Math.floor(Math.random() * results.length)];
-                        msg.channel.send(`**${player1}** casted ${randomOption} (∩•̀ω•́)⊃-⋆`);
-                        await delay(1000)
+                        setTimeout(msg.channel.send(`**${player1}** casted ${randomOption} (∩•̀ω•́)⊃-⋆`), 1000)
+                        
+                        setTimeout(results, 1000)
+                        function results() {
+                            dice = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+                            if (dice >= 10) {
+                                hp = 50;
+                                msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)** `);
+                            }
+                            else if (dice > 6 && dice < 10) {
+                                hp = 20;
+                                msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)** `);
+                            }
+                            else if (dice <= 6) {
+                                hp = 0;
+                                msg.channel.send(`**${player1}**'s spell was blocked by **${player2}**! :shield: **(-${hp} HP)** `);
+                            }
+                        }
 
-                        dice = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
-                        if (dice >= 10) {
-                            hp = 50;
-                            msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)** `);
-                        }
-                        else if (dice > 6 && dice < 10) {
-                            hp = 20;
-                            msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)** `);
-                        }
-                        else if (dice <= 6) {
-                            hp = 0;
-                            msg.channel.send(`**${player1}**'s spell was blocked by **${player2}**! :shield: **(-${hp} HP)** `);
-                        }
                         p2points = p2points - hp; 
                         
                         if (p1points < 0) {
@@ -94,31 +91,34 @@ module.exports.run = async(client, msg, args) => {
                         if (p2points < 0) {
                             p2points = 0
                         }
-                        await delay(1000)
-                        msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`");
+                        setTimeout(msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`"), 1000)
                         
                         if (p1points <= 0 || p2points <= 0) {
                             continue;
                         }
                         
                         const randomOption2 = results[Math.floor(Math.random() * results.length)];
-                        await delay(1000)
-                        msg.channel.send(`**${player2}** casted ${randomOption2} ⋆-⊂(•̀ω•́∩)`);
-                        await delay(1000)
+                        
+                        setTimeout(msg.channel.send(`**${player2}** casted ${randomOption2} ⋆-⊂(•̀ω•́∩)`), 1000)
+                        
+                        setTimeout(results2, 1000)
 
-                        dice2 = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
-                        if (dice2 >= 10) {
-                            hp = 50;
-                            msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)** `);
+                        function results2() {
+                            dice2 = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+                            if (dice2 >= 10) {
+                                hp = 50;
+                                msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)** `);
+                            }
+                            else if (dice2 > 6 && dice2 < 10) {
+                                hp = 20;
+                                msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)** `);
+                            }
+                            else if (dice2 <= 6) {
+                                hp = 0;
+                                msg.channel.send(`**${player2}**'s spell was blocked by **${player1}**! :shield: **(-${hp} HP)** `);
+                            }
                         }
-                        else if (dice2 > 6 && dice2 < 10) {
-                            hp = 20;
-                            msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)** `);
-                        }
-                        else if (dice2 <= 6) {
-                            hp = 0;
-                            msg.channel.send(`**${player2}**'s spell was blocked by **${player1}**! :shield: **(-${hp} HP)** `);
-                        }
+
                         p1points = p1points - hp; 
                         
                         if (p1points < 0) {
@@ -128,8 +128,8 @@ module.exports.run = async(client, msg, args) => {
                         if (p2points < 0) {
                             p2points = 0
                         }
-                        await delay(1000)
-                        msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`");
+                        setTimeout(msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`"), 1000)
+                        
                     }
                     
                     if (p1points <= 0 && p2points > 0) {
