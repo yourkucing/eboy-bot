@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
 
-module.exports.run = async(client, msg, args) => {
+function delay(ms) {
+    return new Promise(
+      resolve => setTimeout(resolve, ms)
+    );
+  }
 
-    function delay(ms) {
-        return new Promise(
-          resolve => setTimeout(resolve, ms)
-        );
-      }
+module.exports.run = async(client, msg, args) => {
 
 	var results = [
         'Herbifors', 
