@@ -21,13 +21,26 @@ module.exports.run = async(client, msg, args) => {
     }
     else {
         if (args[0].toLowerCase() == "clear") {
-            clear = await todoModel.deleteMany({userID: author})
-            if (clear) {
-                msg.channel.send("Todo list has been deleted")
-            }
-            else {
-                msg.channel.send("Todo list has not been deleted. Please try again. If error persists, please contact Maryam#9206.")
-            }
+            msg.channel.send("Are you sure you want to clear everything? Reply with yes or no, within 30 seconds.")
+            msg.channel.awaitMessages(m => m.author.id == msg.author.id, {max: 1, time: 30000}).then(collected => {
+                if (collected.first().content.toLowerCase() == 'yes') {
+                    todoModel.deleteMany({userID: author}).then(clear => {
+                        if (clear) {
+                            msg.channel.send("Todo list has been deleted")
+                        }
+                        else {
+                            msg.channel.send("Todo list has not been deleted. Please try again. If error persists, please contact Maryam#9206.")
+                        }
+                    })
+                }
+                else {
+                    msg.channel.send("Alright, goodbye!")
+                    return
+                }
+
+            }).catch(collected => {
+                msg.channel.send('No reply after 30 seconds, todo list is not cleared!');
+                });
         }
         else if (args[0].toLowerCase() == "delete") {
             if (isNaN(args[1])) {
@@ -74,8 +87,8 @@ module.exports.run = async(client, msg, args) => {
             }
             
         }
-        else {
-            words = args.join(" ")
+        else if (args[0].toLowerCase() == add) {
+            words = args.slice(1).join(" ")
             todoModel.create({
                 userID: author,
                 todo: words
