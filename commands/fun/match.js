@@ -91,29 +91,14 @@ module.exports.run = async(client, msg, args) => {
 		return `${user.id} `;
 		});
 		userid = userids.toString().split(',');
-		if ((userid[0].trim() === '632493999818670091' && userid[1].trim() === '630803907181936641') || (userid[1].trim() === '632493999818670091' && userid[0].trim() === '630803907181936641')) {
+		if ((userid[0].trim() === '332123726864973837' && userid[1].trim() === '279101053750870017') || (userid[1].trim() === '332123726864973837' && userid[0].trim() === '279101053750870017')) {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
 			.setDescription('Come come, let eboy show you how compatible you are :3')
 			.addFields(
-				{ name: 'Hooman 1', value: `${msg.guild.members.cache.get(parseInt(userid[0].trim())).displayName}`, inline: true },
-				{ name: 'Hooman 2', value: `${msg.guild.members.cache.get(parseInt(userid[1].trim())).displayName}`, inline: true },
-				{ name: 'Love score', value: `100/100`, inline: true },
-				{ name: 'Love bar', value: `██████████`},
-				{ name: 'Conclusion', value: `You will last till eternity. :heart:`},
-			);
-			
-			msg.channel.send(embed);
-		}
-		else if ((userid[0].trim() === '332123726864973837' && userid[1].trim() === '279101053750870017') || (userid[1].trim() === '332123726864973837' && userid[0].trim() === '279101053750870017')) {
-			const embed = new Discord.MessageEmbed()
-			.setColor('#FF69B4')
-			.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
-			.setDescription('Come come, let eboy show you how compatible you are :3')
-			.addFields(
-				{ name: 'Hooman 1', value: `${msg.guild.members.cache.get(parseInt(userid[0].trim())).displayName}`, inline: true },
-				{ name: 'Hooman 2', value: `${msg.guild.members.cache.get(parseInt(userid[1].trim())).displayName}`, inline: true },
+				{ name: 'Hooman 1', value: `${users[0]}`, inline: true },
+				{ name: 'Hooman 2', value: `${users[1]}`, inline: true },
 				{ name: 'Love score', value: `100/100`, inline: true },
 				{ name: 'Love bar', value: `██████████`},
 				{ name: 'Conclusion', value: `You will last till eternity. :heart:`},
@@ -128,8 +113,8 @@ module.exports.run = async(client, msg, args) => {
 			.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
 			.setDescription('Come come, let eboy show you how compatible you are :3\r\nI\'m just a bot messenger btw, this is definitely not real so please do not shoot or kill the messenger uwu thankies :3')
 			.addFields(
-				{ name: 'Hooman 1', value: `${msg.guild.members.cache.get(parseInt(userid[0].trim())).displayName}`, inline: true },
-				{ name: 'Hooman 2', value: `${msg.guild.members.cache.get(parseInt(userid[1].trim())).displayName}`, inline: true },
+				{ name: 'Hooman 1', value: `${users[0]}`, inline: true },
+				{ name: 'Hooman 2', value: `${users[1]}`, inline: true },
 				{ name: 'Love score', value: `${randomresults.score}`, inline: true },
 				{ name: 'Love bar', value: `${randomresults.bar}`},
 				{ name: 'Conclusion', value: `${randomresults.conclusion}`},

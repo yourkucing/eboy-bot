@@ -11,6 +11,7 @@ module.exports.run = async(client, msg, args) => {
         }
         else {
             msg.channel.send(collected.first().content)
+            console.log(collected)
         }
     })
 }
