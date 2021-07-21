@@ -51,6 +51,29 @@ module.exports.run = async(client, msg, args) => {
                 }
             }
         }
+        else if (args[0].toLowerCase() == "done") {
+            if (isNaN(args[1])) {
+                msg.channel.send("You did not key in the number. Please do it in this way: \`uwu todo done [number to be ticked as done]\`")
+                return
+            }
+            else {
+                n = args[1] - 1
+                if (!todo || todo.length == 0) {
+                    msg.channel.send(`You have nothing on your todo list. You can start adding by typing \`uwu todo <whatever you want to put here>\``)
+                    return
+                }
+                else {
+                    deletion = await todoModel.findOneAndDelete({userID: author, todo: todo[n].todo})
+                    if (deletion) {
+                        msg.react(`✅`)
+                    }
+                    else {
+                        msg.channel.send(`**[${args[1]}]** has not been deleted. Please try again. If error persists, please contact Maryam#9206.`)
+                    }
+                }
+            }
+            
+        }
         else {
             words = args.join(" ")
             todoModel.create({
