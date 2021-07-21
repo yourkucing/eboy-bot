@@ -95,7 +95,7 @@ module.exports.run = async(client, msg, args) => {
                                     if (p2points < 0) {
                                         p2points = 0
                                     }
-                                    sleep(2).then(r => {
+                                    await sleep(2)
                                         msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`");
                                     
                                         if (p1points <= 0 || p2points <= 0) {
@@ -103,7 +103,7 @@ module.exports.run = async(client, msg, args) => {
                                         }
                                         
                                         const randomOption2 = results[Math.floor(Math.random() * results.length)];
-                                        sleep(2).then(r => {
+                                        await sleep(2)
                                             msg.channel.send(`**${player2}** casted ${randomOption2} ⋆-⊂(•̀ω•́∩)`);
                     
                                             dice2 = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
@@ -128,14 +128,9 @@ module.exports.run = async(client, msg, args) => {
                                             if (p2points < 0) {
                                                 p2points = 0
                                             }
-                                            sleep(2).then(r => {
+                                            await sleep(2)
                                                 msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`");
                                                 
-                                            })
-                                            
-                                        })
-                                        
-                                    })
 
                                 }
                                 if (p1points <= 0 && p2points > 0) {
