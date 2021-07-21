@@ -77,17 +77,17 @@ module.exports.run = async(client, msg, args) => {
                                     dice = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
                                     if (dice >= 10) {
                                         hp = 50;
-                                        await sleep(1)
+                                        await sleep(2)
                                         msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)** `);
                                     }
                                     else if (dice > 6 && dice < 10) {
                                         hp = 20;
-                                        await sleep(1)
+                                        await sleep(2)
                                         msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)** `);
                                     }
                                     else if (dice <= 6) {
                                         hp = 0;
-                                        await sleep(1)
+                                        await sleep(2)
                                         msg.channel.send(`**${player1}**'s spell was blocked by **${player2}**! :shield: **(-${hp} HP)** `);
                                     }
                                     p2points = p2points - hp; 
@@ -99,7 +99,7 @@ module.exports.run = async(client, msg, args) => {
                                     if (p2points < 0) {
                                         p2points = 0
                                     }
-                                    await sleep(1)
+                                    await sleep(2)
                                         msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`");
                                     
                                         if (p1points <= 0 || p2points <= 0) {
@@ -108,23 +108,23 @@ module.exports.run = async(client, msg, args) => {
                                         
                                         const randomOption2 = results[Math.floor(Math.random() * results.length)];
 
-                                        await sleep(1)
+                                        await sleep(2)
                                             msg.channel.send(`**${player2}** casted ${randomOption2} ⋆-⊂(•̀ω•́∩)`);
                     
                                             dice2 = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
                                             if (dice2 >= 10) {
                                                 hp = 50;
-                                                await sleep(1)
+                                                await sleep(2)
                                                 msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)** `);
                                             }
                                             else if (dice2 > 6 && dice2 < 10) {
                                                 hp = 20;
-                                                await sleep(1)
+                                                await sleep(2)
                                                 msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)** `);
                                             }
                                             else if (dice2 <= 6) {
                                                 hp = 0;
-                                                await sleep(1)
+                                                await sleep(2)
                                                 msg.channel.send(`**${player2}**'s spell was blocked by **${player1}**! :shield: **(-${hp} HP)** `);
                                             }
                                             p1points = p1points - hp; 
@@ -136,7 +136,7 @@ module.exports.run = async(client, msg, args) => {
                                             if (p2points < 0) {
                                                 p2points = 0
                                             }
-                                                await sleep(1)
+                                                await sleep(2)
                                                 msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`");
                                         }
                                   }
