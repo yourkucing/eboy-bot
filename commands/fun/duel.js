@@ -62,10 +62,10 @@ module.exports.run = async(client, msg, args) => {
                     try {
                         msg.channel.send(`One message`)
                         //delay here
-                        sleep(2);
+                        sleep(10);
                         msg.channel.send(`One message`)
                         //delay here
-                        sleep(2);
+                        sleep(5);
                         msg.channel.send(`One message`)
                         //delay here
                         sleep(2);
