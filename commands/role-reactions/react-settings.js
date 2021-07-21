@@ -10,7 +10,8 @@ module.exports.run = async(client, msg, args) => {
             return
         }
         else {
-            msg.channel.send(collected.first().mentions.channel.id)
+            msg.channel.send(collected.first().mentions.channels)
+            console.log(collected.first().mentions.channels)
         }
     })
 }
