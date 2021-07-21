@@ -68,7 +68,7 @@ module.exports.run = async(client, msg, args) => {
                         sleep(2).then(r => {
                             msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
                             sleep(2).then(r => {
-                                async () => {
+                                this.run = async () => {
                                     while (p1points > 0 && p2points > 0) {
                                     const randomOption = results[Math.floor(Math.random() * results.length)];
                                     msg.channel.send(`**${player1}** casted ${randomOption} (∩•̀ω•́)⊃-⋆`);
