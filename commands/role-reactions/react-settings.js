@@ -44,7 +44,7 @@ module.exports.run = async(client, msg, args) => {
                                 }
                                 else {
                                     reply = collected.first().content.toLowerCase()
-                                    while (collected.first().content.toLowerCase() != "no") {
+                                    while (reply != "no") {
                                         msg.channel.send(`Please tag the role that you want: (Eg. @potatokids)\nReply with "exit" to exit.`)
                                         msg.channel.awaitMessages(m => m.author.id == author, {max: 1}).then(collected => {
                                             if (collected.first().content.toLowerCase() == 'exit') {
