@@ -95,7 +95,7 @@ module.exports.run = async(client, msg, args) => {
                                     if (p2points < 0) {
                                         p2points = 0
                                     }
-                                    await sleep(2)
+                                    sleep(2).then(r => {
                                         msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`");
                                     
                                         if (p1points <= 0 || p2points <= 0) {
@@ -103,7 +103,7 @@ module.exports.run = async(client, msg, args) => {
                                         }
                                         
                                         const randomOption2 = results[Math.floor(Math.random() * results.length)];
-                                        await sleep(2)
+                                        sleep(2).then(r => {
                                             msg.channel.send(`**${player2}** casted ${randomOption2} ⋆-⊂(•̀ω•́∩)`);
                     
                                             dice2 = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
@@ -128,12 +128,17 @@ module.exports.run = async(client, msg, args) => {
                                             if (p2points < 0) {
                                                 p2points = 0
                                             }
-                                            await sleep(2)
+                                            sleep(2).then(r => {
                                                 msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`");
                                                 
+                                            })
+                                            
+                                        })
+                                        
+                                    })
 
                                 }
-                                if (p1points <= 0 && p2points > 0) {
+/*                                 if (p1points <= 0 && p2points > 0) {
                                     msg.channel.send(`**${player1}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！\r\nCONGRATULATIONS, **${player2}**! (っ◕‿◕)っ :heart:`);
                                     const embed = new Discord.MessageEmbed()
                                     .setColor('#FF69B4')
@@ -148,22 +153,12 @@ module.exports.run = async(client, msg, args) => {
                                     .setTitle(`${player1} won the duel!`)
                                     .setImage('https://i.gifer.com/WKta.gif');
                                     msg.channel.send(embed);
-                                }
+                                } */
                             })
                         })
                       } catch (error) {
                        console.error(error)
                       }
-/*                     msg.channel.send("Let the battle begin!");
-                    p1points = 100;
-                    p2points = 100;
-                    player1 = msg.guild.members.cache.get(msg.author.id).displayName;
-                    player2 = taggedUser.displayName;
-                    msg.channel.send(`**${player1}**: ${p1points}, **${player2}**: ${p2points}`);
-                    //delay here
- 
-                    
- */
                 }
 
                 else if (collected.first().content.toLowerCase() == 'no') {
