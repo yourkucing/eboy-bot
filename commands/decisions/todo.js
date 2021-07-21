@@ -87,7 +87,7 @@ module.exports.run = async(client, msg, args) => {
             }
             
         }
-        else if (args[0].toLowerCase() == add) {
+        else if (args[0].toLowerCase() == "add") {
             words = args.slice(1).join(" ")
             todoModel.create({
                 userID: author,
