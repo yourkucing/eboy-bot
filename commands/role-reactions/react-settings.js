@@ -10,8 +10,11 @@ module.exports.run = async(client, msg, args) => {
             return
         }
         else {
-            msg.channel.send(collected.first().mentions.channels)
-            console.log(collected.first().mentions.channels)
+            const channels = collected.first().mentions.channels.map(channel => {
+                return channel.id;
+            })
+            channels[0].send("test")
+            
         }
     })
 }
