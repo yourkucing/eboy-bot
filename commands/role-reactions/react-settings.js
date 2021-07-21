@@ -25,7 +25,7 @@ module.exports.run = async(client, msg, args) => {
                     const roles = collected.first().mentions.roles.map(role => {
                         return role.id;
                     })
-                    role = role[0]
+                    role = roles[0]
                     msg.channel.send(`Please reply with the emoji that you want: (Eg. :heart:)\nReply with "exit" to exit.`)
                     msg.channel.awaitMessages(m => m.author.id == author, {max: 1}).then(collected => {
                         if (collected.first().content.toLowerCase() == 'exit') {
