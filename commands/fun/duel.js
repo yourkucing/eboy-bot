@@ -74,18 +74,18 @@ module.exports.run = async(client, msg, args) => {
                                     msg.channel.send(`**${player1}** casted ${randomOption} (∩•̀ω•́)⊃-⋆`);
                                     
             
-                                    dice = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
-                                    if (dice >= 10) {
+                                    dice = (Math.floor(Math.random() * 20) + 1);
+                                    if (dice >= 15) {
                                         hp = 50;
                                         await sleep(2)
                                         msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)** `);
                                     }
-                                    else if (dice > 6 && dice < 10) {
+                                    else if (dice > 5 && dice < 15) {
                                         hp = 20;
                                         await sleep(2)
                                         msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)** `);
                                     }
-                                    else if (dice <= 6) {
+                                    else if (dice <= 5) {
                                         hp = 0;
                                         await sleep(2)
                                         msg.channel.send(`**${player1}**'s spell was blocked by **${player2}**! :shield: **(-${hp} HP)** `);
@@ -111,18 +111,18 @@ module.exports.run = async(client, msg, args) => {
                                         await sleep(2)
                                             msg.channel.send(`**${player2}** casted ${randomOption2} ⋆-⊂(•̀ω•́∩)`);
                     
-                                            dice2 = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
-                                            if (dice2 >= 10) {
+                                            dice2 = (Math.floor(Math.random() * 20) + 1);
+                                            if (dice2 >= 15) {
                                                 hp = 50;
                                                 await sleep(2)
                                                 msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)** `);
                                             }
-                                            else if (dice2 > 6 && dice2 < 10) {
+                                            else if (dice2 > 5 && dice2 < 15) {
                                                 hp = 20;
                                                 await sleep(2)
                                                 msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)** `);
                                             }
-                                            else if (dice2 <= 6) {
+                                            else if (dice2 <= 5) {
                                                 hp = 0;
                                                 await sleep(2)
                                                 msg.channel.send(`**${player2}**'s spell was blocked by **${player1}**! :shield: **(-${hp} HP)** `);
@@ -141,85 +141,25 @@ module.exports.run = async(client, msg, args) => {
                                         }
                                   }
                                   whileloop();
-                                  
-/*                                 while (p1points > 0 && p2points > 0) {
-                                    const randomOption = results[Math.floor(Math.random() * results.length)];
-                                    msg.channel.send(`**${player1}** casted ${randomOption} (∩•̀ω•́)⊃-⋆`);
-                                    //delay here
-            
-                                    dice = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
-                                    if (dice >= 10) {
-                                        hp = 50;
-                                        msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)** `);
-                                    }
-                                    else if (dice > 6 && dice < 10) {
-                                        hp = 20;
-                                        msg.channel.send(`**${player1}**'s spell hit **${player2}**! BAM :boom: **(-${hp} HP)** `);
-                                    }
-                                    else if (dice <= 6) {
-                                        hp = 0;
-                                        msg.channel.send(`**${player1}**'s spell was blocked by **${player2}**! :shield: **(-${hp} HP)** `);
-                                    }
-                                    p2points = p2points - hp; 
-                                    
-                                    if (p1points < 0) {
-                                        p1points = 0
-                                    }
-                                    
-                                    if (p2points < 0) {
-                                        p2points = 0
-                                    }
-                                        msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`");
-                                    
-                                        if (p1points <= 0 || p2points <= 0) {
-                                            continue;
-                                        }
-                                        
-                                        const randomOption2 = results[Math.floor(Math.random() * results.length)];
 
-                                            msg.channel.send(`**${player2}** casted ${randomOption2} ⋆-⊂(•̀ω•́∩)`);
-                    
-                                            dice2 = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
-                                            if (dice2 >= 10) {
-                                                hp = 50;
-                                                msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)** `);
-                                            }
-                                            else if (dice2 > 6 && dice2 < 10) {
-                                                hp = 20;
-                                                msg.channel.send(`**${player2}**'s spell hit **${player1}**! BAM :boom: **(-${hp} HP)** `);
-                                            }
-                                            else if (dice2 <= 6) {
-                                                hp = 0;
-                                                msg.channel.send(`**${player2}**'s spell was blocked by **${player1}**! :shield: **(-${hp} HP)** `);
-                                            }
-                                            p1points = p1points - hp; 
-                                            
-                                            if (p1points < 0) {
-                                                p1points = 0
-                                            }
-                                            
-                                            if (p2points < 0) {
-                                                p2points = 0
-                                            }
-                                                msg.channel.send("`" + player1 + ": " + p1points + ", " + player2 + ": " + p2points + "`");
-
-                                } */
-/*                                 if (p1points <= 0 && p2points > 0) {
-                                    msg.channel.send(`**${player1}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！\r\nCONGRATULATIONS, **${player2}**! (っ◕‿◕)っ :heart:`);
-                                    const embed = new Discord.MessageEmbed()
-                                    .setColor('#FF69B4')
-                                    .setTitle(`${player2} won the duel!`)
-                                    .setImage('https://i.gifer.com/WKta.gif');
-                                    msg.channel.send(embed);
-                                }
-                                else if (p2points <= 0 && p1points > 0) {
-                                    msg.channel.send(`**${player2}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！\r\nCONGRATULATIONS, **${player1}**! (っ◕‿◕)っ :heart:`);
-                                    const embed = new Discord.MessageEmbed()
-                                    .setColor('#FF69B4')
-                                    .setTitle(`${player1} won the duel!`)
-                                    .setImage('https://i.gifer.com/WKta.gif');
-                                    msg.channel.send(embed);
-                                } */
+                                sleep(1).then(r => {
+                                    if (p1points <= 0 && p2points > 0) {
+                                        msg.channel.send(`**${player1}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！\r\nCONGRATULATIONS, **${player2}**! (っ◕‿◕)っ :heart:`);
+                                        const embed = new Discord.MessageEmbed()
+                                        .setColor('#FF69B4')
+                                        .setTitle(`${player2} won the duel!`)
+                                        .setImage('https://i.gifer.com/WKta.gif');
+                                        msg.channel.send(embed);
+                                    }
+                                    else if (p2points <= 0 && p1points > 0) {
+                                        msg.channel.send(`**${player2}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！\r\nCONGRATULATIONS, **${player1}**! (っ◕‿◕)っ :heart:`);
+                                        const embed = new Discord.MessageEmbed()
+                                        .setColor('#FF69B4')
+                                        .setTitle(`${player1} won the duel!`)
+                                        .setImage('https://i.gifer.com/WKta.gif');
+                                        msg.channel.send(embed);
+                                    }
+                                })
                             })
                         })
                       } catch (error) {
