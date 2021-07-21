@@ -13,7 +13,8 @@ module.exports.run = async(client, msg, args) => {
             const channels = collected.first().mentions.channels.map(channel => {
                 return channel.id;
             })
-            channels[0].send("test")
+
+            msg.guild.channels.cache.get(channels[0]).send("test")
             
         }
     })
