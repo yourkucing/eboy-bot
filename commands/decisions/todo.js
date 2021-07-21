@@ -14,6 +14,7 @@ module.exports.run = async(client, msg, args) => {
         todolist += `\`\`\`md\n# ${msg.guild.members.cache.get(author).displayName}'s Todo List\n`
         for (x in todo) {
             todolist += `${n}. ${todo[x].todo}\n`
+            n += 1
         }
         todolist += `\`\`\``
         msg.channel.send(todolist)
