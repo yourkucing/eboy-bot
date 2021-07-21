@@ -60,15 +60,15 @@ module.exports.run = async(client, msg, args) => {
             msg.channel.awaitMessages(m => m.author.id == taggedUser.id, {max: 1, time: 30000}).then(collected => {
                 if (collected.first().content.toLowerCase() == 'yes') {
                     try {
-                        await msg.channel.send(`One message`)
+                        msg.channel.send(`One message`)
                         //delay here
-                        await sleep(2);
-                        await  msg.channel.send(`One message`)
+                        sleep(2);
+                        msg.channel.send(`One message`)
                         //delay here
-                        await sleep(2);
-                        await  msg.channel.send(`One message`)
+                        sleep(2);
+                        msg.channel.send(`One message`)
                         //delay here
-                        await sleep(2);
+                        sleep(2);
                       } catch (error) {
                        console.error(error)
                       }
