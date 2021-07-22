@@ -32,6 +32,12 @@ module.exports.run = async(client, msg, args) => {
                 })
                 role.push(roles[0])
                 rr = m.content.split(" ")
+                if (typeof rr[1] === "string") {
+                    msg.channel.send(`yes`)
+                }
+                else {
+                    msg.channel.send(`no`)
+                }
                 reaction.push(rr[1])
                 sendingmessage += `\n${rr[1]} for <@&${roles[0]}>`
             }
@@ -39,7 +45,7 @@ module.exports.run = async(client, msg, args) => {
         channel.send(sendingmessage)
         .then(async function(msg) {
             try {
-                for (let i = 1; i < reaction.length; i++) {
+                for (let i = 0; i < reaction.length; i++) {
                     channel.send(reaction[i])
                     await msg.react(reaction[i])
                 } 
