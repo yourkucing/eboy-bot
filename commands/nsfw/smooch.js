@@ -1,6 +1,10 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+	eboylog = client.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **smooch** command.`)
+
 	if (!msg.channel.nsfw) {
 		return msg.channel.send(`Go to the NSFW channel, ${msg.author}!`);
 	}

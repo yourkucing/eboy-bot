@@ -2,6 +2,10 @@ const Discord = require('discord.js');
 const reactionsModel = require('../../models/reactionsSchema');
 
 module.exports.run = async(client, msg, args) => {
+    eboylog = client.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **react-settings** command.`)
+
     if (!msg.member.hasPermission("ADMINISTRATOR")) {
         msg.channel.send("You don't have Administrator permissions to use this.")
         return

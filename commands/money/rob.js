@@ -2,6 +2,10 @@ const moneyModel = require('../../models/moneySchema');
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+    eboylog = client.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **rob** command.`)
+
 	hooman = msg.author.id
     server = msg.guild.id
 
