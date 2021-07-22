@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-//const reactionsModel = require('../../models/reactionsSchema');
+const reactionsModel = require('../../models/reactionsSchema');
 
 module.exports.run = async(client, msg, args) => {
     author = msg.author.id
@@ -51,7 +51,15 @@ module.exports.run = async(client, msg, args) => {
                         reactionEmoji = reaction[i]
                     }
                     await msg.react(reactionEmoji)
-                } 
+                    reactionsModel.create({
+                        serverID: serverID,
+                        channelID: channel,
+                        messageID: msg.id,
+                        emoji: reactionEmoji,
+                        role: role[i]
+                    })
+                }
+
             }
             catch(err) {
                 console.log(err)

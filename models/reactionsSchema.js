@@ -1,12 +1,13 @@
-/* const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 const reactionsSchema = new mongoose.Schema({
     serverID: { type: String, require: true},
     channelID: { type: String, require: true},
-    sprint: { type: Date },
-    word: {type: Number}
+    messageID: { type: String },
+    emoji: { type: String },
+    role: {type: String}
 })
 
-const model = mongoose.model('sprintSchema', sprintSchema);
+const model = mongoose.model('reactionsSchema', reactionsSchema);
 
-module.exports = model; */
+module.exports = model;
