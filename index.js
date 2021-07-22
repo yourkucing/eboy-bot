@@ -181,7 +181,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
 		channelID = reaction.message.channel.id
 		serverID = reaction.message.guild.id
 		emoji = reaction.emoji.id
+		userID = user.id
 		guild = client.guilds.cache.get(serverID)
+		users = guild.members.cache.get(userID)
 		if (emoji == null) {
 			emoji = reaction.emoji.name
 		}
@@ -191,7 +193,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 			//nothing happens
 		}
 		else {
-			if (user.roles.cache.has(reactionmsg.role)) {
+			if (users.roles.cache.has(reactionmsg.role)) {
 				//nothing happens
 			}
 			else {
@@ -199,7 +201,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 				if (!role) {
 					//nothing happens
 				}
-				user.roles.add(role)
+				users.roles.add(role)
 			}
 		}
 
@@ -225,7 +227,9 @@ client.on('messageReactionRemove', async (reaction, user) => {
 		channelID = reaction.message.channel.id
 		serverID = reaction.message.guild.id
 		emoji = reaction.emoji.id
+		userID = user.id
 		guild = client.guilds.cache.get(serverID)
+		users = guild.members.cache.get(userID)
 		if (emoji == null) {
 			emoji = reaction.emoji.name
 		}
@@ -235,9 +239,9 @@ client.on('messageReactionRemove', async (reaction, user) => {
 			//nothing happens
 		}
 		else {
-			if (user.roles.cache.has(reactionmsg.role)) {
+			if (users.roles.cache.has(reactionmsg.role)) {
 				role = guild.roles.cache.get(reactionmsg.role)
-				user.roles.remove(role)
+				users.roles.remove(role)
 			}
 		}
 	} catch(err) {
