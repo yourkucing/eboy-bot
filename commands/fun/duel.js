@@ -1,6 +1,10 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+    eboylog = msg.guild.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **duel** command.`)
+
     function sleep(sec) {
         return new Promise(resolve => setTimeout(resolve, sec*1000));
     }
@@ -48,11 +52,11 @@ module.exports.run = async(client, msg, args) => {
 	}
 	else {
 		const taggedUser = msg.mentions.members.first();
-		// if (taggedUser.id === msg.author.id) {
-        //     msg.channel.send("You cannot duel yourself, buddy!")
-        //     return
-		// }
-		// else {	
+		if (taggedUser.id === msg.author.id) {
+            msg.channel.send("You cannot duel yourself, buddy!")
+            return
+		}
+		else {	
             player2id = taggedUser.id;
             player1id = msg.author.id;
             msg.channel.send(`${taggedUser}, ${msg.guild.members.cache.get(msg.author.id).displayName} wants to duel you. Do you accept? (Reply yes or no.)`);
@@ -177,7 +181,7 @@ module.exports.run = async(client, msg, args) => {
                 msg.channel.send('No reply after 30 seconds, duel is cancelled!');
                 });
 
-		// }
+		}
 
 	}
 }

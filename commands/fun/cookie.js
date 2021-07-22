@@ -2,6 +2,10 @@ const Discord = require('discord.js');
 const cookieModel = require('../../models/cookieSchema');
 
 module.exports.run = async(client, msg, args) => {
+    eboylog = msg.guild.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **cookie** command.`)
+
     if (!msg.mentions.users.size) {
         msg.channel.send("Uh... Who did you want to give cookie to? The server ghost?")
         return

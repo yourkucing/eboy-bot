@@ -1,6 +1,10 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+    eboylog = msg.guild.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **f** command.`)
+
     if (!msg.mentions.users.size) {
         const words = args.join(' ');
             if (words === "") {
