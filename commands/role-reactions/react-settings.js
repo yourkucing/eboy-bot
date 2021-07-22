@@ -40,8 +40,14 @@ module.exports.run = async(client, msg, args) => {
                 role.push(roles[0])
                 rr = m.content.split(" ")
                 reaction.push(rr[1])
-                sendingmessage += `${rr[1]}: <&${roles[0]}>`
+                sendingmessage += `\n${rr[1]}: <&${roles[0]}>`
             }
         }
+        channel.send(sendingmessage).then(r => {
+            for (x in reaction) {
+                r.react(reaction[x])
+                console.log(reaction[x])
+            }
+        })
     }
 }
