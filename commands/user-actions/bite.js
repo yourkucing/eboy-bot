@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+	eboylog = msg.guild.channels.cache.get('867744429657292810')
+	author = msg.author
 	var gifs = [
 		'https://media1.tenor.com/images/c91f7e6ca3f5c157c5e6f6e4ea2e364c/tenor.gif',
 		'https://media1.tenor.com/images/283b04320ccd718991714e38953f06d1/tenor.gif',
@@ -20,6 +22,7 @@ module.exports.run = async(client, msg, args) => {
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`LMAO, does ${words} look like food to you?`);
 			msg.channel.send(embed);
+			eboylog.send(`**${author.username}** [${author.id}] used the bite command.`)
 		}
 	}
 	else {
@@ -31,6 +34,7 @@ module.exports.run = async(client, msg, args) => {
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Are you hungry, ${taggedUser.displayName}? Don't eat yourself smh.`);
 			msg.channel.send(embed);
+			eboylog.send(`**${author.username}** [${author.id}] used the bite command.`)
 		}
 		else {	
 			const embed = new Discord.MessageEmbed()
@@ -39,6 +43,7 @@ module.exports.run = async(client, msg, args) => {
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`LMAO, does ${taggedUser.displayName} look like food to you?`);
 			msg.channel.send(embed);
+			eboylog.send(`**${author.username}** [${author.id}] used the bite command.`)
 		}
 	}
 }
