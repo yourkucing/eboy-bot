@@ -9,7 +9,7 @@ module.exports.run = async(client, msg, args) => {
         return
     }
     else {
-        const channels = collected.first().mentions.channels.map(channel => {
+        const channels = msg.mentions.channels.map(channel => {
             return channel.id;
         })
         channel = msg.guild.channels.cache.get(channels[0])
