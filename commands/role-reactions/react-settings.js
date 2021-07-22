@@ -32,7 +32,7 @@ module.exports.run = async(client, msg, args) => {
                 })
                 role.push(roles[0])
                 rr = m.content.split(" ")
-                if (typeof rr[1] === "string") {
+                if (rr[1].includes("<") && rr[1].includes(">") && rr[1].includes(":")) {
                     msg.channel.send(`yes`)
                 }
                 else {
