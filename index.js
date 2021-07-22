@@ -171,7 +171,11 @@ client.on('messageDelete', async (message) => {
 		//nothing
 	}
 	else {
-		reactionsModel.deleteMany({messageID: messageID})
+		reactionsModel.deleteMany({messageID: messageID}).then(r => {
+			if (r) {
+				console.log(`deleted!`)
+			}
+		})
 	}
 });
 
