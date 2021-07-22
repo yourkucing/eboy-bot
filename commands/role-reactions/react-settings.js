@@ -18,6 +18,7 @@ module.exports.run = async(client, msg, args) => {
         const collector = msg.channel.createMessageCollector(
             m => m.author.id == author
             );
+            
         role = []
         reaction = []
         for await (const m of collector) {
