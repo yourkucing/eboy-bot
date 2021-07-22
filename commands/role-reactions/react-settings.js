@@ -35,10 +35,11 @@ module.exports.run = async(client, msg, args) => {
                 sendingmessage += `\n${rr[1]} -- <@&${roles[0]}>`
             }
         }
-        channel.send(sendingmessage).then(r => {
+        channel.send(sendingmessage)
+        .then(async function(msg) {
             for (x in reaction) {
-                await r.react(reaction[x])
+                await msg.react(reaction[x])
             }
-        })
+        }
     }
 }
