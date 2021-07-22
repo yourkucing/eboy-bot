@@ -32,12 +32,6 @@ module.exports.run = async(client, msg, args) => {
                 })
                 role.push(roles[0])
                 rr = m.content.split(" ")
-                if (rr[1].includes("<") && rr[1].includes(">") && rr[1].includes(":")) {
-                    msg.channel.send(`yes`)
-                }
-                else {
-                    msg.channel.send(`no`)
-                }
                 reaction.push(rr[1])
                 sendingmessage += `\n${rr[1]} for <@&${roles[0]}>`
             }
@@ -46,8 +40,16 @@ module.exports.run = async(client, msg, args) => {
         .then(async function(msg) {
             try {
                 for (let i = 0; i < reaction.length; i++) {
-                    channel.send(reaction[i])
-                    await msg.react(reaction[i])
+                    if (reaction[i].includes("<") && reaction[i].includes(">") && reaction[i].includes(":")) {
+                        rr = reaction[i].replace(/\s*\:.*?\:\s*/g, "")
+                        rr = rr.replace("<", "")
+                        rr = rr.replace(">", "")
+                        reactionEmoji = client.emojis.cache.get(parseInt(rr))
+                    }
+                    else {
+                        reactionEmoji = reaction[i]
+                    }
+                    await msg.react(reactionEmoji)
                 } 
             }
             catch(err) {
