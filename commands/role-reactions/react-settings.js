@@ -26,7 +26,7 @@ module.exports.run = async(client, msg, args) => {
                 msg.channel.send(`Oh, we're done? Goodbye!`)
             }
             else {
-                const roles = m.content.mentions.roles.map(role => {
+                const roles = m.mentions.roles.map(role => {
                     return role.id
                 })
                 role.push(roles[0])
