@@ -44,7 +44,8 @@ module.exports.run = async(client, msg, args) => {
                         rr = reaction[i].replace(/\s*\:.*?\:\s*/g, "")
                         rr = rr.replace("<", "")
                         rr = rr.replace(">", "")
-                        reactionEmoji = client.emojis.cache.get(parseInt(rr))
+                        console.log(rr)
+                        reactionEmoji = rr
                     }
                     else {
                         reactionEmoji = reaction[i]
