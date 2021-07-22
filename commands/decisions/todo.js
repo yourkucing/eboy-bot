@@ -2,6 +2,10 @@ const Discord = require('discord.js');
 const todoModel = require(`../../models/todoSchema`)
 
 module.exports.run = async(client, msg, args) => {
+    eboylog = msg.guild.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **todo** command.`)
+
     author = msg.author.id
     todo = await todoModel.find({userID: author})
     if (!args || args.length == 0) {

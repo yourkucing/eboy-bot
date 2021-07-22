@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
-    msg.channel.send('hi')
     if (msg.author.id == "279101053750870017") {
         
         const guild = client.guilds.cache.get(args[2])

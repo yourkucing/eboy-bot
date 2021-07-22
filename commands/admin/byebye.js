@@ -1,11 +1,15 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+	eboylog = msg.guild.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **byebye** command.`)
+
 	if (msg.author.id == "557013039795273750") {
 		msg.channel.send(`NO, CALUM, YOU'RE BANNED FROM USING THIS.`)
 	}
 
-	else if (msg.author.hasPermission("ADMINISTRATOR")) {
+	else {
 
 		if (!msg.mentions.users.size) {
 			const words = args.join(' ');
@@ -17,14 +21,20 @@ module.exports.run = async(client, msg, args) => {
 			}
 		}
 		else {
-			let taggedUser = msg.mentions.members.first();
-			  taggedUser.kick().then((taggedUser) => {
-						// Successmessage
-						msg.channel.send("byebye!");
-					}).catch(() => {
-						 // Failmessage
-						msg.channel.send(`NOPE, no byebye. ${taggedUser.displayName} isn't going anywhere.`);
-					});
+			if (msg.author.hasPermission("ADMINISTRATOR")) {
+				let taggedUser = msg.mentions.members.first();
+				taggedUser.kick().then((taggedUser) => {
+						  // Successmessage
+						  msg.channel.send("byebye!");
+					  }).catch(() => {
+						   // Failmessage
+						  msg.channel.send(`NOPE, no byebye. ${taggedUser.displayName} isn't going anywhere.`);
+					  });
+			}
+			else {
+				msg.channel.send(`You have no permission to kick anyone out.`)
+			}
+
 		}
 
 }

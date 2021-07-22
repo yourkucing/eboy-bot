@@ -1,6 +1,10 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+    eboylog = msg.guild.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **math** command.`)
+
     operation = args[0]
     if (operation == "add" || operation == "addition") {
         numbers = args.slice(1).join("")

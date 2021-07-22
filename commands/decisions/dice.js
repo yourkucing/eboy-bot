@@ -1,6 +1,10 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+    eboylog = msg.guild.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **dice** command.`)
+
     dice = args[0].split("d")
     if (dice[0] === "") {
         result = Math.floor(Math.random() * dice[1]) + 1
