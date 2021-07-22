@@ -14,7 +14,7 @@ module.exports.run = async(client, msg, args) => {
         )
         numbers = num.split(",")
         var newnum = numbers.map(function (x) {
-            return parseInt(x.trim()); 
+            return parseFloat(x.trim()); 
           });
           result = newnum.reduce((a, b) => a + b)
         msg.channel.send(`\`Result: ${result}\``)
@@ -27,7 +27,7 @@ module.exports.run = async(client, msg, args) => {
         )
         numbers = num.split(",")
         var newnum = numbers.map(function (x) {
-            return parseInt(x.trim()); 
+            return parseFloat(x.trim()); 
           });
           result = newnum.reduce((a, b) => a - b)
         msg.channel.send(`\`Result: ${result}\``)
@@ -40,7 +40,7 @@ module.exports.run = async(client, msg, args) => {
         )
         numbers = num.split(",")
         var newnum = numbers.map(function (x) {
-            return parseInt(x.trim()); 
+            return parseFloat(x.trim()); 
           });
           result = newnum.reduce((a, b) => a * b)
         msg.channel.send(`\`Result: ${result}\``)
@@ -53,7 +53,7 @@ module.exports.run = async(client, msg, args) => {
         )
         numbers = num.split(",")
         var newnum = numbers.map(function (x) {
-            return parseInt(x.trim()); 
+            return parseFloat(x.trim()); 
           });
           result = newnum.reduce((a, b) => a / b)
         msg.channel.send(`\`Result: ${result}\``)
