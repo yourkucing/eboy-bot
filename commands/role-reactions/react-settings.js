@@ -53,7 +53,7 @@ module.exports.run = async(client, msg, args) => {
                     await msg.react(reactionEmoji)
                     reactionsModel.create({
                         serverID: serverID,
-                        channelID: channel,
+                        channelID: channels[0],
                         messageID: msg.id,
                         emoji: reactionEmoji,
                         role: role[i]

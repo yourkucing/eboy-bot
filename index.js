@@ -175,11 +175,15 @@ client.on('messageReactionAdd', async (reaction, user) => {
 			return;
 		}
 	}
-	messageID = reaction.message.id
-	channelID = reaction.message.channel.id
-	serverID = reaction.message.guild.id
-	emoji = reaction.emoji
-	console.log(messageID, channelID, serverID, emoji)
+	try {
+		messageID = reaction.message.id
+		channelID = reaction.message.channel.id
+		serverID = reaction.message.guild.id
+		emoji = reaction.emoji
+		console.log(messageID, channelID, serverID, emoji)
+	} catch(err) {
+		console.log(err)
+	}
 });
 
 client.on('messageReactionRemove', async (reaction, user) => {
@@ -194,11 +198,15 @@ client.on('messageReactionRemove', async (reaction, user) => {
 			return;
 		}
 	}
-	messageID = reaction.message.id
-	channelID = reaction.message.channel.id
-	serverID = reaction.message.guild.id
-	emoji = reaction.emoji
-	console.log(messageID, channelID, serverID, emoji)
+	try {
+		messageID = reaction.message.id
+		channelID = reaction.message.channel.id
+		serverID = reaction.message.guild.id
+		emoji = reaction.emoji
+		console.log(messageID, channelID, serverID, emoji)
+	} catch(err) {
+		console.log(err)
+	}
 });
 
 client.on('message', msg => {
