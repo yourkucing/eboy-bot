@@ -3,7 +3,7 @@ const sprintModel = require('../../models/sprintSchema')
 const ms = require('ms');
 
 module.exports.run = async(client, msg, args) => {
-    eboylog = msg.guild.channels.cache.get('867744429657292810')
+    eboylog = client.channels.cache.get('867744429657292810')
 	author = msg.author
 	eboylog.send(`**${author.username}** [${author.id}] used the **sprint** command.`)
 
