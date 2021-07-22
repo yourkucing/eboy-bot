@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+	eboylog = msg.guild.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **snuggle** command.`)
 	var gifs = [
 		'https://media.giphy.com/media/kz01wlAoCLYx3v8F68/giphy.gif',
 		'https://25.media.tumblr.com/tumblr_m1x1jtIXWQ1qf5ddxo1_500.gif',

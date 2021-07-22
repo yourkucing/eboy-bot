@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+	eboylog = msg.guild.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **cling** command.`)
 	var gifs = [
 		'https://media1.tenor.com/images/74593f6264cec67f1237b3c8b1a2170f/tenor.gif',
         'https://media3.giphy.com/media/uzyuJ0Otml7Co/giphy-downsized-large.gif',

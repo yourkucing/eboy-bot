@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+	eboylog = msg.guild.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **shake** command.`)
 	var gifs = [
 		'https://media1.tenor.com/images/2255d1ff7517290d482f45fff6e1a364/tenor.gif',
 		'https://thumbs.gfycat.com/SpottedBrokenEider-size_restricted.gif',

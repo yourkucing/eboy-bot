@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+	eboylog = msg.guild.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **patpat** command.`)
 	var gifs = [
 		'https://media.tenor.com/images/8237d7da8cbd7227d67d735d437612cf/tenor.gif',
 		'https://media.tenor.com/images/67dc5a58a23461f3f449e8f46623b1df/tenor.gif',

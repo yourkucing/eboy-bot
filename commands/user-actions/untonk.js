@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
+	eboylog = msg.guild.channels.cache.get('867744429657292810')
+	author = msg.author
+	eboylog.send(`**${author.username}** [${author.id}] used the **untonk** command.`)
 	var gifs = [
 		'https://s4.gifyu.com/images/untonk1.gif',
 		'https://s4.gifyu.com/images/untonk2.gif',
