@@ -164,6 +164,17 @@ client.on('ready', () => {
 	
 	});	
 
+client.on('messageDelete', async (message) => {
+	messageID = message.id
+	reactionmsg = await reactionsModel.find({messageID: messageID})
+	if (!reactionmsg || reactionmsg.length == 0) {
+		//nothing
+	}
+	else {
+		reactionsModel.deleteMany({messageID: messageID})
+	}
+});
+
 client.on('messageReactionAdd', async (reaction, user) => {
 	// When a reaction is received, check if the structure is partial
 	if (reaction.partial) {
