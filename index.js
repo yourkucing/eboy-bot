@@ -10,6 +10,7 @@ const channelModel = require('./models/channelSchema');
 const moneyModel = require('./models/moneySchema');
 const sprintModel = require('./models/sprintSchema');
 const birthdayModel = require('./models/birthdaySchema');
+const reactionsModel = require('./models/reactionsSchema');
 
 
 client.commands = new Map();
@@ -180,10 +181,28 @@ client.on('messageReactionAdd', async (reaction, user) => {
 		channelID = reaction.message.channel.id
 		serverID = reaction.message.guild.id
 		emoji = reaction.emoji.id
+		guild = client.guilds.cache.get(serverID)
 		if (emoji == null) {
 			emoji = reaction.emoji.name
 		}
-		console.log(messageID, channelID, serverID, emoji)
+		reactionmsg = await reactionsModel.findOne({serverID: serverID, channelID: channelID, messageID: messageID, emoji: emoji})
+
+		if (!reactionmsg) {
+			//nothing happens
+		}
+		else {
+			if (user.roles.cache.has(reactionmsg.role)) {
+				//nothing happens
+			}
+			else {
+				role = guild.roles.cache.get(reactionmsg.role)
+				if (!role) {
+					//nothing happens
+				}
+				user.roles.add(role)
+			}
+		}
+
 	} catch(err) {
 		console.log(err)
 	}
@@ -205,8 +224,22 @@ client.on('messageReactionRemove', async (reaction, user) => {
 		messageID = reaction.message.id
 		channelID = reaction.message.channel.id
 		serverID = reaction.message.guild.id
-		emoji = reaction.emoji.name
-		console.log(messageID, channelID, serverID, emoji)
+		emoji = reaction.emoji.id
+		guild = client.guilds.cache.get(serverID)
+		if (emoji == null) {
+			emoji = reaction.emoji.name
+		}
+		reactionmsg = await reactionsModel.findOne({serverID: serverID, channelID: channelID, messageID: messageID, emoji: emoji})
+
+		if (!reactionmsg) {
+			//nothing happens
+		}
+		else {
+			if (user.roles.cache.has(reactionmsg.role)) {
+				role = guild.roles.cache.get(reactionmsg.role)
+				user.roles.remove(role)
+			}
+		}
 	} catch(err) {
 		console.log(err)
 	}
