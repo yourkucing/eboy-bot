@@ -24,9 +24,12 @@ module.exports.run = async(client, msg, args) => {
             if (m.content.toLowerCase() == "done") {
                 collector.stop()
                 msg.channel.send(`Oh, we're done? Goodbye!`)
+                msg.channel.send(reaction)
+                msg.channel.send(role)
                 channel.send(sendingmessage).then(r => {
                     for (x in reaction) {
                         r.react(reaction[x])
+                        console.log(reaction[x])
                     }
                 })
             }
@@ -37,7 +40,7 @@ module.exports.run = async(client, msg, args) => {
                 role.push(roles[0])
                 rr = m.content.split(" ")
                 reaction.push(rr[1])
-                sendingmessage += `${rr[1]}: ${roles[0]}`
+                sendingmessage += `${rr[1]}: <&${roles[0]}>`
             }
         }
     }
