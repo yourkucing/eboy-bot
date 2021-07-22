@@ -40,6 +40,7 @@ module.exports.run = async(client, msg, args) => {
         .then(async function(msg) {
             try {
                 for (let i = 1; i < reaction.length; i++) {
+                    channel.send(reaction[i])
                     await msg.react(reaction[i])
                 } 
             }
