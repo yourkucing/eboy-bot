@@ -13,7 +13,7 @@ module.exports.run = async(client, msg, args) => {
             return channel.id;
         })
         channel = msg.guild.channels.cache.get(channels[0])
-        sendingmessage = `Please click on the following reactions to get your roles:\n\n`
+        sendingmessage = `Please click on the following reactions to get your roles:\n`
         msg.channel.send(`Please tag the role that you want as well as the emoji: (Eg. @potatokids :heart:)\nKeep replying continuously and when you're done, reply with "done".`)
         const collector = msg.channel.createMessageCollector(
             m => m.author.id == author
@@ -24,6 +24,11 @@ module.exports.run = async(client, msg, args) => {
             if (m.content.toLowerCase() == "done") {
                 collector.stop()
                 msg.channel.send(`Oh, we're done? Goodbye!`)
+                channel.send(sendingmessage).then(r => {
+                    for (x in reaction) {
+                        r.react(reaction[x])
+                    }
+                })
             }
             else {
                 const roles = m.mentions.roles.map(role => {
@@ -31,7 +36,8 @@ module.exports.run = async(client, msg, args) => {
                 })
                 role.push(roles[0])
                 rr = m.content.split(" ")
-                console.log(rr)
+                reaction.push(rr[1])
+                sendingmessage += `${rr[1]}: ${roles[0]}`
             }
         }
     }
