@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const ud = require('urban-dictionary');
-const client = new Discord.Client({disableEveryone: false});
+const client = new Discord.Client({disableEveryone: false, partials: ['MESSAGE', 'REACTION']});
 const prefix = "uwu ";
 const fs = require('fs').promises;
 const path = require('path');
@@ -162,6 +162,24 @@ client.on('ready', () => {
 	guild.systemChannel.send(`Hello there! Thank you for using Eboy bot uwu!\n\nYou can start off by doing \`uwu help\` to see all the relevant commands. You can also enable interactions by eboy (mainly having him reply to your goodmorning or goodnight) by running the command \`uwu enable-interactions\`. Of course, only admins can do this!\n\nMaryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her.\nYou can also submit your suggestion or feedback here: https://forms.gle/GpoHX32kVQznvY3h6 though dont forget to leave down your name and a way to contact you, just in case there are questions we need to specify! (∩•̀ω•́)⊃-⋆`)
 	
 	});	
+	
+client.on('messageReactionAdd', async (reaction, user) => {
+	// When a reaction is received, check if the structure is partial
+	if (reaction.partial) {
+		// If the message this reaction belongs to was removed, the fetching might result in an API error which should be handled
+		try {
+			await reaction.fetch();
+		} catch (error) {
+			console.error('Something went wrong when fetching the message: ', error);
+			// Return as `reaction.message.author` may be undefined/null
+			return;
+		}
+	}
+	// Now the message has been cached and is fully available
+	console.log(`${reaction.message.author}'s message "${reaction.message.content}" gained a reaction!`);
+	// The reaction is now also fully available and the properties will be reflected accurately:
+	console.log(`${reaction.count} user(s) have given the same reaction to this message!`);
+});
 
 client.on('message', msg => {
 
