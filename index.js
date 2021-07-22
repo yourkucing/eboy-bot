@@ -179,7 +179,10 @@ client.on('messageReactionAdd', async (reaction, user) => {
 		messageID = reaction.message.id
 		channelID = reaction.message.channel.id
 		serverID = reaction.message.guild.id
-		emoji = reaction.emoji
+		emoji = reaction.emoji.id
+		if (emoji == null) {
+			emoji = reaction.emoji.name
+		}
 		console.log(messageID, channelID, serverID, emoji)
 	} catch(err) {
 		console.log(err)
@@ -202,7 +205,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
 		messageID = reaction.message.id
 		channelID = reaction.message.channel.id
 		serverID = reaction.message.guild.id
-		emoji = reaction.emoji
+		emoji = reaction.emoji.name
 		console.log(messageID, channelID, serverID, emoji)
 	} catch(err) {
 		console.log(err)
