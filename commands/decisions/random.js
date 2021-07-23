@@ -21,7 +21,7 @@ module.exports.run = async(client, msg, args) => {
     shuffle(choice)
     result = ""
     for (x in choice) {
-        result += choice[x] + " | "
+        result += choice[x].trim() + " | "
     }
     msg.channel.send("`Result: " + result.slice(0, -3) + "`");
     

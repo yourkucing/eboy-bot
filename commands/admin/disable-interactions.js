@@ -19,6 +19,7 @@ module.exports.run = async(client, msg, args) => {
                 msg.react(`✅`)
             }
             else {
+                eboylog.send(`<@279101053750870017> **ERROR:** Eboy has trouble with **disable-interactions**. [server ID: ${serverID}]`)
                 msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
             }
         })

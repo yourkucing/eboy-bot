@@ -38,11 +38,7 @@ module.exports.run = async(client, msg, args) => {
                     msg.channel.send(`Your ${pets[x].pet}, ${pets[x].petname} ran away because they were hungry and neglected for more than 3 months! Please take better care of your pets.`)
                     deleted = await petModel.deleteOne({_id: pets[x]._id})
                     if (!deleted) {
-                        console.log(`Error in deleting pets after neglected.`)
-                        continue
-                    }
-                    else {
-                        console.log(`Deleted neglected pets!`)
+                        eboylog.send(`<@279101053750870017> **ERROR:** Eboy has trouble with **deleting runaway pets**. [pets ID: ${pets[x]._id}]`)
                         continue
                     }
     
@@ -67,7 +63,6 @@ module.exports.run = async(client, msg, args) => {
                 }, {
                     new: true
                 });
-                    console.log(updatepet)
                     if (updatepet) {
                         hpbar = '░░░░░░░░░░'
                         mood = ''
@@ -121,7 +116,7 @@ module.exports.run = async(client, msg, args) => {
                     }
                     else {
                         msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
-                        console.log(updatepet)
+                        eboylog.send(`<@279101053750870017> **ERROR:** Eboy has trouble with **updating pets' health decline**. [pets ID: ${pets[x]._id}]`)
                         return
                     }
         
@@ -167,7 +162,7 @@ module.exports.run = async(client, msg, args) => {
                     }
                     else {
                         msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
-                        console.log(updatepet)
+                        eboylog.send(`<@279101053750870017> **ERROR:** Eboy has trouble with **updating pets food**. [user ID: ${hooman}]`)
                         return
                     }
                     
@@ -181,8 +176,8 @@ module.exports.run = async(client, msg, args) => {
         }
         else {
             petlist = 'Reply with the number of which pet you want to rename.\n'
+            n=1
             for (x in pets) {
-                n=1
                 petlist += `**${n}.** ${pets[x].pet}: ${pets[x].petname}\n`
                 n=n+1
             }
@@ -211,7 +206,7 @@ module.exports.run = async(client, msg, args) => {
                                 }
                                 else {
                                     msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
-                                    console.log(updatepet)
+                                    eboylog.send(`<@279101053750870017> **ERROR:** Eboy has trouble with **changing pets name**. [pets ID: ${pets[number-1]._id}]`)
                                     return
                                 }
                             })
