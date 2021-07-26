@@ -91,7 +91,6 @@ module.exports.run = async(client, msg, args) => {
                                     timeoutData = timeoutModel.findOne({userID: taggedUser.id, serverID: guild}).then(answers => {
                                         if(answers) {
                                             msg.channel.send(`**${taggedUser.displayName}** has been timed out for ${time}. Shame on you!`)
-                                            console.log(answers)
                                         }
                                     }
                                     )

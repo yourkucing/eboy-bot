@@ -53,7 +53,6 @@ module.exports.run = async(client, msg, args) => {
                             rr = reaction[i].replace(/\s*\:.*?\:\s*/g, "")
                             rr = rr.replace("<", "")
                             rr = rr.replace(">", "")
-                            console.log(rr)
                             reactionEmoji = rr
                         }
                         else {

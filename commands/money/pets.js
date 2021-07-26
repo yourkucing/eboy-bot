@@ -33,7 +33,6 @@ module.exports.run = async(client, msg, args) => {
             for (x in pets) {
                 date = Date.now()
                 hungry = Math.floor((date-pets[x].updatedtime)/86400000)
-                console.log(hungry)
                 if (hungry > 90) {
                     msg.channel.send(`Your ${pets[x].pet}, ${pets[x].petname} ran away because they were hungry and neglected for more than 3 months! Please take better care of your pets.`)
                     deleted = await petModel.deleteOne({_id: pets[x]._id})

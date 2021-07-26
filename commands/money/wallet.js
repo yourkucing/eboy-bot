@@ -12,7 +12,7 @@ module.exports.run = async(client, msg, args) => {
 
     moneyData = await moneyModel.findOne({userID: hooman})
     cookieData = await cookieModel.findOne({userID: hooman})
-    console.log(moneyData)
+
 
     if (!moneyData) {
         if (!cookieData) {
@@ -28,7 +28,6 @@ module.exports.run = async(client, msg, args) => {
         }).catch((e) => { console.log(e); }).then(result => {
             if (result) {
                 moneyModel.findOne({userID: hooman}).then(moneyData => {
-                    console.log(moneyData)
                     url = `https://cdn.discordapp.com/avatars/${hooman}/${msg.author.avatar}.png`
                     const embed = new Discord.MessageEmbed()
                     .setColor('#FF69B4')

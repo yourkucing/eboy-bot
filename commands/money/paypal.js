@@ -63,8 +63,6 @@ module.exports.run = async(client, msg, args) => {
 		else {
 			moneyData = await moneyModel.findOne({userID: hooman})
 			taggedData = await moneyModel.findOne({userID: taggedUser.id})
-			console.log(moneyData)
-			console.log(taggedData)
 
 			if (moneyData && taggedData) {
 				await moneyModel.findOneAndUpdate({userID: hooman}, {
