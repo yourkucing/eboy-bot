@@ -23,7 +23,8 @@ mongoose.connect(process.env.MONGODB_SRV, {
 }).then(()=>{
     console.log('Connected to the database!');
 }).catch((err) => {
-    console.log(err);
+	eboylog = client.channels.cache.get('867744429657292810')
+	eboylog.send(`<@279101053750870017>: Unable to connect to database.\n${err}`)
 });
 
 
@@ -48,11 +49,15 @@ const checkforTimeouts = async() => {
 				continue
 			}
 			else {
-				console.log(user.nickname, channel.name, guild.name)
-				user.roles.remove(timeoutrole.id).catch((e) => {console.log(e)})
+				user.roles.remove(timeoutrole.id)
 				channel.send(`<@${userID}>, your timeout has ended!`)
+				eboylog = client.channels.cache.get('867744429657292810')
+				eboylog.send(`Timeout has ended for ${user.username}. [User ID: ${userID}]`)
 				
-				await timeoutModel.deleteOne({userID: userID, serverID: guildID, channelID: channelID})
+				await timeoutModel.deleteOne({userID: userID, serverID: guildID, channelID: channelID}).catch(e => {
+					eboylog = client.channels.cache.get('867744429657292810')
+					eboylog.send(`<@279101053750870017>: Unable to remove user from timeout database. [User ID: ${userID}]\n${e}`)
+				})
 			}
 			
 		}
@@ -127,10 +132,12 @@ const checkforSprints = async() => {
 							channel2.send(`Nice. You wrote ${newwordcount - wordcount} words. Good job, mate!`)
 							sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2}).then(deleted => {
 								if (deleted) {
-									console.log("Success in deleting sprint.")
+									eboylog = client.channels.cache.get('867744429657292810')
+									eboylog.send(`Sprint ended for ${user2.username}. [User ID: ${userID2}]\n${e}`)
 								}
 								else {
-									console.log("Error in deleting sprint.")
+									eboylog = client.channels.cache.get('867744429657292810')
+									eboylog.send(`<@279101053750870017>: Unable to remove user from sprint database. [User ID: ${userID2}]`)
 								}
 							})
 						}
@@ -227,7 +234,8 @@ client.on('messageReactionAdd', async (reaction, user) => {
 		}
 
 	} catch(err) {
-		console.log(err)
+		eboylog = client.channels.cache.get('867744429657292810')
+		eboylog.send(`<@279101053750870017>: Error with waiting for reaction for reaction role.\n${err}`)
 	}
 });
 
