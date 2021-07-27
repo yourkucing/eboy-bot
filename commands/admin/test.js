@@ -6,9 +6,10 @@ module.exports.run = async(client, msg, args) => {
         guildID = "719491348713046057"
         messageID = "869630102294626374"
         channel = client.channels.cache.get(channelID)
-        channel.messages.fetch("701574160211771462").then(msg => {
-            msg.edit(`New content!`)
-            msg.react('🦀')
+        channel.messages.fetch("869630102294626374").then(m => {
+            msg.channel.send(m.content)
+            m.edit('hi')
+            m.react('🦀')
         })
     }
     else {
