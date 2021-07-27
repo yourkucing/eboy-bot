@@ -8,7 +8,8 @@ module.exports.run = async(client, msg, args) => {
         channel = client.channels.cache.get(channelID)
         channel.messages.fetch(messageID).then(m => {
             console.log(m.content)
-            // m.edit('hi')
+            console.log(m.reactions)
+            // m.edit(`Please click on the following reactions to get your roles:\n\n🐌 for <@&867909305206308874>\n🐧 for <@&867909386440433685>\n🦑 for <@&867909438768558091>\n🦀 for <@&867909742968836146>`)
             // m.react('🦀')
         })
     }
