@@ -212,24 +212,26 @@ client.on('messageReactionAdd', async (reaction, user) => {
 		userID = user.id
 		guild = client.guilds.cache.get(serverID)
 		users = guild.members.cache.get(userID)
-		if (emoji == null) {
-			emoji = reaction.emoji.name
-		}
-		reactionmsg = await reactionsModel.findOne({serverID: serverID, channelID: channelID, messageID: messageID, emoji: emoji})
-
-		if (!reactionmsg) {
-			//nothing happens
-		}
-		else {
-			if (users.roles.cache.has(reactionmsg.role)) {
+		if (!users.bot) {
+			if (emoji == null) {
+				emoji = reaction.emoji.name
+			}
+			reactionmsg = await reactionsModel.findOne({serverID: serverID, channelID: channelID, messageID: messageID, emoji: emoji})
+	
+			if (!reactionmsg) {
 				//nothing happens
 			}
 			else {
-				role = guild.roles.cache.get(reactionmsg.role)
-				if (!role) {
+				if (users.roles.cache.has(reactionmsg.role)) {
 					//nothing happens
 				}
-				users.roles.add(role)
+				else {
+					role = guild.roles.cache.get(reactionmsg.role)
+					if (!role) {
+						//nothing happens
+					}
+					users.roles.add(role)
+				}
 			}
 		}
 

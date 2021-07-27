@@ -12,7 +12,7 @@ module.exports.run = async(client, msg, args) => {
 
         let hehim = m.reactions.cache.find(emoji => emoji.name == "🦑")
         m.reactions.cache.map(async (reaction) => {
-            if (reaction.emoji.name !== "🐧") return;
+            if (reaction.emoji.name !== "🦑") return;
             let reactedUsers = await reaction.users.fetch();
             reactedUsers.map((user) => {
                 if (!user.bot) {
