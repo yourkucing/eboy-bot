@@ -17,7 +17,7 @@ module.exports.run = async(client, msg, args) => {
             reactedUsers.map((user) => {
                 if (!user.bot) {
                     users = guild.members.cache.get(user.id)
-                    users.roles.remove(role)
+                    users.roles.add(role)
                     console.log(`added to ${user.username}`)
                 }
             })
