@@ -10,9 +10,9 @@ module.exports.run = async(client, msg, args) => {
         channel = client.channels.cache.get(channelID)
         const m = await channel.messages.fetch(messageID)
 
-        let hehim = m.reactions.cache.find(emoji => emoji.name == "🐧")
+        let hehim = m.reactions.cache.find(emoji => emoji.name == "🦑")
         m.reactions.cache.map(async (reaction) => {
-            if (reaction.emoji.name !== "🐧") return;
+            if (reaction.emoji.name !== "🦑") return;
             let reactedUsers = await reaction.users.fetch();
             reactedUsers.map((user) => {
                 if (!user.bot) {
