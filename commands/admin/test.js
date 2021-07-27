@@ -15,14 +15,15 @@ module.exports.run = async(client, msg, args) => {
         m.reactions.cache.map(async (reaction) => {
             if (reaction.emoji.name !== "🐧") return;
             let reactedUsers = await reaction.users.fetch();
+            console.log(reactedUsers)
             reactedUsers.map((user) => {
                 user.roles.add(role)
                 console.log(`added to ${users.username}`)
             })
 
         })
-        // m.edit(`Please click on the following reactions to get your roles:\n\n🐌 for <@&867909305206308874>\n🐧 for <@&867909386440433685>\n🦑 for <@&867909438768558091>\n🦀 for <@&867909742968836146>`)
-        // m.react('🦀')
+        m.edit(`Please click on the following reactions to get your roles:\n\n🐌 for <@&867909305206308874>\n🐧 for <@&867909386440433685>\n🦑 for <@&867909438768558091>\n🦀 for <@&867909742968836146>`)
+        m.react('🦀')
     }
     else {
         msg.channel.send("You don't have permission to use this, only my owner does.")
