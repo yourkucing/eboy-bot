@@ -7,11 +7,10 @@ module.exports.run = async(client, msg, args) => {
             const forloop = async () => {
                 L = ``
                 for (let guild of client.guilds.cache.values()) {
-                        L += `**${guild.name}** [${guild.id}]\n`
+                        console.log(`**${guild.name}** [${guild.id}]`)
                 }
             }
             forloop();
-            msg.channel.send(L)
         } catch(err) {
             console.log(err)
         }
