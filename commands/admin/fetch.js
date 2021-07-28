@@ -5,12 +5,13 @@ module.exports.run = async(client, msg, args) => {
         guildID = args[0]
         guild = client.guilds.cache.get(guildID)
         lastactive = ``
-        for(let channels of guild.channels.cache.values()) {
-            channels.messages.fetch({limit: 1}).then(m => {
+        let channels = guild.channels.filter(c => c.type == 'text').array();
+        for (let current of channels) {
+            current.messages.fetch({limit: 1}).then(m => {
                 const lastMessage = m.first()
                 lastactive += `${m.createdAt},`
             })
-        }
+            }
         msg.channel.send(lastactive)
     }
     else {
