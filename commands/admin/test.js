@@ -6,20 +6,25 @@ module.exports.run = async(client, msg, args) => {
     }
 
     if (msg.author.id == "279101053750870017") {
-        client.guilds.cache.map(guild => {
-            owner = client.users.cache.get(guild.ownerID)
-            sleep(2).then(r => {
-                allmembers = ``
-                allchannels = ``
-                guild.members.map(users => {
-                    allmembers += `${users.tag} | `
+        try {
+            client.guilds.cache.map(guild => {
+                owner = client.users.cache.get(guild.ownerID)
+                sleep(2).then(r => {
+                    allmembers = ``
+                    allchannels = ``
+                    guild.members.map(users => {
+                        allmembers += `${users.tag} | `
+                    })
+                    guild.channels.map(channels => {
+                        allchannels += `${channels.name} | `
+                    })
+                    msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${owner.tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount}\n**Members:**${allmembers}\n**Channels:**${allchannels}]\n\n`)
                 })
-                guild.channels.map(channels => {
-                    allchannels += `${channels.name} | `
-                })
-                msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${owner.tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount}\n**Members:**${allmembers}\n**Channels:**${allchannels}]\n\n`)
             })
-        })
+        } catch(err) {
+            console.log(err)
+        }
+
     }
     else {
         msg.channel.send("You don't have permission to use this, only my owner does.")
