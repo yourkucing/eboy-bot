@@ -9,10 +9,9 @@ module.exports.run = async(client, msg, args) => {
         for (let current of channels) {
             current.messages.fetch({limit: 1}).then(m => {
                 const lastMessage = m.first()
-                lastactive += `${lastMessage.createdAt},`
+                console.log(lastMessage.createdAt)
             })
-            }
-        msg.channel.send(lastactive)
+        }
     }
     else {
         msg.channel.send("You don't have permission to use this, only my owner does.")
