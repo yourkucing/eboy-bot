@@ -4,11 +4,14 @@ module.exports.run = async(client, msg, args) => {
 
     if (msg.author.id == "279101053750870017") {
         try {
-            guilds = ``
-            for (let guild of client.guilds.cache.values()) {
-                guilds += `**${guild.name}** [${guild.id}]\n`
+            const forloop = async () => {
+                L = ``
+                for (let guild of client.guilds.cache.values()) {
+                        L += `**${guild.name}** [${guild.id}]\n`)
+                }
             }
-            msg.channel.send(guilds)
+            forloop();
+            msg.channel.send(L)
         } catch(err) {
             console.log(err)
         }

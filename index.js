@@ -439,6 +439,9 @@ if (command === 'search') {
 		.setFooter(`Created by Maryam#9206`);
 		msg.author.send(embed);
         msg.channel.send(`Psssst. Check your DMs, **${msg.guild.members.cache.get(msg.author.id).displayName}**! :wink:`)
+		eboylog = client.channels.cache.get('867744429657292810')
+		author = msg.author
+		eboylog.send(`**${author.username}** [${author.id}] used the **help** command.`)
  }
  
  });
