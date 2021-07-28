@@ -5,7 +5,7 @@ module.exports.run = async(client, msg, args) => {
         guildID = args[0]
         guild = client.guilds.cache.get(guildID)
         lastactive = ``
-        let channels = guild.channels.filter(c => c.type == 'text').array();
+        let channels = guild.channels.cache.filter(m => m.type === 'text').array();
         for (let current of channels) {
             current.messages.fetch({limit: 1}).then(m => {
                 const lastMessage = m.first()
