@@ -1,9 +1,6 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
-    function sleep(sec) {
-        return new Promise(resolve => setTimeout(resolve, sec*1000));
-    }
 
     if (msg.author.id == "279101053750870017") {
         try {
