@@ -9,7 +9,7 @@ module.exports.run = async(client, msg, args) => {
         for (let current of channels) {
             current.messages.fetch({limit: 1}).then(m => {
                 const lastMessage = m.first()
-                lastactive += `${m.createdAt},`
+                lastactive += `${lastMessage.createdAt},`
             })
             }
         msg.channel.send(lastactive)
