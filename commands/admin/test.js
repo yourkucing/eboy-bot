@@ -8,27 +8,26 @@ module.exports.run = async(client, msg, args) => {
     if (msg.author.id == "279101053750870017") {
         try {
             const g = client.guilds
-            client.guilds.cache.map(guild => {
+            for (let guild of client.guilds.cache.values()) {
                 owner = client.users.cache.get(guild.ownerID)
                 allmembers = ``
                 allchannels = ``
                 bot = 0
 
-                guild.members.cache.map(users => {
+                for(let users of guild.members.cache.values()) {
                     user1 = client.users.cache.get(users.id)
                     if (user1.bot) {
                         bot += 1
                     }
                     allmembers += `${user1.tag} | `
-                })
+                }
 
-                guild.channels.cache.map(channels => {
+                for(let channels of guild.channels.cache.values()) {
                         allchannels += `${channels.name} | `
-                    })
+                    }
                     msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${client.users.cache.get(guild.ownerID).tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount - bot}\n**No. of bots:** ${bot}\n**Members:** ${allmembers}\n**Channels:** ${allchannels}\n\n`)
-                    sleep(2).then(r => {//nothing happens
-                    })
-        })
+                    sleep(2).then()
+        }
         } catch(err) {
             console.log(err)
         }
