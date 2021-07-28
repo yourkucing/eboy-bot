@@ -16,7 +16,7 @@ module.exports.run = async(client, msg, args) => {
                     guild.members.cache.map(users => {
                         user1 = client.users.cache.get(users.id)
                         if (user1.bot) {
-                            bot += bot
+                            bot += 1
                         }
                         allmembers += `${users.tag} | `
                     }).then(a => {
