@@ -7,7 +7,7 @@ module.exports.run = async(client, msg, args) => {
 
     if (msg.author.id == "279101053750870017") {
         client.guilds.cache.map(guild => {
-            owner = client.users.cache.fetch(guild.ownerID)
+            owner = client.users.cache.get(guild.ownerID)
             sleep(2).then(r => {
                 allmembers = ``
                 allchannels = ``
