@@ -6,7 +6,7 @@ module.exports.run = async(client, msg, args) => {
         guild = client.guilds.cache.get(guildID)
         lastactive = ``
         for(let channels of guild.channels.cache.values()) {
-            channels.fetchMessages({limit: 1}).then(m => {
+            channels.messages.fetch({limit: 1}).then(m => {
                 const lastMessage = m.first()
                 lastactive += `${m.createdAt},`
             })
