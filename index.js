@@ -212,6 +212,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 		userID = user.id
 		guild = client.guilds.cache.get(serverID)
 		users = guild.members.cache.get(userID)
+		
 		if (!users.bot) {
 			if (emoji == null) {
 				emoji = reaction.emoji.name
