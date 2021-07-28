@@ -7,7 +7,7 @@ module.exports.run = async(client, msg, args) => {
             const forloop = async () => {
                 L = ``
                 for (let guild of client.guilds.cache.values()) {
-                        L += `**${guild.name}** [${guild.id}]\n`)
+                        L += `**${guild.name}** [${guild.id}]\n`
                 }
             }
             forloop();
