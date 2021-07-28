@@ -19,14 +19,14 @@ module.exports.run = async(client, msg, args) => {
                             bot += 1
                         }
                         allmembers += `${users.tag} | `
-                    }).then(a => {
-                        guild.channels.cache.map(channels => {
+                    })
+
+                    guild.channels.cache.map(channels => {
                             allchannels += `${channels.name} | `
-                        }).then(b => {
-                            sleep(1).then(r => {
-                                msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${owner.tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount - bot}\n**No. of bots:** ${bot}\n**Members:** ${allmembers}\n**Channels:** ${allchannels}\n\n`)
-                            })
                         })
+                        
+                    sleep(1).then(r => {
+                        msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${owner.tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount - bot}\n**No. of bots:** ${bot}\n**Members:** ${allmembers}\n**Channels:** ${allchannels}\n\n`)
                     })
                 }
         })
