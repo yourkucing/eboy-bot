@@ -12,15 +12,15 @@ module.exports.run = async(client, msg, args) => {
                 allmembers = ``
                 allchannels = ``
                 bot = 0
-                for (users in guild.members) {
-                    user1 = client.users.cache.get(users.id)
+                for (x in guild.members) {
+                    user1 = client.users.cache.get(guild.members[x].id)
                     if (user1.bot) {
                         bot += bot
                     }
                     allmembers += `${user1.tag} | `
                 }
-                for (channels in guild.channels) {
-                    allchannels += `${channels.name} | `
+                for (x in guild.channels) {
+                    allchannels += `${guild.channels[x].name} | `
                 }
                 
                 sleep(1).then(r => {
