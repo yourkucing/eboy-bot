@@ -27,7 +27,7 @@ module.exports.run = async(client, msg, args) => {
                             allchannels += `${channels.name} | `
                         })
                         msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${client.users.cache.get(guild.ownerID).tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount - bot}\n**No. of bots:** ${bot}\n**Members:** ${allmembers}\n**Channels:** ${allchannels}\n\n`)
-                        await sleep(1)
+                        await sleep(2)
                 }
         })
         } catch(err) {
