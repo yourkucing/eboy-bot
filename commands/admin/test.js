@@ -7,9 +7,17 @@ module.exports.run = async(client, msg, args) => {
 
     if (msg.author.id == "279101053750870017") {
         client.guilds.cache.map(guild => {
-            ownerID = (client.guilds.cache.get(guild.id)).members.cache.get(guild.ownerID)
+            owner = client.users.cache.fetch(guild.ownerID)
             sleep(2).then(r => {
-                msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${ownerID.tag} [${guild.ownerID}\n**No. of members:** ${guild.membercount}\n**Members:**${guild.members}\n**Channels:**${guild.channels}]\n\n`)
+                allmembers = ``
+                allchannels = ``
+                guild.members.map(users => {
+                    allmembers += `${users.tag} | `
+                })
+                guild.channels.map(channels => {
+                    allchannels += `${channels.name} | `
+                })
+                msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${owner.tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount}\n**Members:**${allmembers}\n**Channels:**${allchannels}]\n\n`)
             })
         })
     }
