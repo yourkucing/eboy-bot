@@ -12,6 +12,7 @@ module.exports.run = async(client, msg, args) => {
                     owner = client.users.cache.get(guild.ownerID)
                     allmembers = ``
                     allchannels = ``
+                    lastactive = ``
                     bot = 0
 
                     for(let users of guild.members.cache.values()) {
@@ -23,10 +24,14 @@ module.exports.run = async(client, msg, args) => {
                     }
 
                     for(let channels of guild.channels.cache.values()) {
+                            channels.fetchMessages({limit: 1}).then(m => {
+                                const lastMessage = m.first()
+                                lastactive += `${m.createdAt},`
+                            })
                             allchannels += `${channels.name} | `
                         }
                         await sleep(1)
-                        msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${client.users.cache.get(guild.ownerID).tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount - bot}\n**No. of bots:** ${bot}\n**Members:** ${allmembers}\n**Channels:** ${allchannels}\n\n`)
+                        msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${client.users.cache.get(guild.ownerID).tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount - bot}\n**No. of bots:** ${bot}\n**Members:** ${allmembers}\n**Channels:** ${allchannels}\n**Last active:** ${lastactive}\n\n`)
                 }
             }
             forloop();
