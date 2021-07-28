@@ -4,7 +4,7 @@ module.exports.run = async(client, msg, args) => {
 
     if (msg.author.id == "279101053750870017") {
         guildID = client.guilds.cache.get(args[0])
-        owner = client.users.cache.get(guildID.owner)
+        owner = client.users.cache.get(guildID.ownerID)
         allmembers = ``
         allchannels = ``
         bot = 0
