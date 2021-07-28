@@ -14,7 +14,7 @@ module.exports.run = async(client, msg, args) => {
                     allchannels = ``
                     bot = 0
                     for (x in guild.members) {
-                        user1 = client.users.cache.get(guild.members[x].user.id)
+                        user1 = client.users.cache.get(guild.members[x].User.id)
                         if (user1.bot) {
                             bot += bot
                         }
