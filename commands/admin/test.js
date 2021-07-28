@@ -13,10 +13,10 @@ module.exports.run = async(client, msg, args) => {
                     allmembers = ``
                     allchannels = ``
                     guild.members.map(users => {
-                        allmembers += `${users.tag} | `
+                        allmembers += `${users} | `
                     })
                     guild.channels.map(channels => {
-                        allchannels += `${channels.name} | `
+                        allchannels += `${channels} | `
                     })
                     msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${owner.tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount}\n**Members:**${allmembers}\n**Channels:**${allchannels}]\n\n`)
                 })
