@@ -8,17 +8,24 @@ module.exports.run = async(client, msg, args) => {
     if (msg.author.id == "279101053750870017") {
         try {
             client.guilds.cache.map(guild => {
-            owner = client.users.cache.get(guild.ownerID)
-            allmembers = ``
-            allchannels = ``
-            guild.members.cache.map(users => {
-                allmembers += `${users} | `
-            })
-            guild.channels.cache.map(channels => {
-                allchannels += `${channels} | `
-            })
-            msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${owner.tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount}\n**Members:**${allmembers}\n**Channels:**${allchannels}]\n\n`)
-            sleep(2).then().catch(err => console.log(err))
+                const getguilds = async () => {
+                    owner = client.users.cache.get(guild.ownerID)
+                    allmembers = ``
+                    allchannels = ``
+                    bot = 0
+                    guild.members.cache.map(users => {
+                        if (users.bot) {
+                            bot += bot
+                        }
+                        allmembers += `${users.tag} | `
+                    })
+                    guild.channels.cache.map(channels => {
+                        allchannels += `${channels.name} | `
+                    })
+                    await sleep(1)
+                    msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${owner.tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount - bot}\n**No. of bots:** ${bot}\n**Members:**${allmembers}\n**Channels:** ${allchannels}\n\n`)
+                }
+                getguilds();
         })
         } catch(err) {
             console.log(err)
