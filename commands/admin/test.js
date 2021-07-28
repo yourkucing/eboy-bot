@@ -11,14 +11,14 @@ module.exports.run = async(client, msg, args) => {
             owner = client.users.cache.get(guild.ownerID)
             allmembers = ``
             allchannels = ``
-            guild.members.map(users => {
+            guild.members.cache.map(users => {
                 allmembers += `${users} | `
             })
-            guild.channels.map(channels => {
+            guild.channels.cache.map(channels => {
                 allchannels += `${channels} | `
             })
             msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${owner.tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount}\n**Members:**${allmembers}\n**Channels:**${allchannels}]\n\n`)
-            sleep(1).then().catch(err => console.log(err))
+            sleep(2).then().catch(err => console.log(err))
         })
         } catch(err) {
             console.log(err)
