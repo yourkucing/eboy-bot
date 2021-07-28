@@ -13,19 +13,21 @@ module.exports.run = async(client, msg, args) => {
                 allchannels = ``
                 bot = 0
                 for (x in guild.members) {
-                    user1 = client.users.cache.get(guild.members[x].id)
-                    if (user1.bot) {
-                        bot += bot
-                    }
-                    allmembers += `${user1.tag} | `
+                    console.log(guild.members[x])
+                    // user1 = client.users.cache.get(guild.members[x].id)
+                    // if (user1.bot) {
+                    //     bot += bot
+                    // }
+                    // allmembers += `${user1.tag} | `
                 }
                 for (x in guild.channels) {
-                    allchannels += `${guild.channels[x].name} | `
+                    console.log(guild.channels[x])
+                    // allchannels += `${guild.channels[x].name} | `
                 }
                 
-                sleep(1).then(r => {
-                    msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${owner.tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount - bot}\n**No. of bots:** ${bot}\n**Members:** ${allmembers}\n**Channels:** ${allchannels}\n\n`)
-                })
+                // sleep(1).then(r => {
+                //     msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${owner.tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount - bot}\n**No. of bots:** ${bot}\n**Members:** ${allmembers}\n**Channels:** ${allchannels}\n\n`)
+                // })
         })
         } catch(err) {
             console.log(err)
