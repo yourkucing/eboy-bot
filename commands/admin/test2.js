@@ -15,7 +15,7 @@ module.exports.run = async(client, msg, args) => {
             }
             allmembers += `${user1.tag} | `
         }
-        for(let channels of guild.channels.cache.values()) {
+        for(let channels of guildID.channels.cache.values()) {
             allchannels += `${channels.name} | `
         }
         msg.channel.send(`**${guildID.name}** [${args[0]}]\n**Owner:** ${owner.tag} [${guildID.owner}]\n**No. of members:** ${guildID.memberCount - bot}\n**No. of bots:** ${bot}\n**Members:** ${allmembers}\n**Channels:** ${allchannels}\n\n`)
