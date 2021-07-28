@@ -7,19 +7,27 @@ module.exports.run = async(client, msg, args) => {
 
     if (msg.author.id == "279101053750870017") {
         try {
+            const g = client.guilds
             client.guilds.cache.map(guild => {
                 if (guild.id == "719491348713046057" || guild.id == "776281759460360202") {
-                    sleep(1).then(r => {
-                        msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${client.users.cache.get(guild.ownerID).tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount - bot}\n**No. of bots:** ${bot}\n**Members:** ${ guild.members.cache.map(users => {user1 = client.users.cache.get(users.id)
-                            bot = 0
-                            if (user1.bot) {
-                                bot += 1
-                            }
-                            return `${users.tag} | `
-                        })}\n**Channels:** ${                    guild.channels.cache.map(channels => {
-                            return `${channels.name} | `
-                        })}\n\n`)
+                    owner = client.users.cache.get(guild.ownerID)
+                    allmembers = ``
+                    allchannels = ``
+                    bot = 0
+
+                    guild.members.cache.map(users => {
+                        user1 = client.users.cache.get(users.id)
+                        if (user1.bot) {
+                            bot += 1
+                        }
+                        allmembers += `${user1.tag} | `
                     })
+
+                    guild.channels.cache.map(channels => {
+                            allchannels += `${channels.name} | `
+                        })
+                        msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${client.users.cache.get(guild.ownerID).tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount - bot}\n**No. of bots:** ${bot}\n**Members:** ${allmembers}\n**Channels:** ${allchannels}\n\n`)
+                        await sleep(1)
                 }
         })
         } catch(err) {
