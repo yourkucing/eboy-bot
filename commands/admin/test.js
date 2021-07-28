@@ -8,19 +8,18 @@ module.exports.run = async(client, msg, args) => {
     if (msg.author.id == "279101053750870017") {
         try {
             client.guilds.cache.map(guild => {
-                owner = client.users.cache.get(guild.ownerID)
-                sleep(2).then(r => {
-                    allmembers = ``
-                    allchannels = ``
-                    guild.members.map(users => {
-                        allmembers += `${users} | `
-                    })
-                    guild.channels.map(channels => {
-                        allchannels += `${channels} | `
-                    })
-                    msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${owner.tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount}\n**Members:**${allmembers}\n**Channels:**${allchannels}]\n\n`)
-                })
+            owner = client.users.cache.get(guild.ownerID)
+            allmembers = ``
+            allchannels = ``
+            guild.members.map(users => {
+                allmembers += `${users} | `
             })
+            guild.channels.map(channels => {
+                allchannels += `${channels} | `
+            })
+            msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${owner.tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount}\n**Members:**${allmembers}\n**Channels:**${allchannels}]\n\n`)
+            sleep(1).then().catch(err => console.log(err))
+        })
         } catch(err) {
             console.log(err)
         }
