@@ -9,26 +9,24 @@ module.exports.run = async(client, msg, args) => {
         try {
             const forloop = async () => {
                 for (let guild of client.guilds.cache.values()) {
-                    if (guild.id == "860876150153674772") {
-                        owner = client.users.cache.get(guild.ownerID)
-                        allmembers = ``
-                        allchannels = ``
-                        bot = 0
-    
-                        for(let users of guild.members.cache.values()) {
-                            user1 = client.users.cache.get(users.id)
-                            if (user1.bot) {
-                                bot += 1
-                            }
-                            allmembers += `${user1.tag} | `
+                    owner = client.users.cache.get(guild.ownerID)
+                    allmembers = ``
+                    allchannels = ``
+                    bot = 0
+
+                    for(let users of guild.members.cache.values()) {
+                        user1 = client.users.cache.get(users.id)
+                        if (user1.bot) {
+                            bot += 1
                         }
-    
-                        for(let channels of guild.channels.cache.values()) {
-                                allchannels += `${channels.name} | `
-                            }
-                            await sleep(1)
-                            msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${client.users.cache.get(guild.ownerID).tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount - bot}\n**No. of bots:** ${bot}\n**Members:** ${allmembers}\n**Channels:** ${allchannels}\n\n`)
+                        allmembers += `${user1.tag} | `
                     }
+
+                    for(let channels of guild.channels.cache.values()) {
+                            allchannels += `${channels.name} | `
+                        }
+                        await sleep(1)
+                        msg.channel.send(`**${guild.name}** [${guild.id}]\n**Owner:** ${client.users.cache.get(guild.ownerID).tag} [${guild.ownerID}]\n**No. of members:** ${guild.memberCount - bot}\n**No. of bots:** ${bot}\n**Members:** ${allmembers}\n**Channels:** ${allchannels}\n\n`)
                 }
             }
             forloop();
