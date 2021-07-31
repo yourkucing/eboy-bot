@@ -176,7 +176,14 @@ client.on('ready', () => {
 client.on('guildDelete', guild => {
 	eboylog = client.channels.cache.get('867744429657292810')
 	eboylog.send(`Eboy just got kicked out of a server: **${guild.name}** [Total: ${client.guilds.cache.size} servers]`)
-	});	
+
+	guildID = guild.id
+	await timeoutModel.deleteMany({serverID: guildID}).catch(e => eboylog.send(`<@279101053750870017>, unable to delete timeouts from ${guild.name} [${guild.id}].`))
+	await birthdayModel.deleteMany({serverID: guildID}).catch(e => eboylog.send(`<@279101053750870017>, unable to delete birthdays from ${guild.name} [${guild.id}].`))
+	await sprintModel.deleteMany({serverID: guildID}).catch(e => eboylog.send(`<@279101053750870017>, unable to delete sprints from ${guild.name} [${guild.id}].`))
+	await reactionsModel.deleteMany({serverID: guildID}).catch(e => eboylog.send(`<@279101053750870017>, unable to delete reactions from ${guild.name} [${guild.id}].`))
+
+});	
 
 client.on('messageDelete', async (message) => {
 	messageID = message.id
