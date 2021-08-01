@@ -461,9 +461,13 @@ if (command === 'search') {
 		eboylog = client.channels.cache.get('867744429657292810')
 		author = msg.author
 		eboylog.send(`**${author.username}** [${author.id}] used the **help** command.`)
-
-		msg.author.send(embed);
-        msg.channel.send(`Psssst. Check your DMs, **${msg.guild.members.cache.get(msg.author.id).displayName}**! :wink:`)
+		
+		try {
+			msg.author.send(embed);
+			msg.channel.send(`Psssst. Check your DMs, **${msg.guild.members.cache.get(msg.author.id).displayName}**! :wink:`)
+		} catch(err) {
+			eboylog.send(`<@279101053750870017>: ERROR: Unable to use **help** command.\n${err}`)
+		}
  }
  
  });
