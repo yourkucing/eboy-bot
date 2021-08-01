@@ -455,7 +455,8 @@ if (command === 'search') {
 		{ name: 'special commands', value: 'To cheer someone up and tell them that you love them:\r\n`eboy, help me out here @<username>`\r\nto matchmake someone: `uwu match @<username> @<username>` BOTH MUST BE DIFFERENT USERS.\r\n`uwu uwu <words to uwuify>`\r\n`uwu search <word to search>` [note that this is using Urban Dictionary, so some results might be ridiculous or NSFW.]\r\n`uwu duel @<username>`\r\n`uwu banner <words to turn into banner>`\r\n`uwu f / uwu f <words> / uwu f @<username>`\r\nTo timeout someone (your bot role must be higher than the person you are timing out!!!): `uwu timeout <@user> <eg: 1m/10s/24h>` [without the time, it will be for a default of 15 minutes.]\r\nTo give someone a cookie: uwu cookie <@user>' },
 		{ name: 'todo list', value: 'To summon: \`uwu todo\`\r\nTo delete: \`uwu todo delete <number>\`\r\nTo add: \`uwu todo add <activity>\`\r\nTo be done: \`uwu todo done <number>\`\r\nTo clear all: \`uwu todo clear\`'},
 		{ name: 'role reactions', value: 'To start: \`uwu react-settings #the-channel-your-reaction-roles-will-be-at\`'},
-		{ name: 'admin commands', value: 'To enable/disable eboy to reply to "goodmorning" or "goodnight" messages: `uwu enable-interactions`/`uwu disable-interactions`'}
+		{ name: 'admin commands', value: 'To enable/disable eboy to reply to "goodmorning" or "goodnight" messages: `uwu enable-interactions`/`uwu disable-interactions`'},
+		{ name: 'birthday commands', value: 'Get eboy to wish you happy birthday! To start: \`uwu birthday 17 march\` (this is just an example)\r\nTo delete: \`uwu birthday delete\`\r\nTo view all the birthdays in the server: \`uwu birthday\`'}
 		)
 		.setFooter(`Created by Maryam#9206`);
 		eboylog = client.channels.cache.get('867744429657292810')
