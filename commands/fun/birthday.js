@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const birthdayModel = require('../../models/birthdaySchema')
+const paginationEmbed = require('discord.js-pagination');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -16,17 +17,40 @@ module.exports.run = async(client, msg, args) => {
             return
         }
         else {
-            birthdaylist = ""
-            const embed = new Discord.MessageEmbed()
-            .setColor('#FF69B4')
-            .setTitle(`Birthdays`)
-            .setDescription(`These are all the birthdays of the people in this server.`);
-            for (x in birthdaykids) {
-                birthdaylist += `**${msg.guild.members.cache.get(birthdaykids[x].userID).displayName}**: ${birthdaykids[x].birthday.getDate()} ${birthdaykids[x].birthday.toLocaleString('default', { month: 'long' })}\n`
-                
+            if (birthdaykids.length > 10) {
+                pageno = Math.ceil(birthdaykids.length/10)
+                const birthdayarray = []
+                let k = 10
+                for (let i = 0; i < birthdaykids.length; i += 10) {
+                    const current = birthdaykids.slice(i, k)
+                    let j = i
+                    k += 10
+                    const birthdays = current.map(bdays => `**${++j}.**  **${msg.guild.members.cache.get(bdays.userID).displayName}**: ${bdays.birthday.getDate()} ${bdays.birthday.toLocaleString('default', { month: 'long' })}`).join(`\n`)
+                    const embed = new Discord.MessageEmbed()
+                    .setColor('#FF69B4')
+                    .setTitle(`Birthdays`)
+                    .setDescription(`These are all the birthdays of the people in this server.`)
+                    .addFields({name: `Birthdays`, value: `${birthdays}`});
+
+                    birthdayarray.push(embed)
+                }
+
+                msg.channel.send(birthdayarray[0])
+                console.log(birthdayarray.length)
             }
-            embed.addFields({name: `Birthdays`, value: `${birthdaylist}`})
-            msg.channel.send(embed)
+            else {
+                birthdaylist = ""
+                const embed = new Discord.MessageEmbed()
+                .setColor('#FF69B4')
+                .setTitle(`Birthdays`)
+                .setDescription(`These are all the birthdays of the people in this server.`);
+                for (x in birthdaykids) {
+                    birthdaylist += `**${msg.guild.members.cache.get(birthdaykids[x].userID).displayName}**: ${birthdaykids[x].birthday.getDate()} ${birthdaykids[x].birthday.toLocaleString('default', { month: 'long' })}\n`
+                    
+                }
+                embed.addFields({name: `Birthdays`, value: `${birthdaylist}`})
+                msg.channel.send(embed)
+            }
         }
     }
     else {
