@@ -39,18 +39,39 @@ module.exports.run = async(client, msg, args) => {
             }
             else {
                 birthdaylist = ""
+                n = 1
                 const embed = new Discord.MessageEmbed()
                 .setColor('#FF69B4')
                 .setTitle(`Birthdays`)
                 .setDescription(`These are all the birthdays of the people in this server.`);
                 for (x in birthdaykids) {
-                    birthdaylist += `**${msg.guild.members.cache.get(birthdaykids[x].userID).displayName}**: ${birthdaykids[x].birthday.getDate()} ${birthdaykids[x].birthday.toLocaleString('default', { month: 'long' })}\n`
-                    
+                    birthdaylist += `**${n}.** **${msg.guild.members.cache.get(birthdaykids[x].userID).displayName}**: ${birthdaykids[x].birthday.getDate()} ${birthdaykids[x].birthday.toLocaleString('default', { month: 'long' })}\n`
+                    n++
                 }
                 embed.addFields({name: `Birthdays`, value: `${birthdaylist}`})
                 msg.channel.send(embed)
             }
         }
+    }
+    else if (args[0].toLowerCase() == "delete") {
+        msg.channel.send(`Are you sure you want to delete your birthday in this server? (Answer yes or no.)`)
+        msg.channel.awaitMessages(m => m.author.id == msg.author.id, {max: 1, time: 30000}).then(collected => {
+            if (collected.first().content.toLowerCase() == 'yes') {
+                birthdayModel.deleteOne({userID: hooman, serverID: server}).then(result => {
+                    if (!result) {
+                        msg.channel.send(`Sorry ${msg.author}, you did not have any birthday in this server!`)
+                    }
+                    else {
+                        msg.channel.send(`Birthday deleted!`)
+                    }
+                });
+            }
+            else {
+                msg.channel.send(`Oh, no deletion occurred then!`)
+            }
+        }).catch(collected => {
+            msg.channel.send('Oh, it must have been an accident then!');
+            });
     }
     else {
         date = args[0]
@@ -64,20 +85,27 @@ module.exports.run = async(client, msg, args) => {
             return
         }
         else {
-            date = parseInt(date)
-            month = months[month]
-            birthday = `2000-${month}-${date}`
-            birthdayModel.create({
-                serverID: server,
-                userID: hooman,
-                channelID: msg.channel.id,
-                birthday: new Date(birthday)
-            }).then(r => {
-                if (r) {
-                    msg.react(`✅`)
+            birthdayModel.find({serverID: server, userID: hooman}).then(s => {
+                if(s) {
+                    msg.channel.send(`Your birthday is already in the system for this server. You can check using \`uwu birthday\`.`)
                 }
                 else {
-                    msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                    date = parseInt(date)
+                    month = months[month]
+                    birthday = `2000-${month}-${date}`
+                    birthdayModel.create({
+                        serverID: server,
+                        userID: hooman,
+                        channelID: msg.channel.id,
+                        birthday: new Date(birthday)
+                    }).then(r => {
+                        if (r) {
+                            msg.react(`✅`)
+                        }
+                        else {
+                            msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                        }
+                    })
                 }
             })
         }
