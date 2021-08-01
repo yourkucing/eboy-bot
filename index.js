@@ -302,7 +302,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 client.on('message', msg => {
 
-if (msg.channel.type === 'dm') return message.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
+if (msg.channel.type === 'dm') return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
 
 if (msg.author.bot) return
 
