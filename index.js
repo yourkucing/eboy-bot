@@ -302,6 +302,8 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 client.on('message', msg => {
 
+if (msg.channel.type === 'dm') return message.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
+
 if (msg.author.bot) return
 
 channelModel.findOne({channelID: msg.channel.id}).then(moneychannel => {
@@ -456,11 +458,12 @@ if (command === 'search') {
 		{ name: 'admin commands', value: 'To enable/disable eboy to reply to "goodmorning" or "goodnight" messages: `uwu enable-interactions`/`uwu disable-interactions`'}
 		)
 		.setFooter(`Created by Maryam#9206`);
-		msg.author.send(embed);
-        msg.channel.send(`Psssst. Check your DMs, **${msg.guild.members.cache.get(msg.author.id).displayName}**! :wink:`)
 		eboylog = client.channels.cache.get('867744429657292810')
 		author = msg.author
 		eboylog.send(`**${author.username}** [${author.id}] used the **help** command.`)
+
+		msg.author.send(embed);
+        msg.channel.send(`Psssst. Check your DMs, **${msg.guild.members.cache.get(msg.author.id).displayName}**! :wink:`)
  }
  
  });
