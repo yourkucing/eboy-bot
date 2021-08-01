@@ -86,7 +86,7 @@ module.exports.run = async(client, msg, args) => {
         }
         else {
             birthdayModel.find({serverID: server, userID: hooman}).then(s => {
-                if(s) {
+                if(s.length != 0) {
                     msg.channel.send(`Your birthday is already in the system for this server. You can check using \`uwu birthday\`.`)
                 }
                 else {
