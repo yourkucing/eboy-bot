@@ -35,8 +35,7 @@ module.exports.run = async(client, msg, args) => {
                     birthdayarray.push(embed)
                 }
 
-                msg.channel.send(birthdayarray[0])
-                console.log(birthdayarray.length)
+                paginationEmbed(msg, birthdayarray)
             }
             else {
                 birthdaylist = ""
