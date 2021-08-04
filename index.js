@@ -302,8 +302,6 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 client.on('message', msg => {
 
-if (msg.channel.type === 'dm' && !msg.author.bot) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
-
 if (msg.author.bot) return
 
 channelModel.findOne({channelID: msg.channel.id}).then(moneychannel => {
@@ -409,6 +407,7 @@ const args = msg.content.slice(prefix.length).split(new RegExp(/\s+/));
 const command = args.shift().toLowerCase();
 
  if (command === 'uwu') {
+	if (msg.channel.type === 'dm' && !msg.author.bot ) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
 	const words = args.join(' ');
 	msg.channel.send(words.replace(/r/g,'w').replace(/s/g,'sh').replace(/l/g,'w').replace(/R/g,'W').replace(/S/g,'Sh').replace(/L/g,'W') + ' uwu');
 }
@@ -422,6 +421,7 @@ const command = args.shift().toLowerCase();
 //-----------------------------------------------------------------------------------------------------------------------------------------
  
 if (command === 'search') {
+	if (msg.channel.type === 'dm' && !msg.author.bot ) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
 	var definition = args.join(' ');;
 	
 	ud.term(definition).then((result) => {
@@ -441,6 +441,7 @@ if (command === 'search') {
 
  
  if (msg.content === '@eboy help' || command === 'help' || command === 'command' || command === 'commands') {
+	if (msg.channel.type === 'dm' && !msg.author.bot ) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
 		const embed = new Discord.MessageEmbed()
 		.setColor('#FF69B4')
 		.setTitle(`Commands`)
