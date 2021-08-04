@@ -5,7 +5,8 @@ const { update } = require('../../models/petSchema');
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
 	author = msg.author
-	eboylog.send(`**${author.username}** [${author.id}] used the **gift** command.`)
+    guild = client.guilds.cache.get(msg.guild.id)
+    eboylog.send(`**${author.username}** [${author.id}] used the **gift** command in **${guild}** [${msg.guild.id}].`)
 
     if (!msg.mentions.users.size) {
         msg.channel.send(`You didn't provide any name, ${msg.author}! Are you trying to give pet food to the ghosts in the server?`);

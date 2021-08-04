@@ -5,7 +5,8 @@ const { update } = require('../../models/petSchema');
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
 	author = msg.author
-	eboylog.send(`**${author.username}** [${author.id}] used the **pets** command.`)
+    guild = client.guilds.cache.get(msg.guild.id)
+    eboylog.send(`**${author.username}** [${author.id}] used the **pets** command in **${guild}** [${msg.guild.id}].`)
     
     hooman = msg.author.id
     words = args.join(" ")
