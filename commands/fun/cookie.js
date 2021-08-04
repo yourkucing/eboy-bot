@@ -4,7 +4,8 @@ const cookieModel = require('../../models/cookieSchema');
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
 	author = msg.author
-	eboylog.send(`**${author.username}** [${author.id}] used the **cookie** command.`)
+    guild = client.guilds.cache.get(msg.guild.id)
+    eboylog.send(`**${author.username}** [${author.id}] used the **cookie** command in **${guild}** [${msg.guild.id}].`)
 
     if (!msg.mentions.users.size) {
         msg.channel.send("Uh... Who did you want to give cookie to? The server ghost?")

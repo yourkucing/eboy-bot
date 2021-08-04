@@ -3,7 +3,8 @@ const Discord = require('discord.js');
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
 	author = msg.author
-	eboylog.send(`**${author.username}** [${author.id}] used the **random** command.`)
+    guild = client.guilds.cache.get(msg.guild.id)
+    eboylog.send(`**${author.username}** [${author.id}] used the **random** command in **${guild}** [${msg.guild.id}].`)
 
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {

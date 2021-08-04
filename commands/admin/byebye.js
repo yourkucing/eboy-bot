@@ -3,7 +3,8 @@ const Discord = require('discord.js');
 module.exports.run = async(client, msg, args) => {
 	eboylog = client.channels.cache.get('867744429657292810')
 	author = msg.author
-	eboylog.send(`**${author.username}** [${author.id}] used the **byebye** command.`)
+	guild = client.guilds.cache.get(msg.guild.id)
+	eboylog.send(`**${author.username}** [${author.id}] used the **byebye** command in **${guild}** [${msg.guild.id}].`)
 
 	if (msg.author.id == "557013039795273750") {
 		msg.channel.send(`NO, CALUM, YOU'RE BANNED FROM USING THIS.`)

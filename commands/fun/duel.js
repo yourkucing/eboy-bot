@@ -3,7 +3,8 @@ const Discord = require('discord.js');
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
 	author = msg.author
-	eboylog.send(`**${author.username}** [${author.id}] used the **duel** command.`)
+    guild = client.guilds.cache.get(msg.guild.id)
+    eboylog.send(`**${author.username}** [${author.id}] used the **duel** command in **${guild}** [${msg.guild.id}].`)
 
     function sleep(sec) {
         return new Promise(resolve => setTimeout(resolve, sec*1000));

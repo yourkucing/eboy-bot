@@ -462,7 +462,8 @@ if (command === 'search') {
 		.setFooter(`Created by Maryam#9206`);
 		eboylog = client.channels.cache.get('867744429657292810')
 		author = msg.author
-		eboylog.send(`**${author.username}** [${author.id}] used the **help** command.`)
+		guild = client.guilds.cache.get(msg.guild.id)
+		eboylog.send(`**${author.username}** [${author.id}] used the **help** command in **${guild}** [${msg.guild.id}].`)
 		
 		try {
 			msg.author.send(embed);

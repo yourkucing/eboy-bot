@@ -4,7 +4,8 @@ const todoModel = require(`../../models/todoSchema`)
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
 	author = msg.author
-	eboylog.send(`**${author.username}** [${author.id}] used the **todo** command.`)
+    guild = client.guilds.cache.get(msg.guild.id)
+    eboylog.send(`**${author.username}** [${author.id}] used the **todo** command in **${guild}** [${msg.guild.id}].`)
 
     author = msg.author.id
     todo = await todoModel.find({userID: author})

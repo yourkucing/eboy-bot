@@ -5,7 +5,8 @@ const paginationEmbed = require('discord.js-pagination');
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
 	author = msg.author
-	eboylog.send(`**${author.username}** [${author.id}] used the **birthday** command.`)
+    guild = client.guilds.cache.get(msg.guild.id)
+    eboylog.send(`**${author.username}** [${author.id}] used the **birthday** command in **${guild}** [${msg.guild.id}].`)
 
     hooman = msg.author.id
     server = msg.guild.id

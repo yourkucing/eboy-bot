@@ -3,7 +3,8 @@ const Discord = require('discord.js');
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
 	author = msg.author
-	eboylog.send(`**${author.username}** [${author.id}] used the **jitter** command.`)
+	guild = client.guilds.cache.get(msg.guild.id)
+	eboylog.send(`**${author.username}** [${author.id}] used the **jitter** command in **${guild}** [${msg.guild.id}].`)
 
 	var gifs = [
 		'https://media.tenor.com/images/cc195b958322477eb567be70334ec6a3/tenor.gif',
