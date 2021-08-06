@@ -383,7 +383,7 @@ if (message.includes('goodnight') || message.includes(`good night`)) {
  
 var message = msg.content.toLowerCase()
 
- if (message.includes('hi eboy uwu')) {
+ if (message.includes('hi eboy')) {
  msg.channel.send('hi ' + msg.author.toString() +' uwu!');
  }
     
