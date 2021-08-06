@@ -41,7 +41,8 @@ const checkforTimeouts = async() => {
 			userID = post.userID
 			guildID = post.serverID
 			channelID = post.channelID
-			console.log(guildID)
+			eboylog = client.channels.cache.get('867744429657292810')
+			eboylog.send(`User ID: ${userID}'s timeout is supposed to end.`)
 			const guild = client.guilds.cache.get(guildID)
 			const channel = client.channels.cache.get(channelID)
 			const timeoutrole = guild.roles.cache.find(role => role.name === "Time Out Corner")
@@ -53,7 +54,7 @@ const checkforTimeouts = async() => {
 				user.roles.remove(timeoutrole.id)
 				channel.send(`<@${userID}>, your timeout has ended!`)
 				eboylog = client.channels.cache.get('867744429657292810')
-				eboylog.send(`Timeout has ended for ${user.username}. [User ID: ${userID}]`)
+				eboylog.send(`Timeout has ended for User ID: ${userID}.`)
 				
 				await timeoutModel.deleteOne({userID: userID, serverID: guildID, channelID: channelID}).catch(e => {
 					eboylog = client.channels.cache.get('867744429657292810')
@@ -82,7 +83,9 @@ const checkforBirthdays = async() => {
 					userID = post.userID
 					guildID = post.serverID
 					channelID = post.channelID
-	
+					
+					eboylog = client.channels.cache.get('867744429657292810')
+					eboylog.send(`User ID: ${userID}'s birthday is supposed to be today.`)
 					const guild = client.guilds.cache.get(guildID)
 					const channel = client.channels.cache.get(channelID)
 					const user = guild.members.cache.get(userID)
@@ -90,7 +93,9 @@ const checkforBirthdays = async() => {
 						continue
 					}
 					else {
-						channel.send(`Happy birthday, <@${userID}>!`)
+						channel.send(`Happy birthday, <@${userID}>! I hope you have an amazing birthday uwu. :3`)
+						eboylog = client.channels.cache.get('867744429657292810')
+						eboylog.send(`Birthday message has been sent for user ID: ${userID}.`)
 					}
 				}
 			}
@@ -169,7 +174,7 @@ client.on('ready', () => {
 	eboylog = client.channels.cache.get('867744429657292810')
 	eboylog.send(`Eboy just joined a new server: **${guild.name}** [Total: ${client.guilds.cache.size} servers]`)
 
-	guild.systemChannel.send(`Hello there! Thank you for using Eboy bot uwu!\n\nYou can start off by doing \`uwu help\` to see all the relevant commands. You can also enable interactions by eboy (mainly having him reply to your goodmorning or goodnight) by running the command \`uwu enable-interactions\`. Of course, only admins can do this!\n\nMaryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her.\nYou can also submit your suggestion or feedback here: https://forms.gle/GpoHX32kVQznvY3h6 though dont forget to leave down your name and a way to contact you, just in case there are questions we need to specify! (∩•̀ω•́)⊃-⋆`)
+	guild.systemChannel.send(`Hello there! Thank you for using Eboy bot uwu!\n\nYou can start off by doing \`uwu help\` to see all the relevant commands. You can also enable interactions by eboy (mainly having him reply to your goodmorning or goodnight) by running the command \`uwu enable-interactions\`. Of course, only admins can do this!\n\nMaryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her.\nYou can also submit your suggestion or feedback here: https://cookie-codes.tumblr.com/eboy/askme though dont forget to leave down your name and a way to contact you, just in case there are questions we need to specify! (∩•̀ω•́)⊃-⋆`)
 	
 	});	
 
