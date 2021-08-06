@@ -5,8 +5,8 @@ const ms = require('ms');
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
 	author = msg.author
-    guild = client.guilds.cache.get(msg.guild.id)
-    eboylog.send(`**${author.username}** [${author.id}] used the **timeout** command in **${guild}** [${msg.guild.id}].`)
+    guildID = client.guilds.cache.get(msg.guild.id)
+    eboylog.send(`**${author.username}** [${author.id}] used the **timeout** command in **${guildID}** [${msg.guild.id}].`)
     
     hooman = msg.author
     guild = msg.guild.id
