@@ -71,7 +71,7 @@ module.exports.run = async(client, msg, args) => {
     
                 }
                 catch(err) {
-                    msg.channel.send(`**ERROR:** Eboy cannot seem to find your emoji or role.\nPlease make sure that you have keyed in both the role as well as the emoji correctly. Note that you can use custom emojis too, but not Nitro moving emojis. You can look at https://cookie-codes.tumblr.com/eboy for a visual guide on how to implement this. In addition, if you're still having trouble, you can DM my owner: Maryam#9206\n\nPlease note that every time you want to restart, you should delete the reaction message that eboy had sent out.`)
+                    msg.channel.send(`**ERROR:** \`Eboy cannot seem to find your emoji or role.\`\nPlease make sure that you have keyed in both the role as well as the emoji correctly. Note that you can use custom emojis too, but not Nitro moving emojis. You can look at https://cookie-codes.tumblr.com/eboy for a visual guide on how to implement this. In addition, if you're still having trouble, you can DM my owner: Maryam#9206\n\nPlease note that every time you want to restart, you should delete the reaction message that eboy had sent out.`)
                     console.log(err)
                 }   
             })
