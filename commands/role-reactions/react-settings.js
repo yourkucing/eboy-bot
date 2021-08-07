@@ -47,7 +47,7 @@ module.exports.run = async(client, msg, args) => {
                 }
             }
             channel.send(sendingmessage)
-            .then(async function(msg) {
+            .then(async function(msg1) {
                 try {
                     for (let i = 0; i < reaction.length; i++) {
                         if (reaction[i].includes("<") && reaction[i].includes(">") && reaction[i].includes(":")) {
@@ -59,11 +59,11 @@ module.exports.run = async(client, msg, args) => {
                         else {
                             reactionEmoji = reaction[i]
                         }
-                        await msg.react(reactionEmoji)
+                        await msg1.react(reactionEmoji)
                         reactionsModel.create({
                             serverID: serverID,
                             channelID: channels[0],
-                            messageID: msg.id,
+                            messageID: msg1.id,
                             emoji: reactionEmoji,
                             role: role[i]
                         })
