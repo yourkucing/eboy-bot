@@ -141,7 +141,7 @@ const checkforSprints = async() => {
 								eboylog.send(`Sprint ended for ${user2.username}. [User ID: ${userID2}]\n${e}`)
 							}).catch(e => {
 								eboylog = client.channels.cache.get('867744429657292810')
-								eboylog.send(`<@279101053750870017>: Unable to remove user from sprint database. [User ID: ${userID2}]`)
+								eboylog.send(`<@279101053750870017>: Unable to remove user from sprint database. [User ID: ${userID2}]\n${e}`)
 							})
 						}
 					})
