@@ -136,11 +136,12 @@ const checkforSprints = async() => {
 						else {
 							newwordcount = parseInt(collected.first().content)
 							channel2.send(`Nice. You wrote ${newwordcount - wordcount} words. Good job, mate!`)
-							eboylog = client.channels.cache.get('867744429657292810')
-							eboylog.send(`Sprint ended for ${user2.username}. [User ID: ${userID2}]\n${e}`)
-							await sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2}).catch(e => {
+							sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2}).then(deleted => {
 								eboylog = client.channels.cache.get('867744429657292810')
-								eboylog.send(`<@279101053750870017>: Unable to remove user from sprint database. [User ID: ${userID2}]\n${e}`)
+								eboylog.send(`Sprint ended for ${user2.username}. [User ID: ${userID2}]\n${e}`)
+							}).catch(e => {
+								eboylog = client.channels.cache.get('867744429657292810')
+								eboylog.send(`<@279101053750870017>: Unable to remove user from sprint database. [User ID: ${userID2}]`)
 							})
 						}
 					})
