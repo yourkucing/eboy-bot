@@ -31,8 +31,8 @@ module.exports.run = async(client, msg, args) => {
                 msg.channel.send(`Writing sprint for ${args} minutes starts now, <@${sprinter}>!`)
                 sprint = sprintModel.create({
                     userID: sprinter,
-                    serverID: guild,
-                    channelID: channel,
+                    serverID: msg.guild.id,
+                    channelID: msg.channel.id,
                     sprint: Date.now() + time,
                     word: wordcount
                 }).catch((e) => { console.log(e); })
