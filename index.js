@@ -138,7 +138,7 @@ const checkforSprints = async() => {
 							channel2.send(`Nice. You wrote ${newwordcount - wordcount} words. Good job, mate!`)
 							sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2}).then(deleted => {
 								eboylog = client.channels.cache.get('867744429657292810')
-								eboylog.send(`Sprint ended for ${user2.username}. [User ID: ${userID2}]\n${e}`)
+								eboylog.send(`Sprint ended for ${user2.username}. [User ID: ${userID2}]`)
 							}).catch(e => {
 								eboylog = client.channels.cache.get('867744429657292810')
 								eboylog.send(`<@279101053750870017>: Unable to remove user from sprint database. [User ID: ${userID2}]\n${e}`)
@@ -176,26 +176,28 @@ client.on('ready', () => {
 	});	
 
 client.on('guildDelete', guild => {
-	eboylog = client.channels.cache.get('867744429657292810')
-	eboylog.send(`Eboy just got kicked out of a server: **${guild.name}** [Total: ${client.guilds.cache.size} servers]`)
-
-	guildID = guild.id
-	timeoutModel.deleteMany({serverID: guildID}).then(r = {
-		if (r) {
-			birthdayModel.deleteMany({serverID: guildID}).then(s => {
-				if (s) {
-					sprintModel.deleteMany({serverID: guildID}).then(t => {
-						reactionsModel.deleteMany({serverID: guildID}).then(u => {
-							if(u) {
-								eboylog.send(`Deleted everything from ${guild.name} [${guild.id}].`)
-							}
-						}).catch(e => eboylog.send(`<@279101053750870017>, unable to delete reactions from ${guild.name} [${guild.id}].`))
-					}).catch(e => eboylog.send(`<@279101053750870017>, unable to delete sprints from ${guild.name} [${guild.id}].`))
-				}
-			}).catch(e => eboylog.send(`<@279101053750870017>, unable to delete birthdays from ${guild.name} [${guild.id}].`))
-
-		}
-	}).catch(e => eboylog.send(`<@279101053750870017>, unable to delete timeouts from ${guild.name} [${guild.id}].`))
+	if (typeof guild.name != "undefined") {
+		eboylog = client.channels.cache.get('867744429657292810')
+		eboylog.send(`Eboy just got kicked out of a server: **${guild.name}** [Total: ${client.guilds.cache.size} servers]`)
+	
+		guildID = guild.id
+		timeoutModel.deleteMany({serverID: guildID}).then(r = {
+			if (r) {
+				birthdayModel.deleteMany({serverID: guildID}).then(s => {
+					if (s) {
+						sprintModel.deleteMany({serverID: guildID}).then(t => {
+							reactionsModel.deleteMany({serverID: guildID}).then(u => {
+								if(u) {
+									eboylog.send(`Deleted everything from ${guild.name} [${guild.id}].`)
+								}
+							}).catch(e => eboylog.send(`<@279101053750870017>, unable to delete reactions from ${guild.name} [${guild.id}].`))
+						}).catch(e => eboylog.send(`<@279101053750870017>, unable to delete sprints from ${guild.name} [${guild.id}].`))
+					}
+				}).catch(e => eboylog.send(`<@279101053750870017>, unable to delete birthdays from ${guild.name} [${guild.id}].`))
+	
+			}
+		}).catch(e => eboylog.send(`<@279101053750870017>, unable to delete timeouts from ${guild.name} [${guild.id}].`))
+	}
 });	
 
 client.on('messageDelete', async (message) => {
