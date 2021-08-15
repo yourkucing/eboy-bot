@@ -200,6 +200,15 @@ client.on('guildDelete', guild => {
 	}
 });	
 
+client.on('guildMemberRemove', member => {
+	eboylog = client.channels.cache.get('867744429657292810')
+	birthdayModel.deleteOne({serverID: member.guild.id, userID: member.id}).then(r => {
+		if(r) {
+			eboylog.send(`Deleted user who left from birthday database.`)
+		}
+	}).catch(e => eboylog.send(`<@279101053750870017>, unable to delete birthday from database [${member.id}].\n${e}`))
+})
+
 client.on('messageDelete', async (message) => {
 	messageID = message.id
 	reactionmsg = await reactionsModel.find({messageID: messageID})
