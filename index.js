@@ -201,12 +201,10 @@ client.on('guildDelete', guild => {
 });	
 
 client.on('guildMemberRemove', member => {
+	userID = member.id
+	serverID = member.guild.id
 	eboylog = client.channels.cache.get('867744429657292810')
-	birthdayModel.deleteOne({serverID: member.guild.id, userID: member.id}).then(r => {
-		if(r) {
-			eboylog.send(`Deleted user who left from birthday database.`)
-		}
-	}).catch(e => eboylog.send(`<@279101053750870017>, unable to delete birthday from database [${member.id}].\n${e}`))
+	birthdayModel.deleteOne({serverID: member.guild.id, userID: member.id}).then().catch(e => eboylog.send(`<@279101053750870017>, unable to delete birthday from database [${userID}].\n${e}`))
 })
 
 client.on('messageDelete', async (message) => {

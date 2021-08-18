@@ -76,6 +76,10 @@ module.exports.run = async(client, msg, args) => {
     }
     else {
         date = args[0]
+        if (!args[1]) {
+            msg.channel.send(`Please include your month too. It should be in this format: eg. 17 March`)
+            return
+        }
         month = args[1].toLowerCase()
         if (isNaN(args[0])) {
             msg.channel.send(`**${args[0]}** is not a date. Please try again.`)
