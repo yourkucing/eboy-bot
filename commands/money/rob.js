@@ -53,7 +53,7 @@ module.exports.run = async(client, msg, args) => {
                     })
                 }
                 else{
-                    fine = Math.floor(Math.random() * (moneyData.gold/2)) + 1
+                    fine = Math.floor(Math.random() * (moneyData.gold/10)) + 1
                     moneyModel.findOneAndUpdate({userID: hooman}, {
                         $inc: {
                             gold: -1 * fine
