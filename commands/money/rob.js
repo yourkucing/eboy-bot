@@ -20,7 +20,6 @@ module.exports.run = async(client, msg, args) => {
 			const embed = new Discord.MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You gave yourself money! Okay?`)
-			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`${taggedUser.displayName} is rich now. (Your money still stays the same, dumdum!)`);
 			msg.channel.send(embed);
 		}
@@ -74,13 +73,13 @@ module.exports.run = async(client, msg, args) => {
                 if (!taggedData) {
                     const embed = new Discord.MessageEmbed()
                     .setColor('#FF69B4')
-                    .setDescription(`${taggedUser.displayName} has no wallet for you to steal! Get them to use \`uwu wallet\`.`)
+                    .setDescription(`**${taggedUser.displayName}** has no wallet for you to steal! Get them to use \`uwu wallet\`.`)
                     .setFooter(`Don't rob the poor!`);
                     msg.channel.send(embed);
                     return
                 }
                 else {
-                    robmoney = Math.floor(Math.random() * (taggedData.gold * (20/100))) + 1
+                    robmoney = Math.floor(Math.random() * (taggedData.gold * (10/100))) + 1
                     moneyModel.findOneAndUpdate({userID: hooman}, {
                         $inc: {
                             gold: robmoney
@@ -95,7 +94,7 @@ module.exports.run = async(client, msg, args) => {
                                 if (s) {
                                     const embed = new Discord.MessageEmbed()
                                     .setColor('#FF69B4')
-                                    .setDescription(`${taggedUser.displayName} has been robbed off ${robmoney}g.`)
+                                    .setDescription(`**${taggedUser.displayName}** has been robbed off ${robmoney}g.`)
                                     .setFooter(`Someone call the police! Quick!`);
                                     msg.channel.send(embed);
                                 }
