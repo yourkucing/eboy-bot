@@ -71,7 +71,7 @@ const checkforTimeouts = async() => {
 const checkforBirthdays = async() => {
 	day = new Date().getDate()
 	month = new Date().getMonth() + 1
-	if (new Date().getUTCHours() == 0 && new Date().getUTCMinutes() == 0) {
+	if (new Date().getUTCHours() == 6 && new Date().getUTCMinutes() == 0) {
 		birthday = new Date(`2000-${month}-${day}`)
 		const query = {
 			birthday: birthday
@@ -93,7 +93,7 @@ const checkforBirthdays = async() => {
 						continue
 					}
 					else {
-						channel.send(`Happy birthday, <@${userID}>! I hope you have an amazing birthday uwu. :3`)
+						channel.send(`Happy birthday, <@${userID}>! I hope you have an amazing birthday uwu. I dub thee the coolest person on the face on this Earth and today is YOUR day. Go out there and wreck havoc! :3`)
 						eboylog = client.channels.cache.get('867744429657292810')
 						eboylog.send(`Birthday message has been sent for user ID: ${userID}.`)
 					}
