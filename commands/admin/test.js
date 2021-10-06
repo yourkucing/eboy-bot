@@ -6,7 +6,10 @@ module.exports.run = async(client, msg, args) => {
     }
 
     if (msg.author.id == "279101053750870017") {
-        try {
+        client.guilds.cache.forEach(guild => {
+            console.log(`${guild.name} | ${guild.id}`);
+          })
+/*         try {
             const forloop = async () => {
                 for (let guild of client.guilds.cache.values()) {
                     owner = client.users.cache.get(guild.ownerID)
@@ -32,7 +35,7 @@ module.exports.run = async(client, msg, args) => {
             forloop();
         } catch(err) {
             console.log(err)
-        }
+        } */
 
     }
     else {
