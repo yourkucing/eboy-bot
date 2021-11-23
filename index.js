@@ -343,7 +343,7 @@ channelModel.findOne({channelID: msg.channel.id}).then(moneychannel => {
 })
 
 if (msg.channel.id == "912635515965165595" || msg.channel.id == "912658398179377174") {
-	msg.react('👍').then(msg => {
+	msg.react('👍').then(k => {
 		msg.react('👎')
 	})
 }
