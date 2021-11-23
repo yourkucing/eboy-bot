@@ -171,7 +171,7 @@ client.on('ready', () => {
 	eboylog = client.channels.cache.get('867744429657292810')
 	eboylog.send(`Eboy just joined a new server: **${guild.name}** [Total: ${client.guilds.cache.size} servers]`)
 
-	guild.systemChannel.send(`Hello there! Thank you for using Eboy bot uwu!\n\nYou can start off by doing \`uwu help\` to see all the relevant commands. You can also enable interactions by eboy (mainly having him reply to your goodmorning or goodnight) by running the command \`uwu enable-interactions\`. Of course, only admins can do this!\n\nMaryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her.\nYou can also submit your suggestion or feedback here: https://cookie-codes.tumblr.com/eboy/askme though dont forget to leave down your name and a way to contact you, just in case there are questions we need to specify! (∩•̀ω•́)⊃-⋆`)
+	guild.systemChannel.send(`Hello there! Thank you for using Eboy bot uwu!\n\nYou can start off by doing \`uwu help\` to see all the relevant commands. You can also enable interactions by eboy (mainly having him reply to your goodmorning or goodnight) by running the command \`uwu enable-interactions\`. Of course, only admins can do this!\n\nMaryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her.\nYou can also submit your suggestion or feedback here: https://cookie-codes.tumblr.com/eboy/askme though dont forget to leave down your name and a way to contact you, just in case there are questions we need to specify!\n\nYou can also join our discord server for any updates on Eboy: https://discord.gg/jy7yx4UrAV (∩•̀ω•́)⊃-⋆`)
 	
 	});
 	
