@@ -173,7 +173,17 @@ client.on('ready', () => {
 
 	guild.systemChannel.send(`Hello there! Thank you for using Eboy bot uwu!\n\nYou can start off by doing \`uwu help\` to see all the relevant commands. You can also enable interactions by eboy (mainly having him reply to your goodmorning or goodnight) by running the command \`uwu enable-interactions\`. Of course, only admins can do this!\n\nMaryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her.\nYou can also submit your suggestion or feedback here: https://cookie-codes.tumblr.com/eboy/askme though dont forget to leave down your name and a way to contact you, just in case there are questions we need to specify! (∩•̀ω•́)⊃-⋆`)
 	
-	});	
+	});
+	
+client.on('guildMemberAdd', member => {
+	// IMPORTANT NOTE: Make Sure To Use async and rename bot to client or whatever name you have for your bot events!
+	const welcomeChannel = member.guild.channels.cache.get('912651462616698890')
+	welcomeChannel.send(`Welcome ${member} to the integrated server of Eboy and Issie Codes. Head on to read the rules at <#rules-rules-rules> and then get your roles from <#come-get-your-roles> :heart:`)
+
+	if (member.bot) return; // checks if it's a bot that joined so the channel won't be spammed with "*Discord Bot* has joined the server" and stuff like that, so check that.
+	const newbieRole = newMember.roles.cache.get('912653061611208704') // that was to define the role to give newbies (you can name the variable however you want that doesn't matter!)
+	member.roles.add(newbieRole.id) // this will add the role to that member!
+})
 
 client.on('guildDelete', guild => {
 	if (typeof guild.name != "undefined") {
