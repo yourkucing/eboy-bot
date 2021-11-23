@@ -351,7 +351,7 @@ if (msg.channel.id == "912635515965165595" || msg.channel.id == "912658398179377
 if (msg.channel.id == "912668841602072577") {
 	content = msg.content
 	msg.delete()
-	client.channels.cache.get('912674916757811251').send(`HOI, THERE IS AN ISSUE IN EBOY/ISSIE SERVER: ${content}.`)
+	client.channels.cache.get('912674916757811251').send(`HOI, THERE IS AN ISSUE IN EBOY/ISSIE SERVER: **${content}**.`)
 }
 
 
