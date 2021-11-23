@@ -181,7 +181,7 @@ client.on('guildMemberAdd', member => {
 	welcomeChannel.send(`Welcome ${member} to the integrated server of Eboy and Issie Codes. Head on to read the rules at <#rules-rules-rules> and then get your roles from <#come-get-your-roles> :heart:`)
 
 	if (member.bot) return; // checks if it's a bot that joined so the channel won't be spammed with "*Discord Bot* has joined the server" and stuff like that, so check that.
-	const newbieRole = newMember.roles.cache.get('912653061611208704') // that was to define the role to give newbies (you can name the variable however you want that doesn't matter!)
+	const newbieRole = member.guild.roles.cache.get('912653061611208704') // that was to define the role to give newbies (you can name the variable however you want that doesn't matter!)
 	member.roles.add(newbieRole.id) // this will add the role to that member!
 })
 
