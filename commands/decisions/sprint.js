@@ -29,7 +29,7 @@ module.exports.run = async(client, msg, args) => {
                 return
             }
             else {
-                wordcount = parseInt(collected.content)
+                wordcount = parseInt(collected.first().content)
                 msg.channel.send(`Writing sprint for ${args} minutes starts now, <@${sprinter}>!`)
                 sprint = sprintModel.create({
                     userID: sprinter,
