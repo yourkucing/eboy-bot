@@ -28,6 +28,8 @@ module.exports.run = async(client, msg, args) => {
                     k += 10
                     birthdays = ""
                     for (m in current) {
+                        console.log(current[m].userID)
+                        console.log(msg.guild.members.cache.get(current[m].userID))
                         birthdays += `**${++j}.**  **${msg.guild.members.cache.get(current[m].userID).displayName}**: ${current[m].birthday.getDate()} ${current[m].birthday.toLocaleString('default', { month: 'long' })}\n`
                     }
                     const embed = new MessageEmbed()
