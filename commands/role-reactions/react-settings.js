@@ -41,6 +41,8 @@ module.exports.run = async(client, msg, args) => {
                     const roles = m.mentions.roles.map(role => {
                         return role.id
                     })
+                    console.log(roles)
+                    console.log(m.content)
                     role.push(roles[0])
                     rr = m.content.split(" ")
                     reaction.push(rr[1])
