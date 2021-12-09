@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 const sprintModel = require('../../models/sprintSchema')
 const ms = require('ms');
 
@@ -17,7 +17,10 @@ module.exports.run = async(client, msg, args) => {
     }
     else {
         msg.channel.send(`Please key in your original word count: ("Exit" to exit. If you have no word count, just key in "0".)`);
-        msg.channel.awaitMessages(m => m.author.id == sprinter, {max: 1}).then(collected => {
+        const filter = m => {
+            m.author.id == sprinter
+        }
+        msg.channel.awaitMessages({filter, max: 1}).then(collected => {
             if (collected.first().content.toLowerCase() == 'exit') {
                 msg.channel.send("Goodbye for now!");
                 return
