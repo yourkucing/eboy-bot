@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -17,10 +17,10 @@ module.exports.run = async(client, msg, args) => {
 		]
 	var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
 	const taggedUser = msg.mentions.users.first();
-	const embed = new Discord.MessageEmbed()
+	const embed = new MessageEmbed()
 	.setColor('#FF69B4')
 	.setDescription(`Just let me pass away in peace. Please. -${msg.guild.members.cache.get(msg.author.id).displayName} ${d.getFullYear()}`)
 	.setImage(randomgif)
 	.setFooter(`Uh, should I revive them or nah?`);
-	msg.channel.send(embed);
+	msg.channel.send({embeds: [embed]});
 }

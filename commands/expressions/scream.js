@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -17,10 +17,10 @@ module.exports.run = async(client, msg, args) => {
 		'https://reactiongifs.me/wp-content/uploads/2018/06/Angry-Anger_63403.gif'
 		]
 	var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
-	const embed = new Discord.MessageEmbed()
+	const embed = new MessageEmbed()
 	.setColor('#FF69B4')
 	.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is screaming.`)
 	.setImage(randomgif)
 	.setFooter(`blinks blinks. That was scary.`);
-	msg.channel.send(embed);
+	msg.channel.send({embeds: [embed]});
 }

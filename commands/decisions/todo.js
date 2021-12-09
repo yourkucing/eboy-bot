@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 const todoModel = require(`../../models/todoSchema`)
 
 module.exports.run = async(client, msg, args) => {

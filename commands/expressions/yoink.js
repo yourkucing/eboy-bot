@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -17,10 +17,10 @@ module.exports.run = async(client, msg, args) => {
 		'https://media1.tenor.com/images/ee5f77dab6dc52a84666f9516b49f7bf/tenor.gif'
 		]
 	var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
-	const embed = new Discord.MessageEmbed()
+	const embed = new MessageEmbed()
 	.setColor('#FF69B4')
 	.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is stealing. Be careful of your stuffs and pets!`)
 	.setImage(randomgif)
 	.setFooter(`SWIPER NO SWIPING!`);
-	msg.channel.send(embed);
+	msg.channel.send({embeds: [embed]});
 }

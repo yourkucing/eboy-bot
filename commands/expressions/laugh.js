@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -23,10 +23,10 @@ module.exports.run = async(client, msg, args) => {
 		'https://media1.tenor.com/images/694357a89167bfb3511c58cd1926cc50/tenor.gif'
 		]
 	var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
-	const embed = new Discord.MessageEmbed()
+	const embed = new MessageEmbed()
 	.setColor('#FF69B4')
 	.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is laughing.`)
 	.setImage(randomgif)
 	.setFooter(`Bruh whats so funny? XD`);
-	msg.channel.send(embed);
+	msg.channel.send({embeds: [embed]});
 }

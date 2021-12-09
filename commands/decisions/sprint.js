@@ -19,7 +19,8 @@ module.exports.run = async(client, msg, args) => {
         const filter = m => m.author.id === sprinter;
         msg.channel.send(`Please key in your original word count: ("Exit" to exit. If you have no word count, just key in "0".)`);
         msg.channel.awaitMessages({filter, max: 1}).then(collected => {
-            if (collected.content.toLowerCase() == 'exit') {
+            console.log(collected.content.toLowerCase())
+/*             if (collected.content.toLowerCase() == 'exit') {
                 msg.channel.send("Goodbye for now!");
                 return
             }
@@ -37,7 +38,7 @@ module.exports.run = async(client, msg, args) => {
                     sprint: Date.now() + time,
                     word: wordcount
                 }).catch((e) => { console.log(e); })
-            }
+            } */
         })
         
     }

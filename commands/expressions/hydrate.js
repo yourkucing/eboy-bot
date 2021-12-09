@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -16,10 +16,10 @@ module.exports.run = async(client, msg, args) => {
 		'https://i.pinimg.com/originals/23/00/d5/2300d52c64171c70642fd61f4d1451ce.gif'
 		]
 	var randomgif = gifs[Math.floor(Math.random()*gifs.length)];
-	const embed = new Discord.MessageEmbed()
+	const embed = new MessageEmbed()
 	.setColor('#FF69B4')
 	.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} is drinking water.`)
 	.setImage(randomgif)
 	.setFooter(`Please hydrate yourself!`);
-	msg.channel.send(embed);
+	msg.channel.send({embeds: [embed]});
 }
