@@ -268,7 +268,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 				//nothing happens
 			}
 			else {
-				if (users.roles.cache.has(reactionmsg.role)) {
+				if (users.roles.cache.some(role => role.id === reactionmsg.role)) {
 					//nothing happens
 				}
 				else {
@@ -316,7 +316,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
 			//nothing happens
 		}
 		else {
-			if (users.roles.cache.has(reactionmsg.role)) {
+			if (users.roles.cache.some(role => role.id === reactionmsg.role)) {
 				role = guild.roles.cache.get(reactionmsg.role)
 				users.roles.remove(role)
 			}
