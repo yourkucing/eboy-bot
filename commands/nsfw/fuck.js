@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
 	eboylog = client.channels.cache.get('867744429657292810')
@@ -41,31 +41,31 @@ module.exports.run = async(client, msg, args) => {
 				return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
 			}
 			else {
-				const embed = new Discord.MessageEmbed()
+				const embed = new MessageEmbed()
 				.setColor('#FF69B4')
 				.setDescription(`You- Well.... You want to do **${words}**?`)
 				.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 				.setFooter(`Get a room, both of you smh!`);
-				msg.channel.send(embed);
+				msg.channel.send({embeds: [embed]});
 			}
 		}
 		else {
 			const taggedUser = msg.mentions.members.first();
 			if (taggedUser.id === msg.author.id) {
-				const embed = new Discord.MessageEmbed()
+				const embed = new MessageEmbed()
 				.setColor('#FF69B4')
 				.setDescription(`So you're gonna do yourself? That's cool.`)
 				.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 				.setFooter(`Maybe you need some cold shower yeah?`);
-				msg.channel.send(embed);
+				msg.channel.send({embeds: [embed]});
 			}
 			else {
-				const embed = new Discord.MessageEmbed()
+				const embed = new MessageEmbed()
 				.setColor('#FF69B4')
 				.setDescription(`You- Well.... You want to do **${taggedUser.displayName}**?`)
 				.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 				.setFooter(`Get a room, both of you smh!`);
-				msg.channel.send(embed);
+				msg.channel.send({embeds: [embed]});
 			}
 		}
 	}

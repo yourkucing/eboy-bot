@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 const reactionsModel = require('../../models/reactionsSchema');
 
 module.exports.run = async(client, msg, args) => {
@@ -7,7 +7,7 @@ module.exports.run = async(client, msg, args) => {
     guild = client.guilds.cache.get(msg.guild.id)
     eboylog.send(`**${author.username}** [${author.id}] used the **react-settings** command in **${guild}** [${msg.guild.id}].`)
 
-    if (!msg.member.hasPermission("ADMINISTRATOR")) {
+    if (!msg.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
         msg.channel.send("You don't have Administrator permissions to use this.")
         return
     }
@@ -25,8 +25,9 @@ module.exports.run = async(client, msg, args) => {
             channel = msg.guild.channels.cache.get(channels[0])
             sendingmessage = `Please click on the following reactions to get your roles:\n`
             msg.channel.send(`Please tag the role that you want as well as the emoji: (Eg. @potatokids :heart:)\nKeep replying continuously and when you're done, reply with "done".`)
+            const filter = m => m.author.id == author;
             const collector = msg.channel.createMessageCollector(
-                m => m.author.id == author
+                filter
                 );
     
             role = []
