@@ -18,7 +18,7 @@ module.exports.run = async(client, msg, args) => {
             return
         }
         else {
-            if (birthdaykids.length < 10) {
+            if (birthdaykids.length > 10) {
                 pageno = Math.ceil(birthdaykids.length/10)
                 const birthdayarray = []
                 let k = 10
@@ -42,7 +42,7 @@ module.exports.run = async(client, msg, args) => {
 
                 paginationEmbed(msg, birthdayarray)
             }
-/*             else {
+            else {
                 birthdaylist = ""
                 n = 1
                 const embed = new MessageEmbed()
@@ -55,7 +55,7 @@ module.exports.run = async(client, msg, args) => {
                 }
                 embed.addFields({name: `Birthdays`, value: `${birthdaylist}`})
                 msg.channel.send({embeds: [embed]})
-            } */
+            }
         }
     }
     else if (args[0].toLowerCase() == "delete") {
