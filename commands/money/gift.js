@@ -1,5 +1,5 @@
 const petModel = require('../../models/petSchema')
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 const { update } = require('../../models/petSchema');
 
 module.exports.run = async(client, msg, args) => {

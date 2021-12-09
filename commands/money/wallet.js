@@ -1,6 +1,6 @@
 const moneyModel = require('../../models/moneySchema');
 const cookieModel = require('../../models/cookieSchema')
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -30,7 +30,7 @@ module.exports.run = async(client, msg, args) => {
             if (result) {
                 moneyModel.findOne({userID: hooman}).then(moneyData => {
                     url = `https://cdn.discordapp.com/avatars/${hooman}/${msg.author.avatar}.png`
-                    const embed = new Discord.MessageEmbed()
+                    const embed = new MessageEmbed()
                     .setColor('#FF69B4')
                     .setTitle(`**${msg.guild.members.cache.get(moneyData.userID).displayName}'s** Wallet`)
                     .setDescription('You can see your money here.')
@@ -38,7 +38,7 @@ module.exports.run = async(client, msg, args) => {
                     { name: `Name: ${msg.guild.members.cache.get(moneyData.userID).displayName}`, value: `Gold: ${moneyData.gold} gp\nCookie: ${cookie}`}
                     )
                     .setThumbnail(`${url}`);
-                    msg.channel.send(embed);
+                    msg.channel.send({embeds: [embed]});
                 })
             }
             else {
@@ -57,7 +57,7 @@ module.exports.run = async(client, msg, args) => {
             cookie = cookieData.cookie
         }
         url = `https://cdn.discordapp.com/avatars/${hooman}/${msg.author.avatar}.png`
-        const embed = new Discord.MessageEmbed()
+        const embed = new MessageEmbed()
         .setColor('#FF69B4')
         .setTitle(`**${msg.guild.members.cache.get(moneyData.userID).displayName}'s** Wallet`)
         .setDescription('You can see your money here.')
@@ -65,7 +65,7 @@ module.exports.run = async(client, msg, args) => {
         { name: `Name: ${msg.guild.members.cache.get(moneyData.userID).displayName}`, value: `Gold: ${moneyData.gold} gp\nCookie: ${cookie}`}
         )
         .setThumbnail(`${url}`);
-        msg.channel.send(embed);
+        msg.channel.send({embeds: [embed]});
     }
 
 }

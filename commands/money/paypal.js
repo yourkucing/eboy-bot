@@ -1,5 +1,5 @@
 const moneyModel = require('../../models/moneySchema');
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
 	eboylog = client.channels.cache.get('867744429657292810')
@@ -25,12 +25,12 @@ module.exports.run = async(client, msg, args) => {
 			return 
 		}
 		else {
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You gave **${words}** money wow!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`${words} is rich now.`);
-			msg.channel.send(embed);
+			msg.channel.send({embeds: [embed]});
 		}
 	}
 	else {
@@ -54,12 +54,12 @@ module.exports.run = async(client, msg, args) => {
 
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You gave yourself money! Okay?`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`${taggedUser.displayName} is rich now. (Your money still stays the same, dumdum!)`);
-			msg.channel.send(embed);
+			msg.channel.send({embeds: [embed]});
 		}
 		else {
 			moneyData = await moneyModel.findOne({userID: hooman})
@@ -172,12 +172,12 @@ module.exports.run = async(client, msg, args) => {
 					})
 				}
 			}
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`${msg.guild.members.cache.get(hooman).displayName} gave **${taggedUser.displayName}** ${money}g wow! ${extra}`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`${taggedUser.displayName} is rich now.`);
-			msg.channel.send(embed);
+			msg.channel.send({embeds: [embed]});
 			
 
 		}

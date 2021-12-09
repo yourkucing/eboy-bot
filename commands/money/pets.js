@@ -1,5 +1,5 @@
 const petModel = require('../../models/petSchema')
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 const { update } = require('../../models/petSchema');
 
 module.exports.run = async(client, msg, args) => {
@@ -22,7 +22,7 @@ module.exports.run = async(client, msg, args) => {
 
     if (!words) {
         url = `https://cdn.discordapp.com/avatars/${hooman}/${msg.author.avatar}.png`
-        const embed = new Discord.MessageEmbed()
+        const embed = new MessageEmbed()
         .setColor('#FF69B4')
         .setTitle(`**${msg.guild.members.cache.get(hooman).displayName}'s** Pets`)
         .setDescription(`You have ${petfood} pet food.`);
@@ -125,7 +125,7 @@ module.exports.run = async(client, msg, args) => {
         }
     
         embed.setThumbnail(`${url}`);
-        msg.channel.send(embed)
+        msg.channel.send({embeds: [embed]})
     }
     else if (words == "feed") {
         if (pets.length == 0) {
@@ -182,7 +182,8 @@ module.exports.run = async(client, msg, args) => {
                 n=n+1
             }
             msg.channel.send(petlist)
-            msg.channel.awaitMessages(m => m.author.id == msg.author.id, {max: 1}).then(collected => {
+            const filter = m => m.author.id == msg.author.id
+            msg.channel.awaitMessages({filter, max: 1}).then(collected => {
                 if (Number.isNaN(+(collected.first().content))) {
                     msg.channel.send(`That's not a number.`)
                     return
