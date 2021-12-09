@@ -37,7 +37,7 @@ module.exports.run = async(client, msg, args) => {
                     .setDescription(`These are all the birthdays of the people in this server.`)
                     .addFields({name: `Birthdays`, value: `${birthdays}`});
 
-                    birthdayarray.push(embed)
+                    birthdayarray.push({embeds: [embed]})
                 }
 
                 paginationEmbed(msg, birthdayarray)
