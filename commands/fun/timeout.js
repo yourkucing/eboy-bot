@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 const timeoutModel = require('../../models/timeoutSchema');
 const ms = require('ms');
 
@@ -17,7 +17,7 @@ module.exports.run = async(client, msg, args) => {
         return
     }
     else {
-        if (!msg.guild.me.hasPermission("ADMINISTRATOR")) {
+        if (!msg.guild.me.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
             msg.channel.send(`I don't have an admininstrator permission to do this uwu! So sorry. >.<`)
             return
         }
