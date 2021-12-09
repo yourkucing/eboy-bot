@@ -1,7 +1,7 @@
-const { Client, Intents } = require('discord.js');
-const ud = require('urban-dictionary');
+const { Client, Intents, MessageEmbed } = require('discord.js');
 const client = new Client({intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS], disableEveryone: false, partials: ['MESSAGE', 'REACTION']});
 const prefix = "uwu ";
+const ud = require('urban-dictionary');
 const fs = require('fs').promises;
 const path = require('path');
 const mongoose = require('mongoose');
@@ -479,7 +479,7 @@ if (command === 'search') {
  
  if (msg.content === '@eboy help' || command === 'help' || command === 'command' || command === 'commands') {
 	if (msg.channel.type === 'DM' && !msg.author.bot ) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
-		const embed = new Discord.MessageEmbed()
+		const embed = new MessageEmbed()
 		.setColor('#FF69B4')
 		.setTitle(`Commands`)
 		.setDescription('Thank you for using Eboy bot uwu!\nMaryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her.\nYou can submit your suggestion or feedback here: https://cookie-codes.tumblr.com/eboy/askme though dont forget to leave down your name and a way to contact you, just in case there are questions we need to specify! (∩•̀ω•́)⊃-⋆\n\nEboy\'s full guide: https://cookie-codes.tumblr.com/eboy')
