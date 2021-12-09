@@ -443,9 +443,8 @@ if (!msg.content.toLowerCase().startsWith(prefix) || msg.author.bot) return;
 const args = msg.content.slice(prefix.length).split(new RegExp(/\s+/));
 const command = args.shift().toLowerCase();
 
-if (msg.channel.type === 'DM' && !msg.author.bot ) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
-
  if (command === 'uwu') {
+	if (msg.channel.type === 'DM' && !msg.author.bot ) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
 	const words = args.join(' ');
 	msg.channel.send(words.replace(/r/g,'w').replace(/s/g,'sh').replace(/l/g,'w').replace(/R/g,'W').replace(/S/g,'Sh').replace(/L/g,'W') + ' uwu');
 }
@@ -459,7 +458,7 @@ if (msg.channel.type === 'DM' && !msg.author.bot ) return msg.reply('None of the
 //-----------------------------------------------------------------------------------------------------------------------------------------
  
 if (command === 'search') {
-	if (msg.channel.type === 'dm' && !msg.author.bot ) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
+	if (msg.channel.type === 'DM' && !msg.author.bot ) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
 	var definition = args.join(' ');;
 	
 	ud.term(definition).then((result) => {
@@ -479,8 +478,8 @@ if (command === 'search') {
 
  
  if (msg.content === '@eboy help' || command === 'help' || command === 'command' || command === 'commands') {
-	if (msg.channel.type === 'dm' && !msg.author.bot ) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
-		const embed = new Discord.MessageEmbed()
+	if (msg.channel.type === 'DM' && !msg.author.bot ) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
+		const embed = new Client.MessageEmbed()
 		.setColor('#FF69B4')
 		.setTitle(`Commands`)
 		.setDescription('Thank you for using Eboy bot uwu!\nMaryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her.\nYou can submit your suggestion or feedback here: https://cookie-codes.tumblr.com/eboy/askme though dont forget to leave down your name and a way to contact you, just in case there are questions we need to specify! (∩•̀ω•́)⊃-⋆\n\nEboy\'s full guide: https://cookie-codes.tumblr.com/eboy')
@@ -504,7 +503,7 @@ if (command === 'search') {
 		eboylog.send(`**${author.username}** [${author.id}] used the **help** command in **${guild}** [${msg.guild.id}].`)
 		
 		try {
-			msg.author.send(embed);
+			msg.author.send({embeds: [embed]});
 			msg.channel.send(`Psssst. Check your DMs, **${msg.guild.members.cache.get(msg.author.id).displayName}**! :wink:`)
 		} catch(err) {
 			eboylog.send(`<@279101053750870017>: ERROR: Unable to use **help** command.\n${err}`)
