@@ -56,7 +56,8 @@ module.exports.run = async(client, msg, args) => {
     }
     else if (args[0].toLowerCase() == "delete") {
         msg.channel.send(`Are you sure you want to delete your birthday in this server? (Answer yes or no.)`)
-        msg.channel.awaitMessages(m => m.author.id == msg.author.id, {max: 1, time: 30000}).then(collected => {
+        const filter = m => m.author.id == msg.author.id;
+        msg.channel.awaitMessages({filter, max: 1, time: 30000}).then(collected => {
             if (collected.first().content.toLowerCase() == 'yes') {
                 birthdayModel.deleteOne({userID: hooman, serverID: server}).then(result => {
                     if (!result) {
