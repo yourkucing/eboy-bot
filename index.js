@@ -325,7 +325,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
 	}
 });
 
-client.on('message', msg => {
+client.on('messageCreate', msg => {
 
 if (msg.author.bot) return
 
