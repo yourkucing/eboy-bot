@@ -24,11 +24,11 @@ module.exports.run = async(client, msg, args) => {
                 msg.channel.send("Goodbye for now!");
                 return
             }
-/*             else if (isNaN(parseInt(collected.content))) {
+            else if (isNaN(parseInt(collected.content))) {
                 msg.channel.send("That's not a number, bro. Please retry.")
                 return
             }
-            else {
+ /*           else {
                 wordcount = parseInt(collected.content)
                 msg.channel.send(`Writing sprint for ${args} minutes starts now, <@${sprinter}>!`)
                 sprint = sprintModel.create({
