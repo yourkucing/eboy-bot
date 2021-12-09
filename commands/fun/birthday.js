@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 const birthdayModel = require('../../models/birthdaySchema')
 const paginationEmbed = require('discord.js-pagination');
 
@@ -27,13 +27,13 @@ module.exports.run = async(client, msg, args) => {
                     let j = i
                     k += 10
                     const birthdays = current.map(bdays => `**${++j}.**  **${msg.guild.members.cache.get(bdays.userID).displayName}**: ${bdays.birthday.getDate()} ${bdays.birthday.toLocaleString('default', { month: 'long' })}`).join(`\n`)
-                    const embed = new Discord.MessageEmbed()
+                    const embed = new MessageEmbed()
                     .setColor('#FF69B4')
                     .setTitle(`Birthdays`)
                     .setDescription(`These are all the birthdays of the people in this server.`)
                     .addFields({name: `Birthdays`, value: `${birthdays}`});
 
-                    birthdayarray.push(embed)
+                    birthdayarray.push({embeds: [embed]})
                 }
 
                 paginationEmbed(msg, birthdayarray)
@@ -41,7 +41,7 @@ module.exports.run = async(client, msg, args) => {
             else {
                 birthdaylist = ""
                 n = 1
-                const embed = new Discord.MessageEmbed()
+                const embed = new MessageEmbed()
                 .setColor('#FF69B4')
                 .setTitle(`Birthdays`)
                 .setDescription(`These are all the birthdays of the people in this server.`);
@@ -50,7 +50,7 @@ module.exports.run = async(client, msg, args) => {
                     n++
                 }
                 embed.addFields({name: `Birthdays`, value: `${birthdaylist}`})
-                msg.channel.send(embed)
+                msg.channel.send({embeds: [embed]})
             }
         }
     }

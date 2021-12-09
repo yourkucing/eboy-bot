@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 const cookieModel = require('../../models/cookieSchema');
 
 module.exports.run = async(client, msg, args) => {
@@ -23,11 +23,11 @@ module.exports.run = async(client, msg, args) => {
                     cookie: taggedData.cookie + 1
                 }
             })
-            const embed = new Discord.MessageEmbed()
+            const embed = new MessageEmbed()
             .setColor('#FF69B4')
             .setDescription(`${msg.guild.members.cache.get(hooman.id).displayName} gave **${taggedUser.displayName}** a cookie yay! :cookie:`)
             .setFooter(`${taggedUser.displayName} has ${taggedData.cookie + 1} cookies.`);
-            msg.channel.send(embed);
+            msg.channel.send({embeds: [embed]});
         }
         else {
             cookie = cookieModel.create({
@@ -42,11 +42,11 @@ module.exports.run = async(client, msg, args) => {
                     console.log('Successful!')
                 }
             })
-            const embed = new Discord.MessageEmbed()
+            const embed = new MessageEmbed()
             .setColor('#FF69B4')
             .setDescription(`${msg.guild.members.cache.get(hooman.id).displayName} gave **${taggedUser.displayName}** a cookie yay! :cookie:`)
             .setFooter(`${taggedUser.displayName} has 1 cookie.`);
-            msg.channel.send(embed);
+            msg.channel.send({embeds: [embed]});
         }
     }
 }
