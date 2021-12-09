@@ -50,7 +50,7 @@ module.exports.run = async(client, msg, args) => {
                 .setTitle(`Birthdays`)
                 .setDescription(`These are all the birthdays of the people in this server.`);
                 for (x in birthdaykids) {
-                    birthdaylist += `**${n}.** **${msg.guild.members.cache.get(birthdaykids[x].userID).displayName}**: ${birthdaykids[x].birthday.getDate()} ${birthdaykids[x].birthday.toLocaleString('default', { month: 'long' })}\n`
+                    birthdaylist += `**${n}.** **${msg.guild.members.cache.get(birthdaykids[x].userID).nickname}**: ${birthdaykids[x].birthday.getDate()} ${birthdaykids[x].birthday.toLocaleString('default', { month: 'long' })}\n`
                     n++
                 }
                 embed.addFields({name: `Birthdays`, value: `${birthdaylist}`})
