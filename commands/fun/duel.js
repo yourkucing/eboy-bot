@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -61,7 +61,8 @@ module.exports.run = async(client, msg, args) => {
             player2id = taggedUser.id;
             player1id = msg.author.id;
             msg.channel.send(`${taggedUser}, ${msg.guild.members.cache.get(msg.author.id).displayName} wants to duel you. Do you accept? (Reply yes or no.)`);
-            msg.channel.awaitMessages(m => m.author.id == taggedUser.id, {max: 1, time: 30000}).then(collected => {
+            filter = m => m.author.id == taggedUser.id
+            msg.channel.awaitMessages({filter, max: 1, time: 30000}).then(collected => {
                 if (collected.first().content.toLowerCase() == 'yes') {
                     try {
                         msg.channel.send("Let the battle begin!")
