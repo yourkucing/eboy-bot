@@ -18,7 +18,7 @@ module.exports.run = async(client, msg, args) => {
             return
         }
         else {
-            if (birthdaykids.length > 10) {
+            if (birthdaykids.length < 10) {
                 pageno = Math.ceil(birthdaykids.length/10)
                 const birthdayarray = []
                 let k = 10
@@ -26,7 +26,10 @@ module.exports.run = async(client, msg, args) => {
                     const current = birthdaykids.slice(i, k)
                     let j = i
                     k += 10
-                    const birthdays = current.map(bdays => `**${++j}.**  **${msg.guild.members.cache.get(bdays.userID).displayName}**: ${bdays.birthday.getDate()} ${bdays.birthday.toLocaleString('default', { month: 'long' })}`).join(`\n`)
+                    birthdays = ""
+                    for (m in current) {
+                        birthdays += `**${++j}.**  **${msg.guild.members.cache.get(m.userID).displayName}**: ${m.birthday.getDate()} ${m.birthday.toLocaleString('default', { month: 'long' })}\n`
+                    }
                     const embed = new MessageEmbed()
                     .setColor('#FF69B4')
                     .setTitle(`Birthdays`)
@@ -38,7 +41,7 @@ module.exports.run = async(client, msg, args) => {
 
                 paginationEmbed(msg, birthdayarray)
             }
-            else {
+/*             else {
                 birthdaylist = ""
                 n = 1
                 const embed = new MessageEmbed()
@@ -51,7 +54,7 @@ module.exports.run = async(client, msg, args) => {
                 }
                 embed.addFields({name: `Birthdays`, value: `${birthdaylist}`})
                 msg.channel.send({embeds: [embed]})
-            }
+            } */
         }
     }
     else if (args[0].toLowerCase() == "delete") {
