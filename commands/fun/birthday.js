@@ -24,12 +24,11 @@ module.exports.run = async(client, msg, args) => {
                 let k = 10
                 for (let i = 0; i < birthdaykids.length; i += 10) {
                     const current = birthdaykids.slice(i, k)
-                    console.log(current)
                     let j = i
                     k += 10
                     birthdays = ""
                     for (m in current) {
-                        console.log(msg.guild.members.cache.get(m.userID))
+                        console.log(m)
                         birthdays += `**${++j}.**  **${msg.guild.members.cache.get(m.userID).displayName}**: ${m.birthday.getDate()} ${m.birthday.toLocaleString('default', { month: 'long' })}\n`
                     }
                     const embed = new MessageEmbed()
