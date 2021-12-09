@@ -28,17 +28,17 @@ module.exports.run = async(client, msg, args) => {
                 msg.channel.send("That's not a number, bro. Please retry.")
                 return
             }
- /*           else {
+            else {
                 wordcount = parseInt(collected.content)
                 msg.channel.send(`Writing sprint for ${args} minutes starts now, <@${sprinter}>!`)
-                sprint = sprintModel.create({
+/*                 sprint = sprintModel.create({
                     userID: sprinter,
                     serverID: msg.guild.id,
                     channelID: msg.channel.id,
                     sprint: Date.now() + time,
                     word: wordcount
-                }).catch((e) => { console.log(e); })
-            } */
+                }).catch((e) => { console.log(e); }) */
+            }
         })
         
     }
