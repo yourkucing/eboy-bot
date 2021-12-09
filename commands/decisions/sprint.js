@@ -19,7 +19,6 @@ module.exports.run = async(client, msg, args) => {
         const filter = m => m.author.id === sprinter;
         msg.channel.send(`Please key in your original word count: ("Exit" to exit. If you have no word count, just key in "0".)`);
         msg.channel.awaitMessages({filter, max: 1}).then(collected => {
-            console.log(collected.first().content)
             if (collected.first().content.toLowerCase() == 'exit') {
                 msg.channel.send("Goodbye for now!");
                 return

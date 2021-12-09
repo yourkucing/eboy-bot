@@ -129,7 +129,8 @@ const checkforSprints = async() => {
 				else {
 					channel2.send(`<@${userID2}>! Writing sprint is up!`);
 					channel2.send(`What is your new word count?`);
-					channel2.awaitMessages(m => m.author.id == userID2, {max: 1}).then(collected => {
+					const filter = m => m.author.id == userID2
+					channel2.awaitMessages({filter, max: 1}).then(collected => {
 						if (isNaN(parseInt(collected.first().content))) {
 							channel2.send("That's not a number, bro. Count it ya self, goodbye XD")
 						}
