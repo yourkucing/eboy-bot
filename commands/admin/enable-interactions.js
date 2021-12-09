@@ -1,3 +1,4 @@
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 const serverModel = require('../../models/channelSchema');
 
 module.exports.run = async(client, msg, args) => {
