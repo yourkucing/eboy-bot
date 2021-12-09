@@ -157,11 +157,11 @@ module.exports.run = async(client, msg, args) => {
                                         else if (p2points <= 0 && p1points > 0) {
                                             await sleep(1)
                                             msg.channel.send(`**${player2}** is DEFEATED. AAAAAAh! (ノﾟДﾟ)八(ﾟДﾟ)八(ﾟДﾟ)ﾉｨｪｰｨ！\r\nCONGRATULATIONS, **${player1}**! (っ◕‿◕)っ :heart:`);
-                                            const embed = new Discord.MessageEmbed()
+                                            const embed = new MessageEmbed()
                                             .setColor('#FF69B4')
                                             .setTitle(`${player1} won the duel!`)
                                             .setImage('https://i.gifer.com/WKta.gif');
-                                            msg.channel.send(embed);
+                                            msg.channel.send({embeds: [embed]});
                                         }
                                   }
                                   whileloop();

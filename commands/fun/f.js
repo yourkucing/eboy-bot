@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -17,7 +17,7 @@ module.exports.run = async(client, msg, args) => {
                         return reaction.emoji.name === '🇫' && !user.bot;
                     };
 
-                    const collector = msg.createReactionCollector(filter, { time: 15000 });
+                    const collector = msg.createReactionCollector({filter, time: 15000 });
 
                     collector.on('collect', (reaction, user) => {
                         msg.channel.send(`**${user.username}** has paid their respects.`)
@@ -43,7 +43,7 @@ module.exports.run = async(client, msg, args) => {
                         return reaction.emoji.name === '🇫' && !user.bot;
                     };
 
-                    const collector = msg.createReactionCollector(filter, { time: 15000 });
+                    const collector = msg.createReactionCollector({filter, time: 15000 });
 
                     collector.on('collect', (reaction, user) => {
                         msg.channel.send(`**${user.username}** has paid their respects.`)
@@ -71,7 +71,7 @@ module.exports.run = async(client, msg, args) => {
                 return reaction.emoji.name === '🇫' && !user.bot;
             };
 
-            const collector = msg.createReactionCollector(filter, { time: 15000 });
+            const collector = msg.createReactionCollector({filter, time: 15000 });
 
             collector.on('collect', (reaction, user) => {
                 msg.channel.send(`**${user.username}** has paid their respects.`)

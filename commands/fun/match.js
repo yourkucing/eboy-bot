@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -97,7 +97,7 @@ module.exports.run = async(client, msg, args) => {
 		});
 		userid = userids.toString().split(',');
 		if ((userid[0].trim() === '332123726864973837' && userid[1].trim() === '279101053750870017') || (userid[1].trim() === '332123726864973837' && userid[0].trim() === '279101053750870017')) {
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 			.setColor('#FF69B4')
 			.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
 			.setDescription('Come come, let eboy show you how compatible you are :3')
@@ -109,11 +109,11 @@ module.exports.run = async(client, msg, args) => {
 				{ name: 'Conclusion', value: `You will last till eternity. :heart:`},
 			);
 			
-			msg.channel.send(embed);
+			msg.channel.send({embeds: [embed]});
 		}
 		else {
 			var randomresults = results[Math.floor(Math.random()*results.length)];
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 			.setColor('#FF69B4')
 			.setTitle(`uwu matchmaking (っ◕‿◕)っ :heart:`)
 			.setDescription('Come come, let eboy show you how compatible you are :3\r\nI\'m just a bot messenger btw, this is definitely not real so please do not shoot or kill the messenger uwu thankies :3')
@@ -125,7 +125,7 @@ module.exports.run = async(client, msg, args) => {
 				{ name: 'Conclusion', value: `${randomresults.conclusion}`},
 			);
 			
-			msg.channel.send(embed);
+			msg.channel.send({embeds: [embed]});
 		}
 	}
 }
