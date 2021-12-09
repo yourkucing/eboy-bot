@@ -24,7 +24,7 @@ module.exports.run = async(client, msg, args) => {
                 msg.channel.send("Goodbye for now!");
                 return
             }
-            else if (isNaN(parseInt(collected.content))) {
+            else if (isNaN(parseInt(collected.first().content))) {
                 msg.channel.send("That's not a number, bro. Please retry.")
                 return
             }

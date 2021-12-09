@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -22,31 +22,31 @@ module.exports.run = async(client, msg, args) => {
 			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
 		}
 		else {
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You pecked **${words}'s** cheeks!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Such cuteness uwu!`);
-			msg.channel.send(embed);
+			msg.channel.send({embeds: [embed]});
 		}
 	}
 	else {
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {			
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You pecked your own cheek, how even?`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Cheeksies uwu :3`);
-			msg.channel.send(embed);
+			msg.channel.send({embeds: [embed]});
 		}
 		else {
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You pecked **${taggedUser.displayName}'s** cheeks!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`Such cuteness uwu!`);
-			msg.channel.send(embed);
+			msg.channel.send({embeds: [embed]});
 		}
 	}
 }
