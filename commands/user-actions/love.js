@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -18,32 +18,31 @@ module.exports.run = async(client, msg, args) => {
 			return msg.channel.send(`You didn't provide any name, ${msg.author}! What a dumdum.`);
 		}
 		else {
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} loves **${words}**!`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`We all love you too, ${words}!`);
-			msg.channel.send(embed);
+			msg.channel.send({embeds: [embed]});
 		}
 	}
 	else {
 		const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`I love myself uwu`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`It's good to love yourself.`);
-			msg.channel.send(embed);
+			msg.channel.send({embeds: [embed]});
 		}
 		else {
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`${msg.guild.members.cache.get(msg.author.id).displayName} loves you, **${taggedUser.displayName}**! I love you.`)
 			.setImage(gifs[Math.floor(Math.random()*gifs.length)])
 			.setFooter(`We all love you too, ${taggedUser.displayName}!`);
-			msg.channel.send(embed);
-
+			msg.channel.send({embeds: [embed]});
 		}
 	}
 }
