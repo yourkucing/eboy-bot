@@ -444,7 +444,7 @@ const args = msg.content.slice(prefix.length).split(new RegExp(/\s+/));
 const command = args.shift().toLowerCase();
 
  if (command === 'uwu') {
-	if (msg.channel.type === 'dm' && !msg.author.bot ) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
+	if (msg.channel.type === 'DM' && !msg.author.bot ) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
 	const words = args.join(' ');
 	msg.channel.send(words.replace(/r/g,'w').replace(/s/g,'sh').replace(/l/g,'w').replace(/R/g,'W').replace(/S/g,'Sh').replace(/L/g,'W') + ' uwu');
 }
