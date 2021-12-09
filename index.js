@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
+const { Client, Intents } = require('discord.js');
 const ud = require('urban-dictionary');
-const client = new Discord.Client({disableEveryone: false, partials: ['MESSAGE', 'REACTION']});
+const client = new Discord.Client({intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS], disableEveryone: false, partials: ['MESSAGE', 'REACTION']});
 const prefix = "uwu ";
 const fs = require('fs').promises;
 const path = require('path');
