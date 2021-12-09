@@ -26,8 +26,7 @@ module.exports.run = async(client, msg, args) => {
             sendingmessage = `Please click on the following reactions to get your roles:\n`
             msg.channel.send(`Please tag the role that you want as well as the emoji: (Eg. @potatokids :heart:)\nKeep replying continuously and when you're done, reply with "done".`)
             const filter = m => m.author.id == author;
-            const collector = msg.channel.createMessageCollector(
-                filter
+            const collector = msg.channel.createMessageCollector({filter}
                 );
     
             role = []
