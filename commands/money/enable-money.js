@@ -1,5 +1,5 @@
 const channelModel = require('../../models/channelSchema');
-const Discord = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -7,7 +7,7 @@ module.exports.run = async(client, msg, args) => {
     guild = client.guilds.cache.get(msg.guild.id)
     eboylog.send(`**${author.username}** [${author.id}] used the **enable-money** command in **${guild}** [${msg.guild.id}].`)
 
-    if (!msg.member.hasPermission("ADMINISTRATOR")) {
+    if (!msg.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
         msg.channel.send("You don't have Administrator permissions to use this.")
         return
     }
