@@ -46,7 +46,7 @@ const checkforTimeouts = async() => {
 			const guild = client.guilds.cache.get(guildID)
 			const channel = client.channels.cache.get(channelID)
 			const timeoutrole = guild.roles.cache.find(role => role.name === "Time Out Corner")
-			const user = guild.members.cache.get(userID)
+			const user = guild.members.fetch(userID)
 			if (!user) {
 				continue
 			}
@@ -124,7 +124,7 @@ const checkforSprints = async() => {
 	
 				const guild2 = client.guilds.cache.get(guildID2)
 				const channel2 = client.channels.cache.get(channelID2)
-				const user2 = guild2.members.cache.get(userID2)
+				const user2 = guild2.members.fetch(userID2)
 				if (!user2) {
 					continue
 				}
