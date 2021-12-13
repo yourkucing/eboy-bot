@@ -38,6 +38,7 @@ module.exports.run = async(client, msg, args) => {
 
                     birthdayarray.push(embed)
                 }
+                console.log(birthdayarray)
 
                 paginationEmbed(msg, birthdayarray).catch(e => {console.log(e)})
             }
