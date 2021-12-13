@@ -40,7 +40,7 @@ module.exports.run = async(client, msg, args) => {
                 }
                 console.log(birthdayarray)
 
-                paginationEmbed(msg, birthdayarray).catch(e => {console.log(e)})
+                paginationEmbed(msg, {embeds: [birthdayarray]}).catch(e => {console.log(e)})
             }
             else {
                 birthdaylist = ""

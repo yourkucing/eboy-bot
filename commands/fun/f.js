@@ -20,7 +20,7 @@ module.exports.run = async(client, msg, args) => {
                     const collector = msg.createReactionCollector({filter, time: 15000 });
 
                     collector.on('collect', (reaction, user) => {
-                        console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
+                        msg.channel.send(`**${user.nickname}** has paid their respect.`)
                     });
 
                     collector.on('end', collected => {
