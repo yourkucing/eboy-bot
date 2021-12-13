@@ -88,7 +88,7 @@ const checkforBirthdays = async() => {
 					eboylog.send(`User ID: ${userID}'s birthday is supposed to be today.`)
 					const guild = client.guilds.cache.get(guildID)
 					const channel = client.channels.cache.get(channelID)
-					const user = guild.members.fetch(userID)
+					const user = guild.members.cache.get(userID)
 					console.log(user)
 					if (!user) {
 						continue
