@@ -37,7 +37,6 @@ module.exports.run = async(client, msg, args) => {
                     .addFields({name: `Birthdays`, value: `${birthdays}`});
 
                     birthdayarray.push(embed)
-                    console.log(birthdayarray)
                 }
                 const button1 = new MessageButton()
                     .setCustomId("previousbtn")
@@ -50,7 +49,7 @@ module.exports.run = async(client, msg, args) => {
                     .setStyle("SUCCESS");
 
                 const buttonList = [button1, button2];
-                paginationEmbed(msg, birthdayarray, buttonList)
+                paginationEmbed(msg, {embeds: [birthdayarray]}, buttonList)
             }
             else {
                 birthdaylist = ""
