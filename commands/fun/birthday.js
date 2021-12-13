@@ -30,13 +30,15 @@ module.exports.run = async(client, msg, args) => {
                     for (m in current) {
                         birthdays += `**${++j}.**  **${msg.guild.members.cache.get(current[m].userID).nickname}**: ${current[m].birthday.getDate()} ${current[m].birthday.toLocaleString('default', { month: 'long' })}\n`
                     }
+                    console.log(birthdays)
+                    
                     const embed = new MessageEmbed()
                     .setColor('#FF69B4')
                     .setTitle(`Birthdays`)
                     .setDescription(`These are all the birthdays of the people in this server.`)
                     .addFields({name: `Birthdays`, value: `${birthdays}`});
 
-                    birthdayarray.push({embeds: [embed]})
+                    birthdayarray.push({embeds: [embed]}).catch(e => {console.log(e)})
                 }
                 const button1 = new MessageButton()
                     .setCustomId("previousbtn")
@@ -49,7 +51,7 @@ module.exports.run = async(client, msg, args) => {
                     .setStyle("SUCCESS");
 
                 const buttonList = [button1, button2];
-                paginationEmbed(msg, birthdayarray, buttonList)
+                paginationEmbed(msg, birthdayarray, buttonList).catch(e => {console.log(e)})
             }
             else {
                 birthdaylist = ""
