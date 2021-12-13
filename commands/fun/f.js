@@ -21,7 +21,7 @@ module.exports.run = async(client, msg, args) => {
 
                     collector.on('collect', (reaction, user) => {
                         console.log(user)
-                        msg.channel.send(`**${user.nickname}** has paid their respect.`)
+                        msg.channel.send(`**${user.username}** has paid their respect.`)
                     });
 
                     collector.on('end', collected => {
@@ -47,7 +47,7 @@ module.exports.run = async(client, msg, args) => {
                     const collector = msg.createReactionCollector({filter, time: 15000 });
 
                     collector.on('collect', (reaction, user) => {
-                        msg.channel.send(`**${user.username}** has paid their respects.`)
+                        msg.channel.send(`**${user.username}** has paid their respect.`)
                     });
 
                     collector.on('end', collected => {
@@ -75,7 +75,7 @@ module.exports.run = async(client, msg, args) => {
             const collector = msg.createReactionCollector({filter, time: 15000 });
 
             collector.on('collect', (reaction, user) => {
-                msg.channel.send(`**${user.username}** has paid their respects.`)
+                msg.channel.send(`**${user.username}** has paid their respect.`)
             });
 
             collector.on('end', collected => {
