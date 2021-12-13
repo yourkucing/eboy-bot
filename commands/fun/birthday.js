@@ -36,11 +36,11 @@ module.exports.run = async(client, msg, args) => {
                     .setDescription(`These are all the birthdays of the people in this server.`)
                     .addFields({name: `Birthdays`, value: `${birthdays}`});
 
-                    birthdayarray.push(embed)
+                    birthdayarray.push({embeds: [embed]})
                 }
                 console.log(birthdayarray)
 
-                paginationEmbed(msg, {embeds: [birthdayarray]}).catch(e => {console.log(e)})
+                paginationEmbed(msg, birthdayarray).catch(e => {console.log(e)})
             }
             else {
                 birthdaylist = ""
