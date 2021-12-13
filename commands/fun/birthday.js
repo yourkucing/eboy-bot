@@ -1,6 +1,6 @@
-const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions, MessageButton } = require('discord.js');
 const birthdayModel = require('../../models/birthdaySchema')
-const paginationEmbed = require('discord.js-pagination');
+const paginationEmbed = require('discordjs-button-pagination');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -37,9 +37,20 @@ module.exports.run = async(client, msg, args) => {
                     .addFields({name: `Birthdays`, value: `${birthdays}`});
 
                     birthdayarray.push(embed)
+                    console.log(birthdayarray)
                 }
+                const button1 = new MessageButton()
+                    .setCustomId("previousbtn")
+                    .setLabel("Previous")
+                    .setStyle("DANGER");
 
-                paginationEmbed(msg, birthdayarray)
+                const button2 = new MessageButton()
+                    .setCustomId("nextbtn")
+                    .setLabel("Next")
+                    .setStyle("SUCCESS");
+
+                const buttonList = [button1, button2];
+                paginationEmbed(msg, birthdayarray, buttonList)
             }
             else {
                 birthdaylist = ""
