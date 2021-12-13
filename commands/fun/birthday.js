@@ -1,6 +1,6 @@
-const { Client, Intents, MessageEmbed, Permissions, MessageButton } = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 const birthdayModel = require('../../models/birthdaySchema')
-const paginationEmbed = require('discordjs-button-pagination');
+const paginationEmbed = require('discord.js-pagination');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -30,32 +30,16 @@ module.exports.run = async(client, msg, args) => {
                     for (m in current) {
                         birthdays += `**${++j}.**  **${msg.guild.members.cache.get(current[m].userID).nickname}**: ${current[m].birthday.getDate()} ${current[m].birthday.toLocaleString('default', { month: 'long' })}\n`
                     }
-
                     const embed = new MessageEmbed()
                     .setColor('#FF69B4')
                     .setTitle(`Birthdays`)
                     .setDescription(`These are all the birthdays of the people in this server.`)
                     .addFields({name: `Birthdays`, value: `${birthdays}`});
 
-                    try {
-                        birthdayarray.push({embeds: [embed]})
-                    } catch(e) {
-                        console.log(e)
-                    }
-                    
+                    birthdayarray.push(embed)
                 }
-                const button1 = new MessageButton()
-                    .setCustomId("previousbtn")
-                    .setLabel("Previous")
-                    .setStyle("DANGER");
 
-                const button2 = new MessageButton()
-                    .setCustomId("nextbtn")
-                    .setLabel("Next")
-                    .setStyle("SUCCESS");
-
-                const buttonList = [button1, button2];
-                paginationEmbed(msg, birthdayarray, buttonList).catch(e => {console.log(e)})
+                paginationEmbed(msg, birthdayarray).catch(e => {console.log(e)})
             }
             else {
                 birthdaylist = ""
