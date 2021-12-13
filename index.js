@@ -71,7 +71,7 @@ const checkforTimeouts = async() => {
 const checkforBirthdays = async() => {
 	day = new Date().getDate()
 	month = new Date().getMonth() + 1
-	if (new Date().getUTCHours() == 16 && new Date().getUTCMinutes() == 17) {
+	if (new Date().getUTCHours() == 16 && new Date().getUTCMinutes() == 30) {
 		birthday = new Date(`2000-${month}-${day}`)
 		const query = {
 			birthday: birthday
@@ -88,7 +88,7 @@ const checkforBirthdays = async() => {
 					eboylog.send(`User ID: ${userID}'s birthday is supposed to be today.`)
 					const guild = client.guilds.cache.get(guildID)
 					const channel = client.channels.cache.get(channelID)
-					const user = guild.members.cache.get(userID)
+					const user = guild.members.fetch(userID)
 					console.log(user)
 					if (!user) {
 						continue
