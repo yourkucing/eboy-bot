@@ -71,7 +71,7 @@ const checkforTimeouts = async() => {
 const checkforBirthdays = async() => {
 	day = new Date().getDate()
 	month = new Date().getMonth() + 1
-	if (new Date().getUTCHours() == 15 && new Date().getUTCMinutes() == 55) {
+	if (new Date().getUTCHours() == 16 && new Date().getUTCMinutes() == 10) {
 		birthday = new Date(`2000-${month}-${day}`)
 		const query = {
 			birthday: birthday
@@ -89,6 +89,7 @@ const checkforBirthdays = async() => {
 					const guild = client.guilds.cache.get(guildID)
 					const channel = client.channels.cache.get(channelID)
 					const user = guild.members.cache.get(userID)
+					console.log(guild, channel, user)
 					if (!user) {
 						continue
 					}
