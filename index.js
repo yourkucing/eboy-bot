@@ -52,15 +52,20 @@ const checkforTimeouts = async() => {
 				continue
 			}
 			else {
-				user.roles.remove(timeoutrole.id)
-				channel.send(`<@${userID}>, your timeout has ended!`)
-				eboylog = client.channels.cache.get('867744429657292810')
-				eboylog.send(`Timeout has ended for User ID: ${userID}.`)
-				
-				await timeoutModel.deleteOne({userID: userID, serverID: guildID, channelID: channelID}).catch(e => {
+				if (!timeoutrole) {
+					continue
+				}
+				else {
+					user.roles.remove(timeoutrole.id)
+					channel.send(`<@${userID}>, your timeout has ended!`)
 					eboylog = client.channels.cache.get('867744429657292810')
-					eboylog.send(`<@279101053750870017>: Unable to remove user from timeout database. [User ID: ${userID}]\n${e}`)
-				})
+					eboylog.send(`Timeout has ended for User ID: ${userID}.`)
+					
+					await timeoutModel.deleteOne({userID: userID, serverID: guildID, channelID: channelID}).catch(e => {
+						eboylog = client.channels.cache.get('867744429657292810')
+						eboylog.send(`<@279101053750870017>: Unable to remove user from timeout database. [User ID: ${userID}]\n${e}`)
+					})
+				}
 			}
 			
 		}
