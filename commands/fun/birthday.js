@@ -38,9 +38,20 @@ module.exports.run = async(client, msg, args) => {
 
                     birthdayarray.push(embed)
                 }
-                console.log(birthdayarray)
+                const button1 = new MessageButton()
+                    .setCustomId("previousbtn")
+                    .setLabel("Previous")
+                    .setStyle("DANGER");
 
-                paginationEmbed(msg, birthdayarray).catch(e => {console.log(e)})
+                const button2 = new MessageButton()
+                    .setCustomId("nextbtn")
+                    .setLabel("Next")
+                    .setStyle("SUCCESS");
+
+
+                const buttonList = [button1, button2];
+
+                paginationEmbed(msg, birthdayarray, buttonList).catch(e => {console.log(e)})
             }
             else {
                 birthdaylist = ""
