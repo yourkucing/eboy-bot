@@ -28,7 +28,14 @@ module.exports.run = async(client, msg, args) => {
                     k += 10
                     birthdays = ""
                     for (m in current) {
-                        birthdays += `**${++j}.**  **${msg.guild.members.cache.get(current[m].userID).nickname}**: ${current[m].birthday.getDate()} ${current[m].birthday.toLocaleString('default', { month: 'long' })}\n`
+                        users = msg.guild.members.cache.get(current[m].userID)
+                        if (!users) {
+                            console.log(current[m].userID)
+                            continue
+                        }
+                        else {
+                            birthdays += `**${++j}.**  **${users.nickname}**: ${current[m].birthday.getDate()} ${current[m].birthday.toLocaleString('default', { month: 'long' })}\n`
+                        }
                     }
                     const embed = new MessageEmbed()
                     .setColor('#FF69B4')
