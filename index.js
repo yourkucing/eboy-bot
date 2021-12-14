@@ -83,7 +83,7 @@ const checkforTimeouts = async() => {
 const checkforBirthdays = async() => {
 	day = new Date().getDate()
 	month = new Date().getMonth() + 1
-	if (new Date().getUTCHours() == 16 && new Date().getUTCMinutes() == 30) {
+	if (new Date().getUTCHours() == 08 && new Date().getUTCMinutes() == 10) {
 		birthday = new Date(`2000-${month}-${day}`)
 		const query = {
 			birthday: birthday
