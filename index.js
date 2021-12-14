@@ -53,7 +53,14 @@ const checkforTimeouts = async() => {
 			}
 			else {
 				if (!timeoutrole) {
-					continue
+					channel.send(`<@${userID}>, your timeout has ended!\nIt seems that we are unable to remove your timeout role.\nEither you have taken it off or the role does not follow the general name "Time Out Corner".`)
+					eboylog = client.channels.cache.get('867744429657292810')
+					eboylog.send(`Timeout has ended for User ID: ${userID}.`)
+					
+					await timeoutModel.deleteOne({userID: userID, serverID: guildID, channelID: channelID}).catch(e => {
+						eboylog = client.channels.cache.get('867744429657292810')
+						eboylog.send(`<@279101053750870017>: Unable to remove user from timeout database. [User ID: ${userID}]\n${e}`)
+					})
 				}
 				else {
 					user.roles.remove(timeoutrole.id)
