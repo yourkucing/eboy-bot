@@ -1,6 +1,6 @@
-const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions, MessageButton } = require('discord.js');
 const birthdayModel = require('../../models/birthdaySchema')
-const paginationEmbed = require('discord.js-pagination');
+const paginationEmbed = require('discordjs-button-pagination');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
