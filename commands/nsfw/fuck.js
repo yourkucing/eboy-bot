@@ -24,7 +24,6 @@ module.exports.run = async(client, msg, args) => {
             'https://media1.tenor.com/images/2f9e0fad5c0273dcfab124ab355dd63a/tenor.gif',
             'https://media1.popsugar-assets.com/files/thumbor/KHLX10V97zRMoI8jSv5g7iSVryo/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2015/04/29/107/n/3019466/1259cad28ccf9620_tumblr_n9r31s3Wsg1rvf3epo6_500/i/Like-really-steamy.gif',
             'https://media1.tenor.com/images/957ae96c23ab0f8964ed5a59ff783dd1/tenor.gif',
-            'https://66.media.tumblr.com/e5a6b92398fd5594ff0a8adacf7f449d/tumblr_pz9ezfUeYa1v0c0kgo1_500.gif',
             'https://66.media.tumblr.com/e0109e4cf4d1f731f75bb04be9f34e1d/tumblr_py51kv3uAD1th3s35o1_500.gif',
             'https://i.pinimg.com/originals/38/ad/a3/38ada38d6b86be4fbfa9d45ee524d118.gif',
             'https://24.media.tumblr.com/ccd26c379508c10f6c7fbc1b3c546509/tumblr_mm4i57kjxa1snstk2o1_500.gif',

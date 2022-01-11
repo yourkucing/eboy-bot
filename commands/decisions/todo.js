@@ -27,7 +27,8 @@ module.exports.run = async(client, msg, args) => {
     else {
         if (args[0].toLowerCase() == "clear") {
             msg.channel.send("Are you sure you want to clear everything? Reply with yes or no, within 30 seconds.")
-            msg.channel.awaitMessages(m => m.author.id == msg.author.id, {max: 1, time: 30000}).then(collected => {
+            const filter = m => m.author.id == msg.author.id;
+            msg.channel.awaitMessages({filter, max: 1, time: 30000}).then(collected => {
                 if (collected.first().content.toLowerCase() == 'yes') {
                     todoModel.deleteMany({userID: author}).then(clear => {
                         if (clear) {

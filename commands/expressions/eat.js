@@ -13,7 +13,6 @@ module.exports.run = async(client, msg, args) => {
 		'https://media.giphy.com/media/rDZuJKhOcLTEI/200w.gif',
 		'https://thumbs.gfycat.com/ContentFrenchBadger-size_restricted.gif',
 		'https://66.media.tumblr.com/465fd76d4ac2dc7c6cb492f394f8c743/tumblr_oa2k3wiMsY1smufyzo1_400.gif',
-		'https://gifimage.net/wp-content/uploads/2018/04/kirby-eating-gif-8.gif',
 		'https://media1.tenor.com/images/21f1f30024f331959b1c7818a7aa0136/tenor.gif',
 		'https://media.giphy.com/media/ViC6liI1iz3TGxb4po/giphy.gif',
 		'https://i.pinimg.com/originals/db/a1/fc/dba1fca1c27106c53b04ee2333099217.gif',

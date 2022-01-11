@@ -8,7 +8,6 @@ module.exports.run = async(client, msg, args) => {
 
 	var gifs = [
 		'https://media1.tenor.com/images/84a574d2577b153d6e10a8338d530f3e/tenor.gif',
-		'https://www.midwestsportsfans.com/wp-content/uploads/2011/06/mj-laughing.gif',
 		'https://www.reactiongifs.us/wp-content/uploads/2013/05/lol_ricky_gervais.gif',
 		'https://media1.tenor.com/images/e82c2cd09db0bf410917cda2ef22ffd4/tenor.gif',
 		'https://i.pinimg.com/originals/4f/d6/b2/4fd6b288e420f400d8633d40a4b9ad98.gif',
