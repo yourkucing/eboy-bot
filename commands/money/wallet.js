@@ -44,7 +44,7 @@ module.exports.run = async(client, msg, args) => {
             }
             else {
                 msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
-                errorlog.send(`<@279101053750870017>: Money cannot be deposited into bank. [User ID: ${author.id}, Guild ID: ${msg.guild.id}].`)
+                errorlog.send(`<@279101053750870017>: Wallet cannot be shown. [User ID: ${author.id}, Guild ID: ${msg.guild.id}].`)
                 return
             }
         })

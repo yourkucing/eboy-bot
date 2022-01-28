@@ -7,8 +7,7 @@ module.exports.run = async(client, msg, args) => {
     guild = client.guilds.cache.get(msg.guild.id)
     eboylog.send(`**${author.username}** [${author.id}] used the **rob** command in **${guild}** [${msg.guild.id}].`)
 
-    msg.channel.send(`\`Hi there! The rob command is currently going through an update. However, this will take a while so do check our update page on our site to see when it comes up again. Thank you for using eboy :3 If there is anything, you can DM my owner at Maryam#9206.\``)
-/* 	hooman = msg.author.id
+	hooman = msg.author.id
     server = msg.guild.id
 
 	if (!msg.mentions.users.size) {
@@ -105,6 +104,6 @@ module.exports.run = async(client, msg, args) => {
                 }
             }
         }
-    } */
+    }
 
 }
