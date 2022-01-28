@@ -1,4 +1,5 @@
 const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
+const ghostModel = require('../../models/ghostSchema');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -33,27 +34,16 @@ module.exports.run = async(client, msg, args) => {
                 }
                 else {
                     sentMessage.edit(answers[dice-1])
-                    ans = 1
+                    ghostModel.create({
+                        serverID: msg.guild.id,
+                        userID: msg.author.id,
+                        channelID: msg.channel.id,
+                        createdon: Date.now()
+                    })
                 }
                 
             }, 4000)
     
-        }).then(r => {
-            if (ans = 1) {
-                const filter = m => m.author.id == msg.author.id
-                const collector = msg.channel.createMessageCollector(
-                    {filter, time: 60000}
-                )
-                for await (const m of collector) {
-                    if (m.content.toLowerCase() == "bye" || m.content.toLowerCase() == "goodbye") {
-                        collector.stop()
-                    }
-                    else {
-                        msg.channel.send(chat[Math.floor(Math.random()*chat.length)])
-                    }
-                }
-                msg.channel.send(`𝕳𝖒𝖒... 𝕲𝖔𝖔𝖉𝖇𝖞𝖊.`)
-            }
         })
     } catch {e => {
         console.log(e)
