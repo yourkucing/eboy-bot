@@ -17,11 +17,11 @@ module.exports.run = async(client, msg, args) => {
 	else {
         const taggedUser = msg.mentions.members.first();
 		if (taggedUser.id === msg.author.id) {
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 			.setColor('#FF69B4')
 			.setDescription(`You gave yourself money! Okay?`)
 			.setFooter(`${taggedUser.displayName} is rich now. (Your money still stays the same, dumdum!)`);
-			msg.channel.send(embed);
+			msg.channel.send({embeds: [embed]});
 		}
 		else {
 			moneyData = await moneyModel.findOne({userID: hooman})
@@ -42,11 +42,11 @@ module.exports.run = async(client, msg, args) => {
                                 }
                             }).then(t => {
                                 if (t) {
-                                    const embed = new Discord.MessageEmbed()
+                                    const embed = new MessageEmbed()
                                     .setColor('#FF69B4')
                                     .setDescription(`You were caught stealing. Please pay a fine of ${fine}g. Thank you!`)
                                     .setFooter(`TSK TSK TSK, how could you?`);
-                                    msg.channel.send(embed);
+                                    msg.channel.send({embeds: [embed]});
                                 }
                             })
                         }
@@ -60,22 +60,22 @@ module.exports.run = async(client, msg, args) => {
                         }
                     }).then(t => {
                         if(t) {
-                            const embed = new Discord.MessageEmbed()
+                            const embed = new MessageEmbed()
                             .setColor('#FF69B4')
                             .setDescription(`You were caught stealing. Please pay a fine of ${fine}g. Thank you!`)
                             .setFooter(`TSK TSK TSK, how could you?`);
-                            msg.channel.send(embed);
+                            msg.channel.send({embeds: [embed]});
                         }
                     })
                 }
             }
             else {
                 if (!taggedData) {
-                    const embed = new Discord.MessageEmbed()
+                    const embed = new MessageEmbed()
                     .setColor('#FF69B4')
                     .setDescription(`**${taggedUser.displayName}** has no wallet for you to steal! Get them to use \`uwu wallet\`.`)
                     .setFooter(`Don't rob the poor!`);
-                    msg.channel.send(embed);
+                    msg.channel.send({embeds: [embed]});
                     return
                 }
                 else {
@@ -92,11 +92,11 @@ module.exports.run = async(client, msg, args) => {
                                 }
                             }).then(s => {
                                 if (s) {
-                                    const embed = new Discord.MessageEmbed()
+                                    const embed = new MessageEmbed()
                                     .setColor('#FF69B4')
                                     .setDescription(`**${taggedUser.displayName}** has been robbed off ${robmoney}g.`)
                                     .setFooter(`Someone call the police! Quick!`);
-                                    msg.channel.send(embed);
+                                    msg.channel.send({embeds: [embed]});
                                 }
                             })
                         }
