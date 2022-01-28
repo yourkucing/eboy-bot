@@ -6,6 +6,7 @@ const fs = require('fs').promises;
 const path = require('path');
 const mongoose = require('mongoose');
 const timeoutModel = require('./models/timeoutSchema');
+const ghostModel = require('./models/ghostSchema');
 const channelModel = require('./models/channelSchema');
 const moneyModel = require('./models/moneySchema');
 const sprintModel = require('./models/sprintSchema');
@@ -354,6 +355,29 @@ channelModel.findOne({channelID: msg.channel.id}).then(moneychannel => {
 				console.log(result)
 			}
 		}).catch(e => {console.log(e)})
+	}
+})
+
+ghostModel.findOne({serverID: msg.guild.id, channelID: msg.channel.id, userID: msg.author.id}).then(ghost => {
+	if(ghost) {
+		diffTime = Math.abs(ghost.createdon - Date.now())
+		var chat = [
+			'𝕸𝖒𝖒... 𝕬𝖓𝖉....?',
+			'𝕬𝖒 𝕴 𝖘𝖚𝖕𝖕𝖔𝖘𝖊𝖉 𝖙𝖔 𝖈𝖆𝖗𝖊?',
+			'𝕯𝖔 𝕴 𝖗𝖊𝖆𝖑𝖑𝖞 𝖍𝖆𝖛𝖊 𝖙𝖔 𝖗𝖊𝖕𝖑𝖞 𝖙𝖔 𝖙𝖍𝖆𝖙?',
+			'𝕴\'𝖒 𝖆𝖑𝖗𝖊𝖆𝖉𝖞 𝖇𝖔𝖗𝖊𝖉.'
+		]
+		if (diffTime <= 60000) {
+			msg.channel.send(chat[Math.floor(Math.random()*chat.length)])
+		}
+		else {
+			ghostModel.deleteOne({serverID: ghost.serverID, userID: ghost.userID, channelID: ghost.channelID, createdon: ghost.createdon}).then(r => {
+				if (r) {
+					msg.channel.send(`𝕳𝖒𝖒... 𝕲𝖔𝖔𝖉𝖇𝖞𝖊.`)
+				}
+			})
+
+		}
 	}
 })
 
