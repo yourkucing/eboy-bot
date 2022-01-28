@@ -31,8 +31,7 @@ module.exports.run = async(client, msg, args) => {
             else {
                 const embed = new MessageEmbed()
                 .setColor('#FF69B4')
-                .setTitle(`${msg.guild.members.cache.get(moneyData.userID).displayName}`)
-                .setDescription(`${moneyData.gold} gold has been deposited into your bank.`);
+                .setDescription(`**${moneyData.gold} gp** has been deposited into your bank.`);
                 msg.channel.send({embeds: [embed]});
             }
         })

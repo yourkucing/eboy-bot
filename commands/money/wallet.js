@@ -4,6 +4,7 @@ const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
+    errorlog = client.channels.cache.get('936554279878148137')
 	author = msg.author
     guild = client.guilds.cache.get(msg.guild.id)
     eboylog.send(`**${author.username}** [${author.id}] used the **wallet** command in **${guild}** [${msg.guild.id}].`)
@@ -35,7 +36,7 @@ module.exports.run = async(client, msg, args) => {
                     .setTitle(`**${msg.guild.members.cache.get(moneyData.userID).displayName}'s** Wallet`)
                     .setDescription('You can see your money here.')
                     .addFields(
-                    { name: `Name: ${msg.guild.members.cache.get(moneyData.userID).displayName}`, value: `Gold: ${moneyData.gold} gp\nCookie: ${cookie}`}
+                    { name: `Name: ${msg.guild.members.cache.get(moneyData.userID).displayName}`, value: `Gold: ${moneyData.gold} gp\nBank: ${moneyData.bank} gp\nCookie: ${cookie}`}
                     )
                     .setThumbnail(`${url}`);
                     msg.channel.send({embeds: [embed]});
@@ -43,7 +44,7 @@ module.exports.run = async(client, msg, args) => {
             }
             else {
                 msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
-                console.log(result)
+                errorlog.send(`<@279101053750870017>: Money cannot be deposited into bank. [User ID: ${author.id}, Guild ID: ${msg.guild.id}].`)
                 return
             }
         })
@@ -62,7 +63,7 @@ module.exports.run = async(client, msg, args) => {
         .setTitle(`**${msg.guild.members.cache.get(moneyData.userID).displayName}'s** Wallet`)
         .setDescription('You can see your money here.')
         .addFields(
-        { name: `Name: ${msg.guild.members.cache.get(moneyData.userID).displayName}`, value: `Gold: ${moneyData.gold} gp\nCookie: ${cookie}`}
+        { name: `Name: ${msg.guild.members.cache.get(moneyData.userID).displayName}`, value: `Gold: ${moneyData.gold} gp\nBank: ${moneyData.bank} gp\nCookie: ${cookie}`}
         )
         .setThumbnail(`${url}`);
         msg.channel.send({embeds: [embed]});
