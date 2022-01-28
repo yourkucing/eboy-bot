@@ -36,24 +36,24 @@ module.exports.run = async(client, msg, args) => {
                     ans = 1
                 }
                 
-            }, 4000).then(r => {
-                if (ans = 1) {
-                    const filter = m => m.author.id == msg.author.id
-                    const collector = msg.channel.createMessageCollector(
-                        {filter, time: 60000}
-                    )
-                    for await (const m of collector) {
-                        if (m.content.toLowerCase() == "bye" || m.content.toLowerCase() == "goodbye") {
-                            collector.stop()
-                        }
-                        else {
-                            msg.channel.send(chat[Math.floor(Math.random()*chat.length)])
-                        }
-                    }
-                    msg.channel.send(`𝕳𝖒𝖒... 𝕲𝖔𝖔𝖉𝖇𝖞𝖊.`)
-                }
-            })
+            }, 4000)
     
+        }).then(r => {
+            if (ans = 1) {
+                const filter = m => m.author.id == msg.author.id
+                const collector = msg.channel.createMessageCollector(
+                    {filter, time: 60000}
+                )
+                for await (const m of collector) {
+                    if (m.content.toLowerCase() == "bye" || m.content.toLowerCase() == "goodbye") {
+                        collector.stop()
+                    }
+                    else {
+                        msg.channel.send(chat[Math.floor(Math.random()*chat.length)])
+                    }
+                }
+                msg.channel.send(`𝕳𝖒𝖒... 𝕲𝖔𝖔𝖉𝖇𝖞𝖊.`)
+            }
         })
     } catch {e => {
         console.log(e)
