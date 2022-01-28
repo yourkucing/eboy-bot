@@ -21,39 +21,42 @@ module.exports.run = async(client, msg, args) => {
         '𝕴\'𝖒 𝖆𝖑𝖗𝖊𝖆𝖉𝖞 𝖇𝖔𝖗𝖊𝖉.'
     ]
 
-    ans = 0
+    try {
+        ans = 0
 
-    msg.channel.send(`https://media3.giphy.com/media/3No4ujPLZrDJC/giphy.gif`).then((sentMessage) => {
-
-        setTimeout(function(){
-            dice = (Math.floor(Math.random() * 5) + 1);
-            if (dice == 1) {
-                sentMessage.edit(answers[0]);
-            }
-            else {
-                sentMessage.edit(answers[dice-1])
-                ans = 1
-            }
-            
-        }, 4000).then(r => {
-            if (ans = 1) {
-                const filter = m => m.author.id == msg.author.id
-                const collector = msg.channel.createMessageCollector(
-                    {filter, time: 60000}
-                )
-                for await (const m of collector) {
-                    if (m.content.toLowerCase() == "bye" || m.content.toLowerCase() == "goodbye") {
-                        collector.stop()
-                    }
-                    else {
-                        msg.channel.send(chat[Math.floor(Math.random()*chat.length)])
-                    }
+        msg.channel.send(`https://media3.giphy.com/media/3No4ujPLZrDJC/giphy.gif`).then((sentMessage) => {
+    
+            setTimeout(function(){
+                dice = (Math.floor(Math.random() * 5) + 1);
+                if (dice == 1) {
+                    sentMessage.edit(answers[0]);
                 }
-                msg.channel.send(`𝕳𝖒𝖒... 𝕲𝖔𝖔𝖉𝖇𝖞𝖊.`)
-            }
+                else {
+                    sentMessage.edit(answers[dice-1])
+                    ans = 1
+                }
+                
+            }, 4000).then(r => {
+                if (ans = 1) {
+                    const filter = m => m.author.id == msg.author.id
+                    const collector = msg.channel.createMessageCollector(
+                        {filter, time: 60000}
+                    )
+                    for await (const m of collector) {
+                        if (m.content.toLowerCase() == "bye" || m.content.toLowerCase() == "goodbye") {
+                            collector.stop()
+                        }
+                        else {
+                            msg.channel.send(chat[Math.floor(Math.random()*chat.length)])
+                        }
+                    }
+                    msg.channel.send(`𝕳𝖒𝖒... 𝕲𝖔𝖔𝖉𝖇𝖞𝖊.`)
+                }
+            })
+    
         })
+    } catch {e => {
+        console.log(e)
+    }}
 
-    }
-
-)
 }
