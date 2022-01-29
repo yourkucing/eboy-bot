@@ -64,51 +64,51 @@ module.exports.run = async(client, msg, args) => {
                     new: true
                 });
                     if (updatepet) {
-                        hpbar = '░░░░░░░░░░'
+                        hpbar = '□□□□□□□□□□'
                         mood = ''
                 
                         if (updatepet.health == 0) {
-                            hpbar = '░░░░░░░░░░'
+                            hpbar = '□□□□□□□□□□'
                             mood = 'Fainted'
                         }
                         else if (updatepet.health == 1) {
-                            hpbar = '█░░░░░░░░░'
+                            hpbar = '■□□□□□□□□□'
                             mood = 'Almost fainted'
                         }
                         else if (updatepet.health == 2) {
-                            hpbar = '██░░░░░░░░'
+                            hpbar = '■■□□□□□□□□'
                             mood = 'Really hungry'
                         }
                         else if (updatepet.health == 3) {
-                            hpbar = '███░░░░░░░'
+                            hpbar = '■■■□□□□□□□'
                             mood = 'Really hungry'
                         }
                         else if (updatepet.health == 4) {
-                            hpbar = '████░░░░░░'
+                            hpbar = '■■■■□□□□□□'
                             mood = 'Hungry'
                         }
                         else if (updatepet.health == 5) {
-                            hpbar = '█████░░░░░'
+                            hpbar = '■■■■■□□□□□'
                             mood = 'Hungry'
                         }
                         else if (updatepet.health == 6) {
-                            hpbar = '██████░░░░'
+                            hpbar = '■■■■■■□□□□'
                             mood = 'Fine'
                         }
                         else if (updatepet.health == 7) {
-                            hpbar = '███████░░░'
+                            hpbar = '■■■■■■■□□□'
                             mood = 'Satisfied'
                         }
                         else if (updatepet.health == 8) {
-                            hpbar = '████████░░'
+                            hpbar = '■■■■■■■■□□'
                             mood = 'Happy'
                         }
                         else if (updatepet.health == 9) {
-                            hpbar = '█████████░'
+                            hpbar = '■■■■■■■■■□'
                             mood = 'Excited'
                         }
                         else if (updatepet.health == 10) {
-                            hpbar = '██████████'
+                            hpbar = '■■■■■■■■■■'
                             mood = 'Really happy to see you!'
                         }
                         embed.addFields({name: `${updatepet.pet.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())}: ${updatepet.petname}`, value: `**Type:** ${updatepet.type}\n**Personality:** ${updatepet.personality}\n\n**Mood:** ${mood}\n**Health:** ${hpbar}`, inline: true})
@@ -191,7 +191,8 @@ module.exports.run = async(client, msg, args) => {
                 else {
                     number = parseInt(collected.first().content)
                     msg.channel.send(`Please state the new name: ("exit" to exit.)`)
-                    msg.channel.awaitMessages(m => m.author.id == msg.author.id, {max: 1}).then(collected => {
+                    const filter2 = m => m.author.id == msg.author.id
+                    msg.channel.awaitMessages({filter, max: 1}).then(collected => {
                         if(collected.first().content.toLowerCase() == "exit") {
                             msg.channel.send(`Okay, goodbye!`)
                             return
