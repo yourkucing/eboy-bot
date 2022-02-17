@@ -19,7 +19,7 @@ module.exports.run = async(client, msg, args) => {
             return
         }
         else {
-            channelID = args[1]
+            channelID = args[0]
             console.log(channelID)
             msg.channel.send("Please key in your welcome message. Reply with yes or no, within 2 minutes.")
             const filter = m => m.author.id == msg.author.id;

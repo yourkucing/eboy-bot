@@ -19,7 +19,7 @@ module.exports.run = async(client, msg, args) => {
             return
         }
         else {
-            roleID = args[1]
+            roleID = args[0]
             console.log(roleID)
         }
     }
