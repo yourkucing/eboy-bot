@@ -184,7 +184,7 @@ client.on('ready', () => {
 
 	client.channels.fetch("943771114897829919").then(channel => {
 		channel.messages.fetch("943778980308348948").then(message => {
-			message.react("💼");
+			message.react("🔍");
 		})
 	})
  });
