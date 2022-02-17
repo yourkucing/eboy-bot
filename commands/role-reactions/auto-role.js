@@ -20,9 +20,8 @@ module.exports.run = async(client, msg, args) => {
         }
         else {
             roleID = args[0]
-            if (roleID.includes("<") && roleID.includes(">") && roleID.includes(":")) {
-                roleID = roleID.replace(/\s*\:.*?\:\s*/g, "")
-                roleID = roleID.replace("<", "")
+            if (roleID.includes("<@&") && roleID.includes(">")) {
+                roleID = roleID.replace("<@&", "")
                 roleID = roleID.replace(">", "")
                 roleID = roleID
             }
