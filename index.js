@@ -201,7 +201,7 @@ client.on('guildMemberAdd', member => {
  	if (member.guild.id == "943584555351298088") {
 		if (member.bot) return; // checks if it's a bot that joined so the channel won't be spammed with "*Discord Bot* has joined the server" and stuff like that, so check that.
 		const welcomeChannel = member.guild.channels.cache.get('943584555351298091')
-		welcomeChannel.send(`Welcome ${member} to hell. But it's alright, we're here to help you through it. But first, head on over to <#943715281476407336> as well as <#943663520829038602> to get yourself familiarise! :heart:\n\ns\`welcome to the homework struggle bus. those who struggle together, succeed together! we hope you have a pleasant stay.\` :heart:`)
+		welcomeChannel.send(`Welcome ${member} to hell. But it's alright, we're here to help you through it. But first, head on over to <#943715281476407336> as well as <#943663520829038602> to get yourself familiarise! :heart:\n\n\`welcome to the homework struggle bus. those who struggle together, succeed together! we hope you have a pleasant stay.\` :heart:`)
 	} 
 	if (member.guild.id == "912635515965165588") {
 			// IMPORTANT NOTE: Make Sure To Use async and rename bot to client or whatever name you have for your bot events!
