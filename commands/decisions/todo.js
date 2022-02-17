@@ -78,7 +78,7 @@ module.exports.run = async(client, msg, args) => {
             else {
                 n = args[1] - 1
                 if (!todo || todo.length == 0) {
-                    msg.channel.send(`You have nothing on your todo list. You can start adding by typing \`uwu todo <whatever you want to put here>\``)
+                    msg.channel.send(`You have nothing on your todo list. You can start adding by typing \`uwu todo add <whatever you want to put here>\``)
                     return
                 }
                 else {
