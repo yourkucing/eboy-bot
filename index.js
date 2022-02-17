@@ -181,12 +181,16 @@ client.on('ready', () => {
 	checkforBirthdays().catch((err) => {
 		console.log(err)
 	})
-	channel.messages.fetch("943770740635881472").then(m => {
-		m.react("🗃️");
-	});	
-	channel.messages.fetch("943778980308348948").then(m => {
-		m.react("🗃️");
-	});
+	message.client.channels.fetch("943771114897829919").then(channel => {
+		channel.messages.fetch("943778980308348948").then(message => {
+			message.react("🗃️");
+		})
+	})
+	message.client.channels.fetch("943712192434405477").then(channel => {
+		channel.messages.fetch("943770740635881472").then(message => {
+			message.react("🗃️");
+		})
+	})
  });
 
  client.on('guildCreate', guild => {
