@@ -48,6 +48,8 @@ module.exports.run = async(client, msg, args) => {
                     sendingmessage += `\n${rr[1]} for <@&${roles[0]}>`
                 }
             }
+            console.log(role)
+            console.log(reaction)
             channel.send(sendingmessage)
             .then(async function(msg1) {
                 try {
