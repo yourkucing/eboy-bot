@@ -12,6 +12,8 @@ const moneyModel = require('./models/moneySchema');
 const sprintModel = require('./models/sprintSchema');
 const birthdayModel = require('./models/birthdaySchema');
 const reactionsModel = require('./models/reactionsSchema');
+const autoroleModels = require('./models/autoroleSchema');
+
 
 
 client.commands = new Map();
@@ -190,6 +192,12 @@ client.on('ready', () => {
 	});
 	
 client.on('guildMemberAdd', member => {
+	autoroleModels.findOne({serverID: msg.guild.id}).then(addpeople => {
+		if(addpeople){
+			const newbieRole = member.guild.roles.cache.get(addpeople.roleID) // that was to define the role to give newbies (you can name the variable however you want that doesn't matter!)
+			member.roles.add(newbieRole.id) // this will add the role to that member!
+		}
+	})
 	if (member.guild.id == "912635515965165588") {
 			// IMPORTANT NOTE: Make Sure To Use async and rename bot to client or whatever name you have for your bot events!
 			const welcomeChannel = member.guild.channels.cache.get('912651462616698890')

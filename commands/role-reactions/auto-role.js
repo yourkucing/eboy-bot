@@ -1,5 +1,5 @@
 const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
-const reactionsModel = require('../../models/autoroleSchema');
+const autoroleModels = require('../../models/autoroleSchema');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -20,7 +20,19 @@ module.exports.run = async(client, msg, args) => {
         }
         else {
             roleID = args[0]
-            console.log(roleID)
+            if (roleID.includes("<") && roleID.includes(">") && roleID.includes(":")) {
+                roleID = roleID.replace(/\s*\:.*?\:\s*/g, "")
+                roleID = roleID.replace("<", "")
+                roleID = roleID.replace(">", "")
+                roleID = roleID
+            }
+            else {
+                roleID = roleID
+            }
+            autoroleModels.create({
+                serverID: serverID,
+                roleID: roleID
+            })
         }
     }
 }
