@@ -181,7 +181,7 @@ client.on('ready', () => {
 	checkforBirthdays().catch((err) => {
 		console.log(err)
 	})
-	client.channels.fetch("943771114897829919").then(channel => {
+/* 	client.channels.fetch("943771114897829919").then(channel => {
 		channel.messages.fetch("943778980308348948").then(message => {
 			message.react("🗃️");
 		})
@@ -190,6 +190,15 @@ client.on('ready', () => {
 		channel.messages.fetch("943770740635881472").then(message => {
 			message.react("🗃️");
 		})
+	}) */
+	client.channels.fetch("943712192434405477").then(channel => {
+		channel.messages.fetch(`943770740635881472`).then(message => {
+			oldmsg = message
+			console.log(message)
+			//message.edit("New message Text");
+		}).catch(err => {
+			console.error(err);
+		});
 	})
  });
 
