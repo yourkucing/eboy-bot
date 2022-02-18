@@ -193,9 +193,16 @@ client.on('ready', () => {
 	}) */
 	client.channels.fetch("943712192434405477").then(channel => {
 		channel.messages.fetch(`943770740635881472`).then(message => {
-			oldmsg = message
-			console.log(message)
-			//message.edit("New message Text");
+			oldmsg = message.content
+			message.edit(`${message.content}\n🗃️ for <@&943921586132619274>`);
+		}).catch(err => {
+			console.error(err);
+		});
+	})
+	client.channels.fetch("943771114897829919").then(channel => {
+		channel.messages.fetch(`943778980308348948`).then(message => {
+			oldmsg = message.content
+			message.edit(`${message.content}\n🗃️ for <@&943921594563178517>`);
 		}).catch(err => {
 			console.error(err);
 		});
