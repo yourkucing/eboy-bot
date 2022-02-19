@@ -191,7 +191,7 @@ client.on('ready', () => {
 			message.react("🗃️");
 		})
 	}) */
-	client.channels.fetch("943712192434405477").then(channel => {
+/* 	client.channels.fetch("943712192434405477").then(channel => {
 		channel.messages.fetch(`943770740635881472`).then(message => {
 			oldmsg = message.content
 			message.edit(`${message.content}\n🗃️ for <@&943921586132619274>`);
@@ -206,7 +206,7 @@ client.on('ready', () => {
 		}).catch(err => {
 			console.error(err);
 		});
-	})
+	}) */
  });
 
  client.on('guildCreate', guild => {
