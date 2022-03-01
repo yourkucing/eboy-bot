@@ -390,11 +390,7 @@ channelModel.findOne({channelID: msg.channel.id}).then(moneychannel => {
 			$inc: {
 				gold: 2
 			}
-		}).then(result => {
-			if(!result) {
-				console.log(result)
-			}
-		}).catch(e => {console.log(e)})
+		}).then().catch(e => {console.log(e)})
 	}
 })
 
