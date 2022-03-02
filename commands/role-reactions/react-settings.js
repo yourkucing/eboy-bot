@@ -42,40 +42,36 @@ module.exports.run = async(client, msg, args) => {
                     })
                     role.push(roles[0])
                     rr = m.content.split(" ")
-                    reaction.push(rr[1])
                     sendingmessage += `\n${rr[1]} for <@&${roles[0]}>`
+                    if(rr[1].includes("<") && rr[1].includes(">") && rr[1].includes(":")){
+                        rr = rr[1].replace(/\s*\:.*?\:\s*/g, "")
+                        rr = rr.replace("<", "")
+                        rr = rr.replace(">", "")
+                        reactionEmoji = rr
+                    }
+                    else {
+                        reactionEmoji = rr[1]
+                    }
+                    reaction.push(reactionEmoji)
+                    reactionsModel.create({
+                        serverID: serverID,
+                        channelID: channels[0],
+                        messageID: msg1.id,
+                        emoji: reactionEmoji,
+                        role: roles[0]
+                    })
                 }
             }
             channel.send(sendingmessage)
             .then(async function(msg1) {
                 try {
                     for (let i = 0; i < reaction.length; i++) {
-                        roleID = role[i]
-                        if (reaction[i].includes("<") && reaction[i].includes(">") && reaction[i].includes(":")) {
-                            rr = reaction[i].replace(/\s*\:.*?\:\s*/g, "")
-                            rr = rr.replace("<", "")
-                            rr = rr.replace(">", "")
-                            reactionEmoji = rr
-                        }
-                        else {
-                            reactionEmoji = reaction[i]
-                        }
-                        await msg1.react(reactionEmoji)
-                        .then(a => {
-                            reactionsModel.create({
-                            serverID: serverID,
-                            channelID: channels[0],
-                            messageID: msg1.id,
-                            emoji: reactionEmoji,
-                            role: roleID
-                        })
-                    })
+                        await msg1.react(reaction[i])
                     }
     
                 }
                 catch(err) {
-                    msg.channel.send(`**ERROR:** \`Eboy cannot seem to find your emoji or role.\`\nPlease make sure that you have keyed in both the role as well as the emoji correctly. Note that you can use custom emojis too, but not Nitro moving emojis. If you're still having trouble, you can DM my owner: Maryam#9206\n\nPlease note that every time you want to restart, you should delete the reaction message that eboy had sent out.`)
-                    console.log(err)
+
                 }   
             })
         }
