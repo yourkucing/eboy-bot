@@ -53,22 +53,23 @@ module.exports.run = async(client, msg, args) => {
                         reactionEmoji = rr[1]
                     }
                     reaction.push(reactionEmoji)
-                    reactionsModel.create({
-                        serverID: serverID,
-                        channelID: channels[0],
-                        messageID: msg1.id,
-                        emoji: reactionEmoji,
-                        role: roles[0]
-                    })
+
                 }
             }
             channel.send(sendingmessage)
             .then(async function(msg1) {
                 try {
                     for (let i = 0; i < reaction.length; i++) {
-                        await msg1.react(reaction[i])
+                        await msg1.react(reaction[i]).then(a => {
+                            reactionsModel.create({
+                                serverID: serverID,
+                                channelID: channels[0],
+                                messageID: msg1.id,
+                                emoji: reaction[i],
+                                role: roles[i]
+                            })
+                        })
                     }
-    
                 }
                 catch(err) {
 
