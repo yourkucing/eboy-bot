@@ -61,14 +61,12 @@ module.exports.run = async(client, msg, args) => {
                 try {
                     for (let i = 0; i < reaction.length; i++) {
                         await msg1.react(reaction[i])
-                        console.log(reaction[i])
-                        console.log(roles[i])
                         reactionsModel.create({
                             serverID: serverID,
                             channelID: channels[0],
                             messageID: msg1.id,
                             emoji: reaction[i],
-                            role: roles[i]
+                            role: role[i]
                         }).catch(e => {console.log(e)})
                     }
                 }
