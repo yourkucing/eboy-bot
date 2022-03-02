@@ -60,19 +60,20 @@ module.exports.run = async(client, msg, args) => {
             .then(async function(msg1) {
                 try {
                     for (let i = 0; i < reaction.length; i++) {
-                        await msg1.react(reaction[i]).then(a => {
-                            reactionsModel.create({
-                                serverID: serverID,
-                                channelID: channels[0],
-                                messageID: msg1.id,
-                                emoji: reaction[i],
-                                role: roles[i]
-                            })
+                        await msg1.react(reaction[i])
+
+                        reactionsModel.create({
+                            serverID: serverID,
+                            channelID: channels[0],
+                            messageID: msg1.id,
+                            emoji: reaction[i],
+                            role: roles[i]
                         })
                     }
                 }
                 catch(err) {
-
+                    msg.channel.send(`\`There is an error in reacting to the message. Please delete the message that eboy sent and try again. If error persists, contact Maryam#9206.\``)
+                    console.log(err)
                 }   
             })
         }
