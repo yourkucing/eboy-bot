@@ -290,6 +290,7 @@ client.on('messageDelete', async (message) => {
 });
 
 client.on('messageReactionAdd', async (reaction, user) => {
+	if (users.bot) return
 	// When a reaction is received, check if the structure is partial
 	if (reaction.partial) {
 		// If the message this reaction belongs to was removed, the fetching might result in an API error which should be handled
@@ -340,6 +341,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 });
 
 client.on('messageReactionRemove', async (reaction, user) => {
+	if (users.bot) return
 	// When a reaction is received, check if the structure is partial
 	if (reaction.partial) {
 		// If the message this reaction belongs to was removed, the fetching might result in an API error which should be handled

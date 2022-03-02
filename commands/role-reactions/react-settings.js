@@ -50,6 +50,7 @@ module.exports.run = async(client, msg, args) => {
             .then(async function(msg1) {
                 try {
                     for (let i = 0; i < reaction.length; i++) {
+                        roleID = role[i]
                         if (reaction[i].includes("<") && reaction[i].includes(">") && reaction[i].includes(":")) {
                             rr = reaction[i].replace(/\s*\:.*?\:\s*/g, "")
                             rr = rr.replace("<", "")
@@ -60,13 +61,13 @@ module.exports.run = async(client, msg, args) => {
                             reactionEmoji = reaction[i]
                         }
                         await msg1.react(reactionEmoji)
-                        .then( a => {
+                        .then(a => {
                             reactionsModel.create({
                             serverID: serverID,
                             channelID: channels[0],
                             messageID: msg1.id,
                             emoji: reactionEmoji,
-                            role: role[i]
+                            role: roleID
                         })
                     })
                     }
