@@ -40,16 +40,12 @@ module.exports.run = async(client, msg, args) => {
                     const roles = m.mentions.roles.map(role => {
                         return role.id
                     })
-                    console.log(roles)
-                    console.log(m.content)
                     role.push(roles[0])
                     rr = m.content.split(" ")
                     reaction.push(rr[1])
                     sendingmessage += `\n${rr[1]} for <@&${roles[0]}>`
                 }
             }
-            console.log(role)
-            console.log(reaction)
             channel.send(sendingmessage)
             .then(async function(msg1) {
                 try {
