@@ -42,13 +42,11 @@ module.exports.run = async(client, msg, args) => {
                 \`\`\``) */
                 msg.channel.send(`Please do not change the name of the role (Time Out Corner) as it may affect the functionality of this command.\nIf your bot has a lower role, the Time Out role might not be seen in the user role, and that's it!`)
                 msg.guild.roles.create({
-                    data: {
                         name: 'Time Out Corner',
                         color: 'BLACK',
                         hoist:  true,
-                        position: bothighest
-                    },
-                    reason: 'to time people out',
+                        position: bothighest,
+                        reason: 'to time people out'
                     }).then(result => {
 
                         if (!args[1]) {
