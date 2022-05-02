@@ -48,7 +48,6 @@ module.exports.run = async(client, msg, args) => {
                         position: bothighest,
                         reason: 'to time people out'
                     }).then(result => {
-
                         if (!args[1]) {
                             time = 900000
                             usertimeout = timeoutModel.create({
