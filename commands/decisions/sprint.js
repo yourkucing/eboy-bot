@@ -1,4 +1,4 @@
-const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions, MessageButton } = require('discord.js');
 const sprintModel = require('../../models/sprintSchema')
 const ms = require('ms');
 
@@ -13,7 +13,7 @@ module.exports.run = async(client, msg, args) => {
     channel = msg.channel.id
     time =  parseFloat(args) * 60 * 1000
     if (isNaN(time)) {
-        msg.channel.send(`Nani the fuck is "uwu sprint ${args}"? Plesae state the time, tsk. [Eg. "5" = 5 minutes]`)
+        msg.channel.send(`What is "uwu sprint ${args}"? Please state the time, tsk. [Eg. "5" = 5 minutes]`)
     }
     else {
         const filter = m => m.author.id === sprinter;
