@@ -76,7 +76,48 @@ module.exports.run = async(client, msg, args) => {
             }
         }
     }
-    else if (isNaN(args)) {
-        msg.channel.send(`Please write an integer between 0 and infinity. eg. \`uwu writing 200\` means that you have currently 200 words in your current novel.`)
+    else if (args[0].toLowerCase() == "delete") {
+        msg.channel.send(`Are you sure you want to delete your word count in this server? (Answer yes or no.)`)
+        const filter = m => m.author.id == msg.author.id;
+        msg.channel.awaitMessages({filter, max: 1, time: 30000}).then(collected => {
+            if (collected.first().content.toLowerCase() == 'yes') {
+                writingModel.deleteOne({userID: hooman, serverID: server}).then(result => {
+                    if (!result) {
+                        msg.channel.send(`Sorry ${msg.author}, you did not have any word count saved in this server!`)
+                    }
+                    else {
+                        msg.channel.send(`Word count deleted!`)
+                    }
+                });
+            }
+            else {
+                msg.channel.send(`Oh, no deletion occurred then!`)
+            }
+        }).catch(collected => {
+            msg.channel.send('Oh, it must have been an accident then!');
+            });
+    }
+    else if (args[0].toLowerCase() == "new" && !isNaN(args[1])) {
+
+    }
+    else {
+        if (isNaN(args)) {
+            msg.channel.send(`Please write an integer between 0 and infinity. eg. \`uwu writing 200\` means that you have currently 200 words in your current novel.`)
+        }
+        else {
+            wordcount = args[0]
+            writingModel.create({
+                serverID: server,
+                userID: hooman,
+                wordcount: wordcount
+            }).then(r => {
+                if (r) {
+                    msg.react(`✅`)
+                }
+                else {
+                    msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                }
+            })
+        }
     }
 }
