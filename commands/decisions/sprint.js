@@ -16,7 +16,6 @@ module.exports.run = async(client, msg, args) => {
         msg.channel.send(`What is "uwu sprint ${args}"? Please state the time. [Eg. "5" = 5 minutes]`)
     }
     else {
-        wordcount = parseInt(collected.first().content)
         msg.channel.send(`Writing sprint for ${args} minutes starts now, <@${sprinter}>!`)
         sprint = sprintModel.create({
             userID: sprinter,
