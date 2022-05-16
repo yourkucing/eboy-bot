@@ -13,6 +13,7 @@ const sprintModel = require('./models/sprintSchema');
 const birthdayModel = require('./models/birthdaySchema');
 const reactionsModel = require('./models/reactionsSchema');
 const autoroleModels = require('./models/autoroleSchema');
+const writingModel = require('./models/writingSchema');
 
 
 
@@ -151,13 +152,44 @@ const checkforSprints = async() => {
 						}
 						else {
 							newwordcount = parseInt(collected.first().content)
-							channel2.send(`Nice. You wrote ${newwordcount - wordcount} words. Good job, mate!`)
-							sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2}).then(deleted => {
-								eboylog = client.channels.cache.get('867744429657292810')
-								eboylog.send(`Sprint ended for ${user2.username}. [User ID: ${userID2}]`)
-							}).catch(e => {
-								eboylog = client.channels.cache.get('867744429657292810')
-								eboylog.send(`<@279101053750870017>: Unable to remove user from sprint database. [User ID: ${userID2}]\n${e}`)
+							writingModel.findOne({userID: userID2, serverID: guildID2}).then(found => {
+								if (found) {
+									channel2.send(`Nice. You wrote ${newwordcount - found.wordcount} words. Good job, mate!`)
+									writingModel.findOneAndUpdate({userID: userID2, serverID: guildID2},
+										{
+											$set: {
+												wordcount: newwordcount
+											}
+										}).then(updated => {
+											if (updated) {
+												sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2}).then(deleted => {
+													eboylog = client.channels.cache.get('867744429657292810')
+													eboylog.send(`Sprint ended for User ID: ${userID2}.`)
+												}).catch(e => {
+													eboylog = client.channels.cache.get('867744429657292810')
+													eboylog.send(`<@279101053750870017>: Unable to remove user from sprint database. [User ID: ${userID2}]\n${e}`)
+												})
+											}
+										})
+								}
+								else {
+									writingModel.create({
+										userID: userID2,
+										serverID: guildID2,
+										wordcount: newwordcount
+									}).then(created => {
+										if (created) {
+											channel2.send(`Nice. You wrote ${newwordcount} words. Good job, mate! [You have been added to the database, you can check your wordcount at \`uwu writing\`]`)
+											sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2}).then(deleted => {
+												eboylog = client.channels.cache.get('867744429657292810')
+												eboylog.send(`Sprint ended for User ID: ${userID2}.`)
+											}).catch(e => {
+												eboylog = client.channels.cache.get('867744429657292810')
+												eboylog.send(`<@279101053750870017>: Unable to remove user from sprint database. [User ID: ${userID2}]\n${e}`)
+											})
+										}
+									})
+								}
 							})
 						}
 					})
