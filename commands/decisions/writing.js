@@ -112,7 +112,7 @@ module.exports.run = async(client, msg, args) => {
                     if (collected.first().content.toLowerCase() == 'yes') {
                         writingModel.findOneAndUpdate({
                             userID: hooman,
-                            server: serverID
+                            serverID: server
                         },
                         {
                             $set: {
