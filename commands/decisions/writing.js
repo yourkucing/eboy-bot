@@ -112,7 +112,8 @@ module.exports.run = async(client, msg, args) => {
                     if (collected.first().content.toLowerCase() == 'yes') {
                         msg.channel.send(wordcount)
                         writingModel.findOneAndUpdate({
-                            userID: hooman
+                            userID: hooman,
+                            server: serverID
                         },
                         {
                             $set: {
