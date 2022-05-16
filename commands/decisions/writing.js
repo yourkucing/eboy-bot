@@ -97,27 +97,56 @@ module.exports.run = async(client, msg, args) => {
             msg.channel.send('Oh, it must have been an accident then!');
             });
     }
-    else if (args[0].toLowerCase() == "new" && !isNaN(args[1])) {
-
-    }
     else {
         if (isNaN(args)) {
             msg.channel.send(`Please write an integer between 0 and infinity. eg. \`uwu writing 200\` means that you have currently 200 words in your current novel.`)
         }
         else {
             wordcount = args[0]
-            writingModel.create({
-                serverID: server,
-                userID: hooman,
-                wordcount: wordcount
-            }).then(r => {
-                if (r) {
-                    msg.react(`✅`)
-                }
-                else {
-                    msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
-                }
-            })
+            writer = await writingModel.findOne({userID: hooman})
+
+            if (writer) {
+                msg.channel.send(`Your wordcount is already in the list. Would you like to replace it with **${wordcount}** words? (Answer yes or no.)`)
+                const filter = m => m.author.id == msg.author.id;
+                msg.channel.awaitMessages({filter, max: 1, time: 30000}).then(collected => {
+                    if (collected.first().content.toLowerCase() == 'yes') {
+                        writingModel.findOneAndUpdate({
+                            userID: hooman
+                        },
+                        {
+                            $set: {
+                                wordcount: wordcount
+                            }
+                        }).then(r => {
+                            if (r) {
+                                msg.channel.send(`Wordcount updated!`)
+                            }
+                            else {
+                                msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                            }
+                        })
+                    }
+                    else {
+                        msg.channel.send(`Oh, no changes occurred then!`)
+                    }
+                }).catch(collected => {
+                    msg.channel.send('Oh, it must have been an accident then!');
+                    });
+            }
+            else {
+                writingModel.create({
+                    serverID: server,
+                    userID: hooman,
+                    wordcount: wordcount
+                }).then(r => {
+                    if (r) {
+                        msg.react(`✅`)
+                    }
+                    else {
+                        msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                    }
+                })
+            }
         }
     }
 }
