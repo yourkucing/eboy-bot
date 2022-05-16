@@ -33,7 +33,7 @@ module.exports.run = async(client, msg, args) => {
                             continue
                         }
                         else {
-                            writings += `**${++j}.**  **${users.nickname}**: ${current[m].wordcount} words\n`
+                            writings += `**${++j}.**  **${users.displayName}**: ${current[m].wordcount} words\n`
                         }
                     }
                     const embed = new MessageEmbed()
@@ -68,7 +68,7 @@ module.exports.run = async(client, msg, args) => {
                 .setDescription(`These are all the current wordcounts of the writers in this server.`);
                 for (x in writingkids) {
                     users = msg.guild.members.cache.get(writingkids[x].userID)
-                    writinglist += `**${n}.** **${users.nickname}**: ${writingkids[x].wordcount} words\n`
+                    writinglist += `**${n}.** **${users.displayName}**: ${writingkids[x].wordcount} words\n`
                     n++
                 }
                 embed.addFields({name: `Writers`, value: `${writinglist}`})
