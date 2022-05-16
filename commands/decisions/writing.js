@@ -110,6 +110,7 @@ module.exports.run = async(client, msg, args) => {
                 const filter = m => m.author.id == msg.author.id;
                 msg.channel.awaitMessages({filter, max: 1, time: 30000}).then(collected => {
                     if (collected.first().content.toLowerCase() == 'yes') {
+                        msg.channel.send(wordcount)
                         writingModel.findOneAndUpdate({
                             userID: hooman
                         },
