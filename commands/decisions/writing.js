@@ -103,7 +103,7 @@ module.exports.run = async(client, msg, args) => {
         }
         else {
             wordcount = args[0]
-            writer = await writingModel.findOne({userID: hooman})
+            writer = await writingModel.findOne({userID: hooman, serverID: server})
 
             if (writer) {
                 msg.channel.send(`Your wordcount is already in the list. Would you like to replace it with **${wordcount}** words? (Answer yes or no.)`)
