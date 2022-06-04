@@ -14,8 +14,7 @@ module.exports.run = async(client, msg, args) => {
         .setCurrentXP(356)
         .setRequiredXP(1000)
         .setProgressBar("#FFFFFF", "COLOR")
-        .setUsername(author.username)
-        .setDiscriminator(author.discriminator)
+        .setUsername("Hero/Villain Story How Long Can This Be? What about very long?")
         .setRank(0, "", false)
         .setLevel(0, "", false);
     
