@@ -9,7 +9,7 @@ module.exports.run = async(client, msg, args) => {
 
     img = "https://iconape.com/wp-content/png_logo_vector/book-18.png"
 
-    const rank = new canvacord.Rank()
+    rank = new canvacord.Rank()
         .setAvatar(img)
         .setCurrentXP(356)
         .setRequiredXP(1000)
@@ -18,7 +18,7 @@ module.exports.run = async(client, msg, args) => {
     
     rank.build()
     .then(data => {
-        const attachment = new MessageAttachment(data, "RankCard.png");
+        attachment = canvacord.write(data, "rankcard.png")
         msg.channel.send(attachment);
     });
         
