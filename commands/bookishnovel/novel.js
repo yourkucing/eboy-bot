@@ -15,6 +15,7 @@ module.exports.run = async(client, msg, args) => {
         .setRequiredXP(1000)
         .setProgressBar("#FFFFFF", "COLOR")
         .setUsername(author.username)
+        .setDiscriminator(author.discriminator)
         .setRank(0, "", false)
         .setLevel(0, "", false);
     
