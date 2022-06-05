@@ -14,14 +14,19 @@ module.exports.run = async(client, msg, args) => {
         .setCurrentXP(356)
         .setRequiredXP(1000)
         .setProgressBar("#FFFFFF", "COLOR")
-        .setUsername("Hero/Villain Story How Long Can This Be? What about very long?")
+        .setUsername(author.username)
         .setRank(0, "", false)
         .setLevel(0, "", false);
     
     rank.build()
     .then(data => {
-        const attachment = new MessageAttachment(data, "RankCard.png");
-        msg.channel.send({files:[attachment]});
+        const attachment = new MessageAttachment(data, "RankCard.png")
+        const embed = new MessageEmbed()
+        .setColor('#FF69B4')
+        .setTitle(`Hero/Villain Story`)
+        .setDescription(`Villian put a spell on the hero to hurt everyone he loves but the villain hurts too.`)
+        .setImage('attachment://RankCard.png');
+        msg.channel.send({embeds: [embed], files:[attachment]});
     });
         
     
