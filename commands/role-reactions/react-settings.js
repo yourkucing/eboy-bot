@@ -32,15 +32,11 @@ module.exports.run = async(client, msg, args) => {
                 const filter = m => m.author.id == author;
                 msg.channel.awaitMessages({filter, max: 1}).then(collected => {
                     
-                    rr = collected.first.mentions.roles.map(role => {
-                        return role.id
-                    })
-                    console.log(rr[0])
+                    rr = collected.first.mentions.roles
+                    console.log(rr)
                     msg.channel.send("test")
                     msg.channel.send(rr[0])
-                }).catch(collected => {
-                    
-                    });
+                })
                 // const filter = m => m.author.id == author;
                 // const collector = msg.channel.createMessageCollector({filter}
                 //     );
