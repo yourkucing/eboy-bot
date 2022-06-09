@@ -31,8 +31,10 @@ module.exports.run = async(client, msg, args) => {
                 msg.channel.send(`Please key in the role:`)
                 const filter = m => m.author.id == author;
                 msg.channel.awaitMessages({filter, max: 1}).then(collected => {
-                    rr = collected.first.mentions.roles
-                    console.log(rr)
+                    rr = collected.first.mentions.roles.map(role => {
+                        return role.id
+                    })
+                    console.log(rr[0])
                 }).catch(collected => {
                     
                     });
