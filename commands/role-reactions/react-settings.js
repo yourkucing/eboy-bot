@@ -31,12 +31,11 @@ module.exports.run = async(client, msg, args) => {
                 msg.channel.send(`Please key in the role:`)
                 const filter = m => m.author.id == author;
                 msg.channel.awaitMessages({filter, max: 1}).then(collected => {
-                    
                     rr = collected.first.mentions.roles
                     console.log(rr)
-                    msg.channel.send("test")
-                    msg.channel.send(rr[0])
-                })
+                }).catch(collected => {
+                    msg.channel.send('Oh, it must have been an accident then!');
+                    });
                 // const filter = m => m.author.id == author;
                 // const collector = msg.channel.createMessageCollector({filter}
                 //     );
