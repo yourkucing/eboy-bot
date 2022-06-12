@@ -35,8 +35,8 @@ module.exports.run = async(client, msg, args) => {
                         return role.id
                     })
                     console.log(rr[0])
-                }).catch(collected => {
-                    console.log("nothing is happening")
+                }).catch(e => {
+                        console.log(e)
                     });
                 // const filter = m => m.author.id == author;
                 // const collector = msg.channel.createMessageCollector({filter}
