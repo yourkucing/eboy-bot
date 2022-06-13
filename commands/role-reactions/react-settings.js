@@ -46,7 +46,7 @@ module.exports.run = async(client, msg, args) => {
                             if (!collected1.first().emoji.id) {
                                 react = collected1.first().emoji.name
                                 sendingmessage += `\n${react} for <@&${roleID}>`
-                                embed.addField({name: `Role Reactions`, value: sendingmessage})
+                                embed.addFields({name: `Role Reactions`, value: sendingmessage})
                             }
                             else {
                                 react = collected1.first().emoji.id
