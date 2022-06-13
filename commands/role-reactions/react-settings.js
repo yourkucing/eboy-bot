@@ -42,7 +42,7 @@ module.exports.run = async(client, msg, args) => {
                     .then(message => {
                         const filter = m => m.author.id == author
                         message.awaitReactions({filter, max: 1}).then(collected1 => {
-                            emo = collected1.first()
+                            emo = collected1
                             console.log(emo)
                             //sendingmessage += `\n${roleID} for <@&${emojiID}>`
                             //chan.send(sendingmessage)
