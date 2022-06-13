@@ -42,14 +42,14 @@ module.exports.run = async(client, msg, args) => {
                         message.awaitReactions({filter, max: 1}).then(collected1 => {
                             const embed = new MessageEmbed()
                                 .setColor(`#FF69B4`)
-                                .setDescription(`Please react to one of the emojis to get the role.\nClick the reaction again to the role.`)
+                                .setDescription(`Please react to one of the emojis to get the role.\nClick the reaction again to the role.`);
                             if (!collected1.first().emoji.id) {
                                 react = collected1.first().emoji.name
-                                .addField(`\n${react}: <@&${roleID}>`);
+                                embed.addField(`\n${react}: <@&${roleID}>`)
                             }
                             else {
                                 react = collected1.first().emoji.id
-                                .addField(`\n<:${collected1.first().emoji.name}:${react}>: <@&${roleID}>`);
+                                embed.addField(`\n<:${collected1.first().emoji.name}:${react}>: <@&${roleID}>`)
                             }
                             chan.send({embeds: [embed]})
                         }).catch(e => {
