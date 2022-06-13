@@ -26,15 +26,28 @@ module.exports.run = async(client, msg, args) => {
                 const channels = msg.mentions.channels.map(channel => {
                     return channel.id;
                 })
-                channel = msg.guild.channels.cache.get(channels[0])
+                channelID = channels[0]
+                chan = msg.guild.channels.cache.get(channelID)
                 sendingmessage = `Please click on the following reactions to get your roles:\n`
                 msg.channel.send(`Please key in the role:`)
+                role = []
+                reaction = []
                 const filter = m => m.author.id == author;
                 msg.channel.awaitMessages({filter, max: 1}).then(collected => {
                     rr = collected.first().mentions.roles.map(role => {
                         return role.id
                     })
-                    console.log(rr[0])
+                    roleID = rr[0]
+                    msg.channel.send(`Please key in the emoji you want associated to that role:`)
+                    const filter = m => m.author.id == author
+                    msg.channel.awaitMessages({filter, max: 1}).then(collected1 => {
+                        emo = collected1.first().mentions.emojis.map(emoji => {
+                            return emoji.id
+                        })
+                        emojiID == emo[0]
+                        sendingmessage += `\n${roleID} for <@&${emojiID}>`
+                        chan.send(sendingmessage)
+                    })
                 }).catch(e => {
                         console.log(e)
                     });
