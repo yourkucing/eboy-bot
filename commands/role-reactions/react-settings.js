@@ -40,20 +40,24 @@ module.exports.run = async(client, msg, args) => {
                     .then(message => {
                         const filter = (reaction, user) => {return reaction.emoji.name && user.id == author}
                         message.awaitReactions({filter, max: 1}).then(collected1 => {
+                            const embed = new MessageEmbed()
+                                .setColor(`#FF69B4`)
+                                .setDescription(`Please react to one of the emojis to get the role.\nClick the reaction again to the role.`)
                             if (!collected1.first().emoji.id) {
                                 react = collected1.first().emoji.name
-                                sendingmessage += `\n${react} for <@&${roleID}>`
+                                .addField(`\n${react}: <@&${roleID}>`);
                             }
                             else {
                                 react = collected1.first().emoji.id
-                                sendingmessage += `\n<:${collected1.first().emoji.name}:${react}> for <@&${roleID}>`
+                                .addField(`\n<:${collected1.first().emoji.name}:${react}>: <@&${roleID}>`);
                             }
-                            chan.send(sendingmessage)
+                            chan.send({embeds: [embed]})
                         }).catch(e => {
                             console.log(e)
                         })
                     })
-                }).catch(e => {
+                })
+                .catch(e => {
                         console.log(e)
                     });
                 // const filter = m => m.author.id == author;
