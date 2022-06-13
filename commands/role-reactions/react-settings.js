@@ -38,9 +38,9 @@ module.exports.run = async(client, msg, args) => {
                         return role.id
                     })
                     roleID = rr[0]
-                    msg.channel.send(`Please key in the emoji you want associated to that role:`)
+                    msg.channel.send(`Please **react** to this message for the emoji that you want to use with the role stated above.`)
                     const filter = m => m.author.id == author
-                    msg.channel.awaitMessages({filter, max: 1}).then(collected1 => {
+                    msg.channel.awaitReactions({filter, max: 1}).then(collected1 => {
                         emo = collected1.first()
                         console.log(emo)
                         //sendingmessage += `\n${roleID} for <@&${emojiID}>`
