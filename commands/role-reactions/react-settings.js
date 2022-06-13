@@ -30,8 +30,6 @@ module.exports.run = async(client, msg, args) => {
                 chan = msg.guild.channels.cache.get(channelID)
                 sendingmessage = `Please click on the following reactions to get your roles:\n`
                 msg.channel.send(`Please key in the role:`)
-                role = []
-                reaction = []
                 const filter = m => m.author.id == author;
                 msg.channel.awaitMessages({filter, max: 1}).then(collected => {
                     rr = collected.first().mentions.roles.map(role => {
@@ -42,10 +40,14 @@ module.exports.run = async(client, msg, args) => {
                     .then(message => {
                         const filter = (reaction, user) => {return reaction.emoji.name && user.id == author}
                         message.awaitReactions({filter, max: 1}).then(collected1 => {
-                            console.log(collected1)
-                            console.log(collected1.first().emoji.name)
-                            //sendingmessage += `\n${roleID} for <@&${emojiID}>`
-                            //chan.send(sendingmessage)
+                            if (!collected1.first().emoji.id) {
+                                react = collected1.first().emoji.id
+                            }
+                            else {
+                                react = collected1.first().emoji.name
+                            }
+                            sendingmessage += `\n${roleID} for <@&${react}>`
+                            chan.send(sendingmessage)
                         }).catch(e => {
                             console.log(e)
                         })
