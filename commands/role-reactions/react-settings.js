@@ -47,6 +47,8 @@ module.exports.run = async(client, msg, args) => {
                         emojiID == emo[0]
                         sendingmessage += `\n${roleID} for <@&${emojiID}>`
                         chan.send(sendingmessage)
+                    }).catch(e => {
+                        console.log(e)
                     })
                 }).catch(e => {
                         console.log(e)
