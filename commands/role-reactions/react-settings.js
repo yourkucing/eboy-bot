@@ -41,10 +41,10 @@ module.exports.run = async(client, msg, args) => {
                         const filter = (reaction, user) => {return reaction.emoji.name && user.id == author}
                         message.awaitReactions({filter, max: 1}).then(collected1 => {
                             if (!collected1.first().emoji.id) {
-                                react = collected1.first().emoji.id
+                                react = collected1.first().emoji.name
                             }
                             else {
-                                react = collected1.first().emoji.name
+                                react = collected1.first().emoji.id
                             }
                             sendingmessage += `\n${roleID} for <@&${react}>`
                             chan.send(sendingmessage)
