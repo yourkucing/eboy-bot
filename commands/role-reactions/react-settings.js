@@ -28,7 +28,7 @@ module.exports.run = async(client, msg, args) => {
                 })
                 channelID = channels[0]
                 chan = msg.guild.channels.cache.get(channelID)
-                sendingmessage = `Please click on the following reactions to get your roles:\n`
+                sendingmessage = ``
                 msg.channel.send(`Please key in the role:`)
                 const filter = m => m.author.id == author;
                 msg.channel.awaitMessages({filter, max: 1}).then(collected => {
@@ -45,11 +45,13 @@ module.exports.run = async(client, msg, args) => {
                                 .setDescription(`Please react to one of the emojis to get the role.\nClick the reaction again to the role.`);
                             if (!collected1.first().emoji.id) {
                                 react = collected1.first().emoji.name
-                                embed.addField(`\n${react}: <@&${roleID}>`)
+                                sendingmessage += `\n${react}: <@&${roleID}>`
+                                embed.addField({name: `Role Reactions`, value: sendingmessage})
                             }
                             else {
                                 react = collected1.first().emoji.id
-                                embed.addField(`\n<:${collected1.first().emoji.name}:${react}>: <@&${roleID}>`)
+                                sendingmessage += `\n<:${collected1.first().emoji.name}:${react}>: <@&${roleID}>`
+                                embed.addFields({name: `Role Reactions`, value: sendingmessage})
                             }
                             chan.send({embeds: [embed]})
                         }).catch(e => {
