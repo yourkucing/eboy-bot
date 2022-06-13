@@ -46,7 +46,7 @@ module.exports.run = async(client, msg, args) => {
                             else {
                                 react = collected1.first().emoji.id
                             }
-                            sendingmessage += `\n${roleID} for <@&${react}>`
+                            sendingmessage += `\n:${collected1.first().emoji.name}: for <@&${roleID}>`
                             chan.send(sendingmessage)
                         }).catch(e => {
                             console.log(e)
