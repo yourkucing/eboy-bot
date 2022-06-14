@@ -26,8 +26,8 @@ module.exports.run = async(client, msg, args) => {
                 const channels = msg.mentions.channels.map(channel => {
                     return channel.id;
                 })
-                channelID = channels[0]
-                chan = msg.guild.channels.cache.get(channelID)
+                chanID = channels[0]
+                chan = msg.guild.channels.cache.get(chanID)
                 sendingmessage = ``
                 msg.channel.send(`Please key in the role:`)
                 const filter = m => m.author.id == author;
@@ -59,7 +59,7 @@ module.exports.run = async(client, msg, args) => {
                                 async function savetomongo(){
                                     let created = await reactionsModel.create({
                                         serverID: serverID,
-                                        channelID: channelID,
+                                        channelID: chanID,
                                         messageID:msgID,
                                         emoji: react,
                                         role: roleID
@@ -109,7 +109,6 @@ module.exports.run = async(client, msg, args) => {
                                                         else {
                                                             react = collected1.first().emoji.id
                                                             sendingmessage += `\n<:${collected1.first().emoji.name}:${react}> for <@&${roleID}>`
-                                                            savetomongo()
                                                             chan.messages.fetch(msgID).then(r => {
                                                                 const embed = new MessageEmbed()
                                                                     .setColor(`#FF69B4`)
@@ -117,6 +116,7 @@ module.exports.run = async(client, msg, args) => {
                                                                     .setFields({name: `Role Reactions`, value: sendingmessage});
                                                                 r.edit({embeds: [embed]}).then(msg1 => {
                                                                     msg1.react(react)
+                                                                    savetomongo()
                                                                     msg.channel.send(`Do you want to add another role reaction? Reply \`yes\` or \`no\`.`)
                                                                 })
 
