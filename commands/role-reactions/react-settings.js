@@ -56,6 +56,19 @@ module.exports.run = async(client, msg, args) => {
                             chan.send({embeds: [embed]}).then(msg1 => {
                                 msg1.react(react)
                                 msgID = msg1.id
+                                async function savetomongo(){
+                                    let created = await reactionsModel.create({
+                                        serverID: serverID,
+                                        channelID: channelID,
+                                        messageID:msgID,
+                                        emoji: react,
+                                        role: roleID
+                                    })
+                                    if (!created) {
+                                        msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                                    }
+                                }
+                                savetomongo()
                                 msg.channel.send(`Do you want to add another role reaction? Reply \`yes\` or \`no\`.`).then(reply1 => {
                                 num = 0
                                 async function askingqquestion(){
@@ -64,6 +77,7 @@ module.exports.run = async(client, msg, args) => {
                                         let collected = await msg.channel.awaitMessages({filter, max: 1})
                                             if (collected.first().content.toLowerCase() == "no") {
                                                 num == 1
+                                                msg.channel.send(`\`Your role reaction has been saved.\``)
                                             }
                                             else if (collected.first().content.toLowerCase() == "yes") {
                                                 num == 0
@@ -113,7 +127,6 @@ module.exports.run = async(client, msg, args) => {
                                         }
                                 }
                                     askingqquestion()
-                                    msg.channel.send(`Alright, goodbye uwu! :3`)
                                 }) 
                             })
                         }).catch(e => {
