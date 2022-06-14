@@ -50,15 +50,20 @@ module.exports.run = async(client, msg, args) => {
                     sendingMessage()
                     const filter = m => m.author.id == author;
                     msg.channel.awaitMessages({filter, max: 1}).then(collected => {
-                        if (!isNaN(collected.first().content)) {
-                            if (findMessage[collected.first().content]) {
+                        if (!Number.isNaN(collected.first().content)) {
+                            if (findMessage[parseInt(collected.first().content)]) {
                                 chan.messages.fetch(findMessage[collected.first().content]).then(returnedMsg => {
                                     console.log(returnedMsg.content)
                                 })
                             }
                             else {
                                 msg.channel.send(`\`Please only choose a number that is listed. Please try again.\``)
+                                return
                             }
+                        }
+                        else {
+                            msg.channel.send(`\`This is not a number. please try again.\``)
+                            return
                         }
                     }).catch(e => console.log(e))
                 }
