@@ -100,8 +100,22 @@ module.exports.run = async(client, msg, args) => {
                                                                     .setDescription(`Please react to one of the emojis to get the role.\nClick the reaction again to the role.`)
                                                                     .setFields({name: `Role Reactions`, value: sendingmessage});
                                                                 r.edit({embeds: [embed]}).then(msg1 => {
-                                                                    msg1.react(react)
-                                                                    msg.channel.send(`Do you want to add another role reaction? Reply \`yes\` or \`no\`.`)
+                                                                    msg1.react(react).then(h => {
+                                                                        reactionsModel.create({
+                                                                            serverID: serverID,
+                                                                            channelID: chanID,
+                                                                            messageID: msgID,
+                                                                            emoji: react,
+                                                                            role: roleID
+                                                                        }).then(created => {
+                                                                            if (created) {
+                                                                                msg.channel.send(`Do you want to add another role reaction? Reply \`yes\` or \`no\`.`)
+                                                                            }
+                                                                            else {
+                                                                                msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                                                                            }
+                                                                        })
+                                                                    })
                                                                 })
 
                                                             })
