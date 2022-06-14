@@ -35,13 +35,19 @@ module.exports.run = async(client, msg, args) => {
                     return
                 }
                 else {
-                    messagetoSend = `Reply with the following numbers:`
-                    for (x in findMessage){
-                        reactionsModel.findOne({messageID: findMessage[x]}).then(findRole => {
-                            messagetoSend += `\n[${x}] Message with the role: ${msg.guild.roles.cache.get(findRole.role).name}, etc.`
-                        }).catch(e => console.log(e))
+                    async function sendingMessage() {
+                        messagetoSend = `Reply with the following numbers:`
+                        for (x in findMessage){
+                            try {
+                                findRole = await reactionsModel.findOne({messageID: findMessage[x]})
+                                messagetoSend += `\n[${x}] Message with the role: ${msg.guild.roles.cache.get(findRole.role).name}, etc.`
+                            }
+                            catch(e) {
+                                console.log(e)}
+                        }
+                        msg.channel.send(messagetoSend)
                     }
-                    msg.channel.send(messagetoSend)
+                    sendingMessage()
                 }
              }
          }
