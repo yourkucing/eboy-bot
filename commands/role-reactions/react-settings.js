@@ -109,6 +109,7 @@ module.exports.run = async(client, msg, args) => {
                                                         else {
                                                             react = collected1.first().emoji.id
                                                             sendingmessage += `\n<:${collected1.first().emoji.name}:${react}> for <@&${roleID}>`
+                                                            savetomongo()
                                                             chan.messages.fetch(msgID).then(r => {
                                                                 const embed = new MessageEmbed()
                                                                     .setColor(`#FF69B4`)

@@ -347,6 +347,10 @@ client.on('messageReactionAdd', async (reaction, user) => {
 			if (emoji == null) {
 				emoji = reaction.emoji.name
 			}
+			console.log(serverID)
+			console.log(channelID)
+			console.log(messageID)
+			console.log(emoji)
 			reactionmsg = await reactionsModel.findOne({serverID: serverID, channelID: channelID, messageID: messageID, emoji: emoji})
 	
 			if (!reactionmsg) {
@@ -357,6 +361,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 					//nothing happens
 				}
 				else {
+					console.log(reactionmsg.role)
 					role = guild.roles.cache.get(reactionmsg.role)
 					if (!role) {
 						//nothing happens
