@@ -1,4 +1,4 @@
-const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
+const { Client, Intents, MessageEmbed, Permissions, MessageButton } = require('discord.js');
 const paginationEmbed = require('discordjs-button-pagination');
 
 module.exports.run = async(client, msg, args) => {
