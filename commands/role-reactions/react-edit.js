@@ -52,8 +52,52 @@ module.exports.run = async(client, msg, args) => {
                     msg.channel.awaitMessages({filter, max: 1}).then(collected => {
                         if (!Number.isNaN(collected.first().content)) {
                             if (findMessage[parseInt(collected.first().content)]) {
-                                chan.messages.fetch(findMessage[collected.first().content]).then(returnedMsg => {
-                                    console.log(returnedMsg.embeds[0])
+                                chan.messages.fetch(findMessage[parseInt(collected.first().content)]).then(returnedMsg => {
+                                    oldMsg = returnedMsg.embeds[0].fields[0].value
+                                    msg.channel.send(`Please key in the role that you want to add in:`)
+                                    msg.channel.awaitMessages({filter, max: 1}).then(collected1 => {
+                                        rr = collected1.first().mentions.roles.map(role => {
+                                            return role.id
+                                        })
+                                        roleID = rr[0]
+                                        msg.channel.send(`Please **react** to this message for the emoji that you want to use with the role stated above.`)
+                                        .then(message => {
+                                            const filter = (reaction, user) => {return reaction.emoji.name && user.id == author}
+                                            message.awaitReactions({filter, max: 1}).then(collected2 => {
+                                                const embed = new MessageEmbed()
+                                                    .setColor(`#FF69B4`)
+                                                    .setDescription(`Please react to one of the emojis to get the role.\nClick the reaction again to the role.`);
+                                                if (!collected2.first().emoji.id) {
+                                                    react = collected2.first().emoji.name
+                                                    oldMsg += `\n${react} for <@&${roleID}>`
+                                                    embed.addFields({name: `Role Reactions`, value: oldMsg})
+                                                }
+                                                else {
+                                                    react = collected2.first().emoji.id
+                                                    oldMsg += `\n<:${collected2.first().emoji.name}:${react}> for <@&${roleID}>`
+                                                    embed.addFields({name: `Role Reactions`, value: oldMsg})
+                                                }
+                                                returnedMsg.edit({embeds: [embed]}).then(msg1 => {
+                                                    msg1.react(react).then(h => {
+                                                        reactionsModel.create({
+                                                            serverID: serverID,
+                                                            channelID: chanID,
+                                                            messageID: findMessage[parseInt(collected.first().content)],
+                                                            emoji: react,
+                                                            role: roleID
+                                                        }).then(created => {
+                                                            if (created) {
+                                                                msg.channel.send(`\`New role-react added!\``)
+                                                            }
+                                                            else {
+                                                                msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)
+                                                            }
+                                                        }).catch(e => console.log(e))
+                                                    })
+                                                })
+                                            })
+                                        })
+                                    })
                                 })
                             }
                             else {
