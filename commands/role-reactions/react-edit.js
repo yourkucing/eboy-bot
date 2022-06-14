@@ -40,7 +40,7 @@ module.exports.run = async(client, msg, args) => {
                         for (x in findMessage){
                             try {
                                 findRole = await reactionsModel.findOne({messageID: findMessage[x]})
-                                messagetoSend += `\n[${x}] Message with the role: ${msg.guild.roles.cache.get(findRole.role).name}, etc.`
+                                messagetoSend += `\n[${x}] Message with the role: **${msg.guild.roles.cache.get(findRole.role).name}**, etc.`
                             }
                             catch(e) {
                                 console.log(e)}
@@ -48,6 +48,19 @@ module.exports.run = async(client, msg, args) => {
                         msg.channel.send(messagetoSend)
                     }
                     sendingMessage()
+                    const filter = m => m.author.id == author;
+                    msg.channel.awaitMessages({filter, max: 1}).then(collected => {
+                        if (!isNaN(collected.first().content)) {
+                            if (findMessage[collected.first().content]) {
+                                chan.messages.fetch(findMessage[collected.first().content]).then(returnedMsg => {
+                                    console.log(returnedMsg.content)
+                                })
+                            }
+                            else {
+                                msg.channel.send(`\`Please only choose a number that is listed. Please try again.\``)
+                            }
+                        }
+                    }).catch(e => console.log(e))
                 }
              }
          }
