@@ -14,6 +14,7 @@ const birthdayModel = require('./models/birthdaySchema');
 const reactionsModel = require('./models/reactionsSchema');
 const autoroleModels = require('./models/autoroleSchema');
 const writingModel = require('./models/writingSchema');
+const paginationEmbed = require('discordjs-button-pagination');
 
 
 
@@ -571,58 +572,6 @@ const command = args.shift().toLowerCase();
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
  
-if (command === 'search') {
-	if (msg.channel.type === 'DM' && !msg.author.bot ) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
-	var definition = args.join(' ');;
-	
-	ud.term(definition).then((result) => {
-	    const entries = result.entries
-		const embed = new Discord.MessageEmbed()
-		.setColor('#FF69B4')
-		.setTitle(entries[0].word)
-		.setDescription(entries[0].definition)
-		.addFields(
-		{ name: 'Example:', value: entries[0].example }
-		);
-		msg.channel.send(embed);
-	}).catch((error) => {
-	  msg.channel.send('Definition not found.');
-	})
-}
-
- 
- if (msg.content === '@eboy help' || command === 'help' || command === 'command' || command === 'commands') {
-	if (msg.channel.type === 'DM' && !msg.author.bot ) return msg.reply('None of these commands can be run in DMs. Please run them in a server where I am in.');
-		const embed = new MessageEmbed()
-		.setColor('#FF69B4')
-		.setTitle(`Commands`)
-		.setDescription('Thank you for using Eboy bot uwu!\nMaryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her.\nYou can submit your suggestion or feedback here: https://cookie-codes.tumblr.com/eboy/askme though dont forget to leave down your name and a way to contact you, just in case there are questions we need to specify! (∩•̀ω•́)⊃-⋆\n\nEboy\'s full guide: https://cookie-codes.tumblr.com/eboy')
-		.addFields(
-		{ name: 'main commands', value: '`uwu`, `owo`, `awa`, `òwó`, `hi eboy uwu`, `eboy, i love you`, `can i get a yee claw`' },
-		{ name: 'uwu <commands> @<username>', value: '`bite`, `boop`, `cling`, `console`, `defenestrate`, `delete`, `drag`, `hug`, `kick`, `kill`, `kiss`, `love`, `patpat`, `peck` (aka peck on the cheeks), `poke`, `punch`, `scold`, `shake`, `shoot`, `slap`, `snuggle`, `stab`, `summon`, `tackle`, `tonk`, `untonk`, `yeet`' },
-		{ name: 'uwu <commands>', value: '`angry`, `cheer`, `clap`, `confused`, `cry`, `dance`, `die`, `eat`, `hide`, `hydrate`, `jitter`, `laugh`, `party`, `peek`, `run`, `scream`, `sleep`, `spazz`, `tantrum`, `work`, `yoink`' },
-		{ name: 'uwu <commands> @<username> ONLY ALLOWED IN NSFW CHANNELS (also there are gay stuffs, so if youre not comfortable with it, dont use it.)', value: '`choke`, `fuck`, `smooch` (aka french kiss/steamy kiss)' },
-		{ name: 'money commands', value: 'To enable or disable money in channels (gain 2 g with every message that is sent, NOTE: Only admins can use this): `uwu enable-money`, `uwu disable-money`\r\nTo give people money: `uwu paypal <@username> <amount: eg "2g">`\r\nTo rob people: `uwu rob`\r\nTo withdraw/deposit your money to the bank: `uwu withdraw` or `uwu deposit`.\r\nTo view your wallet: `uwu wallet`\r\nTo view the pet store: `uwu petstore`\r\nTo view your pets: `uwu pets`\r\nTo rename pets: `uwu pets rename`\r\nTo feed pets: `uwu pets feed`\r\nTo gift petfood: `uwu gift <@user>`'},
-		{ name: 'decision/useful commands', value: 'To ask the 8ball a question: `uwu 8ball <your question>`\r\nTo choose an option: `uwu choose [option1, option2, option3, ...]` Dont forget to use the [].\r\nTo roll dice: eg. `uwu dice 2d6` (2d6 = 2 d6 dice)\r\nTo sort your choices: `uwu random [option1, option2, ...]`\r\nTo use the calculator (addition, subtraction, multiplication, division): `uwu math <add/subtract/divide/multiply> [number1, number2, number3, ...]`\r\nTo do a writing sprint (with auto calculated word count): `uwu sprint <time [eg: "2" for 2 minutes] Note that it can only be done for minutes>`'},
-		{ name: 'special commands', value: 'To talk to the cranky server ghosts (BE WARNED, THEY\'RE MEAN.): `uwu ghost`\r\nTo cheer someone up and tell them that you love them:\r\n`eboy, help me out here @<username>`\r\nto matchmake someone: `uwu match @<username> @<username>` BOTH MUST BE DIFFERENT USERS.\r\n`uwu uwu <words to uwuify>`\r\n`uwu search <word to search>` [note that this is using Urban Dictionary, so some results might be ridiculous or NSFW.]\r\n`uwu duel @<username>`\r\n`uwu banner <words to turn into banner>`\r\n`uwu f / uwu f <words> / uwu f @<username>`\r\nTo timeout someone (your bot role must be higher than the person you are timing out!!!): `uwu timeout <@user> <eg: 1m/10s/24h>` [without the time, it will be for a default of 15 minutes.]\r\nTo give someone a cookie: uwu cookie <@user>' },
-		{ name: 'todo list', value: 'To summon: \`uwu todo\`\r\nTo delete: \`uwu todo delete <number>\`\r\nTo add: \`uwu todo add <activity>\`\r\nTo be done: \`uwu todo done <number>\`\r\nTo clear all: \`uwu todo clear\`'},
-		{ name: 'role reactions', value: 'To start: \`uwu react-settings #the-channel-your-reaction-roles-will-be-at\`'},
-		{ name: 'admin commands', value: 'To enable/disable eboy to reply to "goodmorning" or "goodnight" messages: `uwu enable-interactions`/`uwu disable-interactions`'},
-		{ name: 'birthday commands', value: 'Get eboy to wish you happy birthday! To start: \`uwu birthday 17 march\` (this is just an example)\r\nTo delete: \`uwu birthday delete\`\r\nTo view all the birthdays in the server: \`uwu birthday\`'}
-		)
-		.setFooter(`Created by Maryam#9206`);
-		eboylog = client.channels.cache.get('867744429657292810')
-		author = msg.author
-		guild = client.guilds.cache.get(msg.guild.id)
-		eboylog.send(`**${author.username}** [${author.id}] used the **help** command in **${guild}** [${msg.guild.id}].`)
-		
-		try {
-			msg.author.send({embeds: [embed]});
-			msg.channel.send(`Psssst. Check your DMs, **${msg.guild.members.cache.get(msg.author.id).displayName}**! :wink:`)
-		} catch(err) {
-			eboylog.send(`<@279101053750870017>: ERROR: Unable to use **help** command.\n${err}`)
-		}
- }
  
  });
  
