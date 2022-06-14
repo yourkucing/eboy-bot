@@ -36,8 +36,9 @@ module.exports.run = async(client, msg, args) => {
                 }
                 else {
                     for (x in findMessage){
-                        findRole = await reactionsModel.findOne({messageID: findMessage[x]})
-                        msg.channel.send(findMessage[x].role)
+                        reactionsModel.findOne({messageID: findMessage[x]}).then(findRole => {
+                            msg.channel.send(findRole[x].role)
+                        }).catch(e => console.log(e))
                     }
                 }
              }
