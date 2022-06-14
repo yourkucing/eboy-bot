@@ -57,63 +57,64 @@ module.exports.run = async(client, msg, args) => {
                                 msg1.react(react)
                                 msgID = msg1.id
                                 msg.channel.send(`Do you want to add another role reaction? Reply \`yes\` or \`no\`.`).then(reply1 => {
-                                    num = 0
+                                num = 0
+                                async function askingqquestion(){
                                     while (num == 0) {
                                         const filter = m => m.author.id == author
-                                        msg.channel.awaitMessages({filter, max: 1}).then(collected => {
+                                        let collected = await msg.channel.awaitMessages({filter, max: 1})
                                             if (collected.first().content.toLowerCase() == "no") {
                                                 num == 1
                                             }
                                             else if (collected.first().content.toLowerCase() == "yes") {
                                                 num == 0
                                                 msg.channel.send(`Please key in the role:`)
-                                                msg.channel.awaitMessages({filter, max: 1}).then(collected => {
-                                                    rr = collected.first().mentions.roles.map(role => {
-                                                        return role.id
-                                                    })
-                                                    roleID = rr[0]
-                                                    msg.channel.send(`Please **react** to this message for the emoji that you want to use with the role stated above.`)
-                                                    .then(message => {
-                                                        const filter = (reaction, user) => {return reaction.emoji.name && user.id == author}
-                                                        message.awaitReactions({filter, max: 1}).then(collected1 => {
-                                                            if (!collected1.first().emoji.id) {
-                                                                react = collected1.first().emoji.name
-                                                                sendingmessage += `\n${react} for <@&${roleID}>`
-                                                                chan.messages.fetch(msgID).then(r => {
-                                                                    const embed = new MessageEmbed()
-                                                                        .setColor(`#FF69B4`)
-                                                                        .setDescription(`Please react to one of the emojis to get the role.\nClick the reaction again to the role.`)
-                                                                        .setFields({name: `Role Reactions`, value: sendingmessage});
-                                                                    r.edit({embeds: [embed]}).then(msg1 => {
-                                                                        msg1.react(react)
-                                                                        msg.channel.send(`Do you want to add another role reaction? Reply \`yes\` or \`no\`.`)
-                                                                    })
-
+                                                let collected2 = await msg.channel.awaitMessages({filter, max: 1})
+                                                rr = collected2.first().mentions.roles.map(role => {
+                                                    return role.id
+                                                })
+                                                roleID = rr[0]
+                                                msg.channel.send(`Please **react** to this message for the emoji that you want to use with the role stated above.`)
+                                                .then(message => {
+                                                    const filter = (reaction, user) => {return reaction.emoji.name && user.id == author}
+                                                    message.awaitReactions({filter, max: 1}).then(collected1 => {
+                                                        if (!collected1.first().emoji.id) {
+                                                            react = collected1.first().emoji.name
+                                                            sendingmessage += `\n${react} for <@&${roleID}>`
+                                                            chan.messages.fetch(msgID).then(r => {
+                                                                const embed = new MessageEmbed()
+                                                                    .setColor(`#FF69B4`)
+                                                                    .setDescription(`Please react to one of the emojis to get the role.\nClick the reaction again to the role.`)
+                                                                    .setFields({name: `Role Reactions`, value: sendingmessage});
+                                                                r.edit({embeds: [embed]}).then(msg1 => {
+                                                                    msg1.react(react)
+                                                                    msg.channel.send(`Do you want to add another role reaction? Reply \`yes\` or \`no\`.`)
                                                                 })
-                                                            }
-                                                            else {
-                                                                react = collected1.first().emoji.id
-                                                                sendingmessage += `\n<:${collected1.first().emoji.name}:${react}> for <@&${roleID}>`
-                                                                chan.messages.fetch(msgID).then(r => {
-                                                                    const embed = new MessageEmbed()
-                                                                        .setColor(`#FF69B4`)
-                                                                        .setDescription(`Please react to one of the emojis to get the role.\nClick the reaction again to the role.`)
-                                                                        .setFields({name: `Role Reactions`, value: sendingmessage});
-                                                                    r.edit({embeds: [embed]}).then(msg1 => {
-                                                                        msg1.react(react)
-                                                                        msg.channel.send(`Do you want to add another role reaction? Reply \`yes\` or \`no\`.`)
-                                                                    })
 
+                                                            })
+                                                        }
+                                                        else {
+                                                            react = collected1.first().emoji.id
+                                                            sendingmessage += `\n<:${collected1.first().emoji.name}:${react}> for <@&${roleID}>`
+                                                            chan.messages.fetch(msgID).then(r => {
+                                                                const embed = new MessageEmbed()
+                                                                    .setColor(`#FF69B4`)
+                                                                    .setDescription(`Please react to one of the emojis to get the role.\nClick the reaction again to the role.`)
+                                                                    .setFields({name: `Role Reactions`, value: sendingmessage});
+                                                                r.edit({embeds: [embed]}).then(msg1 => {
+                                                                    msg1.react(react)
+                                                                    msg.channel.send(`Do you want to add another role reaction? Reply \`yes\` or \`no\`.`)
                                                                 })
-                                                            }
-                                                        })
+
+                                                            })
+                                                        }
                                                     })
                                                 })
                                             }
-                                        })
-                                    }
+                                        }
+                                }
+                                    askingqquestion()
                                     msg.channel.send(`Alright, goodbye uwu! :3`)
-                                })
+                                }) 
                             })
                         }).catch(e => {
                             console.log(e)
@@ -123,56 +124,6 @@ module.exports.run = async(client, msg, args) => {
                 .catch(e => {
                         console.log(e)
                     });
-                // const filter = m => m.author.id == author;
-                // const collector = msg.channel.createMessageCollector({filter}
-                //     );
-        
-                // role = []
-                // reaction = []
-                // for await (const m of collector) {
-                //     if (m.content.toLowerCase() == "done") {
-                //         collector.stop()
-                //         msg.channel.send(`Oh, we're done? Goodbye!`)
-                //     }
-                //     else {
-                //         const roles = m.mentions.roles.map(role => {
-                //             return role.id
-                //         })
-                //         role.push(roles[0])
-                //         rr = m.content.split(" ")
-                //         sendingmessage += `\n${rr[1]} for <@&${roles[0]}>`
-                //         if(rr[1].includes("<") && rr[1].includes(">") && rr[1].includes(":")){
-                //             rr = rr[1].replace(/\s*\:.*?\:\s*/g, "")
-                //             rr = rr.replace("<", "")
-                //             rr = rr.replace(">", "")
-                //             reactionEmoji = rr
-                //         }
-                //         else {
-                //             reactionEmoji = rr[1]
-                //         }
-                //         reaction.push(reactionEmoji)
-    
-                //     }
-                // }
-                // channel.send(sendingmessage)
-                // .then(async function(msg1) {
-                //     try {
-                //         for (let i = 0; i < reaction.length; i++) {
-                //             await msg1.react(reaction[i])
-                //             reactionsModel.create({
-                //                 serverID: serverID,
-                //                 channelID: channels[0],
-                //                 messageID: msg1.id,
-                //                 emoji: reaction[i],
-                //                 role: role[i]
-                //             }).catch(e => {console.log(e)})
-                //         }
-                //     }
-                //     catch(err) {
-                //         msg.channel.send(`\`There is an error in reacting to the message. Please delete the message that eboy sent and try again. If error persists, contact Maryam#9206.\``)
-                //         console.log(err)
-                //     }   
-        //         })
              }
          }
     }
