@@ -119,6 +119,6 @@ module.exports.run = async(client, msg, args) => {
 
 
     const buttonList = [button1, button2];
-    paginationEmbed(msg, birthdayarray, buttonList).catch(e => {console.log(e)})
+    paginationEmbed(msg, helparray, buttonList).catch(e => {console.log(e)})
     
 }
