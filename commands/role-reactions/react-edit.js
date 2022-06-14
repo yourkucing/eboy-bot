@@ -53,7 +53,7 @@ module.exports.run = async(client, msg, args) => {
                         if (!Number.isNaN(collected.first().content)) {
                             if (findMessage[parseInt(collected.first().content)]) {
                                 chan.messages.fetch(findMessage[collected.first().content]).then(returnedMsg => {
-                                    console.log(returnedMsg.content)
+                                    console.log(returnedMsg)
                                 })
                             }
                             else {
