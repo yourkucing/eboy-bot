@@ -21,15 +21,20 @@ module.exports.run = async(client, msg, args) => {
         else {
             channelID = args[0]
             console.log(channelID)
-            msg.channel.send("Please key in your welcome message. Reply with yes or no, within 2 minutes.")
+            msg.channel.send("Please key in your welcome message.")
             const filter = m => m.author.id == msg.author.id;
-            msg.channel.awaitMessages({filter, max: 1, time: 120000}).then(collected => {
+            msg.channel.awaitMessages({filter, max: 1}).then(collected => {
                 message = collected.first().content
-                msg.channel.send("Welcome message confirmed!")
-                console.log(message)
-            }).catch(collected => {
-                msg.channel.send('No reply after 2 minutes, please retry!');
-                });
+                const embed = new MessageEmbed()
+                    .setColor(`#FF69B4`)
+                    .setDescription(`Please react on the emoji to confirm that this is your welcome message.`)
+                    .addField(`Welcome Message:`, message);
+                msg.channel.send({embeds: [embed]}).then(r => {
+                    r.react(`✅`)
+                    //r.awaitReactions({})
+                })
+               
+            })
         }
     }
 }

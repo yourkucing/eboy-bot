@@ -15,7 +15,8 @@ module.exports.run = async(client, msg, args) => {
     .setDescription('Thank you for using Eboy bot uwu!\nMaryam#9206 built me. If you have any questions, complaints or suggestions, you can DM her.')
     .addFields({name: `Website:`, value: `https://cookie-codes.tumblr.com/eboy`},
         {name: `Suggestions/Feedback:`, value: `https://cookie-codes.tumblr.com/eboy/askme`},
-        {name: `Server Help:`, value: `https://discord.gg/jy7yx4UrAV`}
+        {name: `Server Help:`, value: `https://discord.gg/jy7yx4UrAV`},
+        {name: `Help Content`, value: `**Page 2:** Main Commands\n**Page 3:** Money Commands\n**Page 4:** Decision Commands\n**Page 5:** Fun and Special Commands\n**Page 6:** Role Reaction Commands\n**Page 7:** Admin Commands`}
     )
     .setImage(`https://i.ibb.co/gVpNmkR/image.png`);
     
