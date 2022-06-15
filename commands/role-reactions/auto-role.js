@@ -15,22 +15,25 @@ module.exports.run = async(client, msg, args) => {
         author = msg.author.id
         serverID = msg.guild.id
         if (!args || args.length == 0) {
-            msg.channel.send(`Please put in the channel in your command too like this: \`uwu auto-role @theroleyouwant\``)
+            msg.channel.send(`Please put in the role in your command too like this: \`uwu auto-role @theroleyouwant\``)
             return
         }
         else {
-            roleID = args[0]
-            if (roleID.includes("<@&") && roleID.includes(">")) {
-                roleID = roleID.replace("<@&", "")
-                roleID = roleID.replace(">", "")
-                roleID = roleID
-            }
-            else {
-                roleID = roleID
-            }
+            roleID = msg.mentions.roles.map(role => {
+                return role.id
+            })
             autoroleModels.create({
                 serverID: serverID,
-                roleID: roleID
+                roleID: roleID[0]
+            }).then(created => {
+                if (created) {
+                    msg.react(`✅`)
+                }
+                else {
+                    eboylog.send(`<@279101053750870017> **ERROR:** Eboy has trouble with **disable-interactions**. [server ID: ${serverID}]`)
+                    msg.channel.send(`\`Something went wrong. Please try again or contact Maryam#9206 if error persists.\``)    
+                }
+                
             })
         }
     }

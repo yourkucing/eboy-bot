@@ -92,7 +92,7 @@ module.exports.run = async(client, msg, args) => {
     .setDescription('These are for role reactions. [Only admins can use this role]. Note: Eboy\'s role MUST be higher than all the roles and he must have ADMIN role.')
     .addFields(
         { name: 'Create a react message', value: '`uwu react-settings #channel-that-react-message-will-be-in`' },
-        { name: 'Edit a react message to put in new react', value: '`uwu react-edit #channel-that-react-message-is-in`'})
+        { name: 'Edit a react message to put in new react', value: '`uwu react-edit #channel-that-react-message-is-in`\n[NOTE: This command only works for NEW reaction-messages. Aka, those that are in a nice formatting, instead of just plain text.]'})
     .setImage('https://i.ibb.co/z6S2kpg/image.png');
 
     helparray.push(embed6)

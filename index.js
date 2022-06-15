@@ -253,6 +253,7 @@ client.on('ready', () => {
 client.on('guildMemberAdd', member => {
 	autoroleModels.findOne({serverID: member.guild.id}).then(addpeople => {
 		if(addpeople){
+			if (member.bot) return;
 			const newbieRole = member.guild.roles.cache.get(addpeople.roleID) // that was to define the role to give newbies (you can name the variable however you want that doesn't matter!)
 			member.roles.add(newbieRole.id) // this will add the role to that member!
 		}
