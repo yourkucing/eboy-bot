@@ -1,5 +1,5 @@
 const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
-const reactionsModel = require('../../models/welcomemsgSchema');
+const welcomeModel = require('../../models/welcomemsgSchema');
 
 module.exports.run = async(client, msg, args) => {
     eboylog = client.channels.cache.get('867744429657292810')
@@ -19,8 +19,10 @@ module.exports.run = async(client, msg, args) => {
             return
         }
         else {
-            channelID = args[0]
-            console.log(channelID)
+            chan = msg.mentions.channels.map(channel => {
+                return channel.id
+            })
+            chanID = chan[0]
             msg.channel.send("Please key in your welcome message.")
             const filter = m => m.author.id == msg.author.id;
             msg.channel.awaitMessages({filter, max: 1}).then(collected => {
