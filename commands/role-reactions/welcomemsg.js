@@ -1,12 +1,12 @@
 const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
-const welcomeModel = require('../../models/welcomemsgSchema');
+//const welcomeModel = require('../../models/welcomemsgSchema');
 
 module.exports.run = async(client, msg, args) => {
     try {
         eboylog = client.channels.cache.get('867744429657292810')
         author = msg.author
         guild = client.guilds.cache.get(msg.guild.id)
-        eboylog.send(`**${author.username}** [${author.id}] used the **welcome-msg** command in **${guild}** [${msg.guild.id}].`)
+        eboylog.send(`**${author.username}** [${author.id}] used the **welcomemsg** command in **${guild}** [${msg.guild.id}].`)
     
         if (!msg.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
             msg.channel.send("You don't have Administrator permissions to use this.")
