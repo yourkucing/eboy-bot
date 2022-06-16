@@ -1,5 +1,5 @@
 const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
-const welcomeModel = require('../../models/welcomemsgSchema')
+//const welcomeModel = require('../../models/welcomemsgSchema')
 
 module.exports.run = async(client, msg, args) => {
     try {
@@ -12,11 +12,11 @@ module.exports.run = async(client, msg, args) => {
             msg.channel.send("You don't have Administrator permissions to use this.")
             return
         }
-/*         else {
+        else {
             author = msg.author.id
             serverID = msg.guild.id
             if (!args || args.length == 0) {
-                msg.channel.send(`Please put in the channel in your command too like this: \`uwu welcome-msg #thechannelyouwant\``)
+                msg.channel.send(`Please put in the channel in your command too like this: \`uwu welcomemsg #thechannelyouwant\``)
                 return
             }
             else {
@@ -39,7 +39,7 @@ module.exports.run = async(client, msg, args) => {
                    
                 })
             }
-        } */
+        }
 
     } catch(e) {
         console.log(e)
