@@ -12,7 +12,7 @@ module.exports.run = async(client, msg, args) => {
             msg.channel.send("You don't have Administrator permissions to use this.")
             return
         }
-        else {
+/*         else {
             author = msg.author.id
             serverID = msg.guild.id
             if (!args || args.length == 0) {
@@ -39,7 +39,7 @@ module.exports.run = async(client, msg, args) => {
                    
                 })
             }
-        }
+        } */
 
     } catch(e) {
         console.log(e)
