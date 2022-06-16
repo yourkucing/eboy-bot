@@ -1,5 +1,5 @@
 const { Client, Intents, MessageEmbed, Permissions } = require('discord.js');
-const welcomeModel = require('../../models/welcomemsgSchema');
+const welcomeModel = require('../../models/welcomemsgSchema')
 
 module.exports.run = async(client, msg, args) => {
     try {
