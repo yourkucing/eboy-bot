@@ -147,7 +147,7 @@ const checkforSprints = async() => {
 					channel2.send(`<@${userID2}>! Writing sprint is up!`);
 					channel2.send(`What is your new word count?`);
 					const filter = m => m.author.id == userID2
-					channel2.awaitMessages({filter, max: 1}).then(collected => {
+					channel2.awaitMessages({filter, max: 1, time: 55000}).then(collected => {
 						if (isNaN(parseInt(collected.first().content))) {
 							channel2.send("That's not a number, bro. Count it ya self, goodbye XD")
 							sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2}).then(deleted => {
@@ -201,12 +201,22 @@ const checkforSprints = async() => {
 							})
 						}
 					})
+					.catch(collected => {
+						channel2.send(`<@${userID2}> One last reminder that your writing sprint is up! Byebye :3`)
+						sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2}).then(deleted => {
+							eboylog = client.channels.cache.get('867744429657292810')
+							eboylog.send(`Sprint ended for User ID: ${userID2}.`)
+						}).catch(e => {
+							eboylog = client.channels.cache.get('867744429657292810')
+							eboylog.send(`<@279101053750870017>: Unable to remove user from sprint database. [User ID: ${userID2}]\n${e}`)
+						})
+					})
 				}
 			}
 		}
 	})
 
-	setTimeout(checkforSprints, 1000 * 30)
+	setTimeout(checkforSprints, 1000 * 60)
 }
 
 client.on('ready', () => {
