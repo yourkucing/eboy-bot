@@ -150,6 +150,13 @@ const checkforSprints = async() => {
 					channel2.awaitMessages({filter, max: 1}).then(collected => {
 						if (isNaN(parseInt(collected.first().content))) {
 							channel2.send("That's not a number, bro. Count it ya self, goodbye XD")
+							sprintModel.deleteOne({userID: userID2, serverID: guildID2, channelID: channelID2}).then(deleted => {
+								eboylog = client.channels.cache.get('867744429657292810')
+								eboylog.send(`Sprint ended for User ID: ${userID2}.`)
+							}).catch(e => {
+								eboylog = client.channels.cache.get('867744429657292810')
+								eboylog.send(`<@279101053750870017>: Unable to remove user from sprint database. [User ID: ${userID2}]\n${e}`)
+							})
 						}
 						else {
 							newwordcount = parseInt(collected.first().content)
